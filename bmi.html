@@ -70,6 +70,9 @@ tr.on{background:rgba(var(--accent-rgb),.08)}
 .lang-menu button b{font-size:.7rem;color:#667085}
 .lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
 .lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
 </style>
 </head>
 <body class="min-h-screen">
@@ -241,8 +244,8 @@ function applySeo(){
   document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
   Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
 }
-const FT={en:['Privacy & Cookies','Privacy and cookie settings'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies'],es:['Privacidad y cookies','Configuración de privacidad y cookies']};
-function footLinks(){const f=document.getElementById('flinks');if(!f)return;f.innerHTML=`<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a><span class="mx-2">·</span><button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
 function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
 function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
 document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
