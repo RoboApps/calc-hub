@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Mortgage Calculator – Monthly Payment | calc-hub.eu</title>
+<meta name="description" content="Estimate your monthly mortgage payment, total interest and full repayment schedule. Enter the loan amount, rate and term and learn how mortgages are calculated.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/mortgage.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/mortgage.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/mortgage.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/mortgage.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/mortgage.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/mortgage.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/mortgage.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/mortgage.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/mortgage.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Mortgage Calculator – Monthly Payment | calc-hub.eu">
+<meta property="og:description" content="Estimate your monthly mortgage payment, total interest and full repayment schedule. Enter the loan amount, rate and term and learn how mortgages are calculated.">
+<meta property="og:url" content="https://calc-hub.eu/mortgage.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mortgage Calculator – Monthly Payment | calc-hub.eu">
+<meta name="twitter:description" content="Estimate your monthly mortgage payment, total interest and full repayment schedule. Enter the loan amount, rate and term and learn how mortgages are calculated.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.9rem;padding:.8rem 1rem}
+.sched{max-height:420px;overflow:auto}
+.sched table{min-width:480px}
+.sched th{color:#8b94a7;font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;padding:.7rem 1rem;position:sticky;top:0;background:#0d111a}
+.sched th:first-child,.sched td:first-child{text-align:left}
+.sched td{text-align:right;padding:.6rem 1rem;border-top:1px solid rgba(255,255,255,.06);color:#c5cde0;font-size:.875rem;font-variant-numeric:tabular-nums}
+.sbtn{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;color:var(--accent)}
+.sbtn svg{transition:transform .2s}.sbtn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.seg{transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.field select{width:100%;background:transparent;outline:none;font-size:1.1rem;font-weight:600;color:#fff;padding:.75rem 0;cursor:pointer;min-width:0}
+.field select option{background:#0d111a;color:#fff}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-i="cur"></label>
+        <div class="field mt-2"><select id="lc"></select></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-i="loan"></label>
+        <div class="field mt-2"><input id="lp" type="number" inputmode="decimal" min="0" step="1000" value="150000"><span id="csym"></span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-i="rate"></label>
+        <div class="field mt-2"><input id="lr" type="number" inputmode="decimal" min="0" step="0.05" value="4"><span>%</span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-i="term"></label>
+        <div class="field mt-2"><input id="ly" type="number" inputmode="decimal" min="0" step="1" value="25"><span data-i="yrs"></span></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" data-i="hint" class="text-center" style="color:#8b94a7"></p>
+      <div id="res" class="hidden">
+        <p class="text-sm" style="color:#8b94a7" data-i="monthly"></p>
+        <span id="val" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <div class="mt-6 flex h-3 overflow-hidden rounded-full" style="background:rgba(255,255,255,.06)"><div id="bp" class="seg" style="background:var(--accent)"></div><div id="bi" class="seg" style="background:#7c9cff"></div></div>
+        <div class="mt-2 flex justify-between text-xs" style="color:#8b94a7"><span><i class="mr-1.5 inline-block h-2 w-2 rounded-full" style="background:var(--accent)"></i><span data-i="cpr"></span> <b id="pp" class="text-white"></b></span><span><i class="mr-1.5 inline-block h-2 w-2 rounded-full" style="background:#7c9cff"></i><span data-i="ci"></span> <b id="pi" class="text-white"></b></span></div>
+        <div class="mt-5 grid grid-cols-2 gap-3">
+          <div class="stat"><p class="text-xs" style="color:#8b94a7" data-i="total"></p><p id="tot" class="mt-1 text-lg font-semibold text-white"></p></div>
+          <div class="stat"><p class="text-xs" style="color:#8b94a7" data-i="intr"></p><p id="int" class="mt-1 text-lg font-semibold text-white"></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schSec" class="hidden mt-6">
+    <button id="schBtn" class="sbtn" aria-expanded="false"><span id="schLbl"></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div id="schBox" class="glass sched mt-3 hidden rounded-2xl">
+      <table class="w-full"><thead><tr><th data-i="cy"></th><th data-i="cp"></th><th data-i="cpr"></th><th data-i="ci"></th><th data-i="cb"></th></tr></thead><tbody id="sch"></tbody></table>
+    </div>
+  </section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-mortgage-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section>
+        <h2 class="text-2xl font-semibold text-white" data-i="h2"></h2>
+        <p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p>
+        <div class="glass mt-4 rounded-2xl p-5 text-center"><div class="text-lg font-semibold sm:text-xl" style="color:var(--accent)">M = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</div><p class="mt-2 text-sm" style="color:#8b94a7" data-i="ex"></p></div>
+      </section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2">
+      <h2 class="text-2xl font-semibold text-white" data-i="h3"></h2>
+      <ul class="mt-3 list-disc space-y-3 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul>
+    </aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-mortgage-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-mortgage-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-mortgage-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en',schOpen=false,cur='EUR',curTouched=false,amtTouched=false;
+const T={
+en:{back:'← Back to calculators',ad:'Advertisement',title:'Mortgage Calculator',sub:'Estimate your monthly payment and see how much interest you will pay over the life of the loan.',cur:'Currency',loan:'Loan amount',rate:'Interest rate (per year)',term:'Loan term',yrs:'years',hint:'Enter the loan amount, rate and term to see the result.',monthly:'Monthly payment',total:'Total repaid',intr:'Total interest',sch:'Show repayment schedule',schHide:'Hide repayment schedule',cy:'Year',cp:'Paid',cpr:'Principal',ci:'Interest',cb:'Balance',
+h1:'What is a mortgage?',p1:'A mortgage is a long-term loan used to buy or renovate property, with the property itself serving as collateral for the lender. It is usually repaid in equal monthly instalments over 10 to 40 years. Each instalment covers part of the borrowed amount (the principal) and the interest charged on what is still owed.',
+h2:'How the monthly payment is calculated',p2:'For a standard annuity mortgage the payment stays the same every month. Early on most of it is interest; over time the interest share shrinks and the principal share grows. M is the monthly payment, P the loan amount, r the monthly interest rate (annual rate ÷ 12) and n the number of monthly payments.',ex:'Example: {a} at 4% over 25 years → about {m} per month',
+h3:'What affects the cost',lim:'<li>Interest rate: even a small difference adds up to thousands over the whole term.</li><li>Term: a longer term lowers the monthly payment but increases total interest.</li><li>Down payment: a larger own contribution means a smaller loan and usually a better rate.</li><li>Fees and insurance: processing fees, property insurance and early repayment charges are not included in this calculation.</li>',
+note:'This calculator is for illustration only and assumes a fixed interest rate and equal monthly payments. The actual offer from a bank depends on your income, the property and the current rate. Compare several offers or talk to a financial advisor before deciding.'},
+sk:{back:'← Späť na kalkulačky',ad:'Reklama',title:'Kalkulačka hypotéky',sub:'Vypočítaj mesačnú splátku a zisti, koľko zaplatíš na úrokoch počas celej doby splácania.',cur:'Mena',loan:'Výška úveru',rate:'Úroková sadzba (ročne)',term:'Doba splácania',yrs:'rokov',hint:'Zadaj výšku úveru, sadzbu a dobu splácania.',monthly:'Mesačná splátka',total:'Spolu zaplatíš',intr:'Zaplatené úroky',sch:'Zobraziť splátkový kalendár',schHide:'Skryť splátkový kalendár',cy:'Rok',cp:'Zaplatené',cpr:'Istina',ci:'Úrok',cb:'Zostatok',
+h1:'Čo je hypotéka?',p1:'Hypotéka je dlhodobý úver na kúpu alebo rekonštrukciu nehnuteľnosti, pri ktorom nehnuteľnosť slúži banke ako záruka. Najčastejšie sa spláca rovnakými mesačnými splátkami počas 10 až 40 rokov. Každá splátka obsahuje časť požičanej sumy (istinu) aj úrok z toho, čo ešte dlhuješ.',
+h2:'Ako sa počíta mesačná splátka',p2:'Pri štandardnej anuitnej hypotéke je splátka každý mesiac rovnaká. Na začiatku tvorí väčšinu úrok, postupom času podiel úroku klesá a podiel istiny rastie. M je mesačná splátka, P výška úveru, r mesačná úroková sadzba (ročná sadzba ÷ 12) a n počet mesačných splátok.',ex:'Príklad: {a} pri 4 % na 25 rokov → približne {m} mesačne',
+h3:'Čo ovplyvňuje cenu hypotéky',lim:'<li>Úroková sadzba: aj malý rozdiel sa za celú dobu premietne do tisícok eur.</li><li>Doba splácania: dlhšia doba znižuje mesačnú splátku, ale zvyšuje celkové úroky.</li><li>Vlastné zdroje: vyšší vlastný vklad znamená nižší úver a zvyčajne lepšiu sadzbu.</li><li>Poplatky a poistenie: poplatky za spracovanie, poistenie nehnuteľnosti a poplatky za predčasné splatenie táto kalkulačka nezahŕňa.</li>',
+note:'Kalkulačka je len orientačná a počíta s fixnou úrokovou sadzbou a rovnakými mesačnými splátkami. Skutočná ponuka banky závisí od tvojho príjmu, nehnuteľnosti a aktuálnych sadzieb. Pred rozhodnutím porovnaj viac ponúk alebo sa poraď s finančným poradcom.'},
+de:{back:'← Zurück zu den Rechnern',ad:'Werbung',title:'Hypothekenrechner',sub:'Berechne deine monatliche Rate und sieh, wie viel Zinsen du über die gesamte Laufzeit zahlst.',cur:'Währung',loan:'Darlehensbetrag',rate:'Zinssatz (pro Jahr)',term:'Laufzeit',yrs:'Jahre',hint:'Darlehensbetrag, Zinssatz und Laufzeit eingeben.',monthly:'Monatliche Rate',total:'Gesamt zurückgezahlt',intr:'Zinsen gesamt',sch:'Tilgungsplan anzeigen',schHide:'Tilgungsplan ausblenden',cy:'Jahr',cp:'Gezahlt',cpr:'Tilgung',ci:'Zinsen',cb:'Restschuld',
+h1:'Was ist eine Hypothek?',p1:'Eine Hypothek ist ein langfristiges Darlehen für den Kauf oder die Sanierung einer Immobilie, bei dem die Immobilie der Bank als Sicherheit dient. Meist wird sie in gleichbleibenden Monatsraten über 10 bis 40 Jahre zurückgezahlt. Jede Rate besteht aus einem Teil des geliehenen Betrags (Tilgung) und den Zinsen auf die noch offene Schuld.',
+h2:'So wird die Monatsrate berechnet',p2:'Bei einem klassischen Annuitätendarlehen bleibt die Rate jeden Monat gleich. Anfangs besteht sie überwiegend aus Zinsen, mit der Zeit sinkt der Zinsanteil und der Tilgungsanteil steigt. M ist die Monatsrate, P der Darlehensbetrag, r der monatliche Zinssatz (Jahreszins ÷ 12) und n die Anzahl der Monatsraten.',ex:'Beispiel: {a} bei 4 % über 25 Jahre → rund {m} pro Monat',
+h3:'Was die Kosten beeinflusst',lim:'<li>Zinssatz: Schon kleine Unterschiede summieren sich über die Laufzeit auf Tausende Euro.</li><li>Laufzeit: Eine längere Laufzeit senkt die Monatsrate, erhöht aber die Gesamtzinsen.</li><li>Eigenkapital: Mehr Eigenkapital bedeutet ein kleineres Darlehen und meist bessere Konditionen.</li><li>Gebühren und Versicherung: Bearbeitungsgebühren, Gebäudeversicherung und Vorfälligkeitsentschädigung sind in dieser Berechnung nicht enthalten.</li>',
+note:'Der Rechner dient nur zur Orientierung und geht von einem festen Zinssatz und gleichen Monatsraten aus. Das tatsächliche Angebot einer Bank hängt von deinem Einkommen, der Immobilie und den aktuellen Zinsen ab. Vergleiche mehrere Angebote oder sprich vor einer Entscheidung mit einem Finanzberater.'},
+cs:{back:'← Zpět na kalkulačky',ad:'Reklama',title:'Hypoteční kalkulačka',sub:'Spočítej měsíční splátku a zjisti, kolik zaplatíš na úrocích za celou dobu splácení.',cur:'Měna',loan:'Výše úvěru',rate:'Úroková sazba (ročně)',term:'Doba splácení',yrs:'let',hint:'Zadej výši úvěru, sazbu a dobu splácení.',monthly:'Měsíční splátka',total:'Celkem zaplatíš',intr:'Zaplacené úroky',sch:'Zobrazit splátkový kalendář',schHide:'Skrýt splátkový kalendář',cy:'Rok',cp:'Zaplaceno',cpr:'Jistina',ci:'Úrok',cb:'Zůstatek',
+h1:'Co je hypotéka?',p1:'Hypotéka je dlouhodobý úvěr na koupi nebo rekonstrukci nemovitosti, u kterého nemovitost slouží bance jako záruka. Nejčastěji se splácí stejnými měsíčními splátkami po dobu 10 až 40 let. Každá splátka obsahuje část půjčené částky (jistinu) i úrok z toho, co ještě dlužíš.',
+h2:'Jak se měsíční splátka počítá',p2:'U standardní anuitní hypotéky je splátka každý měsíc stejná. Na začátku tvoří většinu úrok, postupem času podíl úroku klesá a podíl jistiny roste. M je měsíční splátka, P výše úvěru, r měsíční úroková sazba (roční sazba ÷ 12) a n počet měsíčních splátek.',ex:'Příklad: {a} při 4 % na 25 let → přibližně {m} měsíčně',
+h3:'Co ovlivňuje cenu hypotéky',lim:'<li>Úroková sazba: i malý rozdíl se za celou dobu promítne do tisíců eur.</li><li>Doba splácení: delší doba snižuje měsíční splátku, ale zvyšuje celkové úroky.</li><li>Vlastní zdroje: vyšší vlastní vklad znamená nižší úvěr a obvykle lepší sazbu.</li><li>Poplatky a pojištění: poplatky za zpracování, pojištění nemovitosti a poplatky za předčasné splacení tato kalkulačka nezahrnuje.</li>',
+note:'Kalkulačka je pouze orientační a počítá s fixní úrokovou sazbou a stejnými měsíčními splátkami. Skutečná nabídka banky závisí na tvém příjmu, nemovitosti a aktuálních sazbách. Před rozhodnutím porovnej více nabídek nebo se poraď s finančním poradcem.'},
+pl:{back:'← Wróć do kalkulatorów',ad:'Reklama',title:'Kalkulator kredytu hipotecznego',sub:'Oblicz miesięczną ratę i zobacz, ile odsetek zapłacisz w całym okresie kredytowania.',cur:'Waluta',loan:'Kwota kredytu',rate:'Oprocentowanie (rocznie)',term:'Okres kredytowania',yrs:'lat',hint:'Podaj kwotę kredytu, oprocentowanie i okres spłaty.',monthly:'Miesięczna rata',total:'Łącznie do spłaty',intr:'Odsetki łącznie',sch:'Pokaż harmonogram spłat',schHide:'Ukryj harmonogram spłat',cy:'Rok',cp:'Wpłacono',cpr:'Kapitał',ci:'Odsetki',cb:'Saldo',
+h1:'Czym jest kredyt hipoteczny?',p1:'Kredyt hipoteczny to długoterminowy kredyt na zakup lub remont nieruchomości, w którym nieruchomość jest zabezpieczeniem dla banku. Najczęściej spłaca się go w równych ratach miesięcznych przez 10 do 40 lat. Każda rata zawiera część pożyczonej kwoty (kapitał) oraz odsetki od tego, co jeszcze zostało do spłaty.',
+h2:'Jak oblicza się miesięczną ratę',p2:'W standardowym kredycie z ratami równymi rata jest co miesiąc taka sama. Na początku większość stanowią odsetki, z czasem ich udział maleje, a udział kapitału rośnie. M to miesięczna rata, P kwota kredytu, r miesięczna stopa procentowa (oprocentowanie roczne ÷ 12), a n liczba rat miesięcznych.',ex:'Przykład: {a} przy 4 % na 25 lat → około {m} miesięcznie',
+h3:'Co wpływa na koszt kredytu',lim:'<li>Oprocentowanie: nawet niewielka różnica w całym okresie oznacza tysiące euro.</li><li>Okres kredytowania: dłuższy okres obniża ratę, ale zwiększa łączne odsetki.</li><li>Wkład własny: wyższy wkład to mniejszy kredyt i zwykle lepsze warunki.</li><li>Opłaty i ubezpieczenie: prowizje, ubezpieczenie nieruchomości i opłaty za wcześniejszą spłatę nie są uwzględnione w tym kalkulatorze.</li>',
+note:'Kalkulator ma charakter orientacyjny i zakłada stałe oprocentowanie oraz równe raty miesięczne. Rzeczywista oferta banku zależy od Twoich dochodów, nieruchomości i aktualnych stóp procentowych. Przed decyzją porównaj kilka ofert lub skonsultuj się z doradcą finansowym.'},
+fr:{back:'← Retour aux calculateurs',ad:'Publicité',title:'Calculateur de prêt immobilier',sub:'Estimez votre mensualité et voyez combien d’intérêts vous paierez sur toute la durée du prêt.',cur:'Devise',loan:'Montant du prêt',rate:'Taux d’intérêt (annuel)',term:'Durée du prêt',yrs:'ans',hint:'Saisissez le montant, le taux et la durée du prêt.',monthly:'Mensualité',total:'Total remboursé',intr:'Total des intérêts',sch:'Afficher le tableau d’amortissement',schHide:'Masquer le tableau d’amortissement',cy:'Année',cp:'Payé',cpr:'Capital',ci:'Intérêts',cb:'Solde',
+h1:'Qu’est-ce qu’un prêt immobilier ?',p1:'Un prêt immobilier est un crédit à long terme destiné à acheter ou rénover un bien, le bien servant de garantie à la banque. Il est le plus souvent remboursé par mensualités constantes sur 10 à 40 ans. Chaque mensualité comprend une part du capital emprunté et les intérêts calculés sur ce qu’il reste à rembourser.',
+h2:'Comment la mensualité est calculée',p2:'Pour un prêt à annuités constantes, la mensualité reste identique chaque mois. Au début, elle se compose surtout d’intérêts ; avec le temps, la part d’intérêts diminue et celle du capital augmente. M est la mensualité, P le montant emprunté, r le taux mensuel (taux annuel ÷ 12) et n le nombre de mensualités.',ex:'Exemple : {a} à 4 % sur 25 ans → environ {m} par mois',
+h3:'Ce qui influe sur le coût',lim:'<li>Taux d’intérêt : même un petit écart représente des milliers d’euros sur toute la durée.</li><li>Durée : une durée plus longue réduit la mensualité mais augmente le total des intérêts.</li><li>Apport personnel : un apport plus élevé réduit le prêt et permet souvent un meilleur taux.</li><li>Frais et assurance : frais de dossier, assurance du bien et indemnités de remboursement anticipé ne sont pas inclus dans ce calcul.</li>',
+note:'Ce calculateur est donné à titre indicatif et suppose un taux fixe et des mensualités constantes. L’offre réelle d’une banque dépend de vos revenus, du bien et des taux du moment. Comparez plusieurs offres ou consultez un conseiller financier avant de décider.'},
+es:{back:'← Volver a las calculadoras',ad:'Publicidad',title:'Calculadora de hipoteca',sub:'Calcula tu cuota mensual y descubre cuántos intereses pagarás durante toda la vida del préstamo.',cur:'Moneda',loan:'Importe del préstamo',rate:'Tipo de interés (anual)',term:'Plazo',yrs:'años',hint:'Introduce el importe, el tipo de interés y el plazo.',monthly:'Cuota mensual',total:'Total a pagar',intr:'Total de intereses',sch:'Mostrar cuadro de amortización',schHide:'Ocultar cuadro de amortización',cy:'Año',cp:'Pagado',cpr:'Capital',ci:'Intereses',cb:'Saldo',
+h1:'¿Qué es una hipoteca?',p1:'Una hipoteca es un préstamo a largo plazo para comprar o reformar una vivienda, en el que el propio inmueble sirve de garantía para el banco. Lo habitual es devolverla en cuotas mensuales iguales durante 10 a 40 años. Cada cuota incluye una parte del dinero prestado (el capital) y los intereses sobre lo que aún se debe.',
+h2:'Cómo se calcula la cuota mensual',p2:'En una hipoteca de cuota constante la cuota es la misma cada mes. Al principio la mayor parte son intereses; con el tiempo baja la parte de intereses y sube la de capital. M es la cuota mensual, P el importe del préstamo, r el tipo mensual (tipo anual ÷ 12) y n el número de cuotas mensuales.',ex:'Ejemplo: {a} al 4 % a 25 años → unos {m} al mes',
+h3:'Qué influye en el coste',lim:'<li>Tipo de interés: incluso una pequeña diferencia supone miles de euros a lo largo del plazo.</li><li>Plazo: un plazo más largo baja la cuota, pero aumenta los intereses totales.</li><li>Aportación inicial: una entrada mayor implica un préstamo menor y, normalmente, mejores condiciones.</li><li>Comisiones y seguros: las comisiones de apertura, el seguro del inmueble y la comisión por amortización anticipada no están incluidos en este cálculo.</li>',
+note:'Esta calculadora es solo orientativa y supone un tipo de interés fijo y cuotas mensuales iguales. La oferta real de un banco depende de tus ingresos, del inmueble y de los tipos vigentes. Compara varias ofertas o consulta con un asesor financiero antes de decidir.'}
+};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/mortgage.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Mortgage Calculator – Monthly Payment | calc-hub.eu", "d": "Estimate your monthly mortgage payment, total interest and full repayment schedule. Enter the loan amount, rate and term and learn how mortgages are calculated."}, "sk": {"t": "Kalkulačka hypotéky – mesačná splátka | calc-hub.eu", "d": "Vypočítaj mesačnú splátku hypotéky, celkové úroky a splátkový kalendár. Zadaj výšku úveru, sadzbu a dobu splácania a zisti, ako sa hypotéka počíta."}, "de": {"t": "Hypothekenrechner – monatliche Rate | calc-hub.eu", "d": "Berechne deine monatliche Hypothekenrate, die Gesamtzinsen und den Tilgungsplan. Gib Darlehensbetrag, Zinssatz und Laufzeit ein und erfahre, wie eine Hypothek berechnet wird."}, "cs": {"t": "Hypoteční kalkulačka – měsíční splátka | calc-hub.eu", "d": "Spočítej měsíční splátku hypotéky, celkové úroky a splátkový kalendář. Zadej výši úvěru, sazbu a dobu splácení a zjisti, jak se hypotéka počítá."}, "pl": {"t": "Kalkulator kredytu hipotecznego – rata | calc-hub.eu", "d": "Oblicz miesięczną ratę kredytu hipotecznego, łączne odsetki i harmonogram spłat. Podaj kwotę, oprocentowanie i okres kredytowania i dowiedz się, jak liczy się kredyt."}, "fr": {"t": "Calculateur de prêt immobilier – mensualité | calc-hub.eu", "d": "Estimez votre mensualité de prêt immobilier, le total des intérêts et le tableau d’amortissement. Saisissez montant, taux et durée et découvrez comment se calcule un prêt."}, "es": {"t": "Calculadora de hipoteca – cuota mensual | calc-hub.eu", "d": "Calcula tu cuota mensual de hipoteca, los intereses totales y el cuadro de amortización. Introduce importe, tipo y plazo y descubre cómo se calcula una hipoteca."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies'],es:['Privacidad y cookies','Configuración de privacidad y cookies']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;f.innerHTML=`<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a><span class="mx-2">·</span><button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+const $=id=>document.getElementById(id);
+const LOC={sk:'sk-SK',de:'de-DE',en:'en-IE',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const money=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur,minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+const pct=n=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:0}).format(n)+' %';
+
+const CURS=['EUR','USD','GBP','CZK','PLN','CHF'],DEF={cs:'CZK',pl:'PLN'},AMT={EUR:150000,USD:150000,GBP:130000,CZK:3500000,PLN:600000,CHF:140000};
+try{const c=new URLSearchParams(location.search).get('cur');if(CURS.includes(c)){cur=c;curTouched=true}}catch(e){}
+if(!curTouched)cur=DEF[lang]||'EUR';
+const sym=()=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur}).formatToParts(0).find(p=>p.type==='currency').value;
+function setAmt(){if(!amtTouched)$('lp').value=AMT[cur]}
+function text(){
+  const L=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=L[e.dataset.i];if(v===undefined)return;e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  $('schLbl').textContent=schOpen?L.schHide:L.sch;
+  const ex=document.querySelector('[data-i="ex"]');ex.textContent=L.ex.replace('{a}',money(150000,0)).replace('{m}',money(792,0));
+  if(!curTouched){cur=DEF[lang]||'EUR';$('lc').value=cur;setAmt()}
+  $('csym').textContent=sym();
+  syncLang();calc();
+}
+function calc(){
+  const raw=$('lr').value,P=+$('lp').value,a=+raw,Y=+$('ly').value;
+  const ok=raw!==''&&P>=100&&P<=1e10&&a>=0&&a<=30&&Y>=1&&Y<=40;
+  $('res').classList.toggle('hidden',!ok);$('hint').classList.toggle('hidden',ok);$('schSec').classList.toggle('hidden',!ok);
+  if(!ok)return;
+  const n=Math.round(Y*12),r=a/1200;
+  const M=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  const total=M*n,inter=total-P,ip=inter/total*100;
+  $('val').textContent=money(M,2);$('tot').textContent=money(total);$('int').textContent=money(inter);
+  $('bp').style.width=(100-ip)+'%';$('bi').style.width=ip+'%';$('pp').textContent=pct(100-ip);$('pi').textContent=pct(ip);
+  let bal=P,yp=0,yi=0,html='';
+  for(let m=1;m<=n;m++){const i=bal*r,pr=M-i;bal-=pr;yp+=pr;yi+=i;
+    if(m%12===0||m===n){html+=`<tr><td>${Math.ceil(m/12)}</td><td>${money(yp+yi)}</td><td>${money(yp)}</td><td>${money(yi)}</td><td>${money(Math.max(bal,0))}</td></tr>`;yp=yi=0}}
+  $('sch').innerHTML=html;
+}
+['lp','lr','ly'].forEach(id=>$(id).addEventListener('input',calc));
+$('schBtn').addEventListener('click',()=>{schOpen=!schOpen;$('schBox').classList.toggle('hidden',!schOpen);$('schBtn').setAttribute('aria-expanded',String(schOpen));text()});
+$('lc').innerHTML=CURS.map(c=>`<option value="${c}">${c}</option>`).join('');$('lc').value=cur;setAmt();
+$('lc').addEventListener('change',e=>{cur=e.target.value;curTouched=true;try{const u=new URL(location.href);u.searchParams.set('cur',cur);history.replaceState(null,'',u)}catch(x){}setAmt();text()});
+$('lp').addEventListener('input',()=>{amtTouched=true});
+initLang(text);text();
+</script>
+</body>
+</html>

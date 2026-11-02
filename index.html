@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>calc-hub.eu – Free online calculators</title>
+<meta name="description" content="Free online calculators in one place: BMI, mortgage, Bitcoin converter, paint coverage, unit converter and more. Fast, accurate and available in 7 languages.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="calc-hub.eu – Free online calculators">
+<meta property="og:description" content="Free online calculators in one place: BMI, mortgage, Bitcoin converter, paint coverage, unit converter and more. Fast, accurate and available in 7 languages.">
+<meta property="og:url" content="https://calc-hub.eu/">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="calc-hub.eu – Free online calculators">
+<meta name="twitter:description" content="Free online calculators in one place: BMI, mortgage, Bitcoin converter, paint coverage, unit converter and more. Fast, accurate and available in 7 languages.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+html{scroll-behavior:smooth}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),
+   radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%),
+   radial-gradient(600px 400px at 50% 110%,rgba(var(--accent-rgb),.07),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 55% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 55%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px -12px rgba(0,0,0,.6);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;overflow:hidden}
+.glass::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;
+  background:radial-gradient(320px circle at var(--mx,50%) var(--my,0%),rgba(var(--accent-rgb),.14),transparent 60%)}
+.glass:hover{transform:translateY(-6px);border-color:rgba(var(--accent-rgb),.55);box-shadow:0 20px 45px -15px rgba(var(--accent-rgb),.25),0 10px 30px -12px rgba(0,0,0,.7)}
+.glass:hover::before{opacity:1}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.row{display:flex;align-items:center;justify-content:space-between;padding:.5rem .65rem;border-radius:.6rem;color:#aab3c5;font-size:.9rem;transition:background .15s,color .15s}
+.row svg{opacity:0;transform:translateX(-4px);transition:.15s;color:var(--accent)}
+.row:hover{background:rgba(255,255,255,.05);color:#fff}
+.row:hover svg{opacity:1;transform:none}
+.search{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:border-color .2s,box-shadow .2s,background .2s;backdrop-filter:blur(12px)}
+.search:focus-within{border-color:rgba(var(--accent-rgb),.7);background:rgba(255,255,255,.06);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12),0 0 50px -10px rgba(var(--accent-rgb),.5)}
+.search input{outline:none;background:transparent}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.pill{border:1px solid rgba(var(--accent-rgb),.3);background:rgba(var(--accent-rgb),.08);color:var(--accent)}
+.dot{animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.fade{animation:up .5s ease both}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 576px - 184px)}
+.ad-rail.r{left:calc(50% + 576px + 24px)}
+@media (min-width:1540px){.ad-rail{display:block}.ad-tile{display:none}}
+.ad-tile{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.ad-tile .ad-slot{flex:1;min-height:250px}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#7a849a;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(var(--accent-rgb),.38);border-radius:1rem;background:rgba(var(--accent-rgb),.04);color:#6b7489;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+kbd{border:1px solid rgba(255,255,255,.15);border-radius:.4rem;padding:.05rem .4rem;font-size:.75rem;color:#8b94a7}
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
+  <a href="#" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg>
+    </span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-6xl px-5">
+  <section class="mx-auto max-w-3xl pb-14 pt-12 text-center sm:pt-20">
+    <span class="pill inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-medium">
+      <span class="dot h-1.5 w-1.5 rounded-full" style="background:var(--accent)"></span><span id="badge"></span>
+    </span>
+    <h1 class="mt-6 text-5xl font-bold leading-[1.05] tracking-tight sm:text-7xl">
+      <span id="t1"></span><br><span id="t2" class="grad"></span>
+    </h1>
+    <p id="sub" class="mx-auto mt-6 max-w-xl text-lg" style="color:#8b94a7"></p>
+
+    <div class="search mx-auto mt-10 flex max-w-2xl items-center gap-3 rounded-2xl px-5 py-4">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--accent)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="text" autocomplete="off" spellcheck="false" class="w-full text-lg text-white placeholder-slate-500">
+      <kbd class="hidden sm:block">/</kbd>
+    </div>
+    <p id="count" class="mt-3 text-sm" style="color:#667085"></p>
+  </section>
+
+  <section id="grid" class="grid gap-5 pb-20 sm:grid-cols-2 lg:grid-cols-3">
+    <div id="cards" class="contents"></div>
+    <!-- AD: tile that fills the free cell of the grid (300x250 / responsive) -->
+    <aside id="adTile" class="ad-tile" aria-label="Advertisement">
+      <span class="ad-label"></span>
+      <div id="ad-slot-home-tile" class="ad-slot">
+        <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+        <span class="ad-ph">300 × 250</span>
+      </div>
+    </aside>
+  </section>
+  <div id="empty" class="hidden pb-24 text-center">
+    <div class="text-5xl">🔎</div>
+    <p id="emptyT" class="mt-3 text-lg" style="color:#8b94a7"></p>
+  </div>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1540px); below that the grid tile is used -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label"></span>
+  <div id="ad-slot-home-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label"></span>
+  <div id="ad-slot-home-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-6xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu · <span id="foot"></span><div id="flinks" class="mt-3"></div></footer>
+
+<script>
+const ICONS={
+ construction:'<path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>',
+ health:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>',
+ finance:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',
+ utilities:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
+ energy:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>'
+};
+const CATS=[
+ {id:'construction',n:{sk:'Stavebníctvo',de:'Bauwesen',en:'Construction'},d:{sk:'Materiály, plochy a objemy',de:'Material, Flächen, Volumen',en:'Materials, areas and volumes'},
+  i:[['Spotreba farby','Farbbedarf','Paint coverage'],['Objem betónu','Betonvolumen','Concrete volume'],['Dlažba a podlaha','Fliesen & Boden','Tile & flooring'],['Sklon strechy','Dachneigung','Roof pitch'],['Plocha steny','Wandfläche','Wall area']]},
+ {id:'health',n:{sk:'Zdravie',de:'Gesundheit',en:'Health'},d:{sk:'Telesné miery a denné potreby',de:'Körperwerte und Tagesbedarf',en:'Body metrics and daily needs'},
+  i:[['BMI','BMI','BMI'],['Kalorická potreba','Kalorienbedarf','Calorie needs'],['Telesný tuk','Körperfett','Body fat'],['Pitný režim','Wasserbedarf','Water intake'],['Ideálna váha','Idealgewicht','Ideal weight']]},
+ {id:'finance',n:{sk:'Financie',de:'Finanzen',en:'Finance'},d:{sk:'Úvery, úroky a dane',de:'Kredite, Zinsen, Steuern',en:'Loans, interest and taxes'},
+  i:[['Hypotéka','Hypothek','Mortgage'],['Splátka úveru','Kreditrate','Loan payment'],['Zložené úročenie','Zinseszins','Compound interest'],['DPH','MwSt.','VAT'],['Bitcoin prevodník','Bitcoin-Umrechner','Bitcoin converter']]},
+ {id:'utilities',n:{sk:'Utility',de:'Werkzeuge',en:'Utilities'},d:{sk:'Prevody a rýchle výpočty',de:'Umrechnungen und Schnellrechner',en:'Conversions and quick maths'},
+  i:[['Prevodník jednotiek','Einheitenumrechner','Unit converter'],['Percentá','Prozentrechner','Percentage'],['Rozdiel dátumov','Datumsdifferenz','Date difference'],['Meny','Währungsrechner','Currency converter'],['Časové pásma','Zeitzonen','Time zones']]},
+ {id:'energy',n:{sk:'Energie a auto',de:'Energie & Auto',en:'Energy & Car'},d:{sk:'Spotreba, náklady a úspory',de:'Verbrauch, Kosten, Ersparnis',en:'Usage, costs and savings'},
+  i:[['Náklady na elektrinu','Stromkosten','Electricity cost'],['Spotreba paliva','Spritverbrauch','Fuel consumption'],['Solárne panely','Solaranlage','Solar panels'],['Nabíjanie EV','E-Auto laden','EV charging']]}
+];
+const T={
+ sk:{badge:'Viac ako 20 kalkulačiek zadarmo',t1:'Všetky kalkulačky.',t2:'Na jednom mieste.',sub:'Rýchle, presné a bez zbytočností. Od hypotéky po spotrebu farby.',p:'Hľadaj kalkulačku… napr. hypotéka, BMI',e:'Nenašli sa žiadne kalkulačky.',c:n=>n+(n===1?' kalkulačka':n>=2&&n<=4?' kalkulačky':' kalkulačiek'),foot:'Vytvorené s ohľadom na detail'},
+ de:{badge:'Über 20 kostenlose Rechner',t1:'Alle Rechner.',t2:'An einem Ort.',sub:'Schnell, präzise und ohne Schnickschnack. Von der Hypothek bis zum Farbbedarf.',p:'Rechner suchen… z. B. Hypothek, BMI',e:'Keine Rechner gefunden.',c:n=>n+(n===1?' Rechner':' Rechner'),foot:'Mit Liebe zum Detail gebaut'},
+ en:{badge:'20+ free calculators',t1:'Every calculator.',t2:'All in one place.',sub:'Fast, accurate and clutter-free. From mortgages to paint coverage.',p:'Search calculators… e.g. mortgage, BMI',e:'No calculators found.',c:n=>n+(n===1?' calculator':' calculators'),foot:'Built with attention to detail'}
+};
+const X={
+construction:{n:['Stavebnictví','Budownictwo','Construction','Construcción'],d:['Materiály, plochy a objemy','Materiały, powierzchnie i objętości','Matériaux, surfaces et volumes','Materiales, superficies y volúmenes'],i:[['Spotřeba barvy','Zużycie farby','Quantité de peinture','Gasto de pintura'],['Objem betonu','Objętość betonu','Volume de béton','Volumen de hormigón'],['Dlažba a podlaha','Płytki i podłoga','Carrelage et sol','Baldosas y suelo'],['Sklon střechy','Nachylenie dachu','Pente de toit','Pendiente del tejado'],['Plocha stěny','Powierzchnia ściany','Surface de mur','Superficie de pared']]},
+health:{n:['Zdraví','Zdrowie','Santé','Salud'],d:['Tělesné míry a denní potřeby','Parametry ciała i dzienne potrzeby','Mesures corporelles et besoins quotidiens','Medidas corporales y necesidades diarias'],i:[['BMI','BMI','IMC','IMC'],['Kalorická potřeba','Zapotrzebowanie kaloryczne','Besoins caloriques','Necesidades calóricas'],['Tělesný tuk','Tkanka tłuszczowa','Masse grasse','Grasa corporal'],['Pitný režim','Zapotrzebowanie na wodę','Hydratation','Consumo de agua'],['Ideální váha','Idealna waga','Poids idéal','Peso ideal']]},
+finance:{n:['Finance','Finanse','Finances','Finanzas'],d:['Úvěry, úroky a daně','Kredyty, odsetki i podatki','Prêts, intérêts et impôts','Préstamos, intereses e impuestos'],i:[['Hypotéka','Kredyt hipoteczny','Prêt immobilier','Hipoteca'],['Splátka úvěru','Rata kredytu','Mensualité de prêt','Cuota del préstamo'],['Složené úročení','Procent składany','Intérêts composés','Interés compuesto'],['DPH','VAT','TVA','IVA'],['Bitcoin převodník','Przelicznik Bitcoina','Convertisseur Bitcoin','Conversor de Bitcoin']]},
+utilities:{n:['Nástroje','Narzędzia','Utilitaires','Utilidades'],d:['Převody a rychlé výpočty','Przeliczniki i szybkie obliczenia','Conversions et calculs rapides','Conversiones y cálculos rápidos'],i:[['Převodník jednotek','Przelicznik jednostek','Convertisseur d’unités','Conversor de unidades'],['Procenta','Procenty','Pourcentage','Porcentaje'],['Rozdíl dat','Różnica dat','Écart entre dates','Diferencia de fechas'],['Měny','Kalkulator walut','Convertisseur de devises','Conversor de divisas'],['Časová pásma','Strefy czasowe','Fuseaux horaires','Zonas horarias']]},
+energy:{n:['Energie a auto','Energia i auto','Énergie et auto','Energía y coche'],d:['Spotřeba, náklady a úspory','Zużycie, koszty i oszczędności','Consommation, coûts et économies','Consumo, costes y ahorro'],i:[['Náklady na elektřinu','Koszt energii elektrycznej','Coût de l’électricité','Coste de la electricidad'],['Spotřeba paliva','Spalanie paliwa','Consommation de carburant','Consumo de combustible'],['Solární panely','Panele fotowoltaiczne','Panneaux solaires','Paneles solares'],['Nabíjení EV','Ładowanie EV','Recharge de VE','Carga de VE']]}
+};
+CATS.forEach(c=>{const x=X[c.id];['cs','pl','fr','es'].forEach((l,j)=>{c.n[l]=x.n[j];c.d[l]=x.d[j]});c.i.forEach((it,k)=>it.push(...x.i[k]))});
+Object.assign(T,{
+cs:{badge:'Více než 20 kalkulaček zdarma',t1:'Všechny kalkulačky.',t2:'Na jednom místě.',sub:'Rychlé, přesné a bez zbytečností. Od hypotéky po spotřebu barvy.',p:'Hledej kalkulačku… např. hypotéka, BMI',e:'Nebyly nalezeny žádné kalkulačky.',c:n=>n+(n===1?' kalkulačka':n>=2&&n<=4?' kalkulačky':' kalkulaček'),foot:'Vytvořeno s citem pro detail'},
+pl:{badge:'Ponad 20 darmowych kalkulatorów',t1:'Wszystkie kalkulatory.',t2:'W jednym miejscu.',sub:'Szybkie, dokładne i bez zbędnych dodatków. Od kredytu hipotecznego po zużycie farby.',p:'Szukaj kalkulatora… np. hipoteka, BMI',e:'Nie znaleziono kalkulatorów.',c:n=>n+(n===1?' kalkulator':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?' kalkulatory':' kalkulatorów'),foot:'Zrobione z dbałością o szczegóły'},
+fr:{badge:'Plus de 20 calculateurs gratuits',t1:'Tous les calculateurs.',t2:'Au même endroit.',sub:'Rapide, précis et sans superflu. Du prêt immobilier à la quantité de peinture.',p:'Cherchez un calculateur… ex. prêt, IMC',e:'Aucun calculateur trouvé.',c:n=>n+(n<2?' calculateur':' calculateurs'),foot:'Conçu avec le souci du détail'},
+es:{badge:'Más de 20 calculadoras gratis',t1:'Todas las calculadoras.',t2:'En un solo lugar.',sub:'Rápidas, precisas y sin florituras. De la hipoteca al gasto de pintura.',p:'Busca una calculadora… p. ej. hipoteca, IMC',e:'No se encontraron calculadoras.',c:n=>n+(n===1?' calculadora':' calculadoras'),foot:'Hecho con atención al detalle'}
+});
+const LINKS={BMI:'bmi.html',Mortgage:'mortgage.html','Bitcoin converter':'bitcoin.html','Unit converter':'units.html','Percentage':'percentage.html','Date difference':'dates.html'};
+const AD={sk:'Reklama',de:'Werbung',en:'Advertisement',cs:'Reklama',pl:'Reklama',fr:'Publicité',es:'Publicidad'};
+const IDX={sk:0,de:1,en:2,cs:3,pl:4,fr:5,es:6};
+const BASE='https://calc-hub.eu/',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "calc-hub.eu – Free online calculators", "d": "Free online calculators in one place: BMI, mortgage, Bitcoin converter, paint coverage, unit converter and more. Fast, accurate and available in 7 languages."}, "sk": {"t": "calc-hub.eu – Bezplatné online kalkulačky", "d": "Bezplatné online kalkulačky na jednom mieste: BMI, hypotéka, Bitcoin prevodník, spotreba farby, prevodník jednotiek a ďalšie. Rýchle, presné a v 7 jazykoch."}, "de": {"t": "calc-hub.eu – Kostenlose Online-Rechner", "d": "Kostenlose Online-Rechner an einem Ort: BMI, Hypothek, Bitcoin-Umrechner, Farbbedarf, Einheitenumrechner und mehr. Schnell, präzise und in 7 Sprachen."}, "cs": {"t": "calc-hub.eu – Online kalkulačky zdarma", "d": "Online kalkulačky zdarma na jednom místě: BMI, hypotéka, Bitcoin převodník, spotřeba barvy, převodník jednotek a další. Rychlé, přesné a v 7 jazycích."}, "pl": {"t": "calc-hub.eu – Darmowe kalkulatory online", "d": "Darmowe kalkulatory online w jednym miejscu: BMI, kredyt hipoteczny, przelicznik Bitcoina, zużycie farby, przelicznik jednostek i więcej. Szybkie, dokładne i w 7 językach."}, "fr": {"t": "calc-hub.eu – Calculateurs en ligne gratuits", "d": "Calculateurs en ligne gratuits au même endroit : IMC, prêt immobilier, convertisseur Bitcoin, quantité de peinture, convertisseur d’unités et plus. Rapides, précis et en 7 langues."}, "es": {"t": "calc-hub.eu – Calculadoras online gratis", "d": "Calculadoras online gratis en un solo lugar: IMC, hipoteca, conversor de Bitcoin, gasto de pintura, conversor de unidades y más. Rápidas, precisas y en 7 idiomas."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies'],es:['Privacidad y cookies','Configuración de privacidad y cookies']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;f.innerHTML=`<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a><span class="mx-2">·</span><button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+let lang='en';
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const $=id=>document.getElementById(id);
+
+function render(){
+  const k=IDX[lang],q=norm($('q').value.trim()),L=T[lang];
+  document.documentElement.lang=lang;
+  $('badge').textContent=L.badge;$('t1').textContent=L.t1;$('t2').textContent=L.t2;
+  document.querySelectorAll('.ad-label').forEach(e=>e.textContent=AD[lang]);
+  $('sub').textContent=L.sub;$('q').placeholder=L.p;$('emptyT').textContent=L.e;$('foot').textContent=L.foot;
+  syncLang();
+  let html='',total=0,cards=0;
+  CATS.forEach(c=>{
+    const catHit=q&&Object.values(c.n).some(n=>norm(n).includes(q));
+    const items=c.i.filter(x=>!q||catHit||x.some(n=>norm(n).includes(q)));
+    if(!items.length)return;
+    total+=items.length;
+    html+=`<article class="glass fade rounded-2xl p-6" style="animation-delay:${cards++*60}ms">
+      <div class="relative flex items-center gap-3.5">
+        <span class="ico flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[c.id]}</svg></span>
+        <div><h2 class="text-lg font-semibold leading-tight text-white">${c.n[lang]}</h2><p class="text-sm" style="color:#7d869a">${c.d[lang]}</p></div>
+      </div>
+      <ul class="relative mt-5 space-y-0.5">
+        ${items.map(x=>`<li><a href="${LINKS[x[2]]||'#'}" class="row"><span>${x[k]}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>`).join('')}
+      </ul></article>`;
+  });
+  $('cards').innerHTML=html;propLinks();
+  $('adTile').classList.toggle('hidden',total===0);
+  $('empty').classList.toggle('hidden',total>0);
+  $('count').textContent=q?L.c(total):'';
+}
+
+initLang(render);
+$('q').addEventListener('input',render);
+$('grid').addEventListener('mousemove',e=>{
+  const c=e.target.closest('.glass');if(!c)return;
+  const r=c.getBoundingClientRect();
+  c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='/'&&document.activeElement!==$('q')){e.preventDefault();$('q').focus()}
+  if(e.key==='Escape'){$('q').value='';render();$('q').blur()}
+});
+render();
+</script>
+</body>
+</html>

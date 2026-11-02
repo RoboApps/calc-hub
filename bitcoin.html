@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Bitcoin Converter – BTC, sats and fiat | calc-hub.eu</title>
+<meta name="description" content="Convert BTC, mBTC, bits and satoshis and see the value in EUR, USD or other currencies at the live rate. Includes a simple guide to Bitcoin units.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/bitcoin.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/bitcoin.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/bitcoin.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/bitcoin.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/bitcoin.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/bitcoin.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/bitcoin.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/bitcoin.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/bitcoin.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Bitcoin Converter – BTC, sats and fiat | calc-hub.eu">
+<meta property="og:description" content="Convert BTC, mBTC, bits and satoshis and see the value in EUR, USD or other currencies at the live rate. Includes a simple guide to Bitcoin units.">
+<meta property="og:url" content="https://calc-hub.eu/bitcoin.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bitcoin Converter – BTC, sats and fiat | calc-hub.eu">
+<meta name="twitter:description" content="Convert BTC, mBTC, bits and satoshis and see the value in EUR, USD or other currencies at the live rate. Includes a simple guide to Bitcoin units.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.9rem;padding:.8rem 1rem}
+.field select{width:100%;background:transparent;outline:none;font-size:1.1rem;font-weight:600;color:#fff;padding:.75rem 0;cursor:pointer;min-width:0}
+.field select option{background:#0d111a;color:#fff}
+.spin{animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.ut td{padding:.7rem 1rem;border-top:1px solid rgba(255,255,255,.06);font-size:.9rem;color:#c5cde0}
+.ut tr:first-child td{border-top:0}.ut td:last-child{text-align:right;color:#8b94a7;font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-i="amount"></label>
+        <div class="field mt-2"><input id="fa" type="number" inputmode="decimal" min="0" step="any" value="1"></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-i="unit"></label>
+        <div class="field mt-2"><select id="fu"></select></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-i="cur"></label>
+        <div class="field mt-2"><select id="fc"></select></div></div>
+      <div id="mbox" class="hidden"><label class="block text-sm" style="color:#fbbf24" data-i="manual"></label>
+        <div class="field mt-2"><input id="mr" type="number" inputmode="decimal" min="0" step="any"><span class="cur"></span></div></div>
+    </div>
+
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <div class="mb-5 flex items-center justify-between gap-3 text-xs" style="color:#8b94a7">
+        <span class="flex items-center gap-2"><i id="dot" class="inline-block h-2 w-2 rounded-full"></i><span id="rl"></span></span>
+        <button id="rf" class="back" aria-label="Refresh"><svg id="rfi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg></button>
+      </div>
+      <p id="hint" data-i="hint" class="py-6 text-center" style="color:#8b94a7"></p>
+      <div id="res" class="hidden">
+        <p id="vl" class="text-sm" style="color:#8b94a7"></p>
+        <span id="val" class="grad block break-words text-4xl font-bold tracking-tight sm:text-5xl"></span>
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          <div class="stat"><p class="text-xs" style="color:#8b94a7" data-i="nB"></p><p id="oB" class="mt-1 break-all font-semibold text-white"></p></div>
+          <div class="stat"><p class="text-xs" style="color:#8b94a7" data-i="nM"></p><p id="oM" class="mt-1 break-all font-semibold text-white"></p></div>
+          <div class="stat"><p class="text-xs" style="color:#8b94a7" data-i="nU"></p><p id="oU" class="mt-1 break-all font-semibold text-white"></p></div>
+          <div class="stat"><p class="text-xs" style="color:#8b94a7" data-i="nS"></p><p id="oS" class="mt-1 break-all font-semibold text-white"></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-bitcoin-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section>
+        <h2 class="text-2xl font-semibold text-white" data-i="h2"></h2>
+        <p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p>
+        <div class="glass mt-4 rounded-2xl p-5 text-center"><div class="text-lg font-semibold sm:text-xl" style="color:var(--accent)">1 BTC = 1 000 mBTC = 1 000 000 µBTC = 100 000 000 sat</div><p class="mt-2 text-sm" style="color:#8b94a7" data-i="ex"></p></div>
+      </section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p4"></p></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2">
+      <h2 class="text-2xl font-semibold text-white" data-i="h3"></h2>
+      <div class="glass mt-3 overflow-hidden rounded-2xl"><table class="ut w-full"><thead><tr><td class="text-xs uppercase" style="color:#8b94a7" data-i="unit"></td><td class="text-xs uppercase" data-i="inBtc"></td></tr></thead><tbody id="utbl"></tbody></table></div>
+    </aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-bitcoin-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-bitcoin-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-bitcoin-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en',cur='EUR',from='BTC',rates={},ts=null,status='loading',curTouched=false;
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Bitcoin Converter", "sub": "Convert BTC, mBTC, bits and satoshis and see the value in euros or another currency at the live rate.", "amount": "Amount", "unit": "Unit", "cur": "Currency", "upd": "Updated", "loading": "Loading rate…", "err": "Rate unavailable. Enter a rate manually:", "manual": "Price of 1 BTC", "hint": "Enter an amount to convert.", "nB": "Bitcoin", "nM": "Millibitcoin", "nU": "Microbitcoin (bits)", "nS": "Satoshi", "val": "Value", "inBtc": "In BTC", "h3": "Units at a glance", "h1": "What is Bitcoin?", "p1": "Bitcoin is a decentralised digital currency created in 2009 by the pseudonymous Satoshi Nakamoto. Transactions are recorded on a public ledger called the blockchain, and the total supply is capped at 21 million coins. Because one coin can be worth a lot, it is routinely split into much smaller units.", "h2": "Bitcoin units and conversion", "p2": "One bitcoin (BTC) equals 1,000 millibitcoins (mBTC), 1,000,000 microbitcoins (µBTC, also called bits) and 100,000,000 satoshis, the smallest unit. Converting between them is just a matter of multiplying or dividing by a power of ten. To get a value in a regular currency, multiply the amount in BTC by the current price of one bitcoin.", "ex": "Example: 0.005 BTC = 5 mBTC = 500,000 satoshis", "h4": "Where the rate comes from", "p4": "The price of bitcoin is set by supply and demand on exchanges, so it moves constantly and differs slightly from one exchange to another. This page loads the rate from a public price feed and refreshes it every minute. If the feed cannot be reached, you can enter a rate manually.", "note": "Rates shown are indicative only and exclude exchange fees and spreads. Bitcoin is highly volatile and this page is not investment advice."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Bitcoin prevodník", "sub": "Prepočítaj BTC, mBTC, bity a satoshi a zisti hodnotu v eurách či inej mene podľa aktuálneho kurzu.", "amount": "Množstvo", "unit": "Jednotka", "cur": "Mena", "upd": "Aktualizované", "loading": "Načítavam kurz…", "err": "Kurz sa nepodarilo načítať. Zadaj kurz ručne:", "manual": "Cena 1 BTC", "hint": "Zadaj množstvo na prepočet.", "nB": "Bitcoin", "nM": "Milibitcoin", "nU": "Mikrobitcoin (bity)", "nS": "Satoshi", "val": "Hodnota", "inBtc": "V BTC", "h3": "Jednotky v kocke", "h1": "Čo je Bitcoin?", "p1": "Bitcoin je decentralizovaná digitálna mena, ktorú v roku 2009 vytvoril pod pseudonymom Satoshi Nakamoto. Transakcie sa zapisujú do verejnej knihy nazývanej blockchain a celkový počet mincí je obmedzený na 21 miliónov. Keďže jedna minca môže mať vysokú hodnotu, bežne sa delí na oveľa menšie jednotky.", "h2": "Jednotky bitcoinu a prevod", "p2": "Jeden bitcoin (BTC) je 1 000 milibitcoinov (mBTC), 1 000 000 mikrobitcoinov (µBTC, tiež bity) a 100 000 000 satoshi, čo je najmenšia jednotka. Prevod medzi nimi je len násobenie alebo delenie mocninou desiatky. Hodnotu v bežnej mene získaš vynásobením množstva v BTC aktuálnou cenou jedného bitcoinu.", "ex": "Príklad: 0,005 BTC = 5 mBTC = 500 000 satoshi", "h4": "Odkiaľ je kurz", "p4": "Cenu bitcoinu určuje ponuka a dopyt na burzách, preto sa neustále mení a na jednotlivých burzách sa mierne líši. Stránka načíta kurz z verejného cenového zdroja a každú minútu ho obnoví. Ak zdroj nie je dostupný, môžeš kurz zadať ručne.", "note": "Zobrazené kurzy sú len orientačné a nezahŕňajú poplatky ani rozdiely medzi nákupnou a predajnou cenou na burze. Bitcoin je veľmi volatilný a stránka nie je investičné poradenstvo."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Bitcoin-Umrechner", "sub": "Rechne BTC, mBTC, Bits und Satoshi um und sieh den Wert in Euro oder anderen Währungen zum aktuellen Kurs.", "amount": "Menge", "unit": "Einheit", "cur": "Währung", "upd": "Aktualisiert", "loading": "Kurs wird geladen…", "err": "Kurs nicht verfügbar. Gib den Kurs manuell ein:", "manual": "Preis für 1 BTC", "hint": "Gib eine Menge zum Umrechnen ein.", "nB": "Bitcoin", "nM": "Millibitcoin", "nU": "Mikrobitcoin (Bits)", "nS": "Satoshi", "val": "Wert", "inBtc": "In BTC", "h3": "Einheiten im Überblick", "h1": "Was ist Bitcoin?", "p1": "Bitcoin ist eine dezentrale digitale Währung, die 2009 unter dem Pseudonym Satoshi Nakamoto geschaffen wurde. Transaktionen werden in einem öffentlichen Register, der Blockchain, festgehalten, und die Gesamtmenge ist auf 21 Millionen Coins begrenzt. Da ein einzelner Coin viel wert sein kann, wird er üblicherweise in viel kleinere Einheiten unterteilt.", "h2": "Bitcoin-Einheiten und Umrechnung", "p2": "Ein Bitcoin (BTC) entspricht 1.000 Millibitcoin (mBTC), 1.000.000 Mikrobitcoin (µBTC, auch Bits genannt) und 100.000.000 Satoshi, der kleinsten Einheit. Die Umrechnung ist nur eine Multiplikation oder Division mit einer Zehnerpotenz. Für den Wert in einer Währung multiplizierst du die Menge in BTC mit dem aktuellen Preis eines Bitcoins.", "ex": "Beispiel: 0,005 BTC = 5 mBTC = 500.000 Satoshi", "h4": "Woher der Kurs stammt", "p4": "Der Bitcoin-Preis entsteht durch Angebot und Nachfrage an Börsen, ändert sich daher ständig und weicht zwischen den Börsen leicht ab. Diese Seite lädt den Kurs aus einer öffentlichen Preisquelle und aktualisiert ihn jede Minute. Ist die Quelle nicht erreichbar, kannst du den Kurs manuell eingeben.", "note": "Die angezeigten Kurse sind nur Richtwerte und enthalten keine Börsengebühren oder Spannen. Bitcoin ist sehr volatil, und diese Seite ist keine Anlageberatung."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Bitcoin převodník", "sub": "Přepočítej BTC, mBTC, bity a satoshi a zjisti hodnotu v eurech či jiné měně podle aktuálního kurzu.", "amount": "Množství", "unit": "Jednotka", "cur": "Měna", "upd": "Aktualizováno", "loading": "Načítám kurz…", "err": "Kurz se nepodařilo načíst. Zadej kurz ručně:", "manual": "Cena 1 BTC", "hint": "Zadej množství k přepočtu.", "nB": "Bitcoin", "nM": "Milibitcoin", "nU": "Mikrobitcoin (bity)", "nS": "Satoshi", "val": "Hodnota", "inBtc": "V BTC", "h3": "Jednotky v kostce", "h1": "Co je Bitcoin?", "p1": "Bitcoin je decentralizovaná digitální měna, kterou v roce 2009 vytvořil pod pseudonymem Satoshi Nakamoto. Transakce se zapisují do veřejné knihy zvané blockchain a celkový počet mincí je omezen na 21 milionů. Protože jedna mince může mít vysokou hodnotu, běžně se dělí na mnohem menší jednotky.", "h2": "Jednotky bitcoinu a převod", "p2": "Jeden bitcoin (BTC) je 1 000 milibitcoinů (mBTC), 1 000 000 mikrobitcoinů (µBTC, též bity) a 100 000 000 satoshi, což je nejmenší jednotka. Převod mezi nimi je jen násobení nebo dělení mocninou deseti. Hodnotu v běžné měně získáš vynásobením množství v BTC aktuální cenou jednoho bitcoinu.", "ex": "Příklad: 0,005 BTC = 5 mBTC = 500 000 satoshi", "h4": "Odkud je kurz", "p4": "Cenu bitcoinu určuje nabídka a poptávka na burzách, proto se neustále mění a na jednotlivých burzách se mírně liší. Stránka načítá kurz z veřejného cenového zdroje a každou minutu jej obnovuje. Pokud zdroj není dostupný, můžeš kurz zadat ručně.", "note": "Zobrazené kurzy jsou pouze orientační a nezahrnují poplatky ani rozdíly mezi nákupní a prodejní cenou na burze. Bitcoin je velmi volatilní a stránka není investiční poradenství."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Przelicznik Bitcoina", "sub": "Przelicz BTC, mBTC, bity i satoshi oraz sprawdź wartość w euro lub innej walucie według aktualnego kursu.", "amount": "Ilość", "unit": "Jednostka", "cur": "Waluta", "upd": "Zaktualizowano", "loading": "Wczytuję kurs…", "err": "Nie udało się pobrać kursu. Wpisz kurs ręcznie:", "manual": "Cena 1 BTC", "hint": "Wpisz ilość do przeliczenia.", "nB": "Bitcoin", "nM": "Milibitcoin", "nU": "Mikrobitcoin (bity)", "nS": "Satoshi", "val": "Wartość", "inBtc": "W BTC", "h3": "Jednostki w skrócie", "h1": "Czym jest Bitcoin?", "p1": "Bitcoin to zdecentralizowana waluta cyfrowa stworzona w 2009 roku przez osobę lub grupę podpisującą się jako Satoshi Nakamoto. Transakcje zapisywane są w publicznym rejestrze zwanym blockchainem, a łączna liczba monet jest ograniczona do 21 milionów. Ponieważ jedna moneta może być wiele warta, dzieli się ją na znacznie mniejsze jednostki.", "h2": "Jednostki bitcoina i przeliczanie", "p2": "Jeden bitcoin (BTC) to 1000 milibitcoinów (mBTC), 1 000 000 mikrobitcoinów (µBTC, zwanych też bitami) i 100 000 000 satoshi, czyli najmniejsza jednostka. Przeliczanie sprowadza się do mnożenia lub dzielenia przez potęgę dziesięciu. Aby poznać wartość w walucie, pomnóż ilość w BTC przez aktualną cenę jednego bitcoina.", "ex": "Przykład: 0,005 BTC = 5 mBTC = 500 000 satoshi", "h4": "Skąd pochodzi kurs", "p4": "Cenę bitcoina ustalają podaż i popyt na giełdach, dlatego stale się zmienia i różni się nieznacznie między giełdami. Ta strona pobiera kurs z publicznego źródła cen i odświeża go co minutę. Jeśli źródło jest niedostępne, możesz wpisać kurs ręcznie.", "note": "Wyświetlane kursy mają charakter orientacyjny i nie uwzględniają opłat giełdowych ani spreadów. Bitcoin jest bardzo zmienny, a ta strona nie stanowi porady inwestycyjnej."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Convertisseur Bitcoin", "sub": "Convertissez BTC, mBTC, bits et satoshis et obtenez la valeur en euros ou dans une autre devise au cours actuel.", "amount": "Montant", "unit": "Unité", "cur": "Devise", "upd": "Mis à jour", "loading": "Chargement du cours…", "err": "Cours indisponible. Saisissez-le manuellement :", "manual": "Prix de 1 BTC", "hint": "Saisissez un montant à convertir.", "nB": "Bitcoin", "nM": "Millibitcoin", "nU": "Microbitcoin (bits)", "nS": "Satoshi", "val": "Valeur", "inBtc": "En BTC", "h3": "Les unités en un coup d’œil", "h1": "Qu’est-ce que le Bitcoin ?", "p1": "Le Bitcoin est une monnaie numérique décentralisée créée en 2009 sous le pseudonyme de Satoshi Nakamoto. Les transactions sont enregistrées dans un registre public appelé blockchain, et le nombre total de pièces est plafonné à 21 millions. Comme une seule pièce peut valoir beaucoup, on la divise couramment en unités bien plus petites.", "h2": "Les unités du Bitcoin et la conversion", "p2": "Un bitcoin (BTC) équivaut à 1 000 millibitcoins (mBTC), 1 000 000 de microbitcoins (µBTC, aussi appelés bits) et 100 000 000 de satoshis, la plus petite unité. Convertir revient à multiplier ou diviser par une puissance de dix. Pour obtenir une valeur en devise, multipliez le montant en BTC par le prix actuel d’un bitcoin.", "ex": "Exemple : 0,005 BTC = 5 mBTC = 500 000 satoshis", "h4": "D’où vient le cours", "p4": "Le prix du bitcoin résulte de l’offre et de la demande sur les plateformes d’échange ; il varie donc en permanence et diffère légèrement d’une plateforme à l’autre. Cette page charge le cours depuis une source de prix publique et l’actualise chaque minute. Si la source est injoignable, vous pouvez saisir un cours manuellement.", "note": "Les cours affichés sont indicatifs et n’incluent ni les frais de plateforme ni les écarts de prix. Le Bitcoin est très volatil et cette page ne constitue pas un conseil en investissement."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Conversor de Bitcoin", "sub": "Convierte BTC, mBTC, bits y satoshis y consulta su valor en euros u otra moneda al cambio actual.", "amount": "Cantidad", "unit": "Unidad", "cur": "Moneda", "upd": "Actualizado", "loading": "Cargando cotización…", "err": "Cotización no disponible. Introdúcela manualmente:", "manual": "Precio de 1 BTC", "hint": "Introduce una cantidad para convertir.", "nB": "Bitcoin", "nM": "Milibitcoin", "nU": "Microbitcoin (bits)", "nS": "Satoshi", "val": "Valor", "inBtc": "En BTC", "h3": "Las unidades de un vistazo", "h1": "¿Qué es Bitcoin?", "p1": "Bitcoin es una moneda digital descentralizada creada en 2009 bajo el seudónimo de Satoshi Nakamoto. Las transacciones se registran en un libro público llamado blockchain y el número total de monedas está limitado a 21 millones. Como una sola moneda puede valer mucho, se divide habitualmente en unidades mucho más pequeñas.", "h2": "Unidades de bitcoin y conversión", "p2": "Un bitcoin (BTC) equivale a 1000 milibitcoins (mBTC), 1 000 000 de microbitcoins (µBTC, también llamados bits) y 100 000 000 de satoshis, la unidad más pequeña. Convertir consiste en multiplicar o dividir por una potencia de diez. Para obtener el valor en una moneda, multiplica la cantidad en BTC por el precio actual de un bitcoin.", "ex": "Ejemplo: 0,005 BTC = 5 mBTC = 500 000 satoshis", "h4": "De dónde viene la cotización", "p4": "El precio del bitcoin lo fija la oferta y la demanda en los exchanges, por lo que cambia constantemente y varía ligeramente de uno a otro. Esta página carga la cotización desde una fuente de precios pública y la actualiza cada minuto. Si no se puede acceder a la fuente, puedes introducir la cotización manualmente.", "note": "Las cotizaciones mostradas son orientativas y no incluyen comisiones ni diferenciales del exchange. Bitcoin es muy volátil y esta página no constituye asesoramiento de inversión."}};
+const CURS=['EUR','USD','GBP','CZK','PLN','CHF'],DEF={cs:'CZK',pl:'PLN'};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+cur=DEF[lang]||'EUR';
+const BASE='https://calc-hub.eu/bitcoin.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Bitcoin Converter – BTC, sats and fiat | calc-hub.eu", "d": "Convert BTC, mBTC, bits and satoshis and see the value in EUR, USD or other currencies at the live rate. Includes a simple guide to Bitcoin units."}, "sk": {"t": "Bitcoin prevodník – BTC, satoshi a meny | calc-hub.eu", "d": "Prepočítaj BTC, mBTC, bity a satoshi a zisti hodnotu v EUR, USD či iných menách podľa aktuálneho kurzu. S jednoduchým vysvetlením jednotiek bitcoinu."}, "de": {"t": "Bitcoin-Umrechner – BTC, Satoshi und Währungen | calc-hub.eu", "d": "Rechne BTC, mBTC, Bits und Satoshi um und sieh den Wert in EUR, USD oder anderen Währungen zum aktuellen Kurs. Mit einfacher Erklärung der Bitcoin-Einheiten."}, "cs": {"t": "Bitcoin převodník – BTC, satoshi a měny | calc-hub.eu", "d": "Přepočítej BTC, mBTC, bity a satoshi a zjisti hodnotu v EUR, USD či jiných měnách podle aktuálního kurzu. S jednoduchým vysvětlením jednotek bitcoinu."}, "pl": {"t": "Przelicznik Bitcoina – BTC, satoshi i waluty | calc-hub.eu", "d": "Przelicz BTC, mBTC, bity i satoshi oraz sprawdź wartość w EUR, USD lub innych walutach według aktualnego kursu. Z prostym wyjaśnieniem jednostek bitcoina."}, "fr": {"t": "Convertisseur Bitcoin – BTC, satoshis et devises | calc-hub.eu", "d": "Convertissez BTC, mBTC, bits et satoshis et obtenez la valeur en EUR, USD ou autres devises au cours actuel. Avec un guide simple des unités du Bitcoin."}, "es": {"t": "Conversor de Bitcoin – BTC, satoshis y divisas | calc-hub.eu", "d": "Convierte BTC, mBTC, bits y satoshis y consulta su valor en EUR, USD u otras monedas al cambio actual. Con una guía sencilla de las unidades de bitcoin."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies'],es:['Privacidad y cookies','Configuración de privacidad y cookies']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;f.innerHTML=`<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a><span class="mx-2">·</span><button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+const $=id=>document.getElementById(id);
+const LOC={sk:'sk-SK',de:'de-DE',en:'en-IE',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const nf=(n,d)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+const money=(n,d)=>{const f=d??(n>=100?0:2);return new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur,minimumFractionDigits:f,maximumFractionDigits:f}).format(n)};
+
+function buildUnit(){$('fu').innerHTML=['BTC','mBTC','µBTC','sats','FIAT'].map(u=>`<option value="${u}">${u==='FIAT'?cur:u}</option>`).join('');$('fu').value=from;document.querySelectorAll('.cur').forEach(e=>e.textContent=cur)}
+function text(){
+  const L=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=L[e.dataset.i];if(v!==undefined)e.textContent=v});
+  if(!curTouched){cur=DEF[lang]||'EUR';$('fc').value=cur}
+  buildUnit();
+  $('utbl').innerHTML=[['BTC',1],['mBTC',1e-3],['µBTC (bits)',1e-6],['sat',1e-8]].map(([u,v])=>`<tr><td>${u}</td><td>${nf(v,8)}</td></tr>`).join('');
+  syncLang();ui();
+}
+function ui(){
+  const L=T[lang],r=rates[cur];
+  $('dot').style.background=status==='ok'?'var(--accent)':status==='loading'?'#fbbf24':'#ef4444';
+  $('rf').firstElementChild.classList.toggle('spin',status==='loading');
+  $('rl').textContent=r?`1 BTC = ${money(r,0)}`+(ts?` · ${L.upd} ${ts.toLocaleTimeString(LOC[lang],{hour:'2-digit',minute:'2-digit'})}`:''):(status==='loading'?L.loading:L.err);
+  $('mbox').classList.toggle('hidden',!!r||status==='loading');
+  calc();
+}
+function calc(){
+  const L=T[lang],raw=$('fa').value,a=+raw,rate=rates[cur]||+$('mr').value||0;
+  const valid=raw!==''&&isFinite(a)&&a>=0&&(from!=='FIAT'||rate>0);
+  $('res').classList.toggle('hidden',!valid);$('hint').classList.toggle('hidden',valid);
+  $('hint').textContent=(raw!==''&&from==='FIAT'&&!rate)?L.err:L.hint;
+  if(!valid)return;
+  const btc={BTC:a,mBTC:a/1e3,'µBTC':a/1e6,sats:a/1e8,FIAT:rate?a/rate:0}[from];
+  $('val').textContent=rate?money(btc*rate):'—';
+  $('vl').textContent=L.val+' ('+cur+')';
+  $('oB').textContent=nf(btc,8);$('oM').textContent=nf(btc*1e3,5);$('oU').textContent=nf(btc*1e6,2);$('oS').textContent=nf(btc*1e8,0);
+}
+async function getJSON(url){const c=new AbortController(),t=setTimeout(()=>c.abort(),8000);try{const r=await fetch(url,{signal:c.signal});if(!r.ok)throw new Error(r.status);return await r.json()}finally{clearTimeout(t)}}
+async function load(){
+  status='loading';ui();
+  const got={};
+  try{const d=await getJSON('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies='+CURS.map(c=>c.toLowerCase()).join(','));CURS.forEach(c=>{const v=+d.bitcoin[c.toLowerCase()];if(v>0)got[c]=v})}catch(e){}
+  if(!Object.keys(got).length){try{const d=await getJSON('https://api.coinbase.com/v2/exchange-rates?currency=BTC');CURS.forEach(c=>{const v=+d.data.rates[c];if(v>0)got[c]=v})}catch(e){}}
+  if(Object.keys(got).length){Object.assign(rates,got);ts=new Date();status='ok'}else status='error';
+  ui();
+}
+$('fc').innerHTML=CURS.map(c=>`<option>${c}</option>`).join('');$('fc').value=cur;
+$('fa').addEventListener('input',calc);$('mr').addEventListener('input',calc);
+$('fu').addEventListener('change',e=>{from=e.target.value;calc()});
+$('fc').addEventListener('change',e=>{cur=e.target.value;curTouched=true;buildUnit();ui()});
+$('rf').addEventListener('click',load);
+initLang(text);text();load();
+setInterval(()=>{if(!document.hidden)load()},60000);
+</script>
+</body>
+</html>

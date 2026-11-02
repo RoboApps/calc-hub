@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Unit Converter – Length, Weight, Temperature | calc-hub.eu</title>
+<meta name="description" content="Free unit converter for length, mass, temperature, pressure, energy, power, speed, volume and more. Convert bar, psi, kWh, joules, horsepower and metric or imperial units instantly.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/units.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/units.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/units.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/units.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/units.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/units.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/units.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/units.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/units.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Unit Converter – Length, Weight, Temperature | calc-hub.eu">
+<meta property="og:description" content="Free unit converter for length, mass, temperature, pressure, energy, power, speed, volume and more. Convert bar, psi, kWh, joules, horsepower and metric or imperial units instantly.">
+<meta property="og:url" content="https://calc-hub.eu/units.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Unit Converter – Length, Weight, Temperature | calc-hub.eu">
+<meta name="twitter:description" content="Free unit converter for length, mass, temperature, pressure, energy, power, speed, volume and more. Convert bar, psi, kWh, joules, horsepower and metric or imperial units instantly.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.chip{padding:.5rem 1rem;border-radius:99px;font-size:.85rem;font-weight:600;white-space:nowrap;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.6)}
+.urow{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.7rem 1rem;border-radius:.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);cursor:pointer;text-align:left;width:100%;transition:.15s;font-size:.9rem;color:#8b94a7}
+.urow:hover{border-color:rgba(var(--accent-rgb),.5)}
+.urow.on{border-color:rgba(var(--accent-rgb),.6);background:rgba(var(--accent-rgb),.08)}
+.urow .v{color:#fff;font-weight:600;text-align:right;font-variant-numeric:tabular-nums;word-break:break-all}
+.swap{display:flex;height:3rem;width:3rem;align-items:center;justify-content:center;border-radius:.9rem;color:var(--accent);background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.25);transition:.2s;margin:0 auto}
+.swap:hover{transform:rotate(180deg)}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+
+  <div id="tabs" class="mt-8 flex gap-2 overflow-x-auto pb-2" role="tablist"></div>
+
+  <section class="glass mt-4 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-i="value"></label>
+        <div class="field mt-2"><input id="fa" type="number" inputmode="decimal" step="any" value="1"></div></div>
+      <div class="grid items-end gap-3 sm:grid-cols-[1fr_auto_1fr]">
+        <div class="min-w-0"><label class="block text-sm" style="color:#8b94a7" data-i="from"></label><div class="field mt-2"><select id="uf"></select></div></div>
+        <button id="sw" class="swap" data-i-aria="swap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4 3 8l4 4M3 8h18M17 20l4-4-4-4M21 16H3"/></svg></button>
+        <div class="min-w-0"><label class="block text-sm" style="color:#8b94a7" data-i="to"></label><div class="field mt-2"><select id="ut"></select></div></div>
+      </div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" data-i="hint" class="text-center" style="color:#8b94a7"></p>
+      <div id="res" class="hidden">
+        <p id="l1" class="text-sm" style="color:#8b94a7"></p>
+        <span id="big" class="grad mt-1 block break-words text-4xl font-bold tracking-tight sm:text-5xl"></span>
+        <p id="l2" class="mt-5 text-sm" style="color:#8b94a7"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10"><h2 class="text-2xl font-semibold text-white" data-i="all"></h2><div id="allu" class="mt-4 grid gap-2 sm:grid-cols-2"></div></section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-units-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section>
+        <h2 class="text-2xl font-semibold text-white" data-i="h2"></h2>
+        <p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p>
+        <div class="glass mt-4 rounded-2xl p-5 text-center"><div class="font-semibold sm:text-lg" style="color:var(--accent)">°F = °C × 9/5 + 32 &nbsp;·&nbsp; K = °C + 273.15</div><p class="mt-2 text-sm" style="color:#8b94a7" data-i="ex"></p></div>
+      </section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2">
+      <h2 class="text-2xl font-semibold text-white" data-i="common"></h2>
+      <div id="pre" class="mt-3 space-y-2"></div>
+    </aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-units-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-units-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-units-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en',cat='length',uf='km',ut='mi';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Unit Converter", "sub": "Convert length, mass, temperature, area, volume, speed, time, pressure, energy, power and data units instantly.", "value": "Value", "to": "To", "swap": "Swap units", "hint": "Enter a value to convert.", "all": "All units in this category", "common": "Common conversions", "h1": "Measurement systems", "p1": "Most of the world uses the metric system (SI), where units are based on powers of ten: a kilometre is 1,000 metres and a kilogram is 1,000 grams. The United States, and to a lesser extent the United Kingdom, still use customary or imperial units such as miles, pounds and gallons. A unit converter bridges the two.", "h2": "How unit conversion works", "p2": "Every unit is defined as a fixed multiple of a base unit, for example 1 inch = 0.0254 metres. To convert, the value is first turned into the base unit and then into the target unit, which is the same as multiplying by a single conversion factor. Temperature is the exception: the scales have different zero points, so it needs a formula with an offset.", "ex": "Example: 5 km × 0.621371 ≈ 3.11 mi", "h4": "Good to know", "lim": "<li>US and UK units are not always the same: a US gallon is about 3.785 litres, a UK (imperial) gallon about 4.546 litres. This page uses US units for volume.</li><li>Data units kB, MB and GB use powers of 1,000 (as drives are sold), while KiB, MiB and GiB use powers of 1,024 (as operating systems often report them).</li><li>One year is taken as 365.25 days. Months are not offered because their length varies.</li><li>Results are rounded to 8 significant digits.</li><li>Pressure: 1 atm = 101,325 Pa, 1 bar = 100,000 Pa and 1 torr is 1/760 of an atmosphere (about 1 mmHg). Gauge and absolute pressure, such as tyre psi, are not distinguished.</li><li>Energy and power are different quantities: energy is measured in joules or kWh, power (energy per unit of time) in watts or horsepower. That is why they are separate categories. 1 kWh equals 1 kW running for one hour.</li><li>The calorie (cal) is 4.184 J; the food Calorie on labels is the kilocalorie (kcal). Mechanical horsepower (hp) is about 745.7 W, while metric horsepower (PS) is about 735.5 W.</li>", "note": "Results are provided for general information. For engineering, medical or legal purposes, always check against the official definitions of the units.", "from": "From"}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Prevodník jednotiek", "sub": "Okamžite prepočítaj dĺžku, hmotnosť, teplotu, plochu, objem, rýchlosť, čas, tlak, energiu, výkon aj dáta.", "value": "Hodnota", "to": "Na jednotku", "swap": "Vymeniť jednotky", "hint": "Zadaj hodnotu na prepočet.", "all": "Všetky jednotky v kategórii", "common": "Časté prevody", "h1": "Sústavy jednotiek", "p1": "Väčšina sveta používa metrickú sústavu (SI), v ktorej sú jednotky založené na mocninách desiatky: kilometer je 1 000 metrov a kilogram 1 000 gramov. Spojené štáty a v menšej miere aj Británia stále používajú tradičné (imperiálne) jednotky ako míle, libry a galóny. Prevodník jednotiek tieto svety prepája.", "h2": "Ako funguje prevod jednotiek", "p2": "Každá jednotka je pevný násobok základnej jednotky, napríklad 1 palec = 0,0254 metra. Pri prevode sa hodnota najprv prepočíta na základnú jednotku a potom na cieľovú, čo je to isté ako vynásobenie jedným prevodovým koeficientom. Výnimkou je teplota: stupnice majú rôzny nulový bod, preto sa používa vzorec s posunom.", "ex": "Príklad: 5 km × 0,621371 ≈ 3,11 mi", "h4": "Dobré vedieť", "lim": "<li>Americké a britské jednotky nie sú vždy rovnaké: americký galón má približne 3,785 litra, britský (imperiálny) približne 4,546 litra. Táto stránka pri objeme používa americké jednotky.</li><li>Dátové jednotky kB, MB a GB používajú mocniny 1 000 (ako sa predávajú disky), kým KiB, MiB a GiB mocniny 1 024 (ako často uvádzajú operačné systémy).</li><li>Jeden rok sa počíta ako 365,25 dňa. Mesiace nie sú v ponuke, pretože ich dĺžka sa mení.</li><li>Výsledky sa zaokrúhľujú na 8 platných číslic.</li><li>Tlak: 1 atm = 101 325 Pa, 1 bar = 100 000 Pa a 1 torr je 1/760 atmosféry (približne 1 mmHg). Pretlak a absolútny tlak, napríklad psi v pneumatikách, sa nerozlišujú.</li><li>Energia a výkon sú rôzne veličiny: energia sa meria v jouloch alebo kWh, výkon (energia za jednotku času) vo wattoch alebo konských silách. Preto sú v samostatných kategóriách. 1 kWh je 1 kW bežiaci jednu hodinu.</li><li>Kalória (cal) je 4,184 J, potravinová kalória na obaloch je kilokalória (kcal). Mechanická konská sila (hp) je približne 745,7 W, metrická (PS) približne 735,5 W.</li>", "note": "Výsledky slúžia na všeobecné informovanie. Pre technické, zdravotné alebo právne účely si vždy over oficiálne definície jednotiek.", "from": "Z jednotky"}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Einheitenumrechner", "sub": "Rechne Länge, Masse, Temperatur, Fläche, Volumen, Geschwindigkeit, Zeit, Druck, Energie, Leistung und Daten sofort um.", "value": "Wert", "to": "Nach", "swap": "Einheiten tauschen", "hint": "Gib einen Wert zum Umrechnen ein.", "all": "Alle Einheiten dieser Kategorie", "common": "Häufige Umrechnungen", "h1": "Maßsysteme", "p1": "Der Großteil der Welt nutzt das metrische System (SI), dessen Einheiten auf Zehnerpotenzen beruhen: Ein Kilometer sind 1.000 Meter, ein Kilogramm 1.000 Gramm. Die USA und in geringerem Maß das Vereinigte Königreich verwenden noch immer imperiale Einheiten wie Meilen, Pfund und Gallonen. Ein Einheitenumrechner verbindet beide Welten.", "h2": "So funktioniert die Umrechnung", "p2": "Jede Einheit ist ein festes Vielfaches einer Basiseinheit, zum Beispiel 1 Zoll = 0,0254 Meter. Bei der Umrechnung wird der Wert zuerst in die Basiseinheit und dann in die Zieleinheit umgerechnet, was einer Multiplikation mit einem einzigen Umrechnungsfaktor entspricht. Die Temperatur ist eine Ausnahme: Die Skalen haben unterschiedliche Nullpunkte, daher braucht man eine Formel mit Verschiebung.", "ex": "Beispiel: 5 km × 0,621371 ≈ 3,11 mi", "h4": "Gut zu wissen", "lim": "<li>US- und britische Einheiten sind nicht immer gleich: Eine US-Gallone sind etwa 3,785 Liter, eine britische (imperiale) Gallone etwa 4,546 Liter. Diese Seite verwendet beim Volumen US-Einheiten.</li><li>Die Dateneinheiten kB, MB und GB nutzen Potenzen von 1.000 (wie Festplatten verkauft werden), KiB, MiB und GiB Potenzen von 1.024 (wie Betriebssysteme oft anzeigen).</li><li>Ein Jahr wird mit 365,25 Tagen gerechnet. Monate werden nicht angeboten, weil ihre Länge schwankt.</li><li>Ergebnisse werden auf 8 signifikante Stellen gerundet.</li><li>Druck: 1 atm = 101.325 Pa, 1 bar = 100.000 Pa und 1 Torr ist 1/760 einer Atmosphäre (etwa 1 mmHg). Überdruck und Absolutdruck, etwa bei Reifen-psi, werden nicht unterschieden.</li><li>Energie und Leistung sind verschiedene Größen: Energie wird in Joule oder kWh gemessen, Leistung (Energie pro Zeit) in Watt oder Pferdestärken. Deshalb sind sie getrennte Kategorien. 1 kWh entspricht 1 kW über eine Stunde.</li><li>Die Kalorie (cal) entspricht 4,184 J; die Nahrungskalorie auf Verpackungen ist die Kilokalorie (kcal). Eine mechanische Pferdestärke (hp) sind etwa 745,7 W, die metrische (PS) etwa 735,5 W.</li>", "note": "Die Ergebnisse dienen der allgemeinen Information. Prüfe für technische, medizinische oder rechtliche Zwecke immer die offiziellen Definitionen der Einheiten.", "from": "Von"}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Převodník jednotek", "sub": "Okamžitě přepočítej délku, hmotnost, teplotu, plochu, objem, rychlost, čas, tlak, energii, výkon i data.", "value": "Hodnota", "to": "Na jednotku", "swap": "Prohodit jednotky", "hint": "Zadej hodnotu k přepočtu.", "all": "Všechny jednotky v kategorii", "common": "Časté převody", "h1": "Soustavy jednotek", "p1": "Většina světa používá metrickou soustavu (SI), v níž jsou jednotky založeny na mocninách deseti: kilometr je 1 000 metrů a kilogram 1 000 gramů. Spojené státy a v menší míře i Británie stále používají tradiční (imperiální) jednotky jako míle, libry a galony. Převodník jednotek tyto světy propojuje.", "h2": "Jak funguje převod jednotek", "p2": "Každá jednotka je pevný násobek základní jednotky, například 1 palec = 0,0254 metru. Při převodu se hodnota nejprve přepočítá na základní jednotku a poté na cílovou, což je totéž jako vynásobení jedním převodním koeficientem. Výjimkou je teplota: stupnice mají různý nulový bod, proto se používá vzorec s posunem.", "ex": "Příklad: 5 km × 0,621371 ≈ 3,11 mi", "h4": "Dobré vědět", "lim": "<li>Americké a britské jednotky nejsou vždy stejné: americký galon má přibližně 3,785 litru, britský (imperiální) přibližně 4,546 litru. Tato stránka u objemu používá americké jednotky.</li><li>Datové jednotky kB, MB a GB používají mocniny 1 000 (jak se prodávají disky), zatímco KiB, MiB a GiB mocniny 1 024 (jak často uvádějí operační systémy).</li><li>Jeden rok se počítá jako 365,25 dne. Měsíce nejsou v nabídce, protože jejich délka kolísá.</li><li>Výsledky se zaokrouhlují na 8 platných číslic.</li><li>Tlak: 1 atm = 101 325 Pa, 1 bar = 100 000 Pa a 1 torr je 1/760 atmosféry (přibližně 1 mmHg). Přetlak a absolutní tlak, například psi v pneumatikách, se nerozlišují.</li><li>Energie a výkon jsou různé veličiny: energie se měří v joulech nebo kWh, výkon (energie za jednotku času) ve wattech nebo koňských silách. Proto jsou v samostatných kategoriích. 1 kWh je 1 kW běžící jednu hodinu.</li><li>Kalorie (cal) je 4,184 J, potravinová kalorie na obalech je kilokalorie (kcal). Mechanická koňská síla (hp) je přibližně 745,7 W, metrická (PS) přibližně 735,5 W.</li>", "note": "Výsledky slouží k obecné informaci. Pro technické, zdravotní nebo právní účely si vždy ověř oficiální definice jednotek.", "from": "Z jednotky"}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Przelicznik jednostek", "sub": "Natychmiast przelicz długość, masę, temperaturę, powierzchnię, objętość, prędkość, czas, ciśnienie, energię, moc i dane.", "value": "Wartość", "to": "Na jednostkę", "swap": "Zamień jednostki", "hint": "Wpisz wartość do przeliczenia.", "all": "Wszystkie jednostki w kategorii", "common": "Częste przeliczenia", "h1": "Systemy miar", "p1": "Większość świata używa systemu metrycznego (SI), w którym jednostki opierają się na potęgach dziesięciu: kilometr to 1000 metrów, a kilogram to 1000 gramów. Stany Zjednoczone, a w mniejszym stopniu Wielka Brytania, nadal stosują jednostki tradycyjne (imperialne), takie jak mile, funty i galony. Przelicznik jednostek łączy te dwa światy.", "h2": "Jak działa przeliczanie jednostek", "p2": "Każda jednostka jest stałą wielokrotnością jednostki bazowej, na przykład 1 cal = 0,0254 metra. Przy przeliczaniu wartość zamienia się najpierw na jednostkę bazową, a potem na docelową, co jest równoznaczne z pomnożeniem przez jeden współczynnik. Wyjątkiem jest temperatura: skale mają różne punkty zerowe, dlatego potrzebny jest wzór z przesunięciem.", "ex": "Przykład: 5 km × 0,621371 ≈ 3,11 mi", "h4": "Warto wiedzieć", "lim": "<li>Jednostki amerykańskie i brytyjskie nie zawsze są takie same: galon amerykański to około 3,785 litra, a brytyjski (imperialny) około 4,546 litra. Ta strona używa dla objętości jednostek amerykańskich.</li><li>Jednostki danych kB, MB i GB opierają się na potęgach 1000 (tak sprzedaje się dyski), a KiB, MiB i GiB na potęgach 1024 (tak często podają systemy operacyjne).</li><li>Rok liczony jest jako 365,25 dnia. Miesięcy nie ma w ofercie, bo ich długość jest różna.</li><li>Wyniki są zaokrąglane do 8 cyfr znaczących.</li><li>Ciśnienie: 1 atm = 101 325 Pa, 1 bar = 100 000 Pa, a 1 tor to 1/760 atmosfery (około 1 mmHg). Nie rozróżnia się ciśnienia względnego i bezwzględnego, np. psi w oponach.</li><li>Energia i moc to różne wielkości: energię mierzy się w dżulach lub kWh, moc (energię w jednostce czasu) w watach lub koniach mechanicznych. Dlatego są to osobne kategorie. 1 kWh to 1 kW działający przez godzinę.</li><li>Kaloria (cal) to 4,184 J, a kaloria żywieniowa na opakowaniach to kilokaloria (kcal). Koń mechaniczny (hp) to około 745,7 W, a metryczny (PS, KM) około 735,5 W.</li>", "note": "Wyniki mają charakter informacyjny. W celach technicznych, medycznych lub prawnych zawsze sprawdź oficjalne definicje jednostek.", "from": "Z jednostki"}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Convertisseur d’unités", "sub": "Convertissez instantanément longueur, masse, température, surface, volume, vitesse, durée, pression, énergie, puissance et données.", "value": "Valeur", "to": "Vers", "swap": "Inverser les unités", "hint": "Saisissez une valeur à convertir.", "all": "Toutes les unités de cette catégorie", "common": "Conversions courantes", "h1": "Les systèmes de mesure", "p1": "La majeure partie du monde utilise le système métrique (SI), dont les unités reposent sur des puissances de dix : un kilomètre fait 1 000 mètres et un kilogramme 1 000 grammes. Les États-Unis, et dans une moindre mesure le Royaume-Uni, emploient encore des unités impériales comme le mile, la livre et le gallon. Un convertisseur d’unités fait le pont entre les deux.", "h2": "Comment fonctionne la conversion", "p2": "Chaque unité est un multiple fixe d’une unité de base, par exemple 1 pouce = 0,0254 mètre. Pour convertir, on ramène d’abord la valeur à l’unité de base, puis à l’unité cible, ce qui revient à multiplier par un seul facteur. La température fait exception : les échelles ont des zéros différents, il faut donc une formule avec décalage.", "ex": "Exemple : 5 km × 0,621371 ≈ 3,11 mi", "h4": "Bon à savoir", "lim": "<li>Les unités américaines et britanniques ne sont pas toujours identiques : un gallon US vaut environ 3,785 litres, un gallon britannique (impérial) environ 4,546 litres. Cette page utilise les unités US pour les volumes.</li><li>Les unités kB, MB et GB utilisent des puissances de 1 000 (comme sont vendus les disques), tandis que KiB, MiB et GiB utilisent des puissances de 1 024 (comme l’affichent souvent les systèmes d’exploitation).</li><li>Une année vaut 365,25 jours. Les mois ne sont pas proposés, car leur durée varie.</li><li>Les résultats sont arrondis à 8 chiffres significatifs.</li><li>Pression : 1 atm = 101 325 Pa, 1 bar = 100 000 Pa et 1 torr vaut 1/760 d’atmosphère (environ 1 mmHg). La pression relative et la pression absolue, par exemple les psi des pneus, ne sont pas distinguées.</li><li>L’énergie et la puissance sont deux grandeurs différentes : l’énergie se mesure en joules ou en kWh, la puissance (énergie par unité de temps) en watts ou en chevaux-vapeur. Ce sont donc des catégories séparées. 1 kWh correspond à 1 kW pendant une heure.</li><li>La calorie (cal) vaut 4,184 J ; la calorie alimentaire des étiquettes est la kilocalorie (kcal). Le cheval-vapeur mécanique (hp) vaut environ 745,7 W, le cheval-vapeur métrique (PS) environ 735,5 W.</li>", "note": "Les résultats sont fournis à titre d’information générale. Pour un usage technique, médical ou juridique, vérifiez toujours les définitions officielles des unités.", "from": "De"}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Conversor de unidades", "sub": "Convierte al instante longitud, masa, temperatura, superficie, volumen, velocidad, tiempo, presión, energía, potencia y datos.", "value": "Valor", "to": "A", "swap": "Intercambiar unidades", "hint": "Introduce un valor para convertir.", "all": "Todas las unidades de esta categoría", "common": "Conversiones habituales", "h1": "Sistemas de medida", "p1": "Gran parte del mundo usa el sistema métrico (SI), cuyas unidades se basan en potencias de diez: un kilómetro son 1000 metros y un kilogramo 1000 gramos. Estados Unidos, y en menor medida el Reino Unido, siguen usando unidades imperiales como millas, libras y galones. Un conversor de unidades une ambos mundos.", "h2": "Cómo funciona la conversión", "p2": "Cada unidad es un múltiplo fijo de una unidad base, por ejemplo 1 pulgada = 0,0254 metros. Al convertir, el valor se pasa primero a la unidad base y después a la unidad de destino, lo que equivale a multiplicar por un único factor. La temperatura es la excepción: las escalas tienen ceros distintos, así que hace falta una fórmula con desplazamiento.", "ex": "Ejemplo: 5 km × 0,621371 ≈ 3,11 mi", "h4": "Conviene saber", "lim": "<li>Las unidades de EE. UU. y del Reino Unido no siempre coinciden: un galón estadounidense son unos 3,785 litros y un galón británico (imperial) unos 4,546 litros. Esta página usa unidades estadounidenses para el volumen.</li><li>Las unidades kB, MB y GB usan potencias de 1000 (como se venden los discos), mientras que KiB, MiB y GiB usan potencias de 1024 (como suelen mostrar los sistemas operativos).</li><li>Un año se toma como 365,25 días. No se ofrecen meses porque su duración varía.</li><li>Los resultados se redondean a 8 cifras significativas.</li><li>Presión: 1 atm = 101 325 Pa, 1 bar = 100 000 Pa y 1 torr es 1/760 de atmósfera (aprox. 1 mmHg). No se distingue entre presión manométrica y absoluta, por ejemplo los psi de los neumáticos.</li><li>La energía y la potencia son magnitudes distintas: la energía se mide en julios o kWh y la potencia (energía por unidad de tiempo) en vatios o caballos de vapor. Por eso son categorías separadas. 1 kWh equivale a 1 kW durante una hora.</li><li>La caloría (cal) equivale a 4,184 J; la caloría de los alimentos en las etiquetas es la kilocaloría (kcal). El caballo de vapor mecánico (hp) son unos 745,7 W y el métrico (PS) unos 735,5 W.</li>", "note": "Los resultados son informativos. Para fines técnicos, médicos o legales, comprueba siempre las definiciones oficiales de las unidades.", "from": "De"}};
+const DATA={"length": {"n": "Length|Dĺžka|Länge|Délka|Długość|Longueur|Longitud", "d": ["km", "mi"], "u": [["mm", 0.001, "millimetre|milimeter|Millimeter|milimetr|milimetr|millimètre|milímetro"], ["cm", 0.01, "centimetre|centimeter|Zentimeter|centimetr|centymetr|centimètre|centímetro"], ["m", 1, "metre|meter|Meter|metr|metr|mètre|metro"], ["km", 1000, "kilometre|kilometer|Kilometer|kilometr|kilometr|kilomètre|kilómetro"], ["in", 0.0254, "inch|palec|Zoll|palec|cal|pouce|pulgada"], ["ft", 0.3048, "foot|stopa|Fuß|stopa|stopa|pied|pie"], ["yd", 0.9144, "yard|yard|Yard|yard|jard|yard|yarda"], ["mi", 1609.344, "mile|míľa|Meile|míle|mila|mille|milla"]]}, "mass": {"n": "Mass|Hmotnosť|Masse|Hmotnost|Masa|Masse|Masa", "d": ["kg", "lb"], "u": [["mg", 1e-06, "milligram|miligram|Milligramm|miligram|miligram|milligramme|miligramo"], ["g", 0.001, "gram|gram|Gramm|gram|gram|gramme|gramo"], ["kg", 1, "kilogram|kilogram|Kilogramm|kilogram|kilogram|kilogramme|kilogramo"], ["t", 1000, "tonne|tona|Tonne|tuna|tona|tonne|tonelada"], ["oz", 0.028349523125, "ounce|unca|Unze|unce|uncja|once|onza"], ["lb", 0.45359237, "pound|libra|Pfund|libra|funt|livre|libra"]]}, "temperature": {"n": "Temperature|Teplota|Temperatur|Teplota|Temperatura|Température|Temperatura", "d": ["°C", "°F"], "u": [["°C", "C", "degree Celsius|stupeň Celzia|Grad Celsius|stupeň Celsia|stopień Celsjusza|degré Celsius|grado Celsius"], ["°F", "F", "degree Fahrenheit|stupeň Fahrenheita|Grad Fahrenheit|stupeň Fahrenheita|stopień Fahrenheita|degré Fahrenheit|grado Fahrenheit"], ["K", "K", "kelvin|kelvin|Kelvin|kelvin|kelwin|kelvin|kelvin"]]}, "area": {"n": "Area|Plocha|Fläche|Plocha|Powierzchnia|Surface|Superficie", "d": ["m²", "ft²"], "u": [["cm²", 0.0001, "square centimetre|štvorcový centimeter|Quadratzentimeter|čtvereční centimetr|centymetr kwadratowy|centimètre carré|centímetro cuadrado"], ["m²", 1, "square metre|štvorcový meter|Quadratmeter|čtvereční metr|metr kwadratowy|mètre carré|metro cuadrado"], ["ha", 10000, "hectare|hektár|Hektar|hektar|hektar|hectare|hectárea"], ["km²", 1000000.0, "square kilometre|štvorcový kilometer|Quadratkilometer|čtvereční kilometr|kilometr kwadratowy|kilomètre carré|kilómetro cuadrado"], ["ft²", 0.09290304, "square foot|štvorcová stopa|Quadratfuß|čtvereční stopa|stopa kwadratowa|pied carré|pie cuadrado"], ["ac", 4046.8564224, "acre|aker|Acre|akr|akr|acre|acre"]]}, "volume": {"n": "Volume|Objem|Volumen|Objem|Objętość|Volume|Volumen", "d": ["l", "gal"], "u": [["ml", 0.001, "millilitre|mililiter|Milliliter|mililitr|mililitr|millilitre|mililitro"], ["l", 1, "litre|liter|Liter|litr|litr|litre|litro"], ["m³", 1000, "cubic metre|kubický meter|Kubikmeter|krychlový metr|metr sześcienny|mètre cube|metro cúbico"], ["fl oz", 0.0295735295625, "US fluid ounce|americká tekutá unca|US-Flüssigunze|americká tekutá unce|amerykańska uncja płynu|once liquide US|onza líquida EE. UU."], ["cup", 0.2365882365, "US cup|americký pohár|US-Cup|americký hrnek|amerykańska szklanka|tasse US|taza EE. UU."], ["gal", 3.785411784, "US gallon|americký galón|US-Gallone|americký galon|galon amerykański|gallon US|galón EE. UU."]]}, "speed": {"n": "Speed|Rýchlosť|Geschwindigkeit|Rychlost|Prędkość|Vitesse|Velocidad", "d": ["km/h", "mph"], "u": [["m/s", 1, "metre per second|meter za sekundu|Meter pro Sekunde|metr za sekundu|metr na sekundę|mètre par seconde|metro por segundo"], ["km/h", 0.2777777777777778, "kilometre per hour|kilometer za hodinu|Kilometer pro Stunde|kilometr za hodinu|kilometr na godzinę|kilomètre par heure|kilómetro por hora"], ["mph", 0.44704, "mile per hour|míľa za hodinu|Meile pro Stunde|míle za hodinu|mila na godzinę|mile par heure|milla por hora"], ["kn", 0.5144444444444445, "knot|uzol|Knoten|uzel|węzeł|nœud|nudo"]]}, "time": {"n": "Time|Čas|Zeit|Čas|Czas|Temps|Tiempo", "d": ["h", "min"], "u": [["s", 1, "second|sekunda|Sekunde|sekunda|sekunda|seconde|segundo"], ["min", 60, "minute|minúta|Minute|minuta|minuta|minute|minuto"], ["h", 3600, "hour|hodina|Stunde|hodina|godzina|heure|hora"], ["d", 86400, "day|deň|Tag|den|dzień|jour|día"], ["wk", 604800, "week|týždeň|Woche|týden|tydzień|semaine|semana"], ["yr", 31557600, "year|rok|Jahr|rok|rok|année|año"]]}, "pressure": {"n": "Pressure|Tlak|Druck|Tlak|Ciśnienie|Pression|Presión", "d": ["bar", "psi"], "u": [["Pa", 1, "pascal|pascal|Pascal|pascal|paskal|pascal|pascal"], ["hPa", 100, "hectopascal|hektopascal|Hektopascal|hektopascal|hektopaskal|hectopascal|hectopascal"], ["kPa", 1000, "kilopascal|kilopascal|Kilopascal|kilopascal|kilopaskal|kilopascal|kilopascal"], ["bar", 100000.0, "bar|bar|Bar|bar|bar|bar|bar"], ["psi", 6894.757293168, "pound per square inch|libra na štvorcový palec|Pfund pro Quadratzoll|libra na čtvereční palec|funt na cal kwadratowy|livre par pouce carré|libra por pulgada cuadrada"], ["atm", 101325, "standard atmosphere|štandardná atmosféra|Standardatmosphäre|standardní atmosféra|atmosfera fizyczna|atmosphère normale|atmósfera estándar"], ["Torr", 133.32236842105263, "torr|torr|Torr|torr|tor|torr|torr"]]}, "energy": {"n": "Energy|Energia|Energie|Energie|Energia|Énergie|Energía", "d": ["kWh", "kJ"], "u": [["J", 1, "joule|joule|Joule|joule|dżul|joule|julio"], ["kJ", 1000, "kilojoule|kilojoule|Kilojoule|kilojoule|kilodżul|kilojoule|kilojulio"], ["Wh", 3600, "watt-hour|watthodina|Wattstunde|watthodina|watogodzina|wattheure|vatio-hora"], ["kWh", 3600000.0, "kilowatt-hour|kilowatthodina|Kilowattstunde|kilowatthodina|kilowatogodzina|kilowattheure|kilovatio-hora"], ["cal", 4.184, "calorie|kalória|Kalorie|kalorie|kaloria|calorie|caloría"], ["kcal", 4184, "kilocalorie|kilokalória|Kilokalorie|kilokalorie|kilokaloria|kilocalorie|kilocaloría"]]}, "power": {"n": "Power|Výkon|Leistung|Výkon|Moc|Puissance|Potencia", "d": ["kW", "hp"], "u": [["W", 1, "watt|watt|Watt|watt|wat|watt|vatio"], ["kW", 1000, "kilowatt|kilowatt|Kilowatt|kilowatt|kilowat|kilowatt|kilovatio"], ["MW", 1000000.0, "megawatt|megawatt|Megawatt|megawatt|megawat|mégawatt|megavatio"], ["hp", 745.6998715822702, "horsepower (mechanical)|konská sila (mechanická)|Pferdestärke (mechanisch)|koňská síla (mechanická)|koń mechaniczny (hp)|cheval-vapeur (mécanique)|caballo de vapor (mecánico)"], ["PS", 735.49875, "metric horsepower|metrická konská sila|PS (metrische Pferdestärke)|metrická koňská síla|koń mechaniczny (KM)|cheval-vapeur (métrique)|caballo de vapor (métrico)"]]}, "data": {"n": "Data|Dáta|Daten|Data|Dane|Données|Datos", "d": ["GB", "MB"], "u": [["B", 1, "byte|bajt|Byte|bajt|bajt|octet|byte"], ["kB", 1000.0, "kilobyte|kilobajt|Kilobyte|kilobajt|kilobajt|kilooctet|kilobyte"], ["MB", 1000000.0, "megabyte|megabajt|Megabyte|megabajt|megabajt|mégaoctet|megabyte"], ["GB", 1000000000.0, "gigabyte|gigabajt|Gigabyte|gigabajt|gigabajt|gigaoctet|gigabyte"], ["TB", 1000000000000.0, "terabyte|terabajt|Terabyte|terabajt|terabajt|téraoctet|terabyte"], ["KiB", 1024, "kibibyte|kibibajt|Kibibyte|kibibajt|kibibajt|kibioctet|kibibyte"], ["MiB", 1048576, "mebibyte|mebibajt|Mebibyte|mebibajt|mebibajt|mébioctet|mebibyte"], ["GiB", 1073741824, "gibibyte|gibibajt|Gibibyte|gibibajt|gibibajt|gibioctet|gibibyte"]]}};
+const PRE=[["length", "in", "cm"], ["length", "mi", "km"], ["mass", "lb", "kg"], ["volume", "gal", "l"], ["speed", "kn", "km/h"], ["temperature", "°F", "°C"], ["pressure", "psi", "bar"], ["pressure", "atm", "kPa"], ["energy", "kWh", "kJ"], ["energy", "kcal", "kJ"], ["power", "hp", "kW"], ["data", "GiB", "GB"]];
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/units.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Unit Converter – Length, Weight, Temperature | calc-hub.eu", "d": "Free unit converter for length, mass, temperature, pressure, energy, power, speed, volume and more. Convert bar, psi, kWh, joules, horsepower and metric or imperial units instantly."}, "sk": {"t": "Prevodník jednotiek – dĺžka, hmotnosť, teplota | calc-hub.eu", "d": "Bezplatný prevodník jednotiek pre dĺžku, hmotnosť, teplotu, tlak, energiu, výkon, rýchlosť a objem. Prepočítaj bar, psi, kWh, joule, konské sily aj imperiálne jednotky."}, "de": {"t": "Einheitenumrechner – Länge, Gewicht, Temperatur | calc-hub.eu", "d": "Kostenloser Einheitenumrechner für Länge, Masse, Temperatur, Druck, Energie, Leistung, Geschwindigkeit und Volumen. Bar, psi, kWh, Joule, PS und imperiale Einheiten sofort umrechnen."}, "cs": {"t": "Převodník jednotek – délka, hmotnost, teplota | calc-hub.eu", "d": "Bezplatný převodník jednotek pro délku, hmotnost, teplotu, tlak, energii, výkon, rychlost a objem. Přepočítej bar, psi, kWh, joule, koňské síly i imperiální jednotky."}, "pl": {"t": "Przelicznik jednostek – długość, waga, temperatura | calc-hub.eu", "d": "Darmowy przelicznik jednostek długości, masy, temperatury, ciśnienia, energii, mocy, prędkości i objętości. Przeliczaj bary, psi, kWh, dżule, konie mechaniczne i jednostki imperialne."}, "fr": {"t": "Convertisseur d’unités – longueur, poids, température | calc-hub.eu", "d": "Convertisseur d’unités gratuit pour longueur, masse, température, pression, énergie, puissance, vitesse et volume. Convertissez bar, psi, kWh, joules, chevaux-vapeur et unités impériales."}, "es": {"t": "Conversor de unidades – longitud, peso, temperatura | calc-hub.eu", "d": "Conversor de unidades gratis para longitud, masa, temperatura, presión, energía, potencia, velocidad y volumen. Convierte bar, psi, kWh, julios, caballos de vapor y unidades imperiales."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies'],es:['Privacidad y cookies','Configuración de privacidad y cookies']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;f.innerHTML=`<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a><span class="mx-2">·</span><button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-IE',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const nf=n=>new Intl.NumberFormat(LOC[lang],{maximumSignificantDigits:8}).format(n);
+const nm=u=>u[2].split('|')[IDX[lang]];
+const find=(c,s)=>DATA[c].u.find(u=>u[0]===s);
+function toBase(v,f){return typeof f==='number'?v*f:f==='C'?v+273.15:f==='F'?(v-32)*5/9+273.15:v}
+function fromBase(v,f){return typeof f==='number'?v/f:f==='C'?v-273.15:f==='F'?(v-273.15)*9/5+32:v}
+const conv=(v,c,a,b)=>fromBase(toBase(v,find(c,a)[1]),find(c,b)[1]);
+
+function buildTabs(){
+  $('tabs').innerHTML=Object.keys(DATA).map(c=>`<button class="chip" role="tab" data-c="${c}" aria-pressed="${c===cat}">${DATA[c].n.split('|')[IDX[lang]]}</button>`).join('');
+}
+function buildSel(){
+  const o=DATA[cat].u.map(u=>`<option value="${u[0]}">${u[0]} – ${nm(u)}</option>`).join('');
+  $('uf').innerHTML=o;$('ut').innerHTML=o;$('uf').value=uf;$('ut').value=ut;
+}
+function buildPre(){
+  $('pre').innerHTML=PRE.map(([c,a,b],i)=>`<button class="urow" data-p="${i}"><span>${DATA[c].n.split('|')[IDX[lang]]}</span><span class="v">1 ${a} = ${nf(conv(1,c,a,b))} ${b}</span></button>`).join('');
+}
+function text(){
+  const L=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=L[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  $('sw').setAttribute('aria-label',L.swap);
+  buildTabs();buildSel();buildPre();syncLang();calc();
+}
+function calc(){
+  const raw=$('fa').value,a=+raw,ok=raw!==''&&isFinite(a);
+  $('res').classList.toggle('hidden',!ok);$('hint').classList.toggle('hidden',ok);
+  if(!ok){$('allu').innerHTML='';return}
+  const r=conv(a,cat,uf,ut);
+  $('l1').textContent=`${nf(a)} ${uf} =`;
+  $('big').textContent=`${nf(r)} ${ut}`;
+  $('l2').textContent=`1 ${uf} = ${nf(conv(1,cat,uf,ut))} ${ut}  ·  1 ${ut} = ${nf(conv(1,cat,ut,uf))} ${uf}`;
+  $('allu').innerHTML=DATA[cat].u.map(u=>`<button class="urow${u[0]===ut?' on':''}" data-u="${u[0]}"><span><b class="text-white">${u[0]}</b> ${nm(u)}</span><span class="v">${nf(conv(a,cat,uf,u[0]))}</span></button>`).join('');
+}
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;cat=b.dataset.c;[uf,ut]=DATA[cat].d;buildTabs();buildSel();calc()});
+$('fa').addEventListener('input',calc);
+$('uf').addEventListener('change',e=>{uf=e.target.value;calc()});
+$('ut').addEventListener('change',e=>{ut=e.target.value;calc()});
+$('sw').addEventListener('click',()=>{[uf,ut]=[ut,uf];$('uf').value=uf;$('ut').value=ut;calc()});
+$('allu').addEventListener('click',e=>{const b=e.target.closest('[data-u]');if(!b)return;ut=b.dataset.u;$('ut').value=ut;calc()});
+$('pre').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;const [c,a,t]=PRE[+b.dataset.p];cat=c;uf=a;ut=t;$('fa').value='1';buildTabs();buildSel();calc();window.scrollTo({top:0,behavior:'smooth'})});
+initLang(text);text();
+</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Date Calculator – Days Between Dates, Countdown | calc-hub.eu</title>
+<meta name="description" content="Free date calculator: days between two dates, countdown to Christmas or New Year, add or subtract days, working days, age and week number.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/dates.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/dates.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/dates.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/dates.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/dates.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/dates.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/dates.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/dates.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/dates.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Date Calculator – Days Between Dates, Countdown | calc-hub.eu">
+<meta property="og:description" content="Free date calculator: days between two dates, countdown to Christmas or New Year, add or subtract days, working days, age and week number.">
+<meta property="og:url" content="https://calc-hub.eu/dates.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Date Calculator – Days Between Dates, Countdown | calc-hub.eu">
+<meta name="twitter:description" content="Free date calculator: days between two dates, countdown to Christmas or New Year, add or subtract days, working days, age and week number.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+.chip{padding:.5rem 1rem;border-radius:99px;font-size:.85rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.6)}
+.stat{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.65rem 1rem}
+.stat b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.box{display:flex;flex-direction:column;align-items:center;gap:.15rem;padding:.7rem .3rem;border-radius:.8rem;background:rgba(var(--accent-rgb),.08);border:1px solid rgba(var(--accent-rgb),.25);font-size:.7rem;color:#8b94a7}
+.box b{font-size:1.5rem;color:#fff;font-variant-numeric:tabular-nums}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0}
+.field select option{background:#0d111a;color:#fff}
+.field input[type=date]{font-size:1.05rem}
+.chk{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:#a3acbf;cursor:pointer}
+.chk input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+
+  <div id="tabs" class="mt-8 flex flex-wrap gap-2" role="tablist"></div>
+
+  <section class="glass mt-4 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div id="fields" class="space-y-5"></div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <p id="err" class="hidden text-center" style="color:#f87171"></p>
+      <div id="res" class="hidden">
+        <p id="rl" class="text-sm" style="color:#8b94a7"></p>
+        <span id="big" class="grad mt-1 block break-words text-3xl font-bold leading-tight tracking-tight sm:text-4xl"></span>
+        <div id="bx" class="mt-5 grid grid-cols-4 gap-2"></div>
+        <div id="xs" class="mt-5 space-y-2"></div>
+        <p id="nt" class="mt-4 text-xs" style="color:#667085"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-dates-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></section>
+    </div>
+    <aside class="md:col-span-2">
+      <h2 class="text-2xl font-semibold text-white" data-i="h3"></h2>
+      <div id="units" class="mt-3 space-y-2"></div>
+    </aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-dates-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-dates-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-dates-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en',mode='diff',tgt=null;
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Date Calculator", "sub": "Find the difference between two dates, count down to Christmas or any day, add or subtract time, and work out an age.", "h1": "How date calculations work", "p1": "Calendar dates are counted in whole days. The difference between two dates is the number of days from one to the other, and it can also be split into years, months and days. Because months have 28 to 31 days, the years-months-days breakdown counts full months first and then the remaining days.", "h4": "Good to know", "lim": "<li>A common year has 365 days; a leap year has 366. A year is a leap year if it is divisible by 4, except century years, which must be divisible by 400 (2000 was a leap year, 1900 was not).</li><li>ISO week numbers start on Monday, and week 1 is the week containing the first Thursday of the year.</li><li>Whether the last day is counted matters: from 1 to 10 January is 9 days, or 10 days if both the first and last day are included.</li><li>Working days here are Monday to Friday. Public holidays differ by country and are not subtracted.</li><li>Christmas Eve (24 December) is the main celebration in many Central European countries, while Christmas Day is 25 December. Easter moves every year and is calculated from the lunar calendar (the Sunday after the first full moon on or after 21 March).</li>", "h3": "Time units at a glance"}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka dátumov", "sub": "Zisti rozdiel dvoch dátumov, odpočítavaj do Vianoc či ľubovoľného dňa, pripočítaj alebo odpočítaj čas a vypočítaj vek.", "h1": "Ako fungujú výpočty s dátumami", "p1": "Kalendárne dátumy sa počítajú v celých dňoch. Rozdiel dvoch dátumov je počet dní od jedného k druhému a dá sa rozložiť aj na roky, mesiace a dni. Keďže mesiace majú 28 až 31 dní, rozklad na roky, mesiace a dni najprv spočíta celé mesiace a potom zvyšné dni.", "h4": "Dobré vedieť", "lim": "<li>Bežný rok má 365 dní, priestupný 366. Priestupný je rok deliteľný 4, okrem storočí, ktoré musia byť deliteľné 400 (rok 2000 bol priestupný, 1900 nie).</li><li>Čísla týždňov podľa ISO sa začínajú pondelkom a týždeň 1 je ten, v ktorom je prvý štvrtok roka.</li><li>Záleží na tom, či sa započítava posledný deň: od 1. do 10. januára je 9 dní, alebo 10 dní, ak sa počíta prvý aj posledný deň.</li><li>Pracovné dni sú tu pondelok až piatok. Štátne sviatky sa v jednotlivých krajinách líšia a neodpočítavajú sa.</li><li>Štedrý deň (24. decembra) je v mnohých krajinách strednej Európy hlavným sviatkom, kým Prvý sviatok vianočný je 25. decembra. Veľká noc sa každý rok posúva a určuje sa podľa lunárneho kalendára (nedeľa po prvom splne od 21. marca).</li>", "h3": "Časové jednotky v kocke"}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Datumsrechner", "sub": "Berechne die Differenz zweier Daten, zähle bis Weihnachten oder zu jedem Tag herunter, addiere oder subtrahiere Zeit und ermittle das Alter.", "h1": "So funktionieren Datumsberechnungen", "p1": "Kalenderdaten werden in ganzen Tagen gezählt. Der Unterschied zweier Daten ist die Anzahl der Tage von einem zum anderen und lässt sich auch in Jahre, Monate und Tage aufteilen. Da Monate 28 bis 31 Tage haben, zählt die Aufteilung in Jahre, Monate und Tage zuerst volle Monate und dann die übrigen Tage.", "h4": "Gut zu wissen", "lim": "<li>Ein normales Jahr hat 365 Tage, ein Schaltjahr 366. Schaltjahre sind durch 4 teilbar, außer Jahrhundertjahre, die durch 400 teilbar sein müssen (2000 war ein Schaltjahr, 1900 nicht).</li><li>ISO-Kalenderwochen beginnen am Montag, und Woche 1 ist die Woche mit dem ersten Donnerstag des Jahres.</li><li>Es kommt darauf an, ob der letzte Tag mitgezählt wird: Vom 1. bis 10. Januar sind es 9 Tage, oder 10 Tage, wenn erster und letzter Tag mitzählen.</li><li>Werktage sind hier Montag bis Freitag. Feiertage unterscheiden sich je nach Land und werden nicht abgezogen.</li><li>Heiligabend (24. Dezember) ist in vielen mitteleuropäischen Ländern der Hauptfeiertag, der erste Weihnachtsfeiertag ist der 25. Dezember. Ostern wandert jedes Jahr und wird aus dem Mondkalender berechnet (der Sonntag nach dem ersten Vollmond ab dem 21. März).</li>", "h3": "Zeiteinheiten im Überblick"}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka dat", "sub": "Zjisti rozdíl dvou dat, odpočítávej do Vánoc či libovolného dne, přičti nebo odečti čas a spočítej věk.", "h1": "Jak fungují výpočty s daty", "p1": "Kalendářní data se počítají v celých dnech. Rozdíl dvou dat je počet dní od jednoho k druhému a lze ho rozložit i na roky, měsíce a dny. Protože měsíce mají 28 až 31 dní, rozklad na roky, měsíce a dny nejprve spočítá celé měsíce a poté zbývající dny.", "h4": "Dobré vědět", "lim": "<li>Běžný rok má 365 dní, přestupný 366. Přestupný je rok dělitelný 4, kromě století, která musí být dělitelná 400 (rok 2000 byl přestupný, 1900 ne).</li><li>Čísla týdnů podle ISO začínají pondělkem a týden 1 je ten, ve kterém je první čtvrtek roku.</li><li>Záleží na tom, zda se počítá poslední den: od 1. do 10. ledna je 9 dní, nebo 10 dní, pokud se počítá první i poslední den.</li><li>Pracovní dny jsou zde pondělí až pátek. Státní svátky se v jednotlivých zemích liší a neodečítají se.</li><li>Štědrý den (24. prosince) je v mnoha zemích střední Evropy hlavním svátkem, zatímco Hod boží vánoční je 25. prosince. Velikonoce se každý rok posouvají a určují se podle lunárního kalendáře (neděle po prvním úplňku od 21. března).</li>", "h3": "Časové jednotky v kostce"}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator dat", "sub": "Sprawdź różnicę dwóch dat, odliczaj do Świąt lub dowolnego dnia, dodawaj i odejmuj czas oraz oblicz wiek.", "h1": "Jak działają obliczenia na datach", "p1": "Daty kalendarzowe liczy się w pełnych dniach. Różnica dwóch dat to liczba dni od jednej do drugiej, którą można też rozłożyć na lata, miesiące i dni. Ponieważ miesiące mają od 28 do 31 dni, rozkład na lata, miesiące i dni najpierw liczy pełne miesiące, a potem pozostałe dni.", "h4": "Warto wiedzieć", "lim": "<li>Zwykły rok ma 365 dni, przestępny 366. Rok jest przestępny, gdy dzieli się przez 4, z wyjątkiem pełnych setek, które muszą dzielić się przez 400 (rok 2000 był przestępny, 1900 nie).</li><li>Numery tygodni ISO zaczynają się w poniedziałek, a tydzień 1 to ten, w którym wypada pierwszy czwartek roku.</li><li>Ma znaczenie, czy liczy się ostatni dzień: od 1 do 10 stycznia to 9 dni albo 10 dni, jeśli liczy się pierwszy i ostatni dzień.</li><li>Dni robocze to tu poniedziałek–piątek. Święta państwowe różnią się w zależności od kraju i nie są odejmowane.</li><li>Wigilia (24 grudnia) jest w wielu krajach Europy Środkowej głównym świętem, a Boże Narodzenie wypada 25 grudnia. Wielkanoc przesuwa się co roku i jest wyznaczana według kalendarza księżycowego (niedziela po pierwszej pełni od 21 marca).</li>", "h3": "Jednostki czasu w skrócie"}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de dates", "sub": "Calculez l’écart entre deux dates, le compte à rebours jusqu’à Noël ou n’importe quel jour, ajoutez ou soustrayez du temps et calculez un âge.", "h1": "Comment fonctionnent les calculs de dates", "p1": "Les dates du calendrier se comptent en jours entiers. L’écart entre deux dates est le nombre de jours de l’une à l’autre, et il peut aussi se décomposer en années, mois et jours. Comme les mois ont de 28 à 31 jours, la décomposition compte d’abord les mois complets, puis les jours restants.", "h4": "Bon à savoir", "lim": "<li>Une année ordinaire compte 365 jours, une année bissextile 366. Une année est bissextile si elle est divisible par 4, sauf les années séculaires, qui doivent être divisibles par 400 (2000 était bissextile, 1900 non).</li><li>Les numéros de semaine ISO commencent le lundi, et la semaine 1 est celle qui contient le premier jeudi de l’année.</li><li>Compter ou non le dernier jour change le résultat : du 1er au 10 janvier, il y a 9 jours, ou 10 si le premier et le dernier jour sont inclus.</li><li>Les jours ouvrés sont ici du lundi au vendredi. Les jours fériés varient selon les pays et ne sont pas retranchés.</li><li>La veille de Noël (24 décembre) est la fête principale dans plusieurs pays d’Europe centrale, tandis que Noël tombe le 25 décembre. Pâques change chaque année et se calcule d’après le calendrier lunaire (le dimanche après la première pleine lune à partir du 21 mars).</li>", "h3": "Les unités de temps en bref"}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de fechas", "sub": "Calcula la diferencia entre dos fechas, la cuenta atrás hasta Navidad o cualquier día, suma o resta tiempo y averigua una edad.", "h1": "Cómo funcionan los cálculos con fechas", "p1": "Las fechas del calendario se cuentan en días completos. La diferencia entre dos fechas es el número de días de una a otra y también se puede dividir en años, meses y días. Como los meses tienen de 28 a 31 días, el desglose cuenta primero los meses completos y después los días restantes.", "h4": "Conviene saber", "lim": "<li>Un año común tiene 365 días y uno bisiesto 366. Un año es bisiesto si es divisible entre 4, salvo los años de siglo, que deben ser divisibles entre 400 (2000 fue bisiesto, 1900 no).</li><li>Los números de semana ISO empiezan en lunes y la semana 1 es la que contiene el primer jueves del año.</li><li>Importa si se cuenta el último día: del 1 al 10 de enero hay 9 días, o 10 si se incluyen el primer y el último día.</li><li>Los días laborables son aquí de lunes a viernes. Los festivos varían según el país y no se restan.</li><li>Nochebuena (24 de diciembre) es la fiesta principal en varios países de Europa central, mientras que la Navidad es el 25 de diciembre. La Pascua cambia cada año y se calcula con el calendario lunar (el domingo posterior a la primera luna llena desde el 21 de marzo).</li>", "h3": "Las unidades de tiempo de un vistazo"}};
+const PIPE={"m_diff": "Difference between dates|Rozdiel dátumov|Datumsdifferenz|Rozdíl dat|Różnica dat|Écart entre dates|Diferencia de fechas", "m_count": "Countdown|Odpočet|Countdown|Odpočet|Odliczanie|Compte à rebours|Cuenta atrás", "m_add": "Add or subtract|Pripočítať alebo odpočítať|Addieren oder subtrahieren|Přičíst nebo odečíst|Dodaj lub odejmij|Ajouter ou soustraire|Sumar o restar", "m_age": "Age|Vek|Alter|Věk|Wiek|Âge|Edad", "m_info": "Date info|Informácie o dátume|Datumsinfo|Informace o datu|Informacje o dacie|Infos sur la date|Información de fecha", "d1": "From|Od|Von|Od|Od|Du|Desde", "d2": "To|Do|Bis|Do|Do|Au|Hasta", "incl": "Include the end day|Započítať aj posledný deň|Endtag mitzählen|Započítat i poslední den|Wlicz ostatni dzień|Inclure le dernier jour|Incluir el último día", "cdsel": "Count down to|Odpočítavať do|Countdown bis|Odpočítávat do|Odliczaj do|Compte à rebours jusqu’à|Cuenta atrás hasta", "cd": "Date|Dátum|Datum|Datum|Data|Date|Fecha", "a0": "Start date|Východiskový dátum|Startdatum|Výchozí datum|Data początkowa|Date de départ|Fecha de inicio", "op": "Operation|Operácia|Vorgang|Operace|Działanie|Opération|Operación", "n": "Amount|Množstvo|Anzahl|Množství|Ilość|Quantité|Cantidad", "u": "Unit|Jednotka|Einheit|Jednotka|Jednostka|Unité|Unidad", "b0": "Date of birth|Dátum narodenia|Geburtsdatum|Datum narození|Data urodzenia|Date de naissance|Fecha de nacimiento", "b1": "Age on|Vek k dátumu|Alter am|Věk k datu|Wiek na dzień|Âge au|Edad a fecha", "o_eve": "Christmas Eve (24 Dec)|Štedrý deň (24. 12.)|Heiligabend (24.12.)|Štědrý den (24. 12.)|Wigilia (24.12)|Veille de Noël (24 déc.)|Nochebuena (24 dic.)", "o_xmas": "Christmas Day (25 Dec)|Prvý sviatok vianočný (25. 12.)|Weihnachten (25.12.)|Hod boží vánoční (25. 12.)|Boże Narodzenie (25.12)|Noël (25 déc.)|Navidad (25 dic.)", "o_ny": "New Year (1 Jan)|Nový rok (1. 1.)|Neujahr (1.1.)|Nový rok (1. 1.)|Nowy Rok (1.01)|Nouvel An (1er janv.)|Año Nuevo (1 ene.)", "o_easter": "Easter Sunday|Veľkonočná nedeľa|Ostersonntag|Velikonoční neděle|Niedziela Wielkanocna|Dimanche de Pâques|Domingo de Pascua", "o_custom": "Custom date|Vlastný dátum|Eigenes Datum|Vlastní datum|Własna data|Date personnalisée|Fecha personalizada", "o_add": "Add|Pripočítať|Addieren|Přičíst|Dodaj|Ajouter|Sumar", "o_sub": "Subtract|Odpočítať|Subtrahieren|Odečíst|Odejmij|Soustraire|Restar", "u_days": "Days|Dni|Tage|Dny|Dni|Jours|Días", "u_weeks": "Weeks|Týždne|Wochen|Týdny|Tygodnie|Semaines|Semanas", "u_months": "Months|Mesiace|Monate|Měsíce|Miesiące|Mois|Meses", "u_years": "Years|Roky|Jahre|Roky|Lata|Années|Años", "u_bdays": "Working days|Pracovné dni|Werktage|Pracovní dny|Dni robocze|Jours ouvrés|Días laborables", "res_diff": "Difference|Rozdiel|Unterschied|Rozdíl|Różnica|Écart|Diferencia", "res_date": "Resulting date|Výsledný dátum|Ergebnisdatum|Výsledné datum|Data wynikowa|Date obtenue|Fecha resultante", "res_age": "Age|Vek|Alter|Věk|Wiek|Âge|Edad", "tdays": "Total days|Spolu dní|Tage insgesamt|Celkem dní|Łącznie dni|Total de jours|Total de días", "wd": "Weeks and days|Týždne a dni|Wochen und Tage|Týdny a dny|Tygodnie i dni|Semaines et jours|Semanas y días", "thrs": "Total hours|Spolu hodín|Stunden insgesamt|Celkem hodin|Łącznie godzin|Total d’heures|Total de horas", "bd": "Working days (Mon–Fri)|Pracovné dni (po–pi)|Werktage (Mo–Fr)|Pracovní dny (po–pá)|Dni robocze (pn–pt)|Jours ouvrés (lun–ven)|Días laborables (lun–vie)", "tg": "Target date|Cieľový dátum|Zieldatum|Cílové datum|Data docelowa|Date cible|Fecha objetivo", "cdl": "Working days left|Pracovných dní zostáva|Verbleibende Werktage|Pracovních dní zbývá|Dni roboczych pozostało|Jours ouvrés restants|Días laborables restantes", "wk": "Week number|Číslo týždňa|Kalenderwoche|Číslo týdne|Numer tygodnia|Numéro de semaine|Número de semana", "rel": "From today|Od dnes|Ab heute|Od dneška|Od dziś|À partir d’aujourd’hui|Desde hoy", "doy": "Day of the year|Deň v roku|Tag des Jahres|Den v roce|Dzień roku|Jour de l’année|Día del año", "dl": "Days left in the year|Zostáva dní v roku|Verbleibende Tage im Jahr|Zbývá dní v roce|Pozostało dni w roku|Jours restants dans l’année|Días restantes del año", "dim": "Days in the month|Dní v mesiaci|Tage im Monat|Dní v měsíci|Dni w miesiącu|Jours dans le mois|Días del mes", "leap": "Leap year|Priestupný rok|Schaltjahr|Přestupný rok|Rok przestępny|Année bissextile|Año bisiesto", "yes": "Yes|Áno|Ja|Ano|Tak|Oui|Sí", "no": "No|Nie|Nein|Ne|Nie|Non|No", "qtr": "Quarter|Štvrťrok|Quartal|Čtvrtletí|Kwartał|Trimestre|Trimestre", "tdl": "Total days lived|Prežitých dní spolu|Gelebte Tage|Prožitých dní celkem|Przeżytych dni|Jours vécus|Días vividos", "tmon": "Total months|Mesiacov spolu|Monate insgesamt|Měsíců celkem|Miesięcy łącznie|Mois au total|Meses en total", "nb": "Next birthday|Najbližšie narodeniny|Nächster Geburtstag|Nejbližší narozeniny|Najbliższe urodziny|Prochain anniversaire|Próximo cumpleaños", "bw": "Born on|Narodený v deň|Geboren am|Narozen v den|Urodzony w dniu|Né le|Nacido el", "h_h": "Hours|Hodiny|Stunden|Hodiny|Godziny|Heures|Horas", "h_m": "Minutes|Minúty|Minuten|Minuty|Minuty|Minutes|Minutos", "h_s": "Seconds|Sekundy|Sekunden|Sekundy|Sekundy|Secondes|Segundos", "hint": "Fill in the fields to see the result.|Vyplň polia a zobrazí sa výsledok.|Fülle die Felder aus, um das Ergebnis zu sehen.|Vyplň pole a zobrazí se výsledek.|Wypełnij pola, aby zobaczyć wynik.|Remplissez les champs pour voir le résultat.|Rellena los campos para ver el resultado.", "today": "It’s today!|Je to dnes!|Das ist heute!|Je to dnes!|To dzisiaj!|C’est aujourd’hui !|¡Es hoy!", "rev": "Dates were swapped automatically.|Dátumy sa automaticky vymenili.|Die Daten wurden automatisch getauscht.|Data byla automaticky prohozena.|Daty zostały automatycznie zamienione.|Les dates ont été inversées automatiquement.|Las fechas se intercambiaron automáticamente.", "eage": "The birth date is after the selected date.|Dátum narodenia je po zvolenom dátume.|Das Geburtsdatum liegt nach dem gewählten Datum.|Datum narození je po zvoleném datu.|Data urodzenia jest późniejsza niż wybrana data.|La date de naissance est postérieure à la date choisie.|La fecha de nacimiento es posterior a la fecha elegida.", "wnote": "Working days count Monday to Friday; public holidays differ by country and are not subtracted.|Pracovné dni sú pondelok až piatok; štátne sviatky sa líšia podľa krajiny a neodpočítavajú sa.|Werktage zählen Montag bis Freitag; Feiertage unterscheiden sich je nach Land und werden nicht abgezogen.|Pracovní dny jsou pondělí až pátek; státní svátky se v jednotlivých zemích liší a neodečítají se.|Dni robocze to poniedziałek–piątek; święta różnią się w zależności od kraju i nie są odejmowane.|Les jours ouvrés vont du lundi au vendredi ; les jours fériés varient selon les pays et ne sont pas retranchés.|Los días laborables son de lunes a viernes; los festivos varían según el país y no se restan."};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/dates.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Date Calculator – Days Between Dates, Countdown | calc-hub.eu", "d": "Free date calculator: days between two dates, countdown to Christmas or New Year, add or subtract days, working days, age and week number."}, "sk": {"t": "Kalkulačka dátumov – rozdiel dní, odpočet do Vianoc | calc-hub.eu", "d": "Bezplatná kalkulačka dátumov: rozdiel dní medzi dvoma dátumami, odpočet do Vianoc či Nového roka, pripočítanie dní, pracovné dni, vek a číslo týždňa."}, "de": {"t": "Datumsrechner – Tage zwischen Daten, Countdown | calc-hub.eu", "d": "Kostenloser Datumsrechner: Tage zwischen zwei Daten, Countdown bis Weihnachten oder Neujahr, Tage addieren, Werktage, Alter und Kalenderwoche."}, "cs": {"t": "Kalkulačka dat – rozdíl dní, odpočet do Vánoc | calc-hub.eu", "d": "Bezplatná kalkulačka dat: rozdíl dní mezi dvěma daty, odpočet do Vánoc či Nového roku, přičtení dní, pracovní dny, věk a číslo týdne."}, "pl": {"t": "Kalkulator dat – różnica dni, odliczanie do Świąt | calc-hub.eu", "d": "Darmowy kalkulator dat: różnica dni między datami, odliczanie do Bożego Narodzenia lub Nowego Roku, dodawanie dni, dni robocze, wiek i numer tygodnia."}, "fr": {"t": "Calculateur de dates – écart en jours, compte à rebours | calc-hub.eu", "d": "Calculateur de dates gratuit : jours entre deux dates, compte à rebours jusqu’à Noël ou au Nouvel An, ajout de jours, jours ouvrés, âge et numéro de semaine."}, "es": {"t": "Calculadora de fechas – días entre fechas, cuenta atrás | calc-hub.eu", "d": "Calculadora de fechas gratis: días entre dos fechas, cuenta atrás hasta Navidad o Año Nuevo, sumar días, días laborables, edad y número de semana."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies'],es:['Privacidad y cookies','Configuración de privacidad y cookies']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;f.innerHTML=`<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a><span class="mx-2">·</span><button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const U=(n,unit)=>new Intl.NumberFormat(LOC[lang],{style:'unit',unit,unitDisplay:'long'}).format(n);
+const NF=n=>new Intl.NumberFormat(LOC[lang]).format(n);
+const DF=(d,o)=>new Intl.DateTimeFormat(LOC[lang],Object.assign({timeZone:'UTC'},o)).format(d);
+const LONG={weekday:'long',day:'numeric',month:'long',year:'numeric'};
+const LIST=a=>new Intl.ListFormat(LOC[lang],{style:'long',type:'conjunction'}).format(a);
+const RT=n=>new Intl.RelativeTimeFormat(LOC[lang],{numeric:'auto'}).format(n,'day');
+// HELP-START
+const MS=86400000;
+const parse=s=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return null;const [y,m,d]=s.split('-').map(Number);if(y<1000)return null;const dt=new Date(Date.UTC(y,m-1,d));return dt.getUTCMonth()===m-1?dt:null};
+const iso=d=>d.toISOString().slice(0,10);
+const todayUTC=()=>{const n=new Date();return new Date(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate()))};
+const dim=(y,m)=>new Date(Date.UTC(y,m+1,0)).getUTCDate();
+const addDays=(d,n)=>new Date(d.getTime()+n*MS);
+const diffDays=(a,b)=>Math.round((b-a)/MS);
+function addMonths(d,n){const t=d.getUTCFullYear()*12+d.getUTCMonth()+n,y=Math.floor(t/12),m=t-y*12;return new Date(Date.UTC(y,m,Math.min(d.getUTCDate(),dim(y,m))))}
+function ymd(a,b){let mo=(b.getUTCFullYear()-a.getUTCFullYear())*12+b.getUTCMonth()-a.getUTCMonth();if(b.getUTCDate()<a.getUTCDate())mo--;return [Math.floor(mo/12),mo%12,diffDays(addMonths(a,mo),b),mo]}
+function bdays(a,b){let n=0;for(let t=a.getTime();t<b.getTime();t+=MS){const w=new Date(t).getUTCDay();if(w!==0&&w!==6)n++}return n}
+function addBdays(a,n){const s=n<0?-1:1;let c=Math.abs(n),d=a;while(c>0){d=addDays(d,s);const w=d.getUTCDay();if(w!==0&&w!==6)c--}return d}
+function isoWeek(d){const t=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate()));const day=t.getUTCDay()||7;t.setUTCDate(t.getUTCDate()+4-day);const y0=Date.UTC(t.getUTCFullYear(),0,1);return Math.ceil(((t-y0)/MS+1)/7)}
+const doy=d=>diffDays(new Date(Date.UTC(d.getUTCFullYear(),0,1)),d)+1;
+const leap=y=>y%4===0&&(y%100!==0||y%400===0);
+function easter(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(Date.UTC(y,mo-1,da))}
+function target(sel,custom,today){
+  if(sel==='custom')return parse(custom);
+  const y=today.getUTCFullYear(),mk=yy=>sel==='eve'?new Date(Date.UTC(yy,11,24)):sel==='xmas'?new Date(Date.UTC(yy,11,25)):sel==='ny'?new Date(Date.UTC(yy,0,1)):easter(yy);
+  let t=mk(y);if(t<today)t=mk(y+1);return t;
+}
+// HELP-END
+
+const t0=todayUTC();
+const v={d1:iso(t0),d2:iso(new Date(Date.UTC(t0.getUTCFullYear(),11,31))),incl:false,cdsel:'eve',cd:iso(addDays(t0,100)),a0:iso(t0),op:'add',n:'30',u:'days',b0:'1990-01-01',b1:iso(t0),i0:iso(t0)};
+const SEL={cdsel:['eve','xmas','ny','easter','custom'].map(k=>[k,'o_'+k]),op:[['add','o_add'],['sub','o_sub']],u:['days','weeks','months','years','bdays'].map(k=>[k,'u_'+k])};
+const FIELDS={diff:[['d1','date'],['d2','date'],['incl','check']],count:[['cdsel','select'],['cd','date']],add:[['a0','date'],['op','select'],['n','number'],['u','select']],age:[['b0','date'],['b1','date']],info:[['i0','date']]};
+const MODES=Object.keys(FIELDS);
+const parts=(y,mo,d)=>{const p=[];if(y)p.push(U(y,'year'));if(mo)p.push(U(mo,'month'));if(d||!p.length)p.push(U(d,'day'));return LIST(p)};
+const RUN={
+ diff(){let a=parse(v.d1),b=parse(v.d2);if(!a||!b)return null;let sw=false;if(a>b){[a,b]=[b,a];sw=true}
+  const e=v.incl?addDays(b,1):b,[y,mo,d]=ymd(a,e),days=diffDays(a,e);
+  return {rl:L('res_diff'),big:parts(y,mo,d),rows:[[L('tdays'),U(days,'day')],[L('wd'),LIST([U(Math.floor(days/7),'week'),U(days%7,'day')])],[L('thrs'),U(days*24,'hour')],[L('bd'),NF(bdays(a,e))]],note:(sw?L('rev')+' ':'')+L('wnote')}},
+ count(){const t=target(v.cdsel,v.cd,t0);if(!t)return null;const dd=diffDays(t0,t);tgt=t;
+  const rows=[[L('tg'),DF(t,LONG)]];if(dd>0){rows.push([L('wd'),LIST([U(Math.floor(dd/7),'week'),U(dd%7,'day')])]);rows.push([L('cdl'),NF(bdays(t0,t))])}
+  return {rl:v.cdsel==='custom'?L('tg'):L('o_'+v.cdsel),big:dd===0?L('today'):RT(dd),boxes:dd>0,rows,note:dd>0?L('wnote'):''}},
+ add(){const a=parse(v.a0),n=Math.trunc(+v.n);if(!a||v.n===''||!isFinite(n)||Math.abs(n)>100000)return null;const s=v.op==='sub'?-1:1;let r;
+  if(v.u==='days')r=addDays(a,s*n);else if(v.u==='weeks')r=addDays(a,s*n*7);else if(v.u==='months')r=addMonths(a,s*n);else if(v.u==='years')r=addMonths(a,s*n*12);else r=addBdays(a,s*n);
+  if(isNaN(r))return null;
+  return {rl:L('res_date'),big:DF(r,LONG),rows:[[L('wk'),isoWeek(r)],[L('rel'),RT(diffDays(t0,r))]],note:v.u==='bdays'?L('wnote'):''}},
+ age(){const b=parse(v.b0),c=parse(v.b1);if(!b||!c)return null;if(b>c)return {err:'eage'};
+  const [y,mo,d,tm]=ymd(b,c),bd=yy=>new Date(Date.UTC(yy,b.getUTCMonth(),Math.min(b.getUTCDate(),dim(yy,b.getUTCMonth()))));
+  let nb=bd(c.getUTCFullYear());if(nb<c)nb=bd(c.getUTCFullYear()+1);
+  return {rl:L('res_age'),big:parts(y,mo,d),rows:[[L('tdl'),U(diffDays(b,c),'day')],[L('tmon'),NF(tm)],[L('nb'),DF(nb,LONG)+' · '+RT(diffDays(c,nb))],[L('bw'),DF(b,{weekday:'long'})]]}},
+ info(){const d=parse(v.i0);if(!d)return null;const y=d.getUTCFullYear(),n=doy(d),tot=leap(y)?366:365;
+  return {rl:L('cd'),big:DF(d,LONG),rows:[[L('wk'),isoWeek(d)],[L('doy'),n],[L('dl'),tot-n],[L('dim'),dim(y,d.getUTCMonth())],[L('leap'),L(leap(y)?'yes':'no')],[L('qtr'),Math.floor(d.getUTCMonth()/3)+1]]}}
+};
+function buildTabs(){$('tabs').innerHTML=MODES.map(m=>`<button class="chip" role="tab" data-m="${m}" aria-pressed="${m===mode}">${L('m_'+m)}</button>`).join('')}
+function buildFields(){
+  $('fields').innerHTML=FIELDS[mode].filter(([k])=>k!=='cd'||v.cdsel==='custom').map(([k,type])=>{
+    if(type==='check')return `<label class="chk"><input type="checkbox" data-f="${k}" ${v[k]?'checked':''}>${L(k)}</label>`;
+    const inner=type==='select'?`<select data-f="${k}">${SEL[k].map(([o,l])=>`<option value="${o}" ${v[k]===o?'selected':''}>${L(l)}</option>`).join('')}</select>`:`<input data-f="${k}" type="${type}" ${type==='number'?'inputmode="numeric" step="1"':''} value="${v[k]}">`;
+    return `<div><label class="block text-sm" style="color:#8b94a7">${L(k)}</label><div class="field mt-2">${inner}</div></div>`}).join('');
+}
+function buildUnits(){
+  $('units').innerHTML=[[1,'week',7,'day'],[1,'day',24,'hour'],[1,'hour',60,'minute'],[1,'minute',60,'second'],[1,'year',365,'day']].map(([a,u,b,w])=>`<div class="stat"><span>${U(a,u)}</span><b>${U(b,w)}</b></div>`).join('')+`<div class="stat"><span>${L('leap')}</span><b>${U(366,'day')}</b></div>`;
+}
+function text(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const t=X[e.dataset.i];if(t!==undefined)e.tagName==='UL'?e.innerHTML=t:e.textContent=t});
+  buildTabs();buildFields();buildUnits();syncLang();calc();
+}
+function boxVals(){const tl=new Date(tgt.getUTCFullYear(),tgt.getUTCMonth(),tgt.getUTCDate()).getTime(),s=Math.floor(Math.max(0,tl-Date.now())/1000);return [Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60]}
+function tick(){if(mode!=='count'||!$('cdv0'))return;boxVals().forEach((n,i)=>{$('cdv'+i).textContent=n})}
+function calc(){
+  const o=RUN[mode](),ok=o&&!o.err;
+  $('res').classList.toggle('hidden',!ok);$('hint').classList.toggle('hidden',!!o);$('hint').textContent=L('hint');
+  $('err').classList.toggle('hidden',!(o&&o.err));if(o&&o.err)$('err').textContent=L(o.err);
+  if(!ok)return;
+  $('rl').textContent=o.rl;$('big').textContent=o.big;
+  $('bx').innerHTML=o.boxes?['u_days','h_h','h_m','h_s'].map((k,i)=>`<div class="box"><b id="cdv${i}">0</b><span>${L(k)}</span></div>`).join(''):'';
+  if(o.boxes)tick();
+  $('xs').innerHTML=o.rows.map(([k,val])=>`<div class="stat"><span>${k}</span><b>${val}</b></div>`).join('');
+  $('nt').textContent=o.note||'';
+}
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(!b)return;mode=b.dataset.m;buildTabs();buildFields();calc()});
+$('fields').addEventListener('input',e=>{const k=e.target.dataset.f;if(!k)return;v[k]=e.target.type==='checkbox'?e.target.checked:e.target.value;if(k==='cdsel')buildFields();calc()});
+setInterval(tick,1000);
+initLang(text);text();
+</script>
+</body>
+</html>
