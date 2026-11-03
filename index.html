@@ -57,6 +57,9 @@ body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,
 .row svg{opacity:0;transform:translateX(-4px);transition:.15s;color:var(--accent)}
 .row:hover{background:rgba(255,255,255,.05);color:#fff}
 .row:hover svg{opacity:1;transform:none}
+.row.soon{color:#454e60;cursor:default}
+.row.soon:hover{background:none;color:#454e60}
+.row.soon:hover svg{opacity:0}
 .search{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:border-color .2s,box-shadow .2s,background .2s;backdrop-filter:blur(12px)}
 .search:focus-within{border-color:rgba(var(--accent-rgb),.7);background:rgba(255,255,255,.06);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12),0 0 50px -10px rgba(var(--accent-rgb),.5)}
 .search input{outline:none;background:transparent}
@@ -202,6 +205,7 @@ fr:{badge:'Plus de 20 calculateurs gratuits',t1:'Tous les calculateurs.',t2:'Au 
 es:{badge:'Más de 20 calculadoras gratis',t1:'Todas las calculadoras.',t2:'En un solo lugar.',sub:'Rápidas, precisas y sin florituras. De la hipoteca al gasto de pintura.',p:'Busca una calculadora… p. ej. hipoteca, IMC',e:'No se encontraron calculadoras.',c:n=>n+(n===1?' calculadora':' calculadoras'),foot:'Hecho con atención al detalle'}
 });
 const LINKS={BMI:'bmi.html',Mortgage:'mortgage.html','Bitcoin converter':'bitcoin.html','Unit converter':'units.html','Percentage':'percentage.html','Date difference':'dates.html','Currency converter':'currency.html','Time zones':'timezones.html'};
+const SOON={sk:'Čoskoro',de:'Bald verfügbar',en:'Coming soon',cs:'Již brzy',pl:'Wkrótce',fr:'Bientôt disponible',es:'Próximamente'};
 const AD={sk:'Reklama',de:'Werbung',en:'Advertisement',cs:'Reklama',pl:'Reklama',fr:'Publicité',es:'Publicidad'};
 const IDX={sk:0,de:1,en:2,cs:3,pl:4,fr:5,es:6};
 const BASE='https://calc-hub.eu/',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "calc-hub.eu – Free online calculators", "d": "Free online calculators in one place: BMI, mortgage, Bitcoin converter, paint coverage, unit converter and more. Fast, accurate and available in 7 languages."}, "sk": {"t": "calc-hub.eu – Bezplatné online kalkulačky", "d": "Bezplatné online kalkulačky na jednom mieste: BMI, hypotéka, Bitcoin prevodník, spotreba farby, prevodník jednotiek a ďalšie. Rýchle, presné a v 7 jazykoch."}, "de": {"t": "calc-hub.eu – Kostenlose Online-Rechner", "d": "Kostenlose Online-Rechner an einem Ort: BMI, Hypothek, Bitcoin-Umrechner, Farbbedarf, Einheitenumrechner und mehr. Schnell, präzise und in 7 Sprachen."}, "cs": {"t": "calc-hub.eu – Online kalkulačky zdarma", "d": "Online kalkulačky zdarma na jednom místě: BMI, hypotéka, Bitcoin převodník, spotřeba barvy, převodník jednotek a další. Rychlé, přesné a v 7 jazycích."}, "pl": {"t": "calc-hub.eu – Darmowe kalkulatory online", "d": "Darmowe kalkulatory online w jednym miejscu: BMI, kredyt hipoteczny, przelicznik Bitcoina, zużycie farby, przelicznik jednostek i więcej. Szybkie, dokładne i w 7 językach."}, "fr": {"t": "calc-hub.eu – Calculateurs en ligne gratuits", "d": "Calculateurs en ligne gratuits au même endroit : IMC, prêt immobilier, convertisseur Bitcoin, quantité de peinture, convertisseur d’unités et plus. Rapides, précis et en 7 langues."}, "es": {"t": "calc-hub.eu – Calculadoras online gratis", "d": "Calculadoras online gratis en un solo lugar: IMC, hipoteca, conversor de Bitcoin, gasto de pintura, conversor de unidades y más. Rápidas, precisas y en 7 idiomas."}};
@@ -256,7 +260,7 @@ function render(){
         <div><h2 class="text-lg font-semibold leading-tight text-white">${c.n[lang]}</h2><p class="text-sm" style="color:#7d869a">${c.d[lang]}</p></div>
       </div>
       <ul class="relative mt-5 space-y-0.5">
-        ${items.map(x=>`<li><a href="${LINKS[x[2]]||'#'}" class="row"><span>${x[k]}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>`).join('')}
+        ${items.map(x=>LINKS[x[2]]?`<li><a href="${LINKS[x[2]]}" class="row"><span>${x[k]}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>`:`<li><span class="row soon" title="${SOON[lang]}" aria-disabled="true"><span>${x[k]}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></li>`).join('')}
       </ul></article>`;
   });
   $('cards').innerHTML=html;propLinks();
