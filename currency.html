@@ -271,7 +271,7 @@ async function getJSON(url){const c=new AbortController(),t=setTimeout(()=>c.abo
 async function load(){
   status='loading';ui();
   try{const d=await getJSON('https://api.frankfurter.dev/v1/latest?base=EUR');const r={EUR:1};CURS.forEach(c=>{const v=+(d.rates||{})[c];if(v>0)r[c]=v});if(Object.keys(r).length<3)throw new Error('empty');rates=r;rdate=d.date;status='ok'}catch(e){status=rates?'ok':'error'}
-  if(!rates[from])from='EUR';if(!rates[to])to='USD';
+  if(rates){if(!rates[from])from='EUR';if(!rates[to])to='USD'}
   buildSel();ui();loadSeries();
 }
 async function loadSeries(){
