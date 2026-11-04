@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Body Fat Calculator – US Navy &amp; BMI Method | calc-hub.eu</title>
+<meta name="description" content="Free body fat calculator: estimate your body fat percentage with the US Navy circumference method or BMI, plus fat mass and lean mass.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/bodyfat.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/bodyfat.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/bodyfat.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/bodyfat.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/bodyfat.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/bodyfat.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/bodyfat.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/bodyfat.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/bodyfat.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Body Fat Calculator – US Navy &amp; BMI Method | calc-hub.eu">
+<meta property="og:description" content="Free body fat calculator: estimate your body fat percentage with the US Navy circumference method or BMI, plus fat mass and lean mass.">
+<meta property="og:url" content="https://calc-hub.eu/bodyfat.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Body Fat Calculator – US Navy &amp; BMI Method | calc-hub.eu">
+<meta name="twitter:description" content="Free body fat calculator: estimate your body fat percentage with the US Navy circumference method or BMI, plus fat mass and lean mass.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.chip{padding:.5rem 1rem;border-radius:99px;font-size:.85rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.6)}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.stat.on{border-color:rgba(var(--accent-rgb),.6);background:rgba(var(--accent-rgb),.08)}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div class="flex flex-wrap gap-3">
+        <div><p class="mb-2 text-sm" style="color:#8b94a7" data-p="sex"></p><div class="flex gap-2"><button class="chip" data-sx="m"></button><button class="chip" data-sx="f"></button></div></div>
+        <div class="ml-auto"><p class="mb-2 text-sm" style="color:transparent">.</p><div class="flex gap-2"><button class="chip" data-un="m"></button><button class="chip" data-un="i"></button></div></div>
+      </div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="method"></label><div class="field mt-2"><select id="me"></select></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="age"></label><div class="field mt-2"><input id="ag" type="number" inputmode="numeric" min="18" max="100" step="1" value="30"></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="height"></label><div class="mt-2 flex gap-3"><div class="field flex-1"><input id="h1" type="number" inputmode="decimal" min="0" step="any" value="178"><span id="u1">cm</span></div><div class="field hidden flex-1" id="h2w"><input id="h2" type="number" inputmode="decimal" min="0" step="any" value="0"><span>in</span></div></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="weight"></label><div class="field mt-2"><input id="w1" type="number" inputmode="decimal" min="0" step="any" value="78"><span class="uw">kg</span></div></div>
+      <div id="navy" class="space-y-5">
+        <div><label class="block text-sm" style="color:#8b94a7" data-p="neck"></label><div class="field mt-2"><input id="nk" type="number" inputmode="decimal" min="0" step="any" value="38"><span class="ul">cm</span></div></div>
+        <div><label class="block text-sm" style="color:#8b94a7" data-p="waist"></label><div class="field mt-2"><input id="ws" type="number" inputmode="decimal" min="0" step="any" value="86"><span class="ul">cm</span></div></div>
+        <div id="hpw" class="hidden"><label class="block text-sm" style="color:#8b94a7" data-p="hip"></label><div class="field mt-2"><input id="hp" type="number" inputmode="decimal" min="0" step="any" value="98"><span class="ul">cm</span></div></div>
+      </div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <p id="err" class="hidden text-center" style="color:#f87171"></p>
+      <div id="res" class="hidden">
+        <p class="text-sm" style="color:#8b94a7" data-p="bf"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <p id="cn" class="mt-1 text-sm" style="color:var(--accent)"></p>
+        <div id="rows" class="mt-5 space-y-2"></div>
+        <p id="lw" class="mt-4 text-sm" style="color:#fbbf24"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-bodyfat-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 space-y-2 rounded-2xl p-5 text-sm"></div></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-p="cats"></h2><div id="ctab" class="mt-3 space-y-2"></div></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-bodyfat-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-bodyfat-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-bodyfat-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Body Fat Calculator", "sub": "Estimate your body fat percentage with the US Navy method or from your BMI.", "h1": "What is body fat percentage?", "p1": "Body fat percentage is the share of your body weight that is fat. Some fat is essential for hormones, organs and energy storage, so zero is neither possible nor healthy. Unlike BMI, it separates fat from lean tissue such as muscle, bone and water.", "h2": "How it is estimated", "p2": "The US Navy method estimates body fat from height and circumferences: neck and waist for men, neck, waist and hips for women. The BMI-based method (Deurenberg) uses BMI, age and sex. Both are rough estimates; DEXA scans or hydrostatic weighing are more accurate.", "h4": "Good to know", "lim": "<li>The typical error of these methods is around 3–4 percentage points, so use the result as a rough guide and track changes over time with the same method.</li><li>Measure on bare skin, relaxed, in the morning: neck just below the larynx, waist at the navel (men) or the narrowest point (women), hips at the widest point.</li><li>The category ranges are commonly used general ranges (for example those published by the American Council on Exercise); healthy values also vary with age.</li><li>Muscular people and older adults may be misjudged by the BMI-based method; the circumference method usually works better.</li><li>The calculator is not suitable for children, teenagers or pregnancy.</li>", "note": "For general information only; not a medical diagnosis. If worries about your body or weight affect your wellbeing, please talk to a doctor or a mental health professional."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka telesného tuku", "sub": "Odhadni percento telesného tuku metódou US Navy alebo podľa BMI.", "h1": "Čo je percento telesného tuku?", "p1": "Percento telesného tuku je podiel tuku na tvojej hmotnosti. Trochu tuku je nevyhnutné pre hormóny, orgány a zásobu energie, takže nulový podiel nie je ani možný, ani zdravý. Na rozdiel od BMI oddeľuje tuk od beztukových tkanív, ako sú svaly, kosti a voda.", "h2": "Ako sa odhaduje", "p2": "Metóda US Navy odhaduje tuk z výšky a obvodov: u mužov krk a pás, u žien krk, pás a boky. Metóda podľa BMI (Deurenberg) používa BMI, vek a pohlavie. Obe sú hrubé odhady; presnejšie sú vyšetrenie DEXA alebo hydrostatické váženie.", "h4": "Dobré vedieť", "lim": "<li>Typická chyba týchto metód je okolo 3 – 4 percentuálnych bodov, preto výsledok ber ako hrubé vodidlo a zmeny sleduj v čase tou istou metódou.</li><li>Meraj na holej koži, uvoľnene, ráno: krk tesne pod hrtanom, pás v úrovni pupka (muži) alebo na najužšom mieste (ženy), boky na najširšom mieste.</li><li>Hranice kategórií sú bežne používané všeobecné rozpätia (napríklad od American Council on Exercise); zdravé hodnoty sa menia aj s vekom.</li><li>Svalnatých ľudí a starších dospelých môže metóda podľa BMI zle posúdiť; metóda s obvodmi zvyčajne funguje lepšie.</li><li>Kalkulačka nie je vhodná pre deti, dospievajúcich ani tehotenstvo.</li>", "note": "Len na všeobecné informovanie, nie je to zdravotná diagnóza. Ak starosti o telo alebo váhu ovplyvňujú tvoju pohodu, porozprávaj sa s lekárom alebo odborníkom na duševné zdravie."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Körperfett-Rechner", "sub": "Schätze deinen Körperfettanteil mit der US-Navy-Methode oder anhand deines BMI.", "h1": "Was ist der Körperfettanteil?", "p1": "Der Körperfettanteil ist der Anteil von Fett an deinem Körpergewicht. Etwas Fett ist für Hormone, Organe und Energiespeicher lebenswichtig, daher ist null weder möglich noch gesund. Anders als der BMI trennt er Fett von magerem Gewebe wie Muskeln, Knochen und Wasser.", "h2": "So wird er geschätzt", "p2": "Die US-Navy-Methode schätzt das Körperfett aus Größe und Umfängen: bei Männern Hals und Taille, bei Frauen Hals, Taille und Hüfte. Die BMI-basierte Methode (Deurenberg) nutzt BMI, Alter und Geschlecht. Beide sind grobe Schätzungen; DEXA-Scans oder hydrostatisches Wiegen sind genauer.", "h4": "Gut zu wissen", "lim": "<li>Der typische Fehler dieser Methoden liegt bei etwa 3–4 Prozentpunkten, nutze das Ergebnis daher als grobe Orientierung und verfolge Veränderungen mit derselben Methode.</li><li>Miss auf bloßer Haut, entspannt, morgens: Hals direkt unterhalb des Kehlkopfs, Taille auf Nabelhöhe (Männer) oder an der schmalsten Stelle (Frauen), Hüfte an der breitesten Stelle.</li><li>Die Kategoriegrenzen sind gebräuchliche allgemeine Bereiche (etwa vom American Council on Exercise); gesunde Werte hängen auch vom Alter ab.</li><li>Muskulöse Menschen und ältere Erwachsene werden von der BMI-Methode evtl. falsch eingeschätzt; die Umfangsmethode funktioniert meist besser.</li><li>Der Rechner ist nicht für Kinder, Jugendliche oder Schwangerschaft geeignet.</li>", "note": "Nur zur allgemeinen Information, keine medizinische Diagnose. Wenn Sorgen um Körper oder Gewicht dein Wohlbefinden beeinträchtigen, sprich bitte mit einer Ärztin, einem Arzt oder einer psychologischen Fachperson."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka tělesného tuku", "sub": "Odhadni procento tělesného tuku metodou US Navy nebo podle BMI.", "h1": "Co je procento tělesného tuku?", "p1": "Procento tělesného tuku je podíl tuku na tvé hmotnosti. Trochu tuku je nezbytné pro hormony, orgány a zásobu energie, takže nulový podíl není ani možný, ani zdravý. Na rozdíl od BMI odděluje tuk od beztukových tkání, jako jsou svaly, kosti a voda.", "h2": "Jak se odhaduje", "p2": "Metoda US Navy odhaduje tuk z výšky a obvodů: u mužů krk a pas, u žen krk, pas a boky. Metoda podle BMI (Deurenberg) používá BMI, věk a pohlaví. Obě jsou hrubé odhady; přesnější jsou vyšetření DEXA nebo hydrostatické vážení.", "h4": "Dobré vědět", "lim": "<li>Typická chyba těchto metod je kolem 3–4 procentních bodů, proto výsledek ber jako hrubé vodítko a změny sleduj v čase toutéž metodou.</li><li>Měř na holé kůži, uvolněně, ráno: krk těsně pod hrtanem, pas v úrovni pupku (muži) nebo na nejužším místě (ženy), boky na nejširším místě.</li><li>Hranice kategorií jsou běžně používaná obecná rozmezí (například od American Council on Exercise); zdravé hodnoty se mění i s věkem.</li><li>Svalnaté lidi a starší dospělé může metoda podle BMI špatně posoudit; metoda s obvody obvykle funguje lépe.</li><li>Kalkulačka není vhodná pro děti, dospívající ani těhotenství.</li>", "note": "Pouze k obecné informaci, nejde o zdravotní diagnózu. Pokud starosti o tělo nebo váhu ovlivňují tvou pohodu, promluv si s lékařem nebo odborníkem na duševní zdraví."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator tkanki tłuszczowej", "sub": "Oszacuj procent tkanki tłuszczowej metodą US Navy lub na podstawie BMI.", "h1": "Czym jest procent tkanki tłuszczowej?", "p1": "Procent tkanki tłuszczowej to udział tłuszczu w masie ciała. Trochę tłuszczu jest niezbędne dla hormonów, narządów i magazynowania energii, więc zero nie jest ani możliwe, ani zdrowe. W odróżnieniu od BMI oddziela tłuszcz od tkanek beztłuszczowych, takich jak mięśnie, kości i woda.", "h2": "Jak się go szacuje", "p2": "Metoda US Navy szacuje tłuszcz na podstawie wzrostu i obwodów: u mężczyzn szyi i talii, u kobiet szyi, talii i bioder. Metoda oparta na BMI (Deurenberg) wykorzystuje BMI, wiek i płeć. Obie dają przybliżone wyniki; dokładniejsze są badanie DEXA lub ważenie hydrostatyczne.", "h4": "Warto wiedzieć", "lim": "<li>Typowy błąd tych metod to około 3–4 punkty procentowe, więc traktuj wynik jako przybliżoną wskazówkę, a zmiany śledź w czasie tą samą metodą.</li><li>Mierz na gołej skórze, w rozluźnieniu, rano: szyja tuż pod krtanią, talia na wysokości pępka (mężczyźni) lub w najwęższym miejscu (kobiety), biodra w najszerszym miejscu.</li><li>Granice kategorii to powszechnie stosowane ogólne zakresy (na przykład z American Council on Exercise); zdrowe wartości zmieniają się też z wiekiem.</li><li>Osoby umięśnione i starsze dorosłe metoda oparta na BMI może źle ocenić; metoda obwodów zwykle sprawdza się lepiej.</li><li>Kalkulator nie jest przeznaczony dla dzieci, młodzieży ani kobiet w ciąży.</li>", "note": "Tylko informacyjnie, to nie jest diagnoza medyczna. Jeśli troski o ciało lub wagę wpływają na Twoje samopoczucie, porozmawiaj z lekarzem lub specjalistą zdrowia psychicznego."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de masse grasse", "sub": "Estimez votre taux de masse grasse avec la méthode US Navy ou à partir de votre IMC.", "h1": "Qu’est-ce que le taux de masse grasse ?", "p1": "Le taux de masse grasse est la part de graisse dans votre poids. Un peu de graisse est indispensable pour les hormones, les organes et le stockage d’énergie ; zéro n’est donc ni possible ni sain. Contrairement à l’IMC, il distingue la graisse des tissus maigres comme les muscles, les os et l’eau.", "h2": "Comment il est estimé", "p2": "La méthode US Navy estime la graisse à partir de la taille et des circonférences : cou et taille pour les hommes, cou, taille et hanches pour les femmes. La méthode fondée sur l’IMC (Deurenberg) utilise l’IMC, l’âge et le sexe. Ce sont deux estimations approximatives ; la DEXA ou la pesée hydrostatique sont plus précises.", "h4": "Bon à savoir", "lim": "<li>L’erreur typique de ces méthodes est d’environ 3 à 4 points de pourcentage ; utilisez le résultat comme repère approximatif et suivez l’évolution avec la même méthode.</li><li>Mesurez sur peau nue, détendu, le matin : cou juste sous le larynx, taille au niveau du nombril (hommes) ou à l’endroit le plus étroit (femmes), hanches à l’endroit le plus large.</li><li>Les limites des catégories sont des fourchettes générales couramment utilisées (par exemple celles de l’American Council on Exercise) ; les valeurs saines varient aussi avec l’âge.</li><li>Les personnes musclées et les adultes plus âgés peuvent être mal évalués par la méthode fondée sur l’IMC ; la méthode des circonférences fonctionne généralement mieux.</li><li>Ce calculateur ne convient pas aux enfants, aux adolescents ni à la grossesse.</li>", "note": "À titre d’information générale uniquement, pas un diagnostic médical. Si des inquiétudes concernant votre corps ou votre poids affectent votre bien-être, parlez-en à un médecin ou à un professionnel de la santé mentale."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de grasa corporal", "sub": "Estima tu porcentaje de grasa corporal con el método US Navy o a partir de tu IMC.", "h1": "¿Qué es el porcentaje de grasa corporal?", "p1": "El porcentaje de grasa corporal es la parte de tu peso que es grasa. Algo de grasa es esencial para las hormonas, los órganos y el almacenamiento de energía, así que cero no es posible ni saludable. A diferencia del IMC, separa la grasa de los tejidos magros, como músculo, hueso y agua.", "h2": "Cómo se estima", "p2": "El método US Navy estima la grasa a partir de la altura y los perímetros: cuello y cintura en hombres; cuello, cintura y caderas en mujeres. El método basado en el IMC (Deurenberg) usa el IMC, la edad y el sexo. Ambos son estimaciones aproximadas; la densitometría DEXA o el pesaje hidrostático son más precisos.", "h4": "Conviene saber", "lim": "<li>El error típico de estos métodos ronda los 3–4 puntos porcentuales, así que usa el resultado como guía aproximada y sigue los cambios con el mismo método.</li><li>Mide sobre la piel desnuda, relajado, por la mañana: cuello justo debajo de la laringe, cintura a la altura del ombligo (hombres) o en el punto más estrecho (mujeres), caderas en el punto más ancho.</li><li>Los límites de las categorías son rangos generales de uso común (por ejemplo, los del American Council on Exercise); los valores saludables también varían con la edad.</li><li>Las personas musculosas y los adultos mayores pueden ser mal valorados por el método basado en el IMC; el de perímetros suele funcionar mejor.</li><li>La calculadora no es adecuada para niños, adolescentes ni embarazo.</li>", "note": "Solo con fines informativos, no es un diagnóstico médico. Si las preocupaciones por tu cuerpo o tu peso afectan a tu bienestar, habla con un médico o un profesional de salud mental."}};
+const PIPE={"sex": "Sex|Pohlavie|Geschlecht|Pohlaví|Płeć|Sexe|Sexo", "male": "Male|Muž|Männlich|Muž|Mężczyzna|Homme|Hombre", "female": "Female|Žena|Weiblich|Žena|Kobieta|Femme|Mujer", "age": "Age (years)|Vek (roky)|Alter (Jahre)|Věk (roky)|Wiek (lata)|Âge (ans)|Edad (años)", "height": "Height|Výška|Größe|Výška|Wzrost|Taille|Altura", "weight": "Weight|Váha|Gewicht|Váha|Waga|Poids|Peso", "metric": "Metric|Metrické|Metrisch|Metrické|Metryczne|Métrique|Métrico", "imperial": "Imperial|Imperiálne|Imperial|Imperiální|Imperialne|Impérial|Imperial", "adult": "This calculator is for adults aged 18 and over.|Táto kalkulačka je určená pre dospelých od 18 rokov.|Dieser Rechner ist für Erwachsene ab 18 Jahren gedacht.|Tato kalkulačka je určena pro dospělé od 18 let.|Ten kalkulator jest przeznaczony dla dorosłych od 18 lat.|Ce calculateur s’adresse aux adultes de 18 ans et plus.|Esta calculadora es para adultos de 18 años o más.", "hint": "Fill in your details to see the result.|Vyplň údaje a zobrazí sa výsledok.|Gib deine Daten ein, um das Ergebnis zu sehen.|Vyplň údaje a zobrazí se výsledek.|Wpisz swoje dane, aby zobaczyć wynik.|Renseignez vos données pour voir le résultat.|Introduce tus datos para ver el resultado.", "method": "Method|Metóda|Methode|Metoda|Metoda|Méthode|Método", "m_navy": "US Navy (circumferences)|US Navy (obvody)|US Navy (Umfänge)|US Navy (obvody)|US Navy (obwody)|US Navy (circonférences)|US Navy (circunferencias)", "m_bmi": "BMI-based (Deurenberg)|Podľa BMI (Deurenberg)|BMI-basiert (Deurenberg)|Podle BMI (Deurenberg)|Na podstawie BMI (Deurenberg)|À partir de l’IMC (Deurenberg)|Basado en el IMC (Deurenberg)", "neck": "Neck|Krk|Hals|Krk|Szyja|Cou|Cuello", "waist": "Waist|Pás|Taillenumfang|Pas|Talia|Tour de taille|Cintura", "hip": "Hips|Boky|Hüfte|Boky|Biodra|Hanches|Caderas", "bf": "Body fat|Telesný tuk|Körperfett|Tělesný tuk|Tkanka tłuszczowa|Masse grasse|Grasa corporal", "fatm": "Fat mass|Tuková hmota|Fettmasse|Tuková hmota|Masa tłuszczowa|Poids de graisse|Masa grasa", "leanm": "Lean mass|Beztuková hmota|Magermasse|Beztuková hmota|Masa beztłuszczowa|Masse maigre|Masa magra", "cat": "Category|Kategória|Kategorie|Kategorie|Kategoria|Catégorie|Categoría", "cats": "Category ranges|Rozpätia kategórií|Kategoriebereiche|Rozmezí kategorií|Zakresy kategorii|Plages par catégorie|Rangos por categoría", "c1": "Essential fat|Esenciálny tuk|Essenzielles Fett|Esenciální tuk|Tłuszcz niezbędny|Graisse essentielle|Grasa esencial", "c2": "Athletes|Športovci|Sportler|Sportovci|Sportowcy|Sportifs|Deportistas", "c3": "Fitness|Fitnes|Fitness|Fitness|Fitness|Forme|Forma física", "c4": "Average|Priemer|Durchschnitt|Průměr|Przeciętny|Moyenne|Promedio", "c5": "Higher range|Vyššie pásmo|Höherer Bereich|Vyšší pásmo|Wyższy zakres|Fourchette élevée|Rango más alto", "err_navy": "Check your measurements: the waist must be larger than the neck.|Skontroluj merania: pás musí byť väčší ako krk.|Prüfe deine Maße: Der Taillenumfang muss größer sein als der Halsumfang.|Zkontroluj měření: pas musí být větší než krk.|Sprawdź pomiary: talia musi być większa niż szyja.|Vérifiez vos mesures : le tour de taille doit être supérieur au tour de cou.|Revisa tus medidas: la cintura debe ser mayor que el cuello.", "rng": "The result is outside a realistic range. Please check your measurements.|Výsledok je mimo reálneho rozsahu. Skontroluj merania.|Das Ergebnis liegt außerhalb eines realistischen Bereichs. Prüfe bitte deine Maße.|Výsledek je mimo reálný rozsah. Zkontroluj měření.|Wynik jest poza realistycznym zakresem. Sprawdź pomiary.|Le résultat est en dehors d’une plage réaliste. Vérifiez vos mesures.|El resultado está fuera de un rango realista. Revisa tus medidas.", "low": "Very low body fat can be unhealthy. If this is accurate, talk to a doctor.|Veľmi nízky podiel tuku môže byť nezdravý. Ak je výsledok presný, porozprávaj sa s lekárom.|Sehr wenig Körperfett kann ungesund sein. Wenn das Ergebnis stimmt, sprich mit einer Ärztin oder einem Arzt.|Velmi nízký podíl tuku může být nezdravý. Pokud je výsledek přesný, promluv si s lékařem.|Bardzo niski poziom tkanki tłuszczowej może być niezdrowy. Jeśli wynik jest trafny, porozmawiaj z lekarzem.|Un taux de graisse très bas peut être mauvais pour la santé. Si le résultat est exact, parlez-en à un médecin.|Un porcentaje de grasa muy bajo puede ser perjudicial. Si el resultado es exacto, habla con un médico."};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/bodyfat.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Body Fat Calculator – US Navy & BMI Method | calc-hub.eu", "d": "Free body fat calculator: estimate your body fat percentage with the US Navy circumference method or BMI, plus fat mass and lean mass."}, "sk": {"t": "Kalkulačka telesného tuku – metóda US Navy | calc-hub.eu", "d": "Bezplatná kalkulačka telesného tuku: odhadni percento tuku metódou US Navy alebo podľa BMI, vrátane tukovej a beztukovej hmoty."}, "de": {"t": "Körperfett-Rechner – US-Navy-Methode | calc-hub.eu", "d": "Kostenloser Körperfett-Rechner: schätze deinen Körperfettanteil mit der US-Navy-Methode oder dem BMI, inklusive Fett- und Magermasse."}, "cs": {"t": "Kalkulačka tělesného tuku – metoda US Navy | calc-hub.eu", "d": "Bezplatná kalkulačka tělesného tuku: odhadni procento tuku metodou US Navy nebo podle BMI, včetně tukové a beztukové hmoty."}, "pl": {"t": "Kalkulator tkanki tłuszczowej – metoda US Navy | calc-hub.eu", "d": "Darmowy kalkulator tkanki tłuszczowej: oszacuj procent tłuszczu metodą US Navy lub z BMI, wraz z masą tłuszczową i beztłuszczową."}, "fr": {"t": "Calculateur de masse grasse – méthode US Navy | calc-hub.eu", "d": "Calculateur de masse grasse gratuit : estimez votre taux de graisse avec la méthode US Navy ou l’IMC, avec masse grasse et masse maigre."}, "es": {"t": "Calculadora de grasa corporal – método US Navy | calc-hub.eu", "d": "Calculadora de grasa corporal gratis: estima tu porcentaje de grasa con el método US Navy o el IMC, con masa grasa y masa magra."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+let sex='m',unit='m';
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+  document.querySelectorAll('[data-sx]').forEach(e=>{e.textContent=L(e.dataset.sx==='m'?'male':'female');e.setAttribute('aria-pressed',e.dataset.sx===sex)});
+  document.querySelectorAll('[data-un]').forEach(e=>{e.textContent=L(e.dataset.un==='m'?'metric':'imperial');e.setAttribute('aria-pressed',e.dataset.un===unit)});
+}
+function showRes(o){
+  $('res').classList.toggle('hidden',!o||!!o.err);$('hint').classList.toggle('hidden',!!o);$('hint').textContent=L('hint');
+  $('err').classList.toggle('hidden',!(o&&o.err));if(o&&o.err)$('err').textContent=L(o.err);
+  return !!o&&!o.err;
+}
+const getH=()=>unit==='m'?+$('h1').value:(+$('h1').value*12+(+$('h2').value||0))*2.54;
+const getW=()=>unit==='m'?+$('w1').value:+$('w1').value*0.45359237;
+let meth='navy';
+const CATS={m:[6,14,18,25],f:[14,21,25,32]},RNG={m:['2–5','6–13','14–17','18–24','25+'],f:['10–13','14–20','21–24','25–31','32+']};
+function catOf(bf){const t=CATS[sex];return t.findIndex(x=>bf<x)<0?4:t.findIndex(x=>bf<x)}
+function calcAll(){
+  const A=+$('ag').value,H=getH(),W=getW(),k=unit==='m'?1:2.54;
+  const N=+$('nk').value*k,Wa=+$('ws').value*k,Hi=+$('hp').value*k;
+  if($('ag').value===''||$('h1').value===''||$('w1').value===''||!isFinite(A+H+W))return null;
+  if(A<18)return {err:'adult'};
+  if(A>100||H<100||H>250||W<30||W>300)return null;
+  let bf;
+  if(meth==='navy'){
+    if(!isFinite(N+Wa)||$('nk').value===''||$('ws').value===''||(sex==='f'&&($('hp').value===''||!isFinite(Hi))))return null;
+    if(sex==='m'){if(Wa<=N)return {err:'err_navy'};bf=495/(1.0324-0.19077*Math.log10(Wa-N)+0.15456*Math.log10(H))-450}
+    else{if(Wa+Hi<=N)return {err:'err_navy'};bf=495/(1.29579-0.35004*Math.log10(Wa+Hi-N)+0.22100*Math.log10(H))-450}
+  }else{const bmi=W/Math.pow(H/100,2);bf=1.2*bmi+0.23*A-10.8*(sex==='m'?1:0)-5.4}
+  if(!(bf>=2&&bf<=60))return {err:'rng'};
+  return {bf,fat:W*bf/100,lean:W*(1-bf/100),c:catOf(bf),low:bf<(sex==='m'?3:10)};
+}
+function calc(){
+  const o=calcAll();if(!showRes(o)){$('ctab').querySelectorAll?0:0;return}
+  const f=unit==='m'?1:2.20462,u=unit==='m'?'kg':'lb';
+  $('big').textContent=nf(o.bf,1)+(lang==='en'?'%':' %');$('cn').textContent=L('cat')+': '+L('c'+(o.c+1));
+  $('rows').innerHTML=[[L('fatm'),nf(o.fat*f,1)+' '+u],[L('leanm'),nf(o.lean*f,1)+' '+u]].map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v}</b></div>`).join('');
+  $('lw').textContent=o.low?L('low'):'';
+  tab(o.c);
+}
+function tab(cur){$('ctab').innerHTML=[0,1,2,3,4].map(i=>`<div class="stat${i===cur?' on':''}"><span>${L('c'+(i+1))}</span><b>${RNG[sex][i]} %</b></div>`).join('')}
+function buildSel(){
+  $('me').innerHTML=['navy','bmi'].map(k=>`<option value="${k}" ${k===meth?'selected':''}>${L('m_'+k)}</option>`).join('');
+  $('navy').classList.toggle('hidden',meth!=='navy');$('hpw').classList.toggle('hidden',sex!=='f');
+}
+function text(){baseText();$('fbox').innerHTML=`<div><span style="color:#8b94a7">${L('male')}:</span> <b style="color:var(--accent)">495 ÷ (1.0324 − 0.19077·log₁₀(${L('waist')} − ${L('neck')}) + 0.15456·log₁₀(${L('height')})) − 450</b></div><div><span style="color:#8b94a7">${L('female')}:</span> <b style="color:var(--accent)">495 ÷ (1.29579 − 0.35004·log₁₀(${L('waist')} + ${L('hip')} − ${L('neck')}) + 0.22100·log₁₀(${L('height')})) − 450</b></div><div><span style="color:#8b94a7">BMI:</span> <b style="color:var(--accent)">1.20·BMI + 0.23·${L('age').split(' ')[0].toLowerCase()} − 10.8·(1/0) − 5.4</b></div>`;buildSel();tab(-1);syncLang();calc()}
+function setUnit(u){
+  if(u===unit)return;
+  const H=getH(),W=getW(),v=['nk','ws','hp'].map(id=>+$(id).value*(unit==='m'?1:2.54));
+  unit=u;$('h2w').classList.toggle('hidden',u==='m');$('u1').textContent=u==='m'?'cm':'ft';
+  document.querySelectorAll('.uw').forEach(e=>e.textContent=u==='m'?'kg':'lb');document.querySelectorAll('.ul').forEach(e=>e.textContent=u==='m'?'cm':'in');
+  if(isFinite(H)&&H>0){if(u==='m')$('h1').value=Math.round(H);else{const i=H/2.54;$('h1').value=Math.floor(i/12);$('h2').value=Math.round(i%12)}}
+  if(isFinite(W)&&W>0)$('w1').value=u==='m'?Math.round(W*10)/10:Math.round(W/0.45359237*10)/10;
+  ['nk','ws','hp'].forEach((id,i)=>{if(isFinite(v[i])&&v[i]>0)$(id).value=u==='m'?Math.round(v[i]*10)/10:Math.round(v[i]/2.54*10)/10});
+  text();
+}
+document.addEventListener('click',e=>{const s=e.target.closest('[data-sx]');if(s){sex=s.dataset.sx;text();return}const u=e.target.closest('[data-un]');if(u)setUnit(u.dataset.un)});
+['ag','h1','h2','w1','nk','ws','hp'].forEach(id=>$(id).addEventListener('input',calc));
+$('me').addEventListener('change',e=>{meth=e.target.value;buildSel();calc()});
+initLang(text);text();
+</script>
+</body>
+</html>

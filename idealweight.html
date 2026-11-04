@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Ideal Weight Calculator – Healthy Weight Range | calc-hub.eu</title>
+<meta name="description" content="Free ideal weight calculator: see your healthy weight range from BMI and the Devine, Robinson, Miller and Hamwi formulas.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/idealweight.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/idealweight.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/idealweight.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/idealweight.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/idealweight.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/idealweight.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/idealweight.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/idealweight.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/idealweight.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Ideal Weight Calculator – Healthy Weight Range | calc-hub.eu">
+<meta property="og:description" content="Free ideal weight calculator: see your healthy weight range from BMI and the Devine, Robinson, Miller and Hamwi formulas.">
+<meta property="og:url" content="https://calc-hub.eu/idealweight.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ideal Weight Calculator – Healthy Weight Range | calc-hub.eu">
+<meta name="twitter:description" content="Free ideal weight calculator: see your healthy weight range from BMI and the Devine, Robinson, Miller and Hamwi formulas.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.chip{padding:.5rem 1rem;border-radius:99px;font-size:.85rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.6)}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.stat.on{border-color:rgba(var(--accent-rgb),.6);background:rgba(var(--accent-rgb),.08)}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div class="flex flex-wrap gap-3">
+        <div><p class="mb-2 text-sm" style="color:#8b94a7" data-p="sex"></p><div class="flex gap-2"><button class="chip" data-sx="m"></button><button class="chip" data-sx="f"></button></div></div>
+        <div class="ml-auto"><p class="mb-2 text-sm" style="color:transparent">.</p><div class="flex gap-2"><button class="chip" data-un="m"></button><button class="chip" data-un="i"></button></div></div>
+      </div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="age"></label><div class="field mt-2"><input id="ag" type="number" inputmode="numeric" min="18" max="100" step="1" value="30"></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="height"></label><div class="mt-2 flex gap-3"><div class="field flex-1"><input id="h1" type="number" inputmode="decimal" min="0" step="any" value="178"><span id="u1">cm</span></div><div class="field hidden flex-1" id="h2w"><input id="h2" type="number" inputmode="decimal" min="0" step="any" value="0"><span>in</span></div></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <p id="err" class="hidden text-center" style="color:#f87171"></p>
+      <div id="res" class="hidden">
+        <p class="text-sm" style="color:#8b94a7" data-p="range"></p>
+        <span id="big" class="grad block text-4xl font-bold tracking-tight sm:text-5xl"></span>
+        <p class="mb-2 mt-6 text-sm" style="color:#8b94a7" data-p="formulas"></p>
+        <div id="rows" class="space-y-2"></div>
+        <p id="lw" class="mt-4 text-sm" style="color:#fbbf24"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-idealweight-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 space-y-2 rounded-2xl p-5 text-sm"></div></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-p="formulas"></h2><div id="fa" class="mt-3 space-y-2 text-sm"></div></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-idealweight-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-idealweight-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-idealweight-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Ideal Weight Calculator", "sub": "Find a healthy weight range for your height using the BMI range and four classic formulas.", "h1": "What is an ideal weight?", "p1": "There is no single ideal weight. Doctors usually look at a healthy range based on BMI (18.5 to 24.9 for adults). Classic formulas such as Devine, Robinson, Miller and Hamwi estimate a single figure from height and sex; they were created between the 1960s and 1980s, partly for medicine dosing, and give different results.", "h2": "How it is calculated", "p2": "The healthy range is the weight at which your BMI would be 18.5 to 24.9 at your height. The four formulas add a fixed number of kilograms for each inch of height above 5 feet (152.4 cm), starting from a base weight that differs for men and women.", "h4": "Good to know", "lim": "<li>Treat the result as a range, not a goal. Healthy weight depends on muscle, bone structure, age and health.</li><li>BMI does not distinguish muscle from fat, so athletes can fall outside the range while being healthy.</li><li>The formulas are less reliable for people shorter than 152 cm or much taller than about 190 cm.</li><li>The calculator is for adults and is not suitable for pregnancy, children or teenagers.</li><li>If you are worried about your weight, or thinking about food and weight causes distress, talk to a doctor or a mental health professional.</li>", "note": "For general information only; not medical advice."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka ideálnej váhy", "sub": "Zisti zdravé rozpätie hmotnosti pre svoju výšku podľa BMI a štyroch klasických vzorcov.", "h1": "Čo je ideálna váha?", "p1": "Jedna ideálna váha neexistuje. Lekári zvyčajne posudzujú zdravé rozpätie podľa BMI (u dospelých 18,5 až 24,9). Klasické vzorce Devine, Robinson, Miller a Hamwi odhadujú z výšky a pohlavia jedno číslo; vznikli v rokoch 1960 – 1980, čiastočne na dávkovanie liekov, a dávajú rôzne výsledky.", "h2": "Ako sa počíta", "p2": "Zdravé rozpätie je hmotnosť, pri ktorej by tvoje BMI pri tvojej výške bolo 18,5 až 24,9. Štyri vzorce pripočítavajú pevný počet kilogramov za každý palec výšky nad 5 stôp (152,4 cm), pričom základná hmotnosť je iná pre mužov a ženy.", "h4": "Dobré vedieť", "lim": "<li>Výsledok ber ako rozpätie, nie ako cieľ. Zdravá hmotnosť závisí od svalov, stavby kostí, veku a zdravia.</li><li>BMI nerozlišuje svaly od tuku, preto môžu byť športovci mimo rozpätia a pritom zdraví.</li><li>Vzorce sú menej spoľahlivé pre ľudí nižších ako 152 cm alebo oveľa vyšších ako asi 190 cm.</li><li>Kalkulačka je pre dospelých a nie je vhodná pre tehotenstvo, deti ani dospievajúcich.</li><li>Ak sa o svoju hmotnosť obávaš alebo ti myšlienky na jedlo a váhu spôsobujú stres, porozprávaj sa s lekárom alebo odborníkom na duševné zdravie.</li>", "note": "Len na všeobecné informovanie, nie je to zdravotné poradenstvo."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Idealgewicht-Rechner", "sub": "Finde deinen gesunden Gewichtsbereich für deine Größe mit dem BMI-Bereich und vier klassischen Formeln.", "h1": "Was ist das Idealgewicht?", "p1": "Das eine Idealgewicht gibt es nicht. Ärzte betrachten meist einen gesunden Bereich anhand des BMI (bei Erwachsenen 18,5 bis 24,9). Klassische Formeln wie Devine, Robinson, Miller und Hamwi schätzen aus Größe und Geschlecht einen einzelnen Wert; sie entstanden zwischen den 1960er- und 1980er-Jahren, teils für die Medikamentendosierung, und liefern unterschiedliche Ergebnisse.", "h2": "So wird es berechnet", "p2": "Der gesunde Bereich ist das Gewicht, bei dem dein BMI bei deiner Größe 18,5 bis 24,9 betragen würde. Die vier Formeln addieren für jeden Zoll über 5 Fuß (152,4 cm) eine feste Zahl Kilogramm zu einem Grundgewicht, das für Männer und Frauen verschieden ist.", "h4": "Gut zu wissen", "lim": "<li>Sieh das Ergebnis als Bereich, nicht als Ziel. Das gesunde Gewicht hängt von Muskeln, Knochenbau, Alter und Gesundheit ab.</li><li>Der BMI unterscheidet Muskeln nicht von Fett, daher können Sportler außerhalb des Bereichs liegen und trotzdem gesund sein.</li><li>Die Formeln sind für Menschen unter 152 cm oder deutlich über etwa 190 cm weniger zuverlässig.</li><li>Der Rechner ist für Erwachsene gedacht und nicht für Schwangerschaft, Kinder oder Jugendliche geeignet.</li><li>Wenn du dir Sorgen um dein Gewicht machst oder Gedanken an Essen und Gewicht dich belasten, sprich mit einer Ärztin, einem Arzt oder einer psychologischen Fachperson.</li>", "note": "Nur zur allgemeinen Information, keine medizinische Beratung."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka ideální váhy", "sub": "Zjisti zdravé rozmezí hmotnosti pro svou výšku podle BMI a čtyř klasických vzorců.", "h1": "Co je ideální váha?", "p1": "Jedna ideální váha neexistuje. Lékaři obvykle posuzují zdravé rozmezí podle BMI (u dospělých 18,5 až 24,9). Klasické vzorce Devine, Robinson, Miller a Hamwi odhadují z výšky a pohlaví jedno číslo; vznikly v letech 1960–1980, částečně pro dávkování léků, a dávají různé výsledky.", "h2": "Jak se počítá", "p2": "Zdravé rozmezí je hmotnost, při které by tvé BMI při tvé výšce bylo 18,5 až 24,9. Čtyři vzorce přičítají pevný počet kilogramů za každý palec výšky nad 5 stop (152,4 cm), přičemž základní hmotnost je jiná pro muže a ženy.", "h4": "Dobré vědět", "lim": "<li>Výsledek ber jako rozmezí, ne jako cíl. Zdravá hmotnost závisí na svalech, stavbě kostí, věku a zdraví.</li><li>BMI nerozlišuje svaly od tuku, proto mohou být sportovci mimo rozmezí a přitom zdraví.</li><li>Vzorce jsou méně spolehlivé pro lidi nižší než 152 cm nebo mnohem vyšší než asi 190 cm.</li><li>Kalkulačka je pro dospělé a není vhodná pro těhotenství, děti ani dospívající.</li><li>Pokud se o svou hmotnost obáváš nebo ti myšlenky na jídlo a váhu způsobují stres, promluv si s lékařem nebo odborníkem na duševní zdraví.</li>", "note": "Pouze k obecné informaci, nejde o zdravotní poradenství."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator idealnej wagi", "sub": "Sprawdź zdrowy zakres masy ciała dla swojego wzrostu według BMI i czterech klasycznych wzorów.", "h1": "Czym jest idealna waga?", "p1": "Jedna idealna waga nie istnieje. Lekarze zwykle oceniają zdrowy zakres na podstawie BMI (u dorosłych od 18,5 do 24,9). Klasyczne wzory Devine’a, Robinsona, Millera i Hamwi szacują z wzrostu i płci jedną liczbę; powstały w latach 1960–1980, częściowo do dawkowania leków, i dają różne wyniki.", "h2": "Jak się to oblicza", "p2": "Zdrowy zakres to masa ciała, przy której Twoje BMI przy Twoim wzroście wynosiłoby od 18,5 do 24,9. Cztery wzory dodają stałą liczbę kilogramów za każdy cal wzrostu powyżej 5 stóp (152,4 cm), przy czym masa bazowa jest inna dla mężczyzn i kobiet.", "h4": "Warto wiedzieć", "lim": "<li>Traktuj wynik jako zakres, a nie cel. Zdrowa waga zależy od mięśni, budowy kości, wieku i zdrowia.</li><li>BMI nie odróżnia mięśni od tłuszczu, więc sportowcy mogą być poza zakresem i jednocześnie zdrowi.</li><li>Wzory są mniej wiarygodne dla osób niższych niż 152 cm lub znacznie wyższych niż około 190 cm.</li><li>Kalkulator jest dla dorosłych i nie nadaje się dla kobiet w ciąży, dzieci ani młodzieży.</li><li>Jeśli martwisz się o wagę lub myśli o jedzeniu i wadze powodują u Ciebie cierpienie, porozmawiaj z lekarzem lub specjalistą zdrowia psychicznego.</li>", "note": "Tylko informacyjnie, to nie jest porada medyczna."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de poids idéal", "sub": "Trouvez votre plage de poids santé selon votre taille avec la plage d’IMC et quatre formules classiques.", "h1": "Qu’est-ce que le poids idéal ?", "p1": "Il n’existe pas un seul poids idéal. Les médecins regardent généralement une plage saine fondée sur l’IMC (18,5 à 24,9 chez l’adulte). Les formules classiques de Devine, Robinson, Miller et Hamwi estiment un chiffre unique à partir de la taille et du sexe ; elles datent des années 1960 à 1980, en partie pour le dosage des médicaments, et donnent des résultats différents.", "h2": "Comment c’est calculé", "p2": "La plage saine correspond aux poids pour lesquels votre IMC serait de 18,5 à 24,9 à votre taille. Les quatre formules ajoutent un nombre fixe de kilogrammes par pouce au-dessus de 5 pieds (152,4 cm), à partir d’un poids de base différent pour les hommes et les femmes.", "h4": "Bon à savoir", "lim": "<li>Considérez le résultat comme une plage, pas comme un objectif. Le poids sain dépend des muscles, de la structure osseuse, de l’âge et de la santé.</li><li>L’IMC ne distingue pas le muscle de la graisse ; des sportifs peuvent donc sortir de la plage tout en étant en bonne santé.</li><li>Les formules sont moins fiables pour les personnes de moins de 152 cm ou de beaucoup plus de 190 cm.</li><li>Ce calculateur s’adresse aux adultes et ne convient pas à la grossesse, aux enfants ni aux adolescents.</li><li>Si votre poids vous inquiète ou si penser à l’alimentation et au poids vous cause de la détresse, parlez-en à un médecin ou à un professionnel de la santé mentale.</li>", "note": "À titre d’information générale uniquement, pas un conseil médical."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de peso ideal", "sub": "Encuentra tu rango de peso saludable para tu altura con el rango de IMC y cuatro fórmulas clásicas.", "h1": "¿Qué es el peso ideal?", "p1": "No existe un único peso ideal. Los médicos suelen fijarse en un rango saludable basado en el IMC (de 18,5 a 24,9 en adultos). Las fórmulas clásicas de Devine, Robinson, Miller y Hamwi estiman una sola cifra a partir de la altura y el sexo; surgieron entre los años 60 y 80, en parte para dosificar medicamentos, y dan resultados distintos.", "h2": "Cómo se calcula", "p2": "El rango saludable es el peso con el que tu IMC sería de 18,5 a 24,9 a tu altura. Las cuatro fórmulas suman una cantidad fija de kilogramos por cada pulgada de altura por encima de 5 pies (152,4 cm), a partir de un peso base distinto para hombres y mujeres.", "h4": "Conviene saber", "lim": "<li>Considera el resultado como un rango, no como un objetivo. El peso saludable depende de los músculos, la estructura ósea, la edad y la salud.</li><li>El IMC no distingue el músculo de la grasa, por lo que los deportistas pueden quedar fuera del rango y estar sanos.</li><li>Las fórmulas son menos fiables para personas de menos de 152 cm o de mucho más de 190 cm.</li><li>La calculadora es para adultos y no es adecuada para embarazo, niños ni adolescentes.</li><li>Si te preocupa tu peso o pensar en la comida y el peso te causa malestar, habla con un médico o un profesional de salud mental.</li>", "note": "Solo con fines informativos, no es asesoramiento médico."}};
+const PIPE={"sex": "Sex|Pohlavie|Geschlecht|Pohlaví|Płeć|Sexe|Sexo", "male": "Male|Muž|Männlich|Muž|Mężczyzna|Homme|Hombre", "female": "Female|Žena|Weiblich|Žena|Kobieta|Femme|Mujer", "age": "Age (years)|Vek (roky)|Alter (Jahre)|Věk (roky)|Wiek (lata)|Âge (ans)|Edad (años)", "height": "Height|Výška|Größe|Výška|Wzrost|Taille|Altura", "metric": "Metric|Metrické|Metrisch|Metrické|Metryczne|Métrique|Métrico", "imperial": "Imperial|Imperiálne|Imperial|Imperiální|Imperialne|Impérial|Imperial", "adult": "This calculator is for adults aged 18 and over.|Táto kalkulačka je určená pre dospelých od 18 rokov.|Dieser Rechner ist für Erwachsene ab 18 Jahren gedacht.|Tato kalkulačka je určena pro dospělé od 18 let.|Ten kalkulator jest przeznaczony dla dorosłych od 18 lat.|Ce calculateur s’adresse aux adultes de 18 ans et plus.|Esta calculadora es para adultos de 18 años o más.", "hint": "Fill in your details to see the result.|Vyplň údaje a zobrazí sa výsledok.|Gib deine Daten ein, um das Ergebnis zu sehen.|Vyplň údaje a zobrazí se výsledek.|Wpisz swoje dane, aby zobaczyć wynik.|Renseignez vos données pour voir le résultat.|Introduce tus datos para ver el resultado.", "range": "Healthy weight range (BMI 18.5–24.9)|Zdravé rozpätie hmotnosti (BMI 18,5 – 24,9)|Gesunder Gewichtsbereich (BMI 18,5–24,9)|Zdravé rozmezí hmotnosti (BMI 18,5–24,9)|Zdrowy zakres masy ciała (BMI 18,5–24,9)|Plage de poids santé (IMC 18,5–24,9)|Rango de peso saludable (IMC 18,5–24,9)", "formulas": "Classic formulas|Klasické vzorce|Klassische Formeln|Klasické vzorce|Klasyczne wzory|Formules classiques|Fórmulas clásicas", "short": "Formulas are less reliable at this height.|Pri tejto výške sú vzorce menej spoľahlivé.|Bei dieser Größe sind die Formeln weniger zuverlässig.|Při této výšce jsou vzorce méně spolehlivé.|Przy tym wzroście wzory są mniej wiarygodne.|À cette taille, les formules sont moins fiables.|A esta altura las fórmulas son menos fiables."};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/idealweight.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Ideal Weight Calculator – Healthy Weight Range | calc-hub.eu", "d": "Free ideal weight calculator: see your healthy weight range from BMI and the Devine, Robinson, Miller and Hamwi formulas."}, "sk": {"t": "Kalkulačka ideálnej váhy – zdravé rozpätie | calc-hub.eu", "d": "Bezplatná kalkulačka ideálnej váhy: zisti zdravé rozpätie hmotnosti podľa BMI a vzorcov Devine, Robinson, Miller a Hamwi."}, "de": {"t": "Idealgewicht-Rechner – gesunder Gewichtsbereich | calc-hub.eu", "d": "Kostenloser Idealgewicht-Rechner: dein gesunder Gewichtsbereich nach BMI und den Formeln von Devine, Robinson, Miller und Hamwi."}, "cs": {"t": "Kalkulačka ideální váhy – zdravé rozmezí | calc-hub.eu", "d": "Bezplatná kalkulačka ideální váhy: zjisti zdravé rozmezí hmotnosti podle BMI a vzorců Devine, Robinson, Miller a Hamwi."}, "pl": {"t": "Kalkulator idealnej wagi – zdrowy zakres | calc-hub.eu", "d": "Darmowy kalkulator idealnej wagi: sprawdź zdrowy zakres masy ciała według BMI i wzorów Devine, Robinson, Miller i Hamwi."}, "fr": {"t": "Calculateur de poids idéal – plage de poids santé | calc-hub.eu", "d": "Calculateur de poids idéal gratuit : votre plage de poids santé selon l’IMC et les formules de Devine, Robinson, Miller et Hamwi."}, "es": {"t": "Calculadora de peso ideal – rango saludable | calc-hub.eu", "d": "Calculadora de peso ideal gratis: tu rango de peso saludable según el IMC y las fórmulas de Devine, Robinson, Miller y Hamwi."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+let sex='m',unit='m';
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+  document.querySelectorAll('[data-sx]').forEach(e=>{e.textContent=L(e.dataset.sx==='m'?'male':'female');e.setAttribute('aria-pressed',e.dataset.sx===sex)});
+  document.querySelectorAll('[data-un]').forEach(e=>{e.textContent=L(e.dataset.un==='m'?'metric':'imperial');e.setAttribute('aria-pressed',e.dataset.un===unit)});
+}
+function showRes(o){
+  $('res').classList.toggle('hidden',!o||!!o.err);$('hint').classList.toggle('hidden',!!o);$('hint').textContent=L('hint');
+  $('err').classList.toggle('hidden',!(o&&o.err));if(o&&o.err)$('err').textContent=L(o.err);
+  return !!o&&!o.err;
+}
+const getH=()=>unit==='m'?+$('h1').value:(+$('h1').value*12+(+$('h2').value||0))*2.54;
+const getW=()=>unit==='m'?+$('w1').value:+$('w1').value*0.45359237;
+const FM={Devine:{m:[50,2.3],f:[45.5,2.3]},Robinson:{m:[52,1.9],f:[49,1.7]},Miller:{m:[56.2,1.41],f:[53.1,1.36]},Hamwi:{m:[48,2.7],f:[45.4,2.2]}};
+function calcAll(){
+  const A=+$('ag').value,H=getH();
+  if($('ag').value===''||$('h1').value===''||!isFinite(A+H))return null;
+  if(A<18)return {err:'adult'};
+  if(A>100||H<130||H>220)return null;
+  const inch=H/2.54-60,m2=Math.pow(H/100,2);
+  return {lo:18.5*m2,hi:24.9*m2,f:Object.entries(FM).map(([n,c])=>[n,c[sex][0]+c[sex][1]*inch]),short:H<152.4};
+}
+function calc(){
+  const o=calcAll();if(!showRes(o))return;
+  const f=unit==='m'?1:2.20462,u=unit==='m'?'kg':'lb';
+  $('big').textContent=`${nf(o.lo*f,1)} – ${nf(o.hi*f,1)} ${u}`;
+  $('rows').innerHTML=o.f.map(([n,v])=>`<div class="stat"><span>${n}</span><b>${nf(v*f,1)} ${u}</b></div>`).join('');
+  $('lw').textContent=o.short?L('short'):'';
+}
+function text(){
+  baseText();
+  $('fbox').innerHTML=Object.entries(FM).map(([n,c])=>`<div><b style="color:var(--accent)">${n}:</b> <span style="color:#a3acbf">${c.m[0]} + ${c.m[1]} × in (${L('male')}) · ${c.f[0]} + ${c.f[1]} × in (${L('female')})</span></div>`).join('');
+  $('fa').innerHTML=`<div class="stat"><span>BMI</span><b>18.5 – 24.9</b></div><p style="color:#8b94a7">in = inches above 5 ft</p>`;
+  syncLang();calc();
+}
+function setUnit(u){
+  if(u===unit)return;const H=getH();
+  unit=u;$('h2w').classList.toggle('hidden',u==='m');$('u1').textContent=u==='m'?'cm':'ft';
+  if(isFinite(H)&&H>0){if(u==='m')$('h1').value=Math.round(H);else{const i=H/2.54;$('h1').value=Math.floor(i/12);$('h2').value=Math.round(i%12)}}
+  text();
+}
+document.addEventListener('click',e=>{const s=e.target.closest('[data-sx]');if(s){sex=s.dataset.sx;text();return}const u=e.target.closest('[data-un]');if(u)setUnit(u.dataset.un)});
+['ag','h1','h2'].forEach(id=>$(id).addEventListener('input',calc));
+initLang(text);text();
+</script>
+</body>
+</html>

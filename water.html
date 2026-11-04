@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Water Intake Calculator – Daily Hydration Needs | calc-hub.eu</title>
+<meta name="description" content="Free water intake calculator: estimate how much water you need per day from your weight, exercise, climate and EFSA reference values.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/water.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/water.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/water.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/water.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/water.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/water.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/water.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/water.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/water.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Water Intake Calculator – Daily Hydration Needs | calc-hub.eu">
+<meta property="og:description" content="Free water intake calculator: estimate how much water you need per day from your weight, exercise, climate and EFSA reference values.">
+<meta property="og:url" content="https://calc-hub.eu/water.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Water Intake Calculator – Daily Hydration Needs | calc-hub.eu">
+<meta name="twitter:description" content="Free water intake calculator: estimate how much water you need per day from your weight, exercise, climate and EFSA reference values.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.chip{padding:.5rem 1rem;border-radius:99px;font-size:.85rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.6)}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.field select:disabled{opacity:.4;cursor:not-allowed}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div class="flex flex-wrap gap-3">
+        <div><p class="mb-2 text-sm" style="color:#8b94a7" data-p="sex"></p><div class="flex gap-2"><button class="chip" data-sx="m"></button><button class="chip" data-sx="f"></button></div></div>
+        <div class="ml-auto"><p class="mb-2 text-sm" style="color:transparent">.</p><div class="flex gap-2"><button class="chip" data-un="m"></button><button class="chip" data-un="i"></button></div></div>
+      </div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="age"></label><div class="field mt-2"><input id="ag" type="number" inputmode="numeric" min="18" max="100" step="1" value="30"></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="weight"></label><div class="field mt-2"><input id="w1" type="number" inputmode="decimal" min="0" step="any" value="70"><span id="uw">kg</span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="exm"></label><div class="field mt-2"><input id="ex" type="number" inputmode="numeric" min="0" max="300" step="5" value="30"><span>min</span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="climate"></label><div class="field mt-2"><select id="cl"></select></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="special"></label><div class="field mt-2"><select id="sp"></select></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <p id="err" class="hidden text-center" style="color:#f87171"></p>
+      <div id="res" class="hidden">
+        <p class="text-sm" style="color:#8b94a7" data-p="total"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <p class="mt-1 text-sm" style="color:#667085" data-p="food"></p>
+        <div id="rows" class="mt-5 space-y-2"></div>
+        <p id="hi" class="mt-4 text-sm" style="color:#fbbf24"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="bsec" class="mt-8 hidden"><h2 class="text-2xl font-semibold text-white" data-p="brk"></h2><div id="brk" class="mt-4 grid gap-2 sm:grid-cols-2"></div></section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-water-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 rounded-2xl p-5 text-sm sm:text-base"></div></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-water-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-water-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-water-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Water Intake Calculator", "sub": "Estimate how much water you need each day based on your weight, activity and climate.", "h1": "How much water do you need?", "p1": "Your water needs depend on body size, activity, climate and health. A widely used rule of thumb is about 30–35 ml of total water per kilogram of body weight per day. “Total” includes water from food, which is roughly 20% of the intake. The European Food Safety Authority (EFSA) sets adequate total water intake at 2.0 litres a day for women and 2.5 litres for men in moderate temperatures and with moderate activity, plus 300 ml in pregnancy and 700 ml while breastfeeding.", "h2": "How this estimate works", "p2": "This calculator starts from 33 ml per kilogram, adds about 12 ml for each minute of exercise, adds 0.5 or 1 litre for hot or very hot weather, and adds the EFSA extra for pregnancy or breastfeeding. It then shows how much should come from drinks (about 80%) and compares your result with the EFSA reference.", "h4": "Good to know", "lim": "<li>About 20% of daily water comes from food; the rest from water and other drinks, including tea, coffee and milk.</li><li>Thirst is a good guide for healthy adults; pale-yellow urine usually indicates good hydration.</li><li>Needs rise with heat, high altitude, fever, vomiting, diarrhoea and long exercise.</li><li>Drinking very large amounts quickly can be dangerous (low blood sodium). Spread drinks across the day and do not force yourself.</li><li>People with heart, kidney or liver disease, or on medicines such as diuretics, may need a doctor’s guidance on fluid amounts.</li><li>EFSA’s adequate intake of 2.0 l (women) and 2.5 l (men) applies to moderate temperatures and activity and includes moisture from food.</li>", "note": "For general information only; not medical advice. If you need to drink unusually large amounts or are constantly thirsty, see a doctor."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka pitného režimu", "sub": "Odhadni, koľko vody potrebuješ denne podľa hmotnosti, aktivity a podnebia.", "h1": "Koľko vody potrebuješ?", "p1": "Tvoja potreba vody závisí od veľkosti tela, aktivity, podnebia a zdravia. Často používané pravidlo je približne 30 – 35 ml celkovej vody na kilogram telesnej hmotnosti za deň. „Celkovej“ znamená vrátane vody z jedla, ktorá tvorí zhruba 20 % príjmu. Európsky úrad pre bezpečnosť potravín (EFSA) stanovuje primeraný celkový príjem vody na 2,0 litra denne pre ženy a 2,5 litra pre mužov pri miernych teplotách a miernej aktivite, plus 300 ml v tehotenstve a 700 ml pri dojčení.", "h2": "Ako odhad vzniká", "p2": "Kalkulačka vychádza z 33 ml na kilogram, pridáva približne 12 ml za každú minútu cvičenia, 0,5 alebo 1 liter za horúce alebo veľmi horúce počasie a príplatok EFSA za tehotenstvo či dojčenie. Potom ukáže, koľko má pochádzať z nápojov (asi 80 %), a porovná výsledok s referenciou EFSA.", "h4": "Dobré vedieť", "lim": "<li>Približne 20 % denného príjmu vody pochádza z jedla, zvyšok z vody a ďalších nápojov vrátane čaju, kávy a mlieka.</li><li>Zdravým dospelým je dobrým vodidlom smäd; svetložltý moč zvyčajne znamená dobrú hydratáciu.</li><li>Potreba rastie pri horúčave, vo vysokej nadmorskej výške, pri horúčke, vracaní, hnačke a dlhom cvičení.</li><li>Pitie veľmi veľkého množstva naraz môže byť nebezpečné (nízka hladina sodíka v krvi). Rozlož nápoje počas dňa a nenúť sa.</li><li>Ľudia so srdcovým, obličkovým či pečeňovým ochorením alebo užívajúci lieky, napríklad diuretiká, môžu potrebovať usmernenie lekára k množstvu tekutín.</li><li>Primeraný príjem EFSA 2,0 l (ženy) a 2,5 l (muži) platí pre mierne teploty a aktivitu a zahŕňa vlhkosť v jedle.</li>", "note": "Len na všeobecné informovanie, nie je to zdravotné poradenstvo. Ak potrebuješ piť nezvyčajne veľa alebo máš stály smäd, navštív lekára."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Wasserbedarf-Rechner", "sub": "Schätze, wie viel Wasser du täglich brauchst, abhängig von Gewicht, Aktivität und Klima.", "h1": "Wie viel Wasser brauchst du?", "p1": "Dein Wasserbedarf hängt von Körpergröße, Aktivität, Klima und Gesundheit ab. Eine verbreitete Faustregel sind etwa 30–35 ml Gesamtwasser pro Kilogramm Körpergewicht und Tag. „Gesamt“ schließt das Wasser aus der Nahrung ein, das etwa 20 % der Aufnahme ausmacht. Die Europäische Behörde für Lebensmittelsicherheit (EFSA) legt die angemessene Gesamtwasseraufnahme bei gemäßigten Temperaturen und moderater Aktivität auf 2,0 Liter pro Tag für Frauen und 2,5 Liter für Männer fest, plus 300 ml in der Schwangerschaft und 700 ml in der Stillzeit.", "h2": "So entsteht die Schätzung", "p2": "Dieser Rechner geht von 33 ml pro Kilogramm aus, addiert etwa 12 ml für jede Trainingsminute, 0,5 oder 1 Liter bei heißem oder sehr heißem Wetter und den EFSA-Zuschlag für Schwangerschaft oder Stillzeit. Danach zeigt er, wie viel aus Getränken kommen sollte (etwa 80 %), und vergleicht das Ergebnis mit dem EFSA-Referenzwert.", "h4": "Gut zu wissen", "lim": "<li>Etwa 20 % der täglichen Wasseraufnahme stammen aus der Nahrung, der Rest aus Wasser und anderen Getränken, auch Tee, Kaffee und Milch.</li><li>Für gesunde Erwachsene ist Durst ein guter Wegweiser; hellgelber Urin zeigt meist eine gute Flüssigkeitsversorgung an.</li><li>Der Bedarf steigt bei Hitze, in großer Höhe, bei Fieber, Erbrechen, Durchfall und langem Training.</li><li>Sehr große Mengen auf einmal zu trinken kann gefährlich sein (niedriger Natriumspiegel im Blut). Verteile Getränke über den Tag und zwinge dich nicht.</li><li>Menschen mit Herz-, Nieren- oder Lebererkrankungen oder mit Medikamenten wie Diuretika brauchen für die Trinkmenge unter Umständen ärztlichen Rat.</li><li>Die angemessene Zufuhr der EFSA von 2,0 l (Frauen) und 2,5 l (Männer) gilt für gemäßigte Temperaturen und Aktivität und schließt die Feuchtigkeit in Speisen ein.</li>", "note": "Nur zur allgemeinen Information, keine medizinische Beratung. Wenn du ungewöhnlich viel trinken musst oder ständig Durst hast, such bitte eine Ärztin oder einen Arzt auf."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka pitného režimu", "sub": "Odhadni, kolik vody potřebuješ denně podle hmotnosti, aktivity a klimatu.", "h1": "Kolik vody potřebuješ?", "p1": "Tvá potřeba vody závisí na velikosti těla, aktivitě, klimatu a zdraví. Často používané pravidlo je přibližně 30–35 ml celkové vody na kilogram tělesné hmotnosti za den. „Celkové“ znamená včetně vody z jídla, která tvoří zhruba 20 % příjmu. Evropský úřad pro bezpečnost potravin (EFSA) stanovuje přiměřený celkový příjem vody na 2,0 litru denně pro ženy a 2,5 litru pro muže při mírných teplotách a mírné aktivitě, plus 300 ml v těhotenství a 700 ml při kojení.", "h2": "Jak odhad vzniká", "p2": "Kalkulačka vychází z 33 ml na kilogram, přidává přibližně 12 ml za každou minutu cvičení, 0,5 nebo 1 litr za horké nebo velmi horké počasí a příplatek EFSA za těhotenství či kojení. Poté ukáže, kolik má pocházet z nápojů (asi 80 %), a porovná výsledek s referencí EFSA.", "h4": "Dobré vědět", "lim": "<li>Přibližně 20 % denního příjmu vody pochází z jídla, zbytek z vody a dalších nápojů včetně čaje, kávy a mléka.</li><li>Zdravým dospělým je dobrým vodítkem žízeň; světležlutá moč obvykle znamená dobrou hydrataci.</li><li>Potřeba roste při horku, ve vysoké nadmořské výšce, při horečce, zvracení, průjmu a dlouhém cvičení.</li><li>Pití velmi velkého množství najednou může být nebezpečné (nízká hladina sodíku v krvi). Rozlož nápoje během dne a nenuť se.</li><li>Lidé se srdečním, ledvinovým či jaterním onemocněním nebo užívající léky, například diuretika, mohou potřebovat doporučení lékaře k množství tekutin.</li><li>Přiměřený příjem EFSA 2,0 l (ženy) a 2,5 l (muži) platí pro mírné teploty a aktivitu a zahrnuje vlhkost v jídle.</li>", "note": "Pouze k obecné informaci, nejde o zdravotní poradenství. Pokud potřebuješ pít neobvykle hodně nebo máš stálou žízeň, navštiv lékaře."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator zapotrzebowania na wodę", "sub": "Oszacuj, ile wody potrzebujesz dziennie w zależności od wagi, aktywności i klimatu.", "h1": "Ile wody potrzebujesz?", "p1": "Twoje zapotrzebowanie na wodę zależy od wielkości ciała, aktywności, klimatu i zdrowia. Często stosowana zasada to około 30–35 ml wody ogółem na kilogram masy ciała na dobę. „Ogółem” obejmuje wodę z jedzenia, która stanowi około 20 % dziennego spożycia. Europejski Urząd ds. Bezpieczeństwa Żywności (EFSA) określa wystarczające całkowite spożycie wody na 2,0 litra dziennie dla kobiet i 2,5 litra dla mężczyzn przy umiarkowanych temperaturach i aktywności, plus 300 ml w ciąży i 700 ml podczas karmienia piersią.", "h2": "Jak powstaje szacunek", "p2": "Kalkulator wychodzi od 33 ml na kilogram, dodaje około 12 ml za każdą minutę ćwiczeń, 0,5 lub 1 litr przy upalnej lub bardzo upalnej pogodzie oraz dodatek EFSA na ciążę lub karmienie piersią. Następnie pokazuje, ile powinno pochodzić z napojów (około 80 %), i porównuje wynik z wartością referencyjną EFSA.", "h4": "Warto wiedzieć", "lim": "<li>Około 20 % dziennego spożycia wody pochodzi z jedzenia, reszta z wody i innych napojów, w tym herbaty, kawy i mleka.</li><li>U zdrowych dorosłych dobrym wskaźnikiem jest pragnienie; jasnożółty mocz zwykle oznacza dobre nawodnienie.</li><li>Zapotrzebowanie rośnie podczas upałów, na dużej wysokości, przy gorączce, wymiotach, biegunce i długich ćwiczeniach.</li><li>Wypicie bardzo dużej ilości naraz może być niebezpieczne (niski poziom sodu we krwi). Rozłóż napoje na cały dzień i nie zmuszaj się.</li><li>Osoby z chorobami serca, nerek lub wątroby oraz przyjmujące leki, na przykład diuretyki, mogą potrzebować wskazówek lekarza dotyczących ilości płynów.</li><li>Wystarczające spożycie EFSA 2,0 l (kobiety) i 2,5 l (mężczyźni) dotyczy umiarkowanych temperatur i aktywności oraz obejmuje wilgoć w jedzeniu.</li>", "note": "Tylko informacyjnie, to nie jest porada medyczna. Jeśli musisz pić niezwykle dużo lub ciągle odczuwasz pragnienie, zgłoś się do lekarza."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur d’hydratation", "sub": "Estimez la quantité d’eau dont vous avez besoin chaque jour selon votre poids, votre activité et le climat.", "h1": "De quelle quantité d’eau avez-vous besoin ?", "p1": "Vos besoins en eau dépendent de la corpulence, de l’activité, du climat et de la santé. Une règle courante est d’environ 30 à 35 ml d’eau totale par kilogramme de poids corporel et par jour. « Totale » inclut l’eau des aliments, soit environ 20 % de l’apport. L’Autorité européenne de sécurité des aliments (EFSA) fixe l’apport total adéquat en eau à 2,0 litres par jour pour les femmes et 2,5 litres pour les hommes, à température et activité modérées, plus 300 ml pendant la grossesse et 700 ml pendant l’allaitement.", "h2": "Comment l’estimation est construite", "p2": "Ce calculateur part de 33 ml par kilogramme, ajoute environ 12 ml par minute d’exercice, 0,5 ou 1 litre par temps chaud ou très chaud, et le supplément EFSA pour la grossesse ou l’allaitement. Il indique ensuite la part qui devrait venir des boissons (environ 80 %) et compare le résultat à la référence EFSA.", "h4": "Bon à savoir", "lim": "<li>Environ 20 % de l’apport quotidien en eau vient des aliments, le reste de l’eau et des autres boissons, y compris le thé, le café et le lait.</li><li>Chez l’adulte en bonne santé, la soif est un bon guide ; une urine jaune pâle indique en général une bonne hydratation.</li><li>Les besoins augmentent par forte chaleur, en altitude, en cas de fièvre, de vomissements, de diarrhée et lors d’un exercice prolongé.</li><li>Boire de très grandes quantités d’un coup peut être dangereux (taux de sodium sanguin trop bas). Répartissez les boissons sur la journée et ne vous forcez pas.</li><li>Les personnes atteintes d’une maladie du cœur, des reins ou du foie, ou prenant des médicaments comme les diurétiques, peuvent avoir besoin de l’avis d’un médecin sur les quantités de liquide.</li><li>L’apport adéquat de l’EFSA de 2,0 l (femmes) et 2,5 l (hommes) vaut pour des températures et une activité modérées et inclut l’humidité des aliments.</li>", "note": "À titre d’information générale uniquement, pas un conseil médical. Si vous devez boire des quantités inhabituelles ou avez constamment soif, consultez un médecin."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de consumo de agua", "sub": "Estima cuánta agua necesitas cada día según tu peso, tu actividad y el clima.", "h1": "¿Cuánta agua necesitas?", "p1": "Tus necesidades de agua dependen del tamaño corporal, la actividad, el clima y la salud. Una regla habitual es de unos 30–35 ml de agua total por kilogramo de peso corporal al día. «Total» incluye el agua de los alimentos, que supone aproximadamente el 20 % de la ingesta. La Autoridad Europea de Seguridad Alimentaria (EFSA) fija la ingesta total adecuada de agua en 2,0 litros diarios para mujeres y 2,5 litros para hombres con temperaturas y actividad moderadas, más 300 ml en el embarazo y 700 ml durante la lactancia.", "h2": "Cómo se construye la estimación", "p2": "Esta calculadora parte de 33 ml por kilogramo, suma unos 12 ml por cada minuto de ejercicio, 0,5 o 1 litro con tiempo caluroso o muy caluroso y el extra de la EFSA por embarazo o lactancia. Después muestra cuánto debería venir de bebidas (alrededor del 80 %) y compara el resultado con la referencia de la EFSA.", "h4": "Conviene saber", "lim": "<li>Aproximadamente el 20 % del agua diaria procede de los alimentos; el resto, del agua y otras bebidas, incluidos té, café y leche.</li><li>En adultos sanos la sed es una buena guía; una orina amarillo pálido suele indicar buena hidratación.</li><li>Las necesidades aumentan con el calor, la altitud, la fiebre, los vómitos, la diarrea y el ejercicio prolongado.</li><li>Beber cantidades muy grandes de golpe puede ser peligroso (sodio bajo en sangre). Reparte las bebidas a lo largo del día y no te fuerces.</li><li>Las personas con enfermedades del corazón, los riñones o el hígado, o que toman medicamentos como diuréticos, pueden necesitar la orientación de un médico sobre la cantidad de líquidos.</li><li>La ingesta adecuada de la EFSA de 2,0 l (mujeres) y 2,5 l (hombres) vale para temperaturas y actividad moderadas e incluye la humedad de los alimentos.</li>", "note": "Solo con fines informativos, no es asesoramiento médico. Si necesitas beber cantidades inusuales o tienes sed constante, consulta a un médico."}};
+const PIPE={"sex": "Sex|Pohlavie|Geschlecht|Pohlaví|Płeć|Sexe|Sexo", "male": "Male|Muž|Männlich|Muž|Mężczyzna|Homme|Hombre", "female": "Female|Žena|Weiblich|Žena|Kobieta|Femme|Mujer", "age": "Age (years)|Vek (roky)|Alter (Jahre)|Věk (roky)|Wiek (lata)|Âge (ans)|Edad (años)", "weight": "Weight|Váha|Gewicht|Váha|Waga|Poids|Peso", "metric": "Metric|Metrické|Metrisch|Metrické|Metryczne|Métrique|Métrico", "imperial": "Imperial|Imperiálne|Imperial|Imperiální|Imperialne|Impérial|Imperial", "exm": "Exercise per day (minutes)|Cvičenie za deň (minúty)|Training pro Tag (Minuten)|Cvičení za den (minuty)|Ćwiczenia dziennie (minuty)|Exercice par jour (minutes)|Ejercicio al día (minutos)", "climate": "Climate|Podnebie|Klima|Klima|Klimat|Climat|Clima", "c0": "Temperate|Mierne|Gemäßigt|Mírné|Umiarkowany|Tempéré|Templado", "c1": "Hot or humid (+0.5 L)|Horúce alebo vlhké (+0,5 l)|Heiß oder feucht (+0,5 l)|Horké nebo vlhké (+0,5 l)|Gorący lub wilgotny (+0,5 l)|Chaud ou humide (+0,5 l)|Cálido o húmedo (+0,5 l)", "c2": "Very hot (+1 L)|Veľmi horúce (+1 l)|Sehr heiß (+1 l)|Velmi horké (+1 l)|Bardzo gorący (+1 l)|Très chaud (+1 l)|Muy cálido (+1 l)", "special": "Pregnancy / breastfeeding|Tehotenstvo / dojčenie|Schwangerschaft / Stillzeit|Těhotenství / kojení|Ciąża / karmienie piersią|Grossesse / allaitement|Embarazo / lactancia", "s0": "None|Žiadne|Keine|Žádné|Brak|Aucun|Ninguno", "s1": "Pregnant (+300 ml)|Tehotenstvo (+300 ml)|Schwanger (+300 ml)|Těhotenství (+300 ml)|Ciąża (+300 ml)|Enceinte (+300 ml)|Embarazo (+300 ml)", "s2": "Breastfeeding (+700 ml)|Dojčenie (+700 ml)|Stillzeit (+700 ml)|Kojení (+700 ml)|Karmienie piersią (+700 ml)|Allaitement (+700 ml)|Lactancia (+700 ml)", "total": "Total water per day|Celkový príjem vody za deň|Gesamte Wassermenge pro Tag|Celkový příjem vody za den|Całkowita ilość wody na dzień|Eau totale par jour|Agua total al día", "food": "including about 20 % from food|vrátane približne 20 % z jedla|davon etwa 20 % aus der Nahrung|včetně přibližně 20 % z jídla|w tym około 20 % z jedzenia|dont environ 20 % provenant des aliments|incluidos aproximadamente un 20 % de los alimentos", "drinks": "From drinks and water (about 80 %)|Z nápojov a vody (približne 80 %)|Aus Getränken und Wasser (ca. 80 %)|Z nápojů a vody (přibližně 80 %)|Z napojów i wody (ok. 80 %)|Boissons et eau (environ 80 %)|De bebidas y agua (aprox. 80 %)", "glasses": "Glasses (250 ml)|Poháre (250 ml)|Gläser (250 ml)|Sklenice (250 ml)|Szklanki (250 ml)|Verres (250 ml)|Vasos (250 ml)", "glassesI": "Glasses (8 fl oz)|Poháre (8 fl oz)|Gläser (8 fl oz)|Sklenice (8 fl oz)|Szklanki (8 fl oz)|Verres (8 fl oz)|Vasos (8 fl oz)", "pace": "Per waking hour (16 h)|Za hodinu bdenia (16 h)|Pro Wachstunde (16 h)|Za hodinu bdění (16 h)|Na godzinę czuwania (16 h)|Par heure d’éveil (16 h)|Por hora de vigilia (16 h)", "efsa": "EFSA reference (moderate conditions)|Referencia EFSA (mierne podmienky)|EFSA-Referenz (moderate Bedingungen)|Reference EFSA (mírné podmínky)|Wartość referencyjna EFSA (umiarkowane warunki)|Référence EFSA (conditions modérées)|Referencia EFSA (condiciones moderadas)", "brk": "How the estimate is built|Z čoho sa odhad skladá|Woraus sich die Schätzung zusammensetzt|Z čeho se odhad skládá|Z czego składa się szacunek|Comment l’estimation est construite|Cómo se construye la estimación", "b_base": "Body weight (33 ml per kg)|Telesná hmotnosť (33 ml na kg)|Körpergewicht (33 ml pro kg)|Tělesná hmotnost (33 ml na kg)|Masa ciała (33 ml na kg)|Poids corporel (33 ml par kg)|Peso corporal (33 ml por kg)", "b_ex": "Exercise|Cvičenie|Training|Cvičení|Ćwiczenia|Exercice|Ejercicio", "b_cl": "Climate|Podnebie|Klima|Klima|Klimat|Climat|Clima", "b_sp": "Pregnancy / breastfeeding|Tehotenstvo / dojčenie|Schwangerschaft / Stillzeit|Těhotenství / kojení|Ciąża / karmienie|Grossesse / allaitement|Embarazo / lactancia", "adult": "This calculator is for adults aged 18 and over.|Táto kalkulačka je určená pre dospelých od 18 rokov.|Dieser Rechner ist für Erwachsene ab 18 Jahren gedacht.|Tato kalkulačka je určena pro dospělé od 18 let.|Ten kalkulator jest przeznaczony dla dorosłych od 18 lat.|Ce calculateur s’adresse aux adultes de 18 ans et plus.|Esta calculadora es para adultos de 18 años o más.", "high": "This is a very high amount. Spread it over the day, do not force yourself to drink, and ask a doctor if you are unsure.|Je to veľmi vysoké množstvo. Rozlož ho počas dňa, nenúť sa piť a ak si nie si istý, spýtaj sa lekára.|Das ist eine sehr hohe Menge. Verteile sie über den Tag, zwinge dich nicht zum Trinken und frage im Zweifel eine Ärztin oder einen Arzt.|Je to velmi vysoké množství. Rozlož ho během dne, nenuť se pít a pokud si nejsi jistý, zeptej se lékaře.|To bardzo duża ilość. Rozłóż ją na cały dzień, nie zmuszaj się do picia, a jeśli masz wątpliwości, zapytaj lekarza.|C’est une quantité très élevée. Répartissez-la sur la journée, ne vous forcez pas à boire et demandez conseil à un médecin en cas de doute.|Es una cantidad muy alta. Repártela a lo largo del día, no te fuerces a beber y consulta a un médico si tienes dudas.", "hint": "Fill in your details to see the result.|Vyplň údaje a zobrazí sa výsledok.|Gib deine Daten ein, um das Ergebnis zu sehen.|Vyplň údaje a zobrazí se výsledek.|Wpisz swoje dane, aby zobaczyć wynik.|Renseignez vos données pour voir le résultat.|Introduce tus datos para ver el resultado."};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/water.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Water Intake Calculator – Daily Hydration Needs | calc-hub.eu", "d": "Free water intake calculator: estimate how much water you need per day from your weight, exercise, climate and EFSA reference values."}, "sk": {"t": "Kalkulačka pitného režimu – denná potreba vody | calc-hub.eu", "d": "Bezplatná kalkulačka pitného režimu: odhadni dennú potrebu vody podľa hmotnosti, cvičenia, podnebia a referenčných hodnôt EFSA."}, "de": {"t": "Wasserbedarf-Rechner – täglicher Flüssigkeitsbedarf | calc-hub.eu", "d": "Kostenloser Wasserbedarf-Rechner: schätze deinen Tagesbedarf nach Gewicht, Sport, Klima und EFSA-Referenzwerten."}, "cs": {"t": "Kalkulačka pitného režimu – denní potřeba vody | calc-hub.eu", "d": "Bezplatná kalkulačka pitného režimu: odhadni denní potřebu vody podle hmotnosti, cvičení, klimatu a referenčních hodnot EFSA."}, "pl": {"t": "Kalkulator wody – dzienne zapotrzebowanie | calc-hub.eu", "d": "Darmowy kalkulator zapotrzebowania na wodę: oszacuj dzienną ilość według wagi, ćwiczeń, klimatu i wartości referencyjnych EFSA."}, "fr": {"t": "Calculateur d’hydratation – besoin quotidien en eau | calc-hub.eu", "d": "Calculateur d’hydratation gratuit : estimez votre besoin quotidien en eau selon le poids, l’exercice, le climat et les références de l’EFSA."}, "es": {"t": "Calculadora de agua – consumo diario recomendado | calc-hub.eu", "d": "Calculadora de consumo de agua gratis: estima tu necesidad diaria según peso, ejercicio, clima y los valores de referencia de la EFSA."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const CL=[0,500,1000],SPV=[0,300,700],FLOZ=29.5735,GLASS_I=236.588;
+let sex='m',unit='m',cl=0,sp=0;
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+const vol=ml=>unit==='m'?(Math.abs(ml)>=1000?nf(ml/1000,2)+' L':nf(Math.round(ml/10)*10)+' ml'):nf(ml/FLOZ,0)+' fl oz';
+function calcAll(){
+  const A=+$('ag').value,X=$('ex').value===''?0:+$('ex').value;
+  const W=unit==='m'?+$('w1').value:+$('w1').value*0.45359237;
+  if($('ag').value===''||$('w1').value===''||!isFinite(A+W+X))return null;
+  if(A<18)return {err:'adult'};
+  if(A>100||W<30||W>250||X<0||X>300)return null;
+  const s=sex==='f'?SPV[sp]:0,base=33*W,ex=12*X,c=CL[cl],total=Math.min(base+ex+c+s,6000);
+  return {base,ex,c,s,total,drinks:total*0.8,ref:(sex==='m'?2500:2000)+s};
+}
+function calc(){
+  const o=calcAll();
+  $('res').classList.toggle('hidden',!o||!!o.err);$('hint').classList.toggle('hidden',!!o);$('hint').textContent=L('hint');
+  $('err').classList.toggle('hidden',!(o&&o.err));if(o&&o.err)$('err').textContent=L(o.err);
+  $('bsec').classList.toggle('hidden',!o||!!o.err);
+  if(!o||o.err)return;
+  $('big').textContent=vol(o.total);
+  const glass=unit==='m'?o.drinks/250:o.drinks/GLASS_I;
+  $('rows').innerHTML=[[L('drinks'),vol(o.drinks)],[L(unit==='m'?'glasses':'glassesI'),nf(glass,1)],[L('pace'),vol(o.drinks/16)],[L('efsa'),vol(o.ref)]].map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v}</b></div>`).join('');
+  $('hi').textContent=o.drinks>4500?L('high'):'';
+  $('brk').innerHTML=[['b_base',o.base],['b_ex',o.ex],['b_cl',o.c],['b_sp',o.s]].map(([k,v])=>`<div class="stat"><span>${L(k)}</span><b>${v?'+':''}${vol(v)}</b></div>`).join('').replace('+'+vol(o.base),vol(o.base));
+}
+function buildSel(){
+  $('cl').innerHTML=[0,1,2].map(i=>`<option value="${i}" ${i===cl?'selected':''}>${L('c'+i)}</option>`).join('');
+  $('sp').innerHTML=[0,1,2].map(i=>`<option value="${i}" ${i===sp?'selected':''}>${L('s'+i)}</option>`).join('');
+  $('sp').disabled=sex!=='f';
+  document.querySelectorAll('[data-sx]').forEach(b=>{b.textContent=L(b.dataset.sx==='m'?'male':'female');b.setAttribute('aria-pressed',b.dataset.sx===sex)});
+  document.querySelectorAll('[data-un]').forEach(b=>{b.textContent=L(b.dataset.un==='m'?'metric':'imperial');b.setAttribute('aria-pressed',b.dataset.un===unit)});
+}
+function text(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+  $('fbox').innerHTML=`<b style="color:var(--accent)">33 ml × kg + 12 ml × min + ${L('b_cl')} + ${L('b_sp')}</b>`;
+  buildSel();syncLang();calc();
+}
+function setUnit(u){
+  if(u===unit)return;
+  const W=unit==='m'?+$('w1').value:+$('w1').value*0.45359237;
+  unit=u;$('uw').textContent=u==='m'?'kg':'lb';
+  if(isFinite(W)&&W>0)$('w1').value=u==='m'?Math.round(W*10)/10:Math.round(W/0.45359237*10)/10;
+  buildSel();calc();
+}
+document.addEventListener('click',e=>{const s=e.target.closest('[data-sx]');if(s){sex=s.dataset.sx;if(sex!=='f')sp=0;buildSel();calc();return}const u=e.target.closest('[data-un]');if(u)setUnit(u.dataset.un)});
+['ag','w1','ex'].forEach(id=>$(id).addEventListener('input',calc));
+$('cl').addEventListener('change',e=>{cl=+e.target.value;calc()});
+$('sp').addEventListener('change',e=>{sp=+e.target.value;calc()});
+initLang(text);text();
+</script>
+</body>
+</html>
