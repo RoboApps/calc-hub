@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>VAT Calculator – Add or Remove VAT | calc-hub.eu</title>
+<meta name="description" content="Free VAT calculator: add VAT to a net price or remove it from a gross price, with 2026 standard and reduced rates for SK, CZ, PL, DE, AT, FR, ES and more.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/vat.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/vat.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/vat.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/vat.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/vat.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/vat.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/vat.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/vat.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/vat.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="VAT Calculator – Add or Remove VAT | calc-hub.eu">
+<meta property="og:description" content="Free VAT calculator: add VAT to a net price or remove it from a gross price, with 2026 standard and reduced rates for SK, CZ, PL, DE, AT, FR, ES and more.">
+<meta property="og:url" content="https://calc-hub.eu/vat.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VAT Calculator – Add or Remove VAT | calc-hub.eu">
+<meta name="twitter:description" content="Free VAT calculator: add VAT to a net price or remove it from a gross price, with 2026 standard and reduced rates for SK, CZ, PL, DE, AT, FR, ES and more.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.chip{padding:.4rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.sched{max-height:420px;overflow:auto}.sched table{min-width:460px;width:100%}
+.sched th{color:#8b94a7;font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;padding:.7rem 1rem;position:sticky;top:0;background:#0d111a}
+.sched th:first-child,.sched td:first-child{text-align:left}
+.sched td{text-align:right;padding:.6rem 1rem;border-top:1px solid rgba(255,255,255,.06);color:#c5cde0;font-size:.875rem;font-variant-numeric:tabular-nums}
+.sbtn{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;color:var(--accent)}
+.lg{display:inline-block;width:.8rem;height:.8rem;border-radius:.25rem;margin-right:.4rem;vertical-align:-1px}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="cur"></label><div class="field mt-2"><select id="lc"></select></div></div>
+      <div class="flex gap-2"><button class="chip" data-vm="add"></button><button class="chip" data-vm="rem"></button></div>
+      <div><label id="alab" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><input id="am" type="number" inputmode="decimal" min="0" step="any" value="100"><span class="cs"></span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="rate"></label><div class="field mt-2"><input id="vr" type="number" inputmode="decimal" min="0" step="0.1" value="23"><span>%</span></div></div>
+      <div><p class="text-sm" style="color:#8b94a7" data-p="pre"></p><div id="chips" class="mt-2 flex flex-wrap gap-2"></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <div id="res" class="hidden">
+        <p id="vl" class="text-sm" style="color:#8b94a7"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <div id="rows" class="mt-6 space-y-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-vat-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 space-y-2 rounded-2xl p-5 text-sm"></div></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-vat-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-vat-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-vat-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "VAT Calculator", "sub": "Add VAT to a net price or remove it from a gross price, with common 2026 rates.", "h1": "What is VAT?", "p1": "Value added tax (VAT) is a consumption tax added at every step of the supply chain and ultimately paid by the final consumer. Businesses charge VAT on their sales and reclaim the VAT they paid on purchases, so only the value they add is taxed.", "h2": "How to calculate VAT", "p2": "To add VAT, multiply the net price by (1 + rate ÷ 100). To remove it from a gross price, divide by the same factor. The VAT amount is the difference between gross and net.", "h4": "Good to know", "lim": "<li>Do not subtract the rate from the gross price: at 23% VAT, the VAT is about 18.7% of the gross price, not 23%.</li><li>Different goods can have different rates in the same country; this calculator uses the rate you choose.</li><li>Rates change. The presets show the standard and main reduced rates published for 2026 at the time of writing; always check with the tax authority.</li><li>Consumer prices in the EU are usually shown including VAT, while many business prices are shown without it.</li>", "note": "Not tax advice. Check current rules with your tax authority or accountant."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka DPH", "sub": "Pridaj DPH k cene bez DPH alebo ju odpočítaj z ceny s DPH, so bežnými sadzbami na rok 2026.", "h1": "Čo je DPH?", "p1": "Daň z pridanej hodnoty (DPH) je spotrebná daň pridávaná v každom kroku dodávateľského reťazca, ktorú nakoniec platí konečný spotrebiteľ. Podnikatelia účtujú DPH pri predaji a odpočítavajú DPH zaplatenú pri nákupoch, takže sa zdaňuje len hodnota, ktorú pridajú.", "h2": "Ako sa DPH počíta", "p2": "Na pridanie DPH vynásob cenu bez DPH číslom (1 + sadzba ÷ 100). Na odpočítanie z ceny s DPH deľ rovnakým číslom. Výška DPH je rozdiel medzi cenou s DPH a bez DPH.", "h4": "Dobré vedieť", "lim": "<li>Sadzbu neodpočítavaj priamo od ceny s DPH: pri 23 % DPH je daň asi 18,7 % z ceny s DPH, nie 23 %.</li><li>Rôzny tovar môže mať v tej istej krajine rôzne sadzby; kalkulačka používa sadzbu, ktorú zvolíš.</li><li>Sadzby sa menia. Predvoľby ukazujú základné a hlavné znížené sadzby zverejnené na rok 2026 v čase písania; vždy si over u daňového úradu.</li><li>Ceny pre spotrebiteľov v EÚ sa zvyčajne uvádzajú s DPH, ceny pre podnikateľov často bez nej.</li>", "note": "Nie je to daňové poradenstvo. Aktuálne pravidlá si over u daňového úradu alebo účtovníka."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "MwSt.-Rechner", "sub": "Schlage Mehrwertsteuer auf Nettopreise auf oder rechne sie aus Bruttopreisen heraus, mit gängigen Sätzen 2026.", "h1": "Was ist die Mehrwertsteuer?", "p1": "Die Mehrwertsteuer (MwSt.) ist eine Verbrauchsteuer, die auf jeder Stufe der Lieferkette anfällt und am Ende vom Endverbraucher getragen wird. Unternehmen berechnen MwSt. auf ihre Verkäufe und holen sich die beim Einkauf gezahlte MwSt. zurück, sodass nur ihre Wertschöpfung besteuert wird.", "h2": "So wird die MwSt. berechnet", "p2": "Um MwSt. aufzuschlagen, multipliziere den Nettopreis mit (1 + Satz ÷ 100). Um sie aus einem Bruttopreis herauszurechnen, teile durch denselben Faktor. Der MwSt.-Betrag ist die Differenz zwischen Brutto und Netto.", "h4": "Gut zu wissen", "lim": "<li>Ziehe den Satz nicht direkt vom Bruttopreis ab: Bei 19 % MwSt. beträgt die Steuer etwa 16 % des Bruttopreises, nicht 19 %.</li><li>Verschiedene Waren können im selben Land unterschiedliche Sätze haben; der Rechner nutzt den von dir gewählten Satz.</li><li>Sätze ändern sich. Die Voreinstellungen zeigen die Normal- und wichtigsten ermäßigten Sätze für 2026 zum Zeitpunkt der Erstellung; prüfe sie immer bei der Steuerbehörde.</li><li>Verbraucherpreise in der EU werden meist inklusive MwSt. angegeben, viele Geschäftspreise ohne.</li>", "note": "Keine Steuerberatung. Prüfe die aktuellen Regeln bei deiner Steuerbehörde oder Steuerberatung."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka DPH", "sub": "Přidej DPH k ceně bez DPH nebo ji odečti z ceny s DPH, s běžnými sazbami pro rok 2026.", "h1": "Co je DPH?", "p1": "Daň z přidané hodnoty (DPH) je spotřební daň přidávaná v každém kroku dodavatelského řetězce, kterou nakonec platí konečný spotřebitel. Podnikatelé účtují DPH při prodeji a odečítají DPH zaplacenou při nákupech, takže se zdaňuje jen hodnota, kterou přidají.", "h2": "Jak se DPH počítá", "p2": "Pro přidání DPH vynásob cenu bez DPH číslem (1 + sazba ÷ 100). Pro odečtení z ceny s DPH dělíš stejným číslem. Výše DPH je rozdíl mezi cenou s DPH a bez DPH.", "h4": "Dobré vědět", "lim": "<li>Sazbu neodečítej přímo od ceny s DPH: při 21 % DPH je daň asi 17,4 % z ceny s DPH, ne 21 %.</li><li>Různé zboží může mít ve stejné zemi různé sazby; kalkulačka používá sazbu, kterou zvolíš.</li><li>Sazby se mění. Předvolby ukazují základní a hlavní snížené sazby zveřejněné pro rok 2026 v době psaní; vždy si ověř u finančního úřadu.</li><li>Ceny pro spotřebitele v EU se obvykle uvádějí s DPH, ceny pro podnikatele často bez ní.</li>", "note": "Nejde o daňové poradenství. Aktuální pravidla si ověř u finančního úřadu nebo účetní."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator VAT", "sub": "Dodaj VAT do ceny netto lub wyodrębnij go z ceny brutto, ze standardowymi stawkami na 2026.", "h1": "Czym jest VAT?", "p1": "Podatek od wartości dodanej (VAT) to podatek konsumpcyjny naliczany na każdym etapie łańcucha dostaw, który ostatecznie płaci konsument końcowy. Przedsiębiorcy naliczają VAT od sprzedaży i odliczają VAT zapłacony przy zakupach, więc opodatkowana jest tylko wartość, którą dodają.", "h2": "Jak oblicza się VAT", "p2": "Aby dodać VAT, pomnóż cenę netto przez (1 + stawka ÷ 100). Aby wyodrębnić go z ceny brutto, podziel przez ten sam czynnik. Kwota VAT to różnica między ceną brutto a netto.", "h4": "Warto wiedzieć", "lim": "<li>Nie odejmuj stawki bezpośrednio od ceny brutto: przy VAT 23 % podatek to około 18,7 % ceny brutto, a nie 23 %.</li><li>Różne towary mogą mieć w tym samym kraju różne stawki; kalkulator używa wybranej przez Ciebie stawki.</li><li>Stawki się zmieniają. Ustawienia wstępne pokazują stawki podstawowe i główne obniżone na 2026 w chwili pisania; zawsze sprawdź w urzędzie skarbowym.</li><li>Ceny dla konsumentów w UE zwykle podaje się z VAT, a ceny dla firm często bez.</li>", "note": "To nie jest porada podatkowa. Aktualne przepisy sprawdź w urzędzie skarbowym lub u księgowego."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de TVA", "sub": "Ajoutez la TVA à un prix HT ou retirez-la d’un prix TTC, avec les taux courants de 2026.", "h1": "Qu’est-ce que la TVA ?", "p1": "La taxe sur la valeur ajoutée (TVA) est un impôt sur la consommation ajouté à chaque étape de la chaîne d’approvisionnement et supporté in fine par le consommateur final. Les entreprises facturent la TVA sur leurs ventes et récupèrent celle payée sur leurs achats, de sorte que seule la valeur qu’elles ajoutent est taxée.", "h2": "Comment calculer la TVA", "p2": "Pour ajouter la TVA, multipliez le prix HT par (1 + taux ÷ 100). Pour la retirer d’un prix TTC, divisez par le même facteur. Le montant de la TVA est la différence entre le TTC et le HT.", "h4": "Bon à savoir", "lim": "<li>Ne soustrayez pas le taux directement du prix TTC : à 20 % de TVA, la taxe représente environ 16,7 % du prix TTC, pas 20 %.</li><li>Des biens différents peuvent avoir des taux différents dans le même pays ; ce calculateur utilise le taux que vous choisissez.</li><li>Les taux changent. Les préréglages montrent les taux normaux et principaux taux réduits publiés pour 2026 au moment de la rédaction ; vérifiez toujours auprès de l’administration fiscale.</li><li>Les prix aux consommateurs dans l’UE sont généralement affichés TTC, ceux entre professionnels souvent HT.</li>", "note": "Ceci n’est pas un conseil fiscal. Vérifiez les règles en vigueur auprès de l’administration fiscale ou d’un comptable."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de IVA", "sub": "Añade el IVA a un precio sin IVA o quítalo de un precio con IVA, con los tipos habituales de 2026.", "h1": "¿Qué es el IVA?", "p1": "El impuesto sobre el valor añadido (IVA) es un impuesto al consumo que se añade en cada fase de la cadena de suministro y que paga finalmente el consumidor final. Las empresas cobran IVA en sus ventas y recuperan el IVA que pagaron en sus compras, de modo que solo se grava el valor que añaden.", "h2": "Cómo se calcula el IVA", "p2": "Para añadir el IVA, multiplica el precio sin IVA por (1 + tipo ÷ 100). Para quitarlo de un precio con IVA, divide entre el mismo factor. El importe del IVA es la diferencia entre el total y la base.", "h4": "Conviene saber", "lim": "<li>No restes el tipo directamente del precio con IVA: con un 21 % de IVA, el impuesto es aproximadamente el 17,4 % del precio con IVA, no el 21 %.</li><li>Distintos bienes pueden tener tipos diferentes en el mismo país; la calculadora usa el tipo que elijas.</li><li>Los tipos cambian. Los valores predefinidos muestran los tipos general y reducidos principales publicados para 2026 al redactar esto; comprueba siempre con la administración tributaria.</li><li>Los precios al consumidor en la UE suelen mostrarse con IVA incluido, y muchos precios entre empresas sin él.</li>", "note": "No es asesoramiento fiscal. Consulta la normativa vigente con la administración tributaria o un asesor."}};
+const PIPE={"cur": "Currency|Mena|Währung|Měna|Waluta|Devise|Moneda", "hint": "Fill in the fields to see the result.|Vyplň polia a zobrazí sa výsledok.|Fülle die Felder aus, um das Ergebnis zu sehen.|Vyplň pole a zobrazí se výsledek.|Wypełnij pola, aby zobaczyć wynik.|Remplissez les champs pour voir le résultat.|Rellena los campos para ver el resultado.", "sch": "Show yearly schedule|Zobraziť ročný prehľad|Jahresübersicht anzeigen|Zobrazit roční přehled|Pokaż zestawienie roczne|Afficher le tableau annuel|Mostrar cuadro anual", "schH": "Hide yearly schedule|Skryť ročný prehľad|Jahresübersicht ausblenden|Skrýt roční přehled|Ukryj zestawienie roczne|Masquer le tableau annuel|Ocultar cuadro anual", "cy": "Year|Rok|Jahr|Rok|Rok|Année|Año", "cb": "Balance|Zostatok|Restschuld|Zůstatek|Saldo|Solde|Saldo", "m_add": "Add VAT|Pridať DPH|MwSt. hinzufügen|Přidat DPH|Dodaj VAT|Ajouter la TVA|Añadir IVA", "m_rem": "Remove VAT|Odpočítať DPH|MwSt. herausrechnen|Odečíst DPH|Wyodrębnij VAT|Retirer la TVA|Quitar IVA", "a_net": "Amount without VAT|Suma bez DPH|Betrag ohne MwSt.|Částka bez DPH|Kwota bez VAT|Montant hors TVA|Importe sin IVA", "a_gross": "Amount with VAT|Suma s DPH|Betrag mit MwSt.|Částka s DPH|Kwota z VAT|Montant TTC|Importe con IVA", "rate": "VAT rate (%)|Sadzba DPH (%)|MwSt.-Satz (%)|Sazba DPH (%)|Stawka VAT (%)|Taux de TVA (%)|Tipo de IVA (%)", "pre": "Quick rates (2026)|Rýchle sadzby (2026)|Schnellsätze (2026)|Rychlé sazby (2026)|Szybkie stawki (2026)|Taux rapides (2026)|Tipos rápidos (2026)", "net": "Net (without VAT)|Bez DPH|Netto (ohne MwSt.)|Bez DPH|Netto (bez VAT)|Hors taxes (HT)|Sin IVA (base)", "vat": "VAT amount|Výška DPH|MwSt.-Betrag|Výše DPH|Kwota VAT|Montant de la TVA|Importe del IVA", "gross": "Gross (with VAT)|S DPH|Brutto (mit MwSt.)|S DPH|Brutto (z VAT)|TTC|Con IVA (total)", "share": "VAT as a share of gross|DPH ako podiel z ceny s DPH|MwSt. als Anteil am Bruttopreis|DPH jako podíl z ceny s DPH|VAT jako udział w cenie brutto|TVA en part du TTC|IVA como parte del total"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/vat.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "VAT Calculator – Add or Remove VAT | calc-hub.eu", "d": "Free VAT calculator: add VAT to a net price or remove it from a gross price, with 2026 standard and reduced rates for SK, CZ, PL, DE, AT, FR, ES and more."}, "sk": {"t": "Kalkulačka DPH – pridať a odpočítať DPH | calc-hub.eu", "d": "Bezplatná kalkulačka DPH: pridaj DPH k cene bez DPH alebo ju odpočítaj z ceny s DPH, so sadzbami na rok 2026 pre SK, CZ, PL, DE, AT, FR, ES a ďalšie."}, "de": {"t": "MwSt.-Rechner – Mehrwertsteuer hinzufügen und herausrechnen | calc-hub.eu", "d": "Kostenloser MwSt.-Rechner: Mehrwertsteuer auf Nettopreise aufschlagen oder aus Bruttopreisen herausrechnen, mit Sätzen 2026 für SK, CZ, PL, DE, AT, FR, ES und mehr."}, "cs": {"t": "Kalkulačka DPH – přidat a odečíst DPH | calc-hub.eu", "d": "Bezplatná kalkulačka DPH: přidej DPH k ceně bez DPH nebo ji odečti z ceny s DPH, se sazbami pro rok 2026 pro SK, CZ, PL, DE, AT, FR, ES a další."}, "pl": {"t": "Kalkulator VAT – dodaj i wyodrębnij VAT | calc-hub.eu", "d": "Darmowy kalkulator VAT: dodaj VAT do ceny netto lub wyodrębnij go z ceny brutto, ze stawkami na 2026 dla SK, CZ, PL, DE, AT, FR, ES i innych."}, "fr": {"t": "Calculateur de TVA – ajouter et retirer la TVA | calc-hub.eu", "d": "Calculateur de TVA gratuit : ajoutez la TVA à un prix HT ou retirez-la d’un prix TTC, avec les taux 2026 pour SK, CZ, PL, DE, AT, FR, ES et plus."}, "es": {"t": "Calculadora de IVA – añadir y quitar IVA | calc-hub.eu", "d": "Calculadora de IVA gratis: añade el IVA a un precio sin IVA o quítalo de un precio con IVA, con los tipos de 2026 para SK, CZ, PL, DE, AT, FR, ES y más."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+const CURS=['EUR','USD','GBP','CZK','PLN','CHF'],DEFC={cs:'CZK',pl:'PLN'},SCALE={EUR:1,USD:1,GBP:.9,CZK:25,PLN:4.3,CHF:.95};
+let cur=DEFC[lang]||'EUR',curT=false,schOpen=false;
+try{const c=new URLSearchParams(location.search).get('cur');if(CURS.includes(c)){cur=c;curT=true}}catch(e){}
+const money=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur,minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+const sym=()=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur}).formatToParts(0).find(p=>p.type==='currency').value;
+const touched={};
+function setDefaults(defs){Object.keys(defs).forEach(id=>{if(!touched[id])$(id).value=Math.round(defs[id]*SCALE[cur]/10)*10})}
+function curInit(defs,onChange){
+  $('lc').innerHTML=CURS.map(c=>`<option value="${c}">${c}</option>`).join('');$('lc').value=cur;
+  $('lc').addEventListener('change',e=>{cur=e.target.value;curT=true;try{const u=new URL(location.href);u.searchParams.set('cur',cur);history.replaceState(null,'',u)}catch(x){}setDefaults(defs);onChange()});
+  Object.keys(defs).forEach(id=>$(id).addEventListener('input',()=>{touched[id]=true}));
+  setDefaults(defs);
+}
+function curLang(defs){if(!curT){cur=DEFC[lang]||'EUR';$('lc').value=cur;setDefaults(defs)}document.querySelectorAll('.cs').forEach(e=>e.textContent=sym())}
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+}
+function showRes(ok){$('res').classList.toggle('hidden',!ok);$('hint').classList.toggle('hidden',ok);$('hint').textContent=L('hint')}
+
+const RATES=[['SK',[23,19,5]],['CZ',[21,12]],['PL',[23,8,5]],['DE',[19,7]],['AT',[20,13,10]],['FR',[20,10,5.5]],['ES',[21,10,4]],['HU',[27,18,5]],['UK',[20,5]]];
+let vm='add';
+const DEFS={am:100};
+function calc(){
+  const a=+$('am').value,r=+$('vr').value,ok=$('am').value!==''&&$('vr').value!==''&&a>=0&&r>=0&&r<=100;
+  showRes(ok);if(!ok)return;
+  let net,gross;if(vm==='add'){net=a;gross=a*(1+r/100)}else{gross=a;net=a/(1+r/100)}
+  const v=gross-net;
+  $('vl').textContent=L(vm==='add'?'gross':'net');$('big').textContent=money(vm==='add'?gross:net,2);
+  $('rows').innerHTML=[[L('net'),money(net,2)],[L('vat')+' ('+nf(r,2)+(lang==='en'?'%':' %')+')',money(v,2)],[L('gross'),money(gross,2)],[L('share'),nf(gross?v/gross*100:0,2)+(lang==='en'?'%':' %')]].map(([k,x])=>`<div class="stat"><span>${k}</span><b>${x}</b></div>`).join('');
+}
+function build(){
+  $('alab').textContent=L(vm==='add'?'a_net':'a_gross');
+  document.querySelectorAll('[data-vm]').forEach(b=>{b.textContent=L(b.dataset.vm==='add'?'m_add':'m_rem');b.setAttribute('aria-pressed',b.dataset.vm===vm)});
+  $('chips').innerHTML=RATES.flatMap(([c,rs])=>rs.map(r=>`<button class="chip" data-r="${r}">${c} ${nf(r,1)} ${lang==='en'?'%':'%'}</button>`)).join('');
+}
+function text(){baseText();curLang(DEFS);build();$('fbox').innerHTML=`<div><b style="color:var(--accent)">${L('gross')} = ${L('net')} × (1 + r ÷ 100)</b></div><div><b style="color:var(--accent)">${L('net')} = ${L('gross')} ÷ (1 + r ÷ 100)</b></div><div><b style="color:var(--accent)">${L('vat')} = ${L('gross')} × r ÷ (100 + r)</b></div>`;syncLang();calc()}
+document.addEventListener('click',e=>{const m=e.target.closest('[data-vm]');if(m){vm=m.dataset.vm;build();calc();return}const c=e.target.closest('[data-r]');if(c){$('vr').value=c.dataset.r;calc()}});
+['am','vr'].forEach(id=>$(id).addEventListener('input',calc));
+curInit(DEFS,calc);initLang(text);text();
+</script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Concrete Calculator – Volume, Weight &amp; Bags | calc-hub.eu</title>
+<meta name="description" content="Free concrete calculator: volume for slabs, columns and strip footings, with waste, weight, bags of premixed concrete and ready-mix order size.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/concrete.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/concrete.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/concrete.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/concrete.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/concrete.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/concrete.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/concrete.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/concrete.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/concrete.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Concrete Calculator – Volume, Weight &amp; Bags | calc-hub.eu">
+<meta property="og:description" content="Free concrete calculator: volume for slabs, columns and strip footings, with waste, weight, bags of premixed concrete and ready-mix order size.">
+<meta property="og:url" content="https://calc-hub.eu/concrete.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Concrete Calculator – Volume, Weight &amp; Bags | calc-hub.eu">
+<meta name="twitter:description" content="Free concrete calculator: volume for slabs, columns and strip footings, with waste, weight, bags of premixed concrete and ready-mix order size.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.chk{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:#a3acbf;cursor:pointer}
+.chk input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="shape"></label><div class="field mt-2"><select id="cs"></select></div></div>
+      <div id="a1w"><label id="a1l" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><input id="a1" type="number" inputmode="decimal" min="0" step="any" value="4"></div></div>
+      <div id="a2w"><label id="a2l" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><input id="a2" type="number" inputmode="decimal" min="0" step="any" value="3"></div></div>
+      <div id="a3w"><label id="a3l" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><input id="a3" type="number" inputmode="decimal" min="0" step="any" value="10"></div></div>
+      <div id="cww"><label id="cwl" class="block text-sm" style="color:#8b94a7" data-p="waste"></label><div class="field mt-2"><input id="cw" type="number" inputmode="decimal" min="0" step="any" value="5"><span>%</span></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <p id="err" class="hidden text-center" style="color:#f87171"></p>
+      <div id="res" class="hidden">
+        <p class="text-sm" style="color:#8b94a7" data-p="volw"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <div id="rows" class="mt-6 space-y-2"></div>
+      </div>
+    </div>
+  </section>
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-concrete-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 rounded-2xl p-5 text-sm"></div></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-concrete-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-concrete-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-concrete-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Concrete Volume Calculator", "sub": "Calculate how much concrete you need for a slab, column or strip footing.", "h1": "How to calculate concrete volume", "p1": "Volume is the area of the shape times its thickness or height. Order 5–10% extra to cover uneven ground, spillage and formwork errors.", "h2": "Formulas", "p2": "Slab: length × width × thickness. Cylinder: π × (diameter ÷ 2)² × height × number. Strip footing: length × width × depth. Ready-mix is ordered by cubic metre; one 25 kg bag of premixed concrete gives roughly 0.01 m³.", "h4": "Good to know", "lim": "<li>Slabs and driveways are usually 10–15 cm thick; footings depend on the project and the soil.</li><li>Concrete reaches design strength after about 28 days; keep it damp during the first days.</li><li>Do not pour in frost or very hot weather without proper precautions.</li>", "note": "Estimate only; follow the structural design or consult a professional."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka objemu betónu", "sub": "Vypočítaj, koľko betónu potrebuješ na dosku, stĺp alebo pásový základ.", "h1": "Ako sa počíta objem betónu", "p1": "Objem je plocha tvaru krát hrúbka alebo výška. Objednaj o 5 – 10 % viac na nerovný podklad, rozliatie a chyby debnenia.", "h2": "Vzorce", "p2": "Doska: dĺžka × šírka × hrúbka. Valec: π × (priemer ÷ 2)² × výška × počet. Pásový základ: dĺžka × šírka × hĺbka. Betón z betonárne sa objednáva v metroch kubických; jedno 25 kg vrece suchej zmesi dá približne 0,01 m³.", "h4": "Dobré vedieť", "lim": "<li>Dosky a príjazdové cesty majú zvyčajne 10 – 15 cm; základy závisia od projektu a podložia.</li><li>Betón dosiahne projektovanú pevnosť po asi 28 dňoch; v prvých dňoch ho udržiavaj vlhký.</li><li>Nelej v mraze ani vo veľkej horúčave bez primeraných opatrení.</li>", "note": "Len odhad; riaď sa statickým návrhom alebo sa poraď s odborníkom."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Betonrechner", "sub": "Berechne, wie viel Beton du für Platte, Säule oder Streifenfundament brauchst.", "h1": "So berechnest du das Betonvolumen", "p1": "Das Volumen ist die Fläche der Form mal Dicke oder Höhe. Bestelle 5–10 % extra für unebenen Untergrund, Verschüttetes und Schalungsfehler.", "h2": "Formeln", "p2": "Platte: Länge × Breite × Dicke. Zylinder: π × (Durchmesser ÷ 2)² × Höhe × Anzahl. Streifenfundament: Länge × Breite × Tiefe. Transportbeton wird in Kubikmetern bestellt; ein 25-kg-Sack Fertigmischung ergibt etwa 0,01 m³.", "h4": "Gut zu wissen", "lim": "<li>Platten und Einfahrten sind meist 10–15 cm dick; Fundamente hängen von Projekt und Boden ab.</li><li>Beton erreicht seine Festigkeit nach etwa 28 Tagen; halte ihn in den ersten Tagen feucht.</li><li>Betoniere nicht bei Frost oder großer Hitze ohne geeignete Vorkehrungen.</li>", "note": "Nur eine Schätzung; halte dich an die Statik oder frage eine Fachperson."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka objemu betonu", "sub": "Spočítej, kolik betonu potřebuješ na desku, sloup nebo pásový základ.", "h1": "Jak se počítá objem betonu", "p1": "Objem je plocha tvaru krát tloušťka nebo výška. Objednej o 5–10 % více na nerovný podklad, rozlití a chyby bednění.", "h2": "Vzorce", "p2": "Deska: délka × šířka × tloušťka. Válec: π × (průměr ÷ 2)² × výška × počet. Pásový základ: délka × šířka × hloubka. Beton z betonárny se objednává v metrech krychlových; jeden 25kg pytel suché směsi dá přibližně 0,01 m³.", "h4": "Dobré vědět", "lim": "<li>Desky a příjezdové cesty mají obvykle 10–15 cm; základy závisí na projektu a podloží.</li><li>Beton dosáhne projektované pevnosti po asi 28 dnech; v prvních dnech ho udržuj vlhký.</li><li>Nelij v mrazu ani ve velkém horku bez vhodných opatření.</li>", "note": "Pouze odhad; řiď se statickým návrhem nebo se poraď s odborníkem."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator objętości betonu", "sub": "Oblicz, ile betonu potrzebujesz na płytę, słup lub ławę fundamentową.", "h1": "Jak obliczyć objętość betonu", "p1": "Objętość to pole kształtu razy grubość lub wysokość. Zamów o 5–10 % więcej na nierówne podłoże, rozlanie i błędy szalunku.", "h2": "Wzory", "p2": "Płyta: długość × szerokość × grubość. Walec: π × (średnica ÷ 2)² × wysokość × liczba. Ława fundamentowa: długość × szerokość × głębokość. Beton towarowy zamawia się w metrach sześciennych; jeden worek suchej mieszanki 25 kg daje około 0,01 m³.", "h4": "Warto wiedzieć", "lim": "<li>Płyty i podjazdy mają zwykle 10–15 cm grubości; fundamenty zależą od projektu i gruntu.</li><li>Beton osiąga projektową wytrzymałość po około 28 dniach; w pierwszych dniach utrzymuj go wilgotnym.</li><li>Nie betonuj w mróz ani w upał bez odpowiednich zabezpieczeń.</li>", "note": "Tylko szacunek; kieruj się projektem konstrukcyjnym lub zapytaj specjalistę."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de béton", "sub": "Calculez la quantité de béton nécessaire pour une dalle, un poteau ou une semelle filante.", "h1": "Comment calculer le volume de béton", "p1": "Le volume est la surface de la forme multipliée par l’épaisseur ou la hauteur. Prévoyez 5 à 10 % de plus pour un sol irrégulier, les pertes et les erreurs de coffrage.", "h2": "Formules", "p2": "Dalle : longueur × largeur × épaisseur. Cylindre : π × (diamètre ÷ 2)² × hauteur × nombre. Semelle filante : longueur × largeur × profondeur. Le béton prêt à l’emploi se commande au mètre cube ; un sac de 25 kg de mélange prêt donne environ 0,01 m³.", "h4": "Bon à savoir", "lim": "<li>Les dalles et allées font en général 10 à 15 cm d’épaisseur ; les fondations dépendent du projet et du sol.</li><li>Le béton atteint sa résistance après environ 28 jours ; gardez-le humide les premiers jours.</li><li>Ne coulez pas par gel ou forte chaleur sans précautions adaptées.</li>", "note": "Estimation uniquement ; suivez le plan de structure ou consultez un professionnel."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de hormigón", "sub": "Calcula cuánto hormigón necesitas para una losa, una columna o una zapata corrida.", "h1": "Cómo calcular el volumen de hormigón", "p1": "El volumen es el área de la forma por el espesor o la altura. Pide un 5–10 % más para cubrir terreno irregular, derrames y errores de encofrado.", "h2": "Fórmulas", "p2": "Losa: longitud × anchura × espesor. Cilindro: π × (diámetro ÷ 2)² × altura × cantidad. Zapata corrida: longitud × anchura × profundidad. El hormigón preparado se pide por metro cúbico; un saco de 25 kg de mezcla da aproximadamente 0,01 m³.", "h4": "Conviene saber", "lim": "<li>Las losas y accesos suelen tener 10–15 cm de espesor; las cimentaciones dependen del proyecto y del suelo.</li><li>El hormigón alcanza su resistencia a los 28 días aproximadamente; mantenlo húmedo los primeros días.</li><li>No hormigones con heladas o calor extremo sin las precauciones adecuadas.</li>", "note": "Solo una estimación; sigue el proyecto estructural o consulta a un profesional."}};
+const PIPE={"hint": "Fill in the dimensions to see the result.|Vyplň rozmery a zobrazí sa výsledok.|Gib die Maße ein, um das Ergebnis zu sehen.|Vyplň rozměry a zobrazí se výsledek.|Wpisz wymiary, aby zobaczyć wynik.|Renseignez les dimensions pour voir le résultat.|Introduce las medidas para ver el resultado.", "shape": "Shape|Tvar|Form|Tvar|Kształt|Forme|Forma", "s_slab": "Slab / rectangle|Doska / obdĺžnik|Platte / Rechteck|Deska / obdélník|Płyta / prostokąt|Dalle / rectangle|Losa / rectángulo", "s_cyl": "Column / cylinder|Stĺp / valec|Säule / Zylinder|Sloup / válec|Słup / walec|Poteau / cylindre|Columna / cilindro", "s_strip": "Strip footing|Pásový základ|Streifenfundament|Pásový základ|Ława fundamentowa|Semelle filante|Zapata corrida", "len": "Length (m)|Dĺžka (m)|Länge (m)|Délka (m)|Długość (m)|Longueur (m)|Longitud (m)", "wid": "Width (m)|Šírka (m)|Breite (m)|Šířka (m)|Szerokość (m)|Largeur (m)|Anchura (m)", "thk": "Thickness (cm)|Hrúbka (cm)|Dicke (cm)|Tloušťka (cm)|Grubość (cm)|Épaisseur (cm)|Espesor (cm)", "dep": "Depth (cm)|Hĺbka (cm)|Tiefe (cm)|Hloubka (cm)|Głębokość (cm)|Profondeur (cm)|Profundidad (cm)", "wcm": "Width (cm)|Šírka (cm)|Breite (cm)|Šířka (cm)|Szerokość (cm)|Largeur (cm)|Anchura (cm)", "dia": "Diameter (cm)|Priemer (cm)|Durchmesser (cm)|Průměr (cm)|Średnica (cm)|Diamètre (cm)|Diámetro (cm)", "hgt": "Height (m)|Výška (m)|Höhe (m)|Výška (m)|Wysokość (m)|Hauteur (m)|Altura (m)", "qty": "Number|Počet|Anzahl|Počet|Liczba|Nombre|Cantidad", "waste": "Waste (%)|Rezerva (%)|Verschnitt (%)|Rezerva (%)|Zapas (%)|Marge de perte (%)|Margen de pérdida (%)", "vol": "Volume|Objem|Volumen|Objem|Objętość|Volume|Volumen", "volw": "Volume with waste|Objem s rezervou|Volumen mit Verschnitt|Objem s rezervou|Objętość z zapasem|Volume avec marge|Volumen con margen", "wt": "Weight (about 2,400 kg/m³)|Hmotnosť (asi 2 400 kg/m³)|Gewicht (ca. 2.400 kg/m³)|Hmotnost (asi 2 400 kg/m³)|Masa (ok. 2 400 kg/m³)|Poids (environ 2 400 kg/m³)|Peso (aprox. 2400 kg/m³)", "bags": "Premixed bags of 25 kg (about)|Vrecia suchej zmesi po 25 kg (približne)|Fertigmischung-Säcke à 25 kg (ca.)|Pytle suché směsi po 25 kg (přibližně)|Worki suchej mieszanki po 25 kg (ok.)|Sacs de mélange prêt de 25 kg (environ)|Sacos de mezcla de 25 kg (aprox.)", "rm": "Ready-mix order (rounded up to 0.25 m³)|Objednávka z betonárne (zaokrúhlené na 0,25 m³)|Transportbeton-Bestellung (auf 0,25 m³ aufgerundet)|Objednávka z betonárny (zaokrouhleno na 0,25 m³)|Zamówienie betonu towarowego (zaokrąglone do 0,25 m³)|Commande de béton prêt à l’emploi (arrondie à 0,25 m³)|Pedido de hormigón preparado (redondeado a 0,25 m³)"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/concrete.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Concrete Calculator – Volume, Weight & Bags | calc-hub.eu", "d": "Free concrete calculator: volume for slabs, columns and strip footings, with waste, weight, bags of premixed concrete and ready-mix order size."}, "sk": {"t": "Kalkulačka objemu betónu – objem, hmotnosť a vrecia | calc-hub.eu", "d": "Bezplatná kalkulačka objemu betónu: objem dosky, stĺpa a pásového základu s rezervou, hmotnosť, vrecia suchej zmesi a objednávka z betonárne."}, "de": {"t": "Betonrechner – Volumen, Gewicht und Säcke | calc-hub.eu", "d": "Kostenloser Betonrechner: Volumen für Platten, Säulen und Streifenfundamente mit Verschnitt, Gewicht, Fertigmischung-Säcke und Transportbeton-Bestellung."}, "cs": {"t": "Kalkulačka objemu betonu – objem, hmotnost a pytle | calc-hub.eu", "d": "Bezplatná kalkulačka objemu betonu: objem desky, sloupu a pásového základu s rezervou, hmotnost, pytle suché směsi a objednávka z betonárny."}, "pl": {"t": "Kalkulator objętości betonu – objętość, masa i worki | calc-hub.eu", "d": "Darmowy kalkulator objętości betonu: objętość płyty, słupa i ławy fundamentowej z zapasem, masa, worki suchej mieszanki i zamówienie betonu towarowego."}, "fr": {"t": "Calculateur de béton – volume, poids et sacs | calc-hub.eu", "d": "Calculateur de béton gratuit : volume de dalles, poteaux et semelles filantes avec marge, poids, sacs de mélange prêt et commande de béton prêt à l’emploi."}, "es": {"t": "Calculadora de hormigón – volumen, peso y sacos | calc-hub.eu", "d": "Calculadora de hormigón gratis: volumen de losas, columnas y zapatas corridas con margen, peso, sacos de mezcla y pedido de hormigón preparado."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+}
+function showRes(o){$('res').classList.toggle('hidden',!o||!!o.err);$('hint').classList.toggle('hidden',!!o);$('hint').textContent=L('hint');$('err').classList.toggle('hidden',!(o&&o.err));if(o&&o.err)$('err').textContent=L(o.err);return !!o&&!o.err}
+const rows=a=>a.map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v}</b></div>`).join('');
+
+const SH={sl:{k:['len','wid','thk'],d:[4,3,10]},cy:{k:['dia','hgt','qty'],d:[30,3,4]},st:{k:['len','wcm','dep'],d:[12,40,60]}};
+let shape='sl';
+function calcAll(){
+  const a=+$('a1').value,b=+$('a2').value,c=+$('a3').value,w=+$('cw').value;
+  if(['a1','a2','a3','cw'].some(id=>$(id).value===''||!isFinite(+$(id).value)))return null;
+  if(!(a>0&&b>0&&c>0&&w>=0&&w<=100&&a<=1000&&b<=1000&&c<=1000))return null;
+  const v=shape==='sl'?a*b*c/100:shape==='cy'?Math.PI*Math.pow(a/200,2)*b*c:a*(b/100)*(c/100),vw=v*(1+w/100),kg=vw*2400;
+  return {v,vw,t:kg/1000,bags:Math.ceil(kg/25),rm:Math.ceil(vw/0.25)*0.25};
+}
+function calc(){const o=calcAll();if(!showRes(o))return;
+  $('big').textContent=nf(o.vw,2)+' m³';
+  $('rows').innerHTML=rows([[L('vol'),nf(o.v,2)+' m³'],[L('wt'),nf(o.t,2)+' t'],[L('bags'),nf(o.bags)],[L('rm'),nf(o.rm,2)+' m³']]);}
+function labels(){SH[shape].k.forEach((k,i)=>$('a'+(i+1)+'l').textContent=L(k))}
+function build(){$('cs').innerHTML=['sl','cy','st'].map(k=>`<option value="${k}" ${k===shape?'selected':''}>${L({sl:'s_slab',cy:'s_cyl',st:'s_strip'}[k])}</option>`).join('');labels()}
+function text(){baseText();build();$('fbox').innerHTML=`<div><b style="color:var(--accent)">${L('s_slab')}: ${L('len')} × ${L('wid')} × ${L('thk')}</b></div><div><b style="color:var(--accent)">${L('s_cyl')}: π × (${L('dia')} ÷ 2)² × ${L('hgt')} × ${L('qty')}</b></div><div><b style="color:var(--accent)">${L('s_strip')}: ${L('len')} × ${L('wcm')} × ${L('dep')}</b></div>`;syncLang();calc()}
+$('cs').addEventListener('change',e=>{shape=e.target.value;SH[shape].d.forEach((v,i)=>$('a'+(i+1)).value=v);labels();calc()});
+['a1','a2','a3','cw'].forEach(id=>$(id).addEventListener('input',calc));
+initLang(text);text();
+</script>
+</body>
+</html>

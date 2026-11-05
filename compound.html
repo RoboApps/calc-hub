@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Compound Interest &amp; Investing Calculator | calc-hub.eu</title>
+<meta name="description" content="Free compound interest and investment calculator: growth with monthly contributions, compounding frequency, inflation-adjusted value and a growth chart.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/compound.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/compound.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/compound.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/compound.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/compound.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/compound.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/compound.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/compound.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/compound.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Compound Interest &amp; Investing Calculator | calc-hub.eu">
+<meta property="og:description" content="Free compound interest and investment calculator: growth with monthly contributions, compounding frequency, inflation-adjusted value and a growth chart.">
+<meta property="og:url" content="https://calc-hub.eu/compound.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compound Interest &amp; Investing Calculator | calc-hub.eu">
+<meta name="twitter:description" content="Free compound interest and investment calculator: growth with monthly contributions, compounding frequency, inflation-adjusted value and a growth chart.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.chip{padding:.4rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.sched{max-height:420px;overflow:auto}.sched table{min-width:460px;width:100%}
+.sched th{color:#8b94a7;font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;padding:.7rem 1rem;position:sticky;top:0;background:#0d111a}
+.sched th:first-child,.sched td:first-child{text-align:left}
+.sched td{text-align:right;padding:.6rem 1rem;border-top:1px solid rgba(255,255,255,.06);color:#c5cde0;font-size:.875rem;font-variant-numeric:tabular-nums}
+.sbtn{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;color:var(--accent)}
+.lg{display:inline-block;width:.8rem;height:.8rem;border-radius:.25rem;margin-right:.4rem;vertical-align:-1px}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="cur"></label><div class="field mt-2"><select id="lc"></select></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="init"></label><div class="field mt-2"><input id="ci0" type="number" inputmode="decimal" min="0" step="any" value="5000"><span class="cs"></span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="monthly"></label><div class="field mt-2"><input id="cm0" type="number" inputmode="decimal" min="0" step="any" value="200"><span class="cs"></span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="rate"></label><div class="field mt-2"><input id="cr" type="number" inputmode="decimal" min="0" step="0.1" value="7"><span>%</span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="years"></label><div class="field mt-2"><input id="cy0" type="number" inputmode="decimal" min="0" step="1" value="20"><span></span></div></div>
+      <div class="grid gap-4 sm:grid-cols-2"><div><label class="block text-sm" style="color:#8b94a7" data-p="freq"></label><div class="field mt-2"><select id="cf"></select></div></div><div><label class="block text-sm" style="color:#8b94a7" data-p="timing"></label><div class="field mt-2"><select id="ct"></select></div></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="grow"></label><div class="field mt-2"><input id="cg" type="number" inputmode="decimal" min="0" step="0.5" value="0"><span>%</span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="infl"></label><div class="field mt-2"><input id="cn" type="number" inputmode="decimal" min="0" step="0.1" value="2"><span>%</span></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <div id="res" class="hidden">
+        <p class="text-sm" style="color:#8b94a7" data-p="final"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <div id="rows" class="mt-6 space-y-2"></div>
+      </div>
+    </div>
+  </section>
+  <section id="csec" class="mt-8 hidden"><h2 class="text-2xl font-semibold text-white" data-p="chart"></h2><div class="glass mt-4 rounded-2xl p-5"><div id="chart"></div><div class="mt-3 flex gap-5 text-xs" style="color:#8b94a7"><span><i class="lg" style="background:var(--accent)"></i><span data-p="leg_c"></span></span><span><i class="lg" style="background:#7c9cff"></i><span data-p="leg_i"></span></span></div></div></section>
+  <section id="ssec" class="mt-6 hidden"><button id="sbtn" class="sbtn" aria-expanded="false"><span id="slbl"></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button><div id="sbox" class="glass sched mt-3 hidden rounded-2xl"><table><thead id="shead"></thead><tbody id="sch"></tbody></table></div></section>
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-compound-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 space-y-2 rounded-2xl p-5 text-sm"></div></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-compound-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-compound-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-compound-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Compound Interest / Investing", "sub": "See how a deposit and regular contributions grow over time with compound interest, and what they are worth after inflation.", "h1": "What is compound interest?", "p1": "Compound interest means you earn interest on your interest. Each period the earned interest is added to the balance, so the next period’s interest is calculated on a larger amount. Over long periods this snowball effect becomes far stronger than simple interest.", "h2": "How it is calculated", "p2": "The calculator simulates month by month: the balance grows by the monthly equivalent of your annual return (based on the compounding you choose), and your contribution is added at the start or end of each month and can rise every year. The value after inflation divides the result by (1 + inflation) for each year.", "h4": "Good to know", "lim": "<li>Returns are not guaranteed. Investments can lose value and past performance does not predict the future.</li><li>Fees and taxes reduce real returns and are not included; even a 1% yearly fee changes the result noticeably over decades.</li><li>Starting early matters more than the amount: time is the strongest driver of compound growth.</li><li>Inflation reduces purchasing power, so compare the value after inflation, not only the nominal number.</li><li>A fixed return is a simplification: real investments fluctuate from year to year.</li>", "note": "For illustration only; not investment advice. Past performance is not a guarantee of future results."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Zložené úročenie / investovanie", "sub": "Pozri, ako rastie vklad a pravidelné príspevky vďaka zloženému úročeniu a koľko budú stáť po inflácii.", "h1": "Čo je zložené úročenie?", "p1": "Zložené úročenie znamená, že úročíš aj svoje úroky. V každom období sa zarobený úrok pripočíta k zostatku, takže úrok v ďalšom období sa počíta z väčšej sumy. Pri dlhých obdobiach je tento efekt snehovej gule oveľa silnejší než jednoduché úročenie.", "h2": "Ako sa počíta", "p2": "Kalkulačka simuluje mesiac po mesiaci: zostatok rastie o mesačný ekvivalent ročného výnosu (podľa zvoleného úročenia) a vklad sa pripisuje na začiatku alebo na konci mesiaca a môže sa každý rok zvyšovať. Hodnota po inflácii vznikne vydelením výsledku číslom (1 + inflácia) za každý rok.", "h4": "Dobré vedieť", "lim": "<li>Výnosy nie sú garantované. Investície môžu stratiť hodnotu a minulá výkonnosť nezaručuje budúcu.</li><li>Poplatky a dane znižujú reálny výnos a nie sú zahrnuté; aj ročný poplatok 1 % výrazne mení výsledok za desaťročia.</li><li>Skorý začiatok je dôležitejší než výška sumy: čas je najsilnejším motorom zloženého rastu.</li><li>Inflácia znižuje kúpnu silu, preto porovnávaj hodnotu po inflácii, nielen nominálne číslo.</li><li>Pevný výnos je zjednodušenie: skutočné investície z roka na rok kolíšu.</li>", "note": "Len na ilustráciu, nie je to investičné poradenstvo. Minulá výkonnosť nie je zárukou budúcich výsledkov."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Zinseszins / Investieren", "sub": "Sieh, wie Anfangsbetrag und regelmäßige Einzahlungen durch Zinseszins wachsen und was sie nach Inflation wert sind.", "h1": "Was ist Zinseszins?", "p1": "Zinseszins bedeutet, dass du auch auf deine Zinsen Zinsen erhältst. In jeder Periode werden die Zinsen dem Guthaben zugeschlagen, sodass die Zinsen der nächsten Periode auf einen größeren Betrag berechnet werden. Über lange Zeiträume wird dieser Schneeballeffekt deutlich stärker als einfache Verzinsung.", "h2": "So wird es berechnet", "p2": "Der Rechner simuliert Monat für Monat: Das Guthaben wächst um das Monatsäquivalent deiner jährlichen Rendite (gemäß gewählter Zinsperiode), und deine Einzahlung wird am Monatsanfang oder -ende gutgeschrieben und kann jährlich steigen. Der Wert nach Inflation entsteht, indem das Ergebnis pro Jahr durch (1 + Inflation) geteilt wird.", "h4": "Gut zu wissen", "lim": "<li>Renditen sind nicht garantiert. Anlagen können an Wert verlieren, und vergangene Wertentwicklung sagt die Zukunft nicht voraus.</li><li>Gebühren und Steuern mindern die reale Rendite und sind nicht enthalten; schon eine jährliche Gebühr von 1 % verändert das Ergebnis über Jahrzehnte deutlich.</li><li>Früh anfangen zählt mehr als die Höhe: Zeit ist der stärkste Treiber des Zinseszinseffekts.</li><li>Inflation mindert die Kaufkraft, vergleiche daher den Wert nach Inflation, nicht nur die Nominalzahl.</li><li>Eine feste Rendite ist eine Vereinfachung: Reale Anlagen schwanken von Jahr zu Jahr.</li>", "note": "Nur zur Veranschaulichung, keine Anlageberatung. Vergangene Wertentwicklung ist kein Garant für zukünftige Ergebnisse."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Složené úročení / investování", "sub": "Podívej se, jak roste vklad a pravidelné příspěvky díky složenému úročení a kolik budou stát po inflaci.", "h1": "Co je složené úročení?", "p1": "Složené úročení znamená, že úročíš i své úroky. V každém období se vydělaný úrok přičte k zůstatku, takže úrok v dalším období se počítá z větší částky. U dlouhých období je tento efekt sněhové koule mnohem silnější než jednoduché úročení.", "h2": "Jak se počítá", "p2": "Kalkulačka simuluje měsíc po měsíci: zůstatek roste o měsíční ekvivalent ročního výnosu (podle zvoleného úročení) a vklad se připisuje na začátku nebo na konci měsíce a může se každý rok zvyšovat. Hodnota po inflaci vznikne vydělením výsledku číslem (1 + inflace) za každý rok.", "h4": "Dobré vědět", "lim": "<li>Výnosy nejsou zaručeny. Investice mohou ztratit hodnotu a minulá výkonnost nezaručuje budoucí.</li><li>Poplatky a daně snižují reálný výnos a nejsou zahrnuty; i roční poplatek 1 % výrazně mění výsledek za desetiletí.</li><li>Brzký začátek je důležitější než výše částky: čas je nejsilnějším motorem složeného růstu.</li><li>Inflace snižuje kupní sílu, proto porovnávej hodnotu po inflaci, nejen nominální číslo.</li><li>Pevný výnos je zjednodušení: skutečné investice z roku na rok kolísají.</li>", "note": "Pouze pro ilustraci, nejde o investiční poradenství. Minulá výkonnost není zárukou budoucích výsledků."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Procent składany / inwestowanie", "sub": "Zobacz, jak wpłata początkowa i regularne wpłaty rosną dzięki procentowi składanemu i ile będą warte po inflacji.", "h1": "Czym jest procent składany?", "p1": "Procent składany oznacza, że odsetki są naliczane także od odsetek. W każdym okresie zarobione odsetki dodawane są do salda, więc odsetki w kolejnym okresie liczone są od większej kwoty. W długim okresie efekt kuli śnieżnej jest znacznie silniejszy niż przy odsetkach prostych.", "h2": "Jak się to oblicza", "p2": "Kalkulator symuluje miesiąc po miesiącu: saldo rośnie o miesięczny odpowiednik rocznej stopy zwrotu (zgodnie z wybraną kapitalizacją), a wpłata dodawana jest na początku lub końcu miesiąca i może rosnąć co roku. Wartość po inflacji powstaje przez podzielenie wyniku przez (1 + inflacja) za każdy rok.", "h4": "Warto wiedzieć", "lim": "<li>Zyski nie są gwarantowane. Inwestycje mogą tracić na wartości, a przeszłe wyniki nie przesądzają o przyszłych.</li><li>Opłaty i podatki obniżają realny zwrot i nie są uwzględnione; nawet roczna opłata 1 % wyraźnie zmienia wynik w ciągu dekad.</li><li>Wczesny start liczy się bardziej niż kwota: czas jest najsilniejszym motorem wzrostu składanego.</li><li>Inflacja obniża siłę nabywczą, więc porównuj wartość po inflacji, a nie tylko liczbę nominalną.</li><li>Stały zwrot to uproszczenie: rzeczywiste inwestycje wahają się z roku na rok.</li>", "note": "Wyłącznie w celach ilustracyjnych, to nie jest porada inwestycyjna. Przeszłe wyniki nie gwarantują przyszłych."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Intérêts composés / investissement", "sub": "Voyez comment un dépôt et des versements réguliers croissent grâce aux intérêts composés, et ce qu’ils valent après inflation.", "h1": "Que sont les intérêts composés ?", "p1": "Les intérêts composés signifient que vous gagnez des intérêts sur vos intérêts. À chaque période, les intérêts gagnés sont ajoutés au solde, si bien que ceux de la période suivante sont calculés sur un montant plus élevé. Sur de longues périodes, cet effet boule de neige devient bien plus puissant que les intérêts simples.", "h2": "Comment c’est calculé", "p2": "Le calculateur simule mois après mois : le solde croît de l’équivalent mensuel de votre rendement annuel (selon la capitalisation choisie), et votre versement est ajouté en début ou en fin de mois et peut augmenter chaque année. La valeur après inflation s’obtient en divisant le résultat par (1 + inflation) pour chaque année.", "h4": "Bon à savoir", "lim": "<li>Les rendements ne sont pas garantis. Les placements peuvent perdre de la valeur et les performances passées ne préjugent pas des performances futures.</li><li>Les frais et les impôts réduisent le rendement réel et ne sont pas inclus ; même des frais annuels de 1 % modifient nettement le résultat sur des décennies.</li><li>Commencer tôt compte plus que le montant : le temps est le principal moteur de la croissance composée.</li><li>L’inflation réduit le pouvoir d’achat ; comparez donc la valeur après inflation, pas seulement le chiffre nominal.</li><li>Un rendement fixe est une simplification : les placements réels fluctuent d’une année à l’autre.</li>", "note": "À titre d’illustration uniquement, pas un conseil en investissement. Les performances passées ne garantissent pas les résultats futurs."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Interés compuesto / inversión", "sub": "Mira cómo crecen un depósito y las aportaciones regulares con el interés compuesto y cuánto valdrán tras la inflación.", "h1": "¿Qué es el interés compuesto?", "p1": "El interés compuesto significa que ganas intereses sobre tus intereses. En cada periodo los intereses ganados se suman al saldo, por lo que los del siguiente periodo se calculan sobre una cantidad mayor. A largo plazo, este efecto bola de nieve es mucho más potente que el interés simple.", "h2": "Cómo se calcula", "p2": "La calculadora simula mes a mes: el saldo crece según el equivalente mensual de tu rentabilidad anual (según la capitalización elegida) y tu aportación se suma al inicio o al final de cada mes y puede aumentar cada año. El valor tras la inflación se obtiene dividiendo el resultado entre (1 + inflación) por cada año.", "h4": "Conviene saber", "lim": "<li>Las rentabilidades no están garantizadas. Las inversiones pueden perder valor y la rentabilidad pasada no predice la futura.</li><li>Las comisiones y los impuestos reducen la rentabilidad real y no se incluyen; incluso una comisión anual del 1 % cambia notablemente el resultado a lo largo de décadas.</li><li>Empezar pronto importa más que la cantidad: el tiempo es el mayor motor del crecimiento compuesto.</li><li>La inflación reduce el poder adquisitivo, así que compara el valor tras la inflación, no solo la cifra nominal.</li><li>Una rentabilidad fija es una simplificación: las inversiones reales fluctúan de un año a otro.</li>", "note": "Solo con fines ilustrativos, no es asesoramiento de inversión. La rentabilidad pasada no garantiza resultados futuros."}};
+const PIPE={"cur": "Currency|Mena|Währung|Měna|Waluta|Devise|Moneda", "hint": "Fill in the fields to see the result.|Vyplň polia a zobrazí sa výsledok.|Fülle die Felder aus, um das Ergebnis zu sehen.|Vyplň pole a zobrazí se výsledek.|Wypełnij pola, aby zobaczyć wynik.|Remplissez les champs pour voir le résultat.|Rellena los campos para ver el resultado.", "sch": "Show yearly schedule|Zobraziť ročný prehľad|Jahresübersicht anzeigen|Zobrazit roční přehled|Pokaż zestawienie roczne|Afficher le tableau annuel|Mostrar cuadro anual", "schH": "Hide yearly schedule|Skryť ročný prehľad|Jahresübersicht ausblenden|Skrýt roční přehled|Ukryj zestawienie roczne|Masquer le tableau annuel|Ocultar cuadro anual", "cy": "Year|Rok|Jahr|Rok|Rok|Année|Año", "cb": "Balance|Zostatok|Restschuld|Zůstatek|Saldo|Solde|Saldo", "init": "Initial deposit|Počiatočný vklad|Anfangsbetrag|Počáteční vklad|Wpłata początkowa|Dépôt initial|Depósito inicial", "monthly": "Monthly contribution|Mesačný vklad|Monatliche Einzahlung|Měsíční vklad|Miesięczna wpłata|Versement mensuel|Aportación mensual", "rate": "Annual return (%)|Ročný výnos (%)|Jährliche Rendite (%)|Roční výnos (%)|Roczna stopa zwrotu (%)|Rendement annuel (%)|Rentabilidad anual (%)", "years": "Years|Roky|Jahre|Roky|Lata|Années|Años", "freq": "Compounding|Úročenie|Zinsperiode|Úročení|Kapitalizacja|Capitalisation|Capitalización", "f_y": "Yearly|Ročne|Jährlich|Ročně|Rocznie|Annuelle|Anual", "f_s": "Half-yearly|Polročne|Halbjährlich|Pololetně|Półrocznie|Semestrielle|Semestral", "f_q": "Quarterly|Štvrťročne|Vierteljährlich|Čtvrtletně|Kwartalnie|Trimestrielle|Trimestral", "f_m": "Monthly|Mesačne|Monatlich|Měsíčně|Miesięcznie|Mensuelle|Mensual", "f_d": "Daily|Denne|Täglich|Denně|Codziennie|Quotidienne|Diaria", "timing": "Contributions at|Vklady na|Einzahlungen am|Vklady na|Wpłaty na|Versements en|Aportaciones al", "t_e": "End of month|Konci mesiaca|Monatsende|Konci měsíce|Koniec miesiąca|Fin de mois|Final de mes", "t_s": "Start of month|Začiatku mesiaca|Monatsanfang|Začátku měsíce|Początek miesiąca|Début de mois|Inicio de mes", "grow": "Yearly increase of contribution (%)|Ročné zvýšenie vkladu (%)|Jährliche Erhöhung der Einzahlung (%)|Roční zvýšení vkladu (%)|Roczne zwiększenie wpłaty (%)|Hausse annuelle du versement (%)|Aumento anual de la aportación (%)", "infl": "Inflation (% per year)|Inflácia (% ročne)|Inflation (% pro Jahr)|Inflace (% ročně)|Inflacja (% rocznie)|Inflation (% par an)|Inflación (% anual)", "final": "Final value|Konečná hodnota|Endwert|Konečná hodnota|Wartość końcowa|Valeur finale|Valor final", "contrib": "Total contributions|Vklady spolu|Einzahlungen gesamt|Vklady celkem|Wpłaty łącznie|Total versé|Total aportado", "earned": "Interest earned|Zarobené úroky|Erzielte Zinsen|Získané úroky|Zarobione odsetki|Intérêts gagnés|Intereses ganados", "real": "Value after inflation (today’s money)|Hodnota po inflácii (dnešné peniaze)|Wert nach Inflation (heutige Kaufkraft)|Hodnota po inflaci (dnešní peníze)|Wartość po inflacji (dzisiejsze pieniądze)|Valeur après inflation (monnaie d’aujourd’hui)|Valor tras la inflación (dinero de hoy)", "dbl": "Doubling time|Čas zdvojnásobenia|Verdopplungszeit|Doba zdvojnásobení|Czas podwojenia|Temps de doublement|Tiempo de duplicación", "chart": "Growth over time|Rast v čase|Wachstum über die Zeit|Růst v čase|Wzrost w czasie|Croissance dans le temps|Crecimiento en el tiempo", "leg_c": "Contributions|Vklady|Einzahlungen|Vklady|Wpłaty|Versements|Aportaciones", "leg_i": "Interest|Úroky|Zinsen|Úroky|Odsetki|Intérêts|Intereses", "ccn": "Contributed|Vložené|Eingezahlt|Vloženo|Wpłacono|Versé|Aportado", "cin": "Interest|Úroky|Zinsen|Úroky|Odsetki|Intérêts|Intereses"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/compound.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Compound Interest & Investing Calculator | calc-hub.eu", "d": "Free compound interest and investment calculator: growth with monthly contributions, compounding frequency, inflation-adjusted value and a growth chart."}, "sk": {"t": "Zložené úročenie / investovanie – kalkulačka | calc-hub.eu", "d": "Bezplatná kalkulačka zloženého úročenia a investovania: rast s mesačnými vkladmi, frekvenciou úročenia, hodnotou po inflácii a grafom rastu."}, "de": {"t": "Zinseszins / Investieren – Rechner | calc-hub.eu", "d": "Kostenloser Zinseszins- und Anlagerechner: Wachstum mit monatlichen Einzahlungen, Zinsperiode, inflationsbereinigtem Wert und Wachstumsdiagramm."}, "cs": {"t": "Složené úročení / investování – kalkulačka | calc-hub.eu", "d": "Bezplatná kalkulačka složeného úročení a investování: růst s měsíčními vklady, frekvencí úročení, hodnotou po inflaci a grafem růstu."}, "pl": {"t": "Procent składany / inwestowanie – kalkulator | calc-hub.eu", "d": "Darmowy kalkulator procentu składanego i inwestowania: wzrost z miesięcznymi wpłatami, kapitalizacją, wartością po inflacji i wykresem wzrostu."}, "fr": {"t": "Intérêts composés / investissement – calculateur | calc-hub.eu", "d": "Calculateur gratuit d’intérêts composés et d’investissement : croissance avec versements mensuels, capitalisation, valeur après inflation et graphique."}, "es": {"t": "Interés compuesto / inversión – calculadora | calc-hub.eu", "d": "Calculadora gratis de interés compuesto e inversión: crecimiento con aportaciones mensuales, capitalización, valor tras inflación y gráfico de crecimiento."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+const CURS=['EUR','USD','GBP','CZK','PLN','CHF'],DEFC={cs:'CZK',pl:'PLN'},SCALE={EUR:1,USD:1,GBP:.9,CZK:25,PLN:4.3,CHF:.95};
+let cur=DEFC[lang]||'EUR',curT=false,schOpen=false;
+try{const c=new URLSearchParams(location.search).get('cur');if(CURS.includes(c)){cur=c;curT=true}}catch(e){}
+const money=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur,minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+const sym=()=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur}).formatToParts(0).find(p=>p.type==='currency').value;
+const touched={};
+function setDefaults(defs){Object.keys(defs).forEach(id=>{if(!touched[id])$(id).value=Math.round(defs[id]*SCALE[cur]/10)*10})}
+function curInit(defs,onChange){
+  $('lc').innerHTML=CURS.map(c=>`<option value="${c}">${c}</option>`).join('');$('lc').value=cur;
+  $('lc').addEventListener('change',e=>{cur=e.target.value;curT=true;try{const u=new URL(location.href);u.searchParams.set('cur',cur);history.replaceState(null,'',u)}catch(x){}setDefaults(defs);onChange()});
+  Object.keys(defs).forEach(id=>$(id).addEventListener('input',()=>{touched[id]=true}));
+  setDefaults(defs);
+}
+function curLang(defs){if(!curT){cur=DEFC[lang]||'EUR';$('lc').value=cur;setDefaults(defs)}document.querySelectorAll('.cs').forEach(e=>e.textContent=sym())}
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+}
+function showRes(ok){$('res').classList.toggle('hidden',!ok);$('hint').classList.toggle('hidden',ok);$('hint').textContent=L('hint')}
+
+const DEFS={ci0:5000,cm0:200};
+let fq=12,tm='e';
+const FQ={y:1,s:2,q:4,m:12,d:365};
+function sim(){
+  const P=+$('ci0').value||0,m=+$('cm0').value||0,a=+$('cr').value,Y=+$('cy0').value,g=+$('cg').value||0,inf=+$('cn').value||0;
+  if($('cr').value===''||$('cy0').value===''||!(P>=0&&m>=0&&(P>0||m>0)&&a>=0&&a<=100&&Y>=1&&Y<=60&&g>=0&&g<=50&&inf>=0&&inf<=50))return null;
+  const im=Math.pow(1+a/100/fq,fq/12)-1;let bal=P,tc=P,c=m;const rows=[[0,P,0,P]];
+  for(let k=1;k<=Math.round(Y*12);k++){if(tm==='s'){bal+=c;tc+=c}bal*=1+im;if(tm==='e'){bal+=c;tc+=c}
+    if(k%12===0){rows.push([k/12,tc,bal-tc,bal]);c*=1+g/100}}
+  const fin=bal,real=fin/Math.pow(1+inf/100,Y);
+  return {fin,tc,earned:fin-tc,real,rows,Y,dbl:a>0?Math.log(2)/Math.log(1+a/100):null,a};
+}
+function chart(rows){
+  const W=300,H=110,p=4,mx=Math.max(...rows.map(r=>r[3])),x=i=>p+i*(W-2*p)/(rows.length-1),y=v=>H-p-v/mx*(H-2*p);
+  const top=rows.map((r,i)=>x(i).toFixed(1)+','+y(r[3]).toFixed(1)).join(' '),bot=rows.map((r,i)=>x(i).toFixed(1)+','+y(r[1]).toFixed(1)).join(' ');
+  return `<svg viewBox="0 0 ${W} ${H}" class="w-full" preserveAspectRatio="none" style="height:180px"><polygon points="${p},${H-p} ${top} ${W-p},${H-p}" style="fill:rgba(124,156,255,.35)"/><polygon points="${p},${H-p} ${bot} ${W-p},${H-p}" style="fill:rgba(var(--accent-rgb),.55)"/><polyline points="${top}" fill="none" stroke="#7c9cff" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function calc(){
+  const o=sim();showRes(!!o);$('csec').classList.toggle('hidden',!o);$('ssec').classList.toggle('hidden',!o);if(!o)return;
+  $('big').textContent=money(o.fin);
+  const u=lang==='en'?'%':' %';
+  $('rows').innerHTML=[[L('contrib'),money(o.tc)],[L('earned'),money(o.earned)],[L('real'),money(o.real)]].concat(o.dbl?[[L('dbl'),nf(o.dbl,1)+' · 72 ÷ '+nf(o.a,2)+u+' = '+nf(72/o.a,1)]]:[]).map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v}</b></div>`).join('');
+  $('chart').innerHTML=chart(o.rows);
+  $('shead').innerHTML=`<tr><th>${L('cy')}</th><th>${L('ccn')}</th><th>${L('cin')}</th><th>${L('cb')}</th></tr>`;
+  $('sch').innerHTML=o.rows.slice(1).map(r=>`<tr><td>${r[0]}</td><td>${money(r[1])}</td><td>${money(r[2])}</td><td>${money(r[3])}</td></tr>`).join('');
+}
+function buildSel(){
+  $('cf').innerHTML=Object.keys(FQ).map(k=>`<option value="${k}" ${FQ[k]===fq?'selected':''}>${L('f_'+k)}</option>`).join('');
+  $('ct').innerHTML=['e','s'].map(k=>`<option value="${k}" ${k===tm?'selected':''}>${L('t_'+k)}</option>`).join('');
+}
+function text(){baseText();buildSel();curLang(DEFS);$('slbl').textContent=L(schOpen?'schH':'sch');
+  $('fbox').innerHTML=`<div><b style="color:var(--accent)">FV = P × (1 + r ÷ n)<sup>n·t</sup></b></div><div><b style="color:var(--accent)">${L('dbl')} ≈ 72 ÷ r (%)</b></div>`;syncLang();calc()}
+$('cf').addEventListener('change',e=>{fq=FQ[e.target.value];calc()});$('ct').addEventListener('change',e=>{tm=e.target.value;calc()});
+['ci0','cm0','cr','cy0','cg','cn'].forEach(id=>$(id).addEventListener('input',calc));
+curInit(DEFS,calc);
+
+function schToggle(){schOpen=!schOpen;$('sbox').classList.toggle('hidden',!schOpen);$('sbtn').setAttribute('aria-expanded',String(schOpen));$('slbl').textContent=L(schOpen?'schH':'sch')}
+$('sbtn').addEventListener('click',schToggle);
+initLang(text);text();
+</script>
+</body>
+</html>

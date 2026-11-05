@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Tile Calculator – How Many Tiles Do I Need? | calc-hub.eu</title>
+<meta name="description" content="Free tile and flooring calculator: number of tiles or planks from room and tile size, grout joint, laying pattern and waste, with boxes needed.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/tiles.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/tiles.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/tiles.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/tiles.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/tiles.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/tiles.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/tiles.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/tiles.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/tiles.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Tile Calculator – How Many Tiles Do I Need? | calc-hub.eu">
+<meta property="og:description" content="Free tile and flooring calculator: number of tiles or planks from room and tile size, grout joint, laying pattern and waste, with boxes needed.">
+<meta property="og:url" content="https://calc-hub.eu/tiles.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tile Calculator – How Many Tiles Do I Need? | calc-hub.eu">
+<meta name="twitter:description" content="Free tile and flooring calculator: number of tiles or planks from room and tile size, grout joint, laying pattern and waste, with boxes needed.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.chk{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:#a3acbf;cursor:pointer}
+.chk input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div id="trw"><label id="trl" class="block text-sm" style="color:#8b94a7" data-p="len"></label><div class="field mt-2"><input id="tr" type="number" inputmode="decimal" min="0" step="any" value="5"> <span>m</span></div></div>
+      <div id="tqw"><label id="tql" class="block text-sm" style="color:#8b94a7" data-p="wid"></label><div class="field mt-2"><input id="tq" type="number" inputmode="decimal" min="0" step="any" value="4"> <span>m</span></div></div>
+      <div id="tl_w"><label id="tl_l" class="block text-sm" style="color:#8b94a7" data-p="tl"></label><div class="field mt-2"><input id="tl_" type="number" inputmode="decimal" min="0" step="any" value="60"> <span>cm</span></div></div>
+      <div id="tw_w"><label id="tw_l" class="block text-sm" style="color:#8b94a7" data-p="tw"></label><div class="field mt-2"><input id="tw_" type="number" inputmode="decimal" min="0" step="any" value="30"> <span>cm</span></div></div>
+      <div id="tgw"><label id="tgl" class="block text-sm" style="color:#8b94a7" data-p="gap"></label><div class="field mt-2"><input id="tg" type="number" inputmode="decimal" min="0" step="any" value="3"> <span>mm</span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="pat"></label><div class="field mt-2"><select id="tp"></select></div></div>
+      <div id="tuw"><label id="tul" class="block text-sm" style="color:#8b94a7" data-p="waste"></label><div class="field mt-2"><input id="tu" type="number" inputmode="decimal" min="0" step="any" value="10"><span>%</span></div></div>
+      <div id="tsw"><label id="tsl" class="block text-sm" style="color:#8b94a7" data-p="sub"></label><div class="field mt-2"><input id="ts" type="number" inputmode="decimal" min="0" step="any" value="0"> <span>m²</span></div></div>
+      <div id="tbw"><label id="tbl" class="block text-sm" style="color:#8b94a7" data-p="box"></label><div class="field mt-2"><input id="tb" type="number" inputmode="decimal" min="0" step="any" value=""></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <p id="err" class="hidden text-center" style="color:#f87171"></p>
+      <div id="res" class="hidden">
+        <p class="text-sm" style="color:#8b94a7" data-p="need"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <div id="rows" class="mt-6 space-y-2"></div>
+      </div>
+    </div>
+  </section>
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-tiles-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 rounded-2xl p-5 text-sm"></div></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-tiles-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-tiles-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-tiles-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Tile & Flooring Calculator", "sub": "Work out how many tiles or planks you need for a floor, including waste.", "h1": "How many tiles do you need?", "p1": "Divide the floor area by the area of one tile including the grout joint, then add waste for cuts and breakage. Straight laying needs about 10% extra, diagonal about 15% and complex patterns such as herringbone about 20%.", "h2": "Formula", "p2": "Tiles = floor area ÷ ((tile length + joint) × (tile width + joint)) × (1 + waste ÷ 100). The same method works for laminate, vinyl and wooden planks.", "h4": "Good to know", "lim": "<li>Keep a few spare tiles from the same batch for future repairs; shades can differ between batches.</li><li>Large-format tiles and small rooms need more waste because of cuts.</li><li>Check the tile dimensions: nominal and actual sizes can differ slightly.</li>", "note": "Estimate only; ask the supplier before ordering."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka dlažby a podlahy", "sub": "Zisti, koľko dlaždíc alebo líšt potrebuješ na podlahu vrátane rezervy.", "h1": "Koľko dlaždíc potrebuješ?", "p1": "Plochu podlahy vydeľ plochou jednej dlaždice vrátane škáry a pridaj rezervu na rezanie a rozbitie. Rovné kladenie potrebuje asi 10 % navyše, diagonálne asi 15 % a zložité vzory, napríklad rybia kosť, asi 20 %.", "h2": "Vzorec", "p2": "Dlaždice = plocha podlahy ÷ ((dĺžka dlaždice + škára) × (šírka dlaždice + škára)) × (1 + rezerva ÷ 100). Rovnako to funguje pre laminát, vinyl a drevené lišty.", "h4": "Dobré vedieť", "lim": "<li>Nechaj si pár dlaždíc z tej istej šarže na budúce opravy; odtiene sa medzi šaržami môžu líšiť.</li><li>Veľkoformátové dlaždice a malé miestnosti potrebujú väčšiu rezervu kvôli rezaniu.</li><li>Skontroluj rozmery dlaždice: nominálne a skutočné rozmery sa môžu mierne líšiť.</li>", "note": "Len odhad; pred objednávkou sa opýtaj dodávateľa."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Fliesen- & Bodenrechner", "sub": "Berechne, wie viele Fliesen oder Dielen du für einen Boden brauchst, inklusive Verschnitt.", "h1": "Wie viele Fliesen brauchst du?", "p1": "Teile die Bodenfläche durch die Fläche einer Fliese inklusive Fuge und addiere Verschnitt für Zuschnitte und Bruch. Gerades Verlegen braucht etwa 10 % mehr, diagonales etwa 15 % und aufwendige Muster wie Fischgrät etwa 20 %.", "h2": "Formel", "p2": "Fliesen = Bodenfläche ÷ ((Fliesenlänge + Fuge) × (Fliesenbreite + Fuge)) × (1 + Verschnitt ÷ 100). Dasselbe gilt für Laminat, Vinyl und Holzdielen.", "h4": "Gut zu wissen", "lim": "<li>Hebe ein paar Fliesen aus derselben Charge für spätere Reparaturen auf; Farbtöne können sich zwischen Chargen unterscheiden.</li><li>Großformatige Fliesen und kleine Räume brauchen wegen der Zuschnitte mehr Verschnitt.</li><li>Prüfe die Fliesenmaße: Nenn- und tatsächliche Maße können leicht abweichen.</li>", "note": "Nur eine Schätzung; frage vor der Bestellung beim Händler nach."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka dlažby a podlahy", "sub": "Zjisti, kolik dlaždic nebo lamel potřebuješ na podlahu včetně rezervy.", "h1": "Kolik dlaždic potřebuješ?", "p1": "Plochu podlahy vyděl plochou jedné dlaždice včetně spáry a přidej rezervu na řezání a rozbití. Rovné kladení potřebuje asi 10 % navíc, diagonální asi 15 % a složité vzory, například rybí kost, asi 20 %.", "h2": "Vzorec", "p2": "Dlaždice = plocha podlahy ÷ ((délka dlaždice + spára) × (šířka dlaždice + spára)) × (1 + rezerva ÷ 100). Stejně to funguje pro laminát, vinyl a dřevěné lamely.", "h4": "Dobré vědět", "lim": "<li>Nech si pár dlaždic ze stejné šarže na budoucí opravy; odstíny se mezi šaržemi mohou lišit.</li><li>Velkoformátové dlaždice a malé místnosti potřebují větší rezervu kvůli řezání.</li><li>Zkontroluj rozměry dlaždice: nominální a skutečné rozměry se mohou mírně lišit.</li>", "note": "Pouze odhad; před objednávkou se zeptej dodavatele."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator płytek i podłogi", "sub": "Sprawdź, ile płytek lub desek potrzebujesz na podłogę, wraz z zapasem.", "h1": "Ile płytek potrzebujesz?", "p1": "Podziel powierzchnię podłogi przez powierzchnię jednej płytki wraz z fugą i dodaj zapas na cięcie i stłuczki. Układ prosty wymaga około 10 % więcej, po przekątnej około 15 %, a złożone wzory, jak jodełka, około 20 %.", "h2": "Wzór", "p2": "Płytki = powierzchnia podłogi ÷ ((długość płytki + fuga) × (szerokość płytki + fuga)) × (1 + zapas ÷ 100). Tak samo działa to dla paneli, winylu i desek drewnianych.", "h4": "Warto wiedzieć", "lim": "<li>Zachowaj kilka płytek z tej samej partii na przyszłe naprawy; odcienie między partiami mogą się różnić.</li><li>Płytki wielkoformatowe i małe pomieszczenia wymagają większego zapasu z powodu cięcia.</li><li>Sprawdź wymiary płytki: wymiary nominalne i rzeczywiste mogą się nieznacznie różnić.</li>", "note": "Tylko szacunek; przed zamówieniem zapytaj dostawcę."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de carrelage et sol", "sub": "Calculez combien de carreaux ou de lames il faut pour un sol, pertes comprises.", "h1": "Combien de carreaux faut-il ?", "p1": "Divisez la surface du sol par celle d’un carreau, joint compris, puis ajoutez une marge pour les coupes et la casse. La pose droite demande environ 10 % de plus, la pose en diagonale environ 15 % et les motifs complexes comme les chevrons environ 20 %.", "h2": "Formule", "p2": "Carreaux = surface du sol ÷ ((longueur du carreau + joint) × (largeur du carreau + joint)) × (1 + marge ÷ 100). La méthode vaut aussi pour le stratifié, le vinyle et les lames de bois.", "h4": "Bon à savoir", "lim": "<li>Gardez quelques carreaux du même lot pour de futures réparations ; les teintes peuvent varier d’un lot à l’autre.</li><li>Les grands formats et les petites pièces demandent plus de marge à cause des coupes.</li><li>Vérifiez les dimensions du carreau : les formats nominal et réel peuvent légèrement différer.</li>", "note": "Estimation uniquement ; renseignez-vous auprès du fournisseur avant de commander."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de baldosas y suelo", "sub": "Calcula cuántas baldosas o lamas necesitas para un suelo, con el desperdicio incluido.", "h1": "¿Cuántas baldosas necesitas?", "p1": "Divide la superficie del suelo entre la de una baldosa, junta incluida, y añade un margen para cortes y roturas. La colocación recta necesita un 10 % más, la diagonal un 15 % y los patrones complejos, como la espiga, un 20 %.", "h2": "Fórmula", "p2": "Baldosas = superficie del suelo ÷ ((largo de la baldosa + junta) × (ancho de la baldosa + junta)) × (1 + margen ÷ 100). El método sirve también para laminado, vinilo y lamas de madera.", "h4": "Conviene saber", "lim": "<li>Guarda algunas baldosas del mismo lote para futuras reparaciones; los tonos pueden variar entre lotes.</li><li>Los formatos grandes y las habitaciones pequeñas necesitan más margen por los cortes.</li><li>Comprueba las medidas de la baldosa: el formato nominal y el real pueden diferir ligeramente.</li>", "note": "Solo una estimación; consulta al proveedor antes de pedir."}};
+const PIPE={"hint": "Fill in the dimensions to see the result.|Vyplň rozmery a zobrazí sa výsledok.|Gib die Maße ein, um das Ergebnis zu sehen.|Vyplň rozměry a zobrazí se výsledek.|Wpisz wymiary, aby zobaczyć wynik.|Renseignez les dimensions pour voir le résultat.|Introduce las medidas para ver el resultado.", "len": "Room length (m)|Dĺžka miestnosti (m)|Raumlänge (m)|Délka místnosti (m)|Długość pomieszczenia (m)|Longueur de la pièce (m)|Largo de la habitación (m)", "wid": "Room width (m)|Šírka miestnosti (m)|Raumbreite (m)|Šířka místnosti (m)|Szerokość pomieszczenia (m)|Largeur de la pièce (m)|Ancho de la habitación (m)", "tl": "Tile length (cm)|Dĺžka dlaždice (cm)|Fliesenlänge (cm)|Délka dlaždice (cm)|Długość płytki (cm)|Longueur du carreau (cm)|Largo de la baldosa (cm)", "tw": "Tile width (cm)|Šírka dlaždice (cm)|Fliesenbreite (cm)|Šířka dlaždice (cm)|Szerokość płytki (cm)|Largeur du carreau (cm)|Ancho de la baldosa (cm)", "gap": "Grout joint (mm)|Škára (mm)|Fuge (mm)|Spára (mm)|Fuga (mm)|Joint (mm)|Junta (mm)", "pat": "Laying pattern|Spôsob kladenia|Verlegemuster|Způsob kladení|Układ|Calepinage|Aparejo", "p_s": "Straight (+10 %)|Rovno (+10 %)|Gerade (+10 %)|Rovně (+10 %)|Prosto (+10 %)|Droit (+10 %)|Recto (+10 %)", "p_d": "Diagonal (+15 %)|Diagonálne (+15 %)|Diagonal (+15 %)|Diagonálně (+15 %)|Po przekątnej (+15 %)|En diagonale (+15 %)|Diagonal (+15 %)", "p_h": "Herringbone (+20 %)|Rybia kosť (+20 %)|Fischgrät (+20 %)|Rybí kost (+20 %)|Jodełka (+20 %)|Chevrons (+20 %)|Espiga (+20 %)", "waste": "Waste (%)|Rezerva (%)|Verschnitt (%)|Rezerva (%)|Zapas (%)|Marge de perte (%)|Margen de pérdida (%)", "sub": "Area to subtract (m²)|Plocha na odpočítanie (m²)|Abzuziehende Fläche (m²)|Plocha k odečtení (m²)|Powierzchnia do odjęcia (m²)|Surface à déduire (m²)|Superficie a descontar (m²)", "box": "Tiles per box (optional)|Kusov v balení (voliteľné)|Fliesen pro Karton (optional)|Kusů v balení (volitelné)|Sztuk w opakowaniu (opcjonalnie)|Carreaux par boîte (facultatif)|Piezas por caja (opcional)", "area": "Floor area|Plocha podlahy|Bodenfläche|Plocha podlahy|Powierzchnia podłogi|Surface au sol|Superficie del suelo", "need": "Tiles needed (with waste)|Potrebné dlaždice (s rezervou)|Benötigte Fliesen (mit Verschnitt)|Potřebné dlaždice (s rezervou)|Potrzebne płytki (z zapasem)|Carreaux nécessaires (avec marge)|Baldosas necesarias (con margen)", "boxes": "Boxes|Balenia|Kartons|Balení|Opakowania|Boîtes|Cajas", "cover": "Area covered by the tiles|Plocha pokrytá dlaždicami|Mit Fliesen abgedeckte Fläche|Plocha pokrytá dlaždicemi|Powierzchnia pokryta płytkami|Surface couverte par les carreaux|Superficie cubierta por las baldosas"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/tiles.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Tile Calculator – How Many Tiles Do I Need? | calc-hub.eu", "d": "Free tile and flooring calculator: number of tiles or planks from room and tile size, grout joint, laying pattern and waste, with boxes needed."}, "sk": {"t": "Kalkulačka dlažby a podlahy – koľko dlaždíc potrebujem? | calc-hub.eu", "d": "Bezplatná kalkulačka dlažby a podlahy: počet dlaždíc alebo líšt podľa rozmerov miestnosti a dlaždice, škáry, kladenia a rezervy, s počtom balení."}, "de": {"t": "Fliesenrechner – wie viele Fliesen brauche ich? | calc-hub.eu", "d": "Kostenloser Fliesen- und Bodenrechner: Anzahl Fliesen oder Dielen nach Raum- und Fliesengröße, Fuge, Verlegemuster und Verschnitt, mit benötigten Kartons."}, "cs": {"t": "Kalkulačka dlažby a podlahy – kolik dlaždic potřebuji? | calc-hub.eu", "d": "Bezplatná kalkulačka dlažby a podlahy: počet dlaždic nebo lamel podle rozměrů místnosti a dlaždice, spáry, kladení a rezervy, s počtem balení."}, "pl": {"t": "Kalkulator płytek i podłogi – ile płytek potrzebuję? | calc-hub.eu", "d": "Darmowy kalkulator płytek i podłogi: liczba płytek lub desek według wymiarów pomieszczenia i płytki, fugi, układu i zapasu, z liczbą opakowań."}, "fr": {"t": "Calculateur de carrelage – combien de carreaux ? | calc-hub.eu", "d": "Calculateur de carrelage et sol gratuit : nombre de carreaux ou lames selon la pièce, le format, le joint, le calepinage et les pertes, avec boîtes nécessaires."}, "es": {"t": "Calculadora de baldosas y suelo – ¿cuántas necesito? | calc-hub.eu", "d": "Calculadora de baldosas y suelo gratis: número de baldosas o lamas según la habitación, el formato, la junta, el aparejo y el desperdicio, con cajas necesarias."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+}
+function showRes(o){$('res').classList.toggle('hidden',!o||!!o.err);$('hint').classList.toggle('hidden',!!o);$('hint').textContent=L('hint');$('err').classList.toggle('hidden',!(o&&o.err));if(o&&o.err)$('err').textContent=L(o.err);return !!o&&!o.err}
+const rows=a=>a.map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v}</b></div>`).join('');
+
+const PW={s:10,d:15,h:20};let pat='s',wTouched=false;
+function calcAll(){
+  const r=+$('tr').value,q=+$('tq').value,tl=+$('tl_').value,tw=+$('tw_').value,gp=+$('tg').value,u=+$('tu').value,s=+$('ts').value||0,bx=+$('tb').value||0;
+  if(['tr','tq','tl_','tw_','tg','tu'].some(id=>$(id).value===''||!isFinite(+$(id).value)))return null;
+  if(!(r>0&&q>0&&tl>0&&tw>0&&gp>=0&&gp<=30&&u>=0&&u<=100&&s>=0&&r<=200&&q<=200))return null;
+  const area=r*q-s;if(area<=0)return null;
+  const one=(tl+gp/10)*(tw+gp/10)/10000,n=Math.ceil(area/one*(1+u/100)),boxes=bx>0?Math.ceil(n/bx):0;
+  return {area,n,boxes,cov:(boxes?boxes*bx:n)*one};
+}
+function calc(){const o=calcAll();if(!showRes(o))return;
+  $('big').textContent=nf(o.n);
+  $('rows').innerHTML=rows([[L('area'),nf(o.area,2)+' m²']].concat(o.boxes?[[L('boxes'),nf(o.boxes)]]:[]).concat([[L('cover'),nf(o.cov,2)+' m²']]));}
+function build(){$('tp').innerHTML=['s','d','h'].map(k=>`<option value="${k}" ${k===pat?'selected':''}>${L('p_'+k)}</option>`).join('')}
+function text(){baseText();build();$('fbox').innerHTML=`<b style="color:var(--accent)">${L('need')} = ${L('area')} ÷ ((${L('tl').split(' (')[0]} + ${L('gap').split(' (')[0]}) × (${L('tw').split(' (')[0]} + ${L('gap').split(' (')[0]})) × (1 + ${L('waste').split(' (')[0]} ÷ 100)</b>`;syncLang();calc()}
+$('tp').addEventListener('change',e=>{pat=e.target.value;if(!wTouched)$('tu').value=PW[pat];calc()});
+$('tu').addEventListener('input',()=>{wTouched=true});
+['tr','tq','tl_','tw_','tg','tu','ts','tb'].forEach(id=>$(id).addEventListener('input',calc));
+initLang(text);text();
+</script>
+</body>
+</html>

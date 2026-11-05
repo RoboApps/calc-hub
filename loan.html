@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Loan Payment Calculator – Monthly Payment &amp; APR | calc-hub.eu</title>
+<meta name="description" content="Free loan calculator: monthly payment, total interest, fees and effective annual rate (APR) for equal or declining payments, with a repayment schedule.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/loan.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/loan.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/loan.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/loan.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/loan.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/loan.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/loan.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/loan.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/loan.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Loan Payment Calculator – Monthly Payment &amp; APR | calc-hub.eu">
+<meta property="og:description" content="Free loan calculator: monthly payment, total interest, fees and effective annual rate (APR) for equal or declining payments, with a repayment schedule.">
+<meta property="og:url" content="https://calc-hub.eu/loan.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Loan Payment Calculator – Monthly Payment &amp; APR | calc-hub.eu">
+<meta name="twitter:description" content="Free loan calculator: monthly payment, total interest, fees and effective annual rate (APR) for equal or declining payments, with a repayment schedule.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.chip{padding:.4rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.sched{max-height:420px;overflow:auto}.sched table{min-width:460px;width:100%}
+.sched th{color:#8b94a7;font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;padding:.7rem 1rem;position:sticky;top:0;background:#0d111a}
+.sched th:first-child,.sched td:first-child{text-align:left}
+.sched td{text-align:right;padding:.6rem 1rem;border-top:1px solid rgba(255,255,255,.06);color:#c5cde0;font-size:.875rem;font-variant-numeric:tabular-nums}
+.sbtn{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;color:var(--accent)}
+.lg{display:inline-block;width:.8rem;height:.8rem;border-radius:.25rem;margin-right:.4rem;vertical-align:-1px}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="cur"></label><div class="field mt-2"><select id="lc"></select></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="amount"></label><div class="field mt-2"><input id="lp" type="number" inputmode="decimal" min="0" step="any" value="10000"><span class="cs"></span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="rate"></label><div class="field mt-2"><input id="lr" type="number" inputmode="decimal" min="0" step="0.05" value="6"><span>%</span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="term"></label><div class="mt-2 flex gap-3"><div class="field flex-1"><input id="lt" type="number" inputmode="numeric" min="1" step="1" value="3"></div><div class="field w-40"><select id="lu"></select></div></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="type"></label><div class="field mt-2"><select id="ly"></select></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="fee"></label><div class="field mt-2"><input id="lf" type="number" inputmode="decimal" min="0" step="0.1" value="0"><span>%</span></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="mfee"></label><div class="field mt-2"><input id="lm" type="number" inputmode="decimal" min="0" step="any" value="0"><span class="cs"></span></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <div id="res" class="hidden">
+        <p id="pl" class="text-sm" style="color:#8b94a7"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <p id="pl2" class="mt-1 text-sm" style="color:#667085"></p>
+        <div class="mt-6 flex h-3 overflow-hidden rounded-full" style="background:rgba(255,255,255,.06)"><div id="bp" style="background:var(--accent)"></div><div id="bi" style="background:#7c9cff"></div></div>
+        <div class="mt-2 flex justify-between text-xs" style="color:#8b94a7"><span><i class="lg" style="background:var(--accent)"></i><span data-p="cpr"></span></span><span><i class="lg" style="background:#7c9cff"></i><span data-p="ci"></span></span></div>
+        <div id="rows" class="mt-5 space-y-2"></div>
+      </div>
+    </div>
+  </section>
+  <section id="ssec" class="mt-6 hidden"><button id="sbtn" class="sbtn" aria-expanded="false"><span id="slbl"></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button><div id="sbox" class="glass sched mt-3 hidden rounded-2xl"><table><thead id="shead"></thead><tbody id="sch"></tbody></table></div></section>
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-loan-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 space-y-2 rounded-2xl p-5 text-sm"></div></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-loan-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-loan-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-loan-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Loan Payment Calculator", "sub": "Calculate the monthly payment, total interest, fees and effective annual rate (APR) of a loan.", "h1": "How a loan works", "p1": "A loan is money you borrow and repay over time with interest. Each payment covers part of the borrowed amount (the principal) and the interest on what you still owe. Fees and monthly charges raise the real cost of the loan beyond the nominal interest rate.", "h2": "Equal vs declining payments", "p2": "With equal payments (annuity) the instalment stays the same: early payments are mostly interest, later ones mostly principal. With declining payments you repay the same principal each month plus interest on the remaining balance, so payments start higher and fall over time, and total interest is lower. The APR is the yearly rate that makes all payments and fees equal to the money you actually received.", "h4": "Good to know", "lim": "<li>Compare offers by APR, not just by the nominal interest rate: it includes fees and monthly charges.</li><li>A longer term lowers the payment but increases total interest.</li><li>Check whether early repayment is free and how the bank charges for it.</li><li>Insurance and other optional products are not included here unless you enter them as a monthly fee.</li>", "note": "Results are indicative and not financial advice. The real offer of a bank may differ. Compare several offers before you decide."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka splátky úveru", "sub": "Vypočítaj mesačnú splátku, celkové úroky, poplatky a ročnú percentuálnu mieru nákladov (RPMN) úveru.", "h1": "Ako funguje úver", "p1": "Úver sú peniaze, ktoré si požičiaš a splácaš v čase aj s úrokom. Každá splátka obsahuje časť požičanej sumy (istinu) a úrok z toho, čo ešte dlhuješ. Poplatky a mesačné platby zvyšujú skutočnú cenu úveru nad nominálnu úrokovú sadzbu.", "h2": "Rovnaké a klesajúce splátky", "p2": "Pri rovnakých splátkach (anuita) je splátka stále rovnaká: na začiatku tvorí väčšinu úrok, neskôr istina. Pri klesajúcich splátkach splácaš každý mesiac rovnakú istinu plus úrok zo zostatku, takže splátky začínajú vyššie a časom klesajú a celkové úroky sú nižšie. RPMN je ročná sadzba, pri ktorej sa všetky splátky a poplatky rovnajú peniazom, ktoré si skutočne dostal.", "h4": "Dobré vedieť", "lim": "<li>Ponuky porovnávaj podľa RPMN, nielen podľa nominálnej úrokovej sadzby: zahŕňa poplatky a mesačné platby.</li><li>Dlhšia doba znižuje splátku, ale zvyšuje celkové úroky.</li><li>Zisti, či je predčasné splatenie bezplatné a ako ho banka spoplatňuje.</li><li>Poistenie a iné voliteľné produkty tu nie sú zahrnuté, pokiaľ ich nezadáš ako mesačný poplatok.</li>", "note": "Výsledky sú orientačné a nie sú finančným poradenstvom. Skutočná ponuka banky sa môže líšiť. Pred rozhodnutím porovnaj viac ponúk."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Kreditrechner", "sub": "Berechne monatliche Rate, Gesamtzinsen, Gebühren und effektiven Jahreszins eines Kredits.", "h1": "So funktioniert ein Kredit", "p1": "Ein Kredit ist geliehenes Geld, das du mit Zinsen über die Zeit zurückzahlst. Jede Rate enthält einen Teil des geliehenen Betrags (Tilgung) und die Zinsen auf die offene Schuld. Gebühren und monatliche Kosten erhöhen die tatsächlichen Kosten über den Nominalzins hinaus.", "h2": "Gleiche oder fallende Raten", "p2": "Bei gleichen Raten (Annuität) bleibt die Rate konstant: anfangs besteht sie überwiegend aus Zinsen, später aus Tilgung. Bei fallenden Raten zahlst du jeden Monat dieselbe Tilgung plus Zinsen auf die Restschuld; die Raten beginnen höher und sinken, und die Gesamtzinsen sind niedriger. Der effektive Jahreszins ist der Jahreszins, bei dem alle Zahlungen und Gebühren dem tatsächlich erhaltenen Betrag entsprechen.", "h4": "Gut zu wissen", "lim": "<li>Vergleiche Angebote über den effektiven Jahreszins, nicht nur den Nominalzins: Er enthält Gebühren und monatliche Kosten.</li><li>Eine längere Laufzeit senkt die Rate, erhöht aber die Gesamtzinsen.</li><li>Prüfe, ob eine vorzeitige Rückzahlung kostenlos ist und wie die Bank sie berechnet.</li><li>Versicherungen und andere optionale Produkte sind hier nicht enthalten, es sei denn, du gibst sie als monatliche Gebühr ein.</li>", "note": "Die Ergebnisse sind Richtwerte und keine Finanzberatung. Das tatsächliche Angebot einer Bank kann abweichen. Vergleiche vor einer Entscheidung mehrere Angebote."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka splátky úvěru", "sub": "Spočítej měsíční splátku, celkové úroky, poplatky a roční procentní sazbu nákladů (RPSN) úvěru.", "h1": "Jak funguje úvěr", "p1": "Úvěr jsou peníze, které si půjčíš a splácíš v čase i s úrokem. Každá splátka obsahuje část půjčené částky (jistinu) a úrok z toho, co ještě dlužíš. Poplatky a měsíční platby zvyšují skutečnou cenu úvěru nad nominální úrokovou sazbu.", "h2": "Stejné a klesající splátky", "p2": "U stejných splátek (anuita) je splátka stále stejná: na začátku tvoří většinu úrok, později jistina. U klesajících splátek splácíš každý měsíc stejnou jistinu plus úrok ze zůstatku, takže splátky začínají výše a časem klesají a celkové úroky jsou nižší. RPSN je roční sazba, při které se všechny splátky a poplatky rovnají penězům, které jsi skutečně dostal.", "h4": "Dobré vědět", "lim": "<li>Nabídky porovnávej podle RPSN, nejen podle nominální úrokové sazby: zahrnuje poplatky a měsíční platby.</li><li>Delší doba snižuje splátku, ale zvyšuje celkové úroky.</li><li>Zjisti, zda je předčasné splacení bezplatné a jak je banka zpoplatňuje.</li><li>Pojištění a jiné volitelné produkty zde nejsou zahrnuty, pokud je nezadáš jako měsíční poplatek.</li>", "note": "Výsledky jsou orientační a nejsou finančním poradenstvím. Skutečná nabídka banky se může lišit. Před rozhodnutím porovnej více nabídek."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator raty kredytu", "sub": "Oblicz ratę miesięczną, łączne odsetki, opłaty i rzeczywistą roczną stopę oprocentowania (RRSO) kredytu.", "h1": "Jak działa kredyt", "p1": "Kredyt to pieniądze, które pożyczasz i spłacasz w czasie wraz z odsetkami. Każda rata zawiera część pożyczonej kwoty (kapitał) oraz odsetki od tego, co jeszcze zostało do spłaty. Opłaty i miesięczne koszty podnoszą rzeczywisty koszt kredytu ponad oprocentowanie nominalne.", "h2": "Raty równe i malejące", "p2": "Przy ratach równych (annuitetowych) rata jest stała: na początku większość stanowią odsetki, później kapitał. Przy ratach malejących co miesiąc spłacasz ten sam kapitał plus odsetki od salda, więc raty zaczynają się wyżej i spadają, a łączne odsetki są niższe. RRSO to roczna stopa, przy której wszystkie raty i opłaty równają się pieniądzom, które faktycznie otrzymałeś.", "h4": "Warto wiedzieć", "lim": "<li>Porównuj oferty według RRSO, a nie tylko oprocentowania nominalnego: uwzględnia opłaty i miesięczne koszty.</li><li>Dłuższy okres obniża ratę, ale zwiększa łączne odsetki.</li><li>Sprawdź, czy wcześniejsza spłata jest bezpłatna i jak bank ją rozlicza.</li><li>Ubezpieczenia i inne opcjonalne produkty nie są tu uwzględnione, chyba że wpiszesz je jako opłatę miesięczną.</li>", "note": "Wyniki mają charakter orientacyjny i nie stanowią porady finansowej. Rzeczywista oferta banku może się różnić. Przed decyzją porównaj kilka ofert."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de prêt", "sub": "Calculez la mensualité, le total des intérêts, les frais et le taux annuel effectif global (TAEG) d’un prêt.", "h1": "Comment fonctionne un prêt", "p1": "Un prêt est de l’argent emprunté que vous remboursez avec des intérêts au fil du temps. Chaque mensualité comprend une part du capital emprunté et les intérêts sur ce qu’il reste à rembourser. Les frais et les charges mensuelles augmentent le coût réel du prêt au-delà du taux nominal.", "h2": "Mensualités constantes ou dégressives", "p2": "Avec des mensualités constantes (annuité), l’échéance reste identique : au début elle est surtout composée d’intérêts, ensuite de capital. Avec des mensualités dégressives, vous remboursez chaque mois le même capital plus les intérêts sur le solde ; les échéances commencent plus haut puis baissent, et le total des intérêts est plus faible. Le TAEG est le taux annuel pour lequel tous les paiements et frais égalent la somme réellement reçue.", "h4": "Bon à savoir", "lim": "<li>Comparez les offres selon le TAEG, pas seulement le taux nominal : il inclut les frais et les charges mensuelles.</li><li>Une durée plus longue réduit la mensualité mais augmente le total des intérêts.</li><li>Vérifiez si le remboursement anticipé est gratuit et comment la banque le facture.</li><li>Les assurances et autres produits optionnels ne sont pas inclus ici, sauf si vous les saisissez comme frais mensuels.</li>", "note": "Les résultats sont indicatifs et ne constituent pas un conseil financier. L’offre réelle d’une banque peut différer. Comparez plusieurs offres avant de décider."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de préstamo", "sub": "Calcula la cuota mensual, los intereses totales, las comisiones y la tasa anual equivalente (TAE) de un préstamo.", "h1": "Cómo funciona un préstamo", "p1": "Un préstamo es dinero que pides prestado y devuelves con intereses a lo largo del tiempo. Cada cuota incluye una parte del dinero prestado (el capital) y los intereses sobre lo que aún debes. Las comisiones y los cargos mensuales elevan el coste real del préstamo por encima del tipo nominal.", "h2": "Cuotas iguales o decrecientes", "p2": "Con cuotas iguales (anualidad) la cuota se mantiene: al principio es sobre todo interés y después sobre todo capital. Con cuotas decrecientes devuelves cada mes el mismo capital más los intereses sobre el saldo, así que las cuotas empiezan más altas y bajan, y los intereses totales son menores. La TAE es la tasa anual con la que todos los pagos y comisiones igualan el dinero realmente recibido.", "h4": "Conviene saber", "lim": "<li>Compara ofertas por la TAE, no solo por el tipo nominal: incluye comisiones y cargos mensuales.</li><li>Un plazo más largo baja la cuota pero aumenta los intereses totales.</li><li>Comprueba si la amortización anticipada es gratuita y cómo la cobra el banco.</li><li>Los seguros y otros productos opcionales no se incluyen aquí, salvo que los introduzcas como comisión mensual.</li>", "note": "Los resultados son orientativos y no constituyen asesoramiento financiero. La oferta real de un banco puede diferir. Compara varias ofertas antes de decidir."}};
+const PIPE={"cur": "Currency|Mena|Währung|Měna|Waluta|Devise|Moneda", "hint": "Fill in the fields to see the result.|Vyplň polia a zobrazí sa výsledok.|Fülle die Felder aus, um das Ergebnis zu sehen.|Vyplň pole a zobrazí se výsledek.|Wypełnij pola, aby zobaczyć wynik.|Remplissez les champs pour voir le résultat.|Rellena los campos para ver el resultado.", "sch": "Show yearly schedule|Zobraziť ročný prehľad|Jahresübersicht anzeigen|Zobrazit roční přehled|Pokaż zestawienie roczne|Afficher le tableau annuel|Mostrar cuadro anual", "schH": "Hide yearly schedule|Skryť ročný prehľad|Jahresübersicht ausblenden|Skrýt roční přehled|Ukryj zestawienie roczne|Masquer le tableau annuel|Ocultar cuadro anual", "cy": "Year|Rok|Jahr|Rok|Rok|Année|Año", "cb": "Balance|Zostatok|Restschuld|Zůstatek|Saldo|Solde|Saldo", "amount": "Loan amount|Výška úveru|Darlehensbetrag|Výše úvěru|Kwota kredytu|Montant du prêt|Importe del préstamo", "rate": "Interest rate (per year)|Úroková sadzba (ročne)|Zinssatz (pro Jahr)|Úroková sazba (ročně)|Oprocentowanie (rocznie)|Taux d’intérêt (annuel)|Tipo de interés (anual)", "term": "Term|Doba splácania|Laufzeit|Doba splácení|Okres spłaty|Durée|Plazo", "yrs": "years|rokov|Jahre|let|lat|ans|años", "mos": "months|mesiacov|Monate|měsíců|miesięcy|mois|meses", "type": "Repayment type|Typ splácania|Rückzahlungsart|Typ splácení|Rodzaj spłaty|Type de remboursement|Tipo de amortización", "t_ann": "Equal payments (annuity)|Rovnaké splátky (anuita)|Gleiche Raten (Annuität)|Stejné splátky (anuita)|Równe raty (annuitetowe)|Mensualités constantes (annuité)|Cuotas iguales (anualidad)", "t_dec": "Declining payments (equal principal)|Klesajúce splátky (rovnaká istina)|Fallende Raten (gleiche Tilgung)|Klesající splátky (stejná jistina)|Malejące raty (równy kapitał)|Mensualités dégressives (capital constant)|Cuotas decrecientes (capital constante)", "fee": "Upfront fee (% of loan)|Poplatok za poskytnutie (% z úveru)|Bearbeitungsgebühr (% des Darlehens)|Poplatek za poskytnutí (% z úvěru)|Prowizja (% kwoty kredytu)|Frais de dossier (% du prêt)|Comisión de apertura (% del préstamo)", "mfee": "Monthly fee|Mesačný poplatok|Monatliche Gebühr|Měsíční poplatek|Opłata miesięczna|Frais mensuels|Comisión mensual", "pay": "Monthly payment|Mesačná splátka|Monatliche Rate|Měsíční splátka|Miesięczna rata|Mensualité|Cuota mensual", "first": "First payment|Prvá splátka|Erste Rate|První splátka|Pierwsza rata|Première mensualité|Primera cuota", "last": "Last payment|Posledná splátka|Letzte Rate|Poslední splátka|Ostatnia rata|Dernière mensualité|Última cuota", "total": "Total repaid|Spolu zaplatíš|Gesamt zurückgezahlt|Celkem zaplatíš|Łącznie do spłaty|Total remboursé|Total a pagar", "int": "Total interest|Zaplatené úroky|Zinsen gesamt|Zaplacené úroky|Odsetki łącznie|Total des intérêts|Total de intereses", "fees": "Fees|Poplatky|Gebühren|Poplatky|Opłaty|Frais|Comisiones", "apr": "Effective annual rate (APR)|Ročná percentuálna miera nákladov (RPMN)|Effektiver Jahreszins|Roční procentní sazba nákladů (RPSN)|RRSO|TAEG|TAE", "cp": "Paid|Zaplatené|Gezahlt|Zaplaceno|Wpłacono|Payé|Pagado", "cpr": "Principal|Istina|Tilgung|Jistina|Kapitał|Capital|Capital", "ci": "Interest|Úrok|Zinsen|Úrok|Odsetki|Intérêts|Intereses"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/loan.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Loan Payment Calculator – Monthly Payment & APR | calc-hub.eu", "d": "Free loan calculator: monthly payment, total interest, fees and effective annual rate (APR) for equal or declining payments, with a repayment schedule."}, "sk": {"t": "Kalkulačka splátky úveru – mesačná splátka a RPMN | calc-hub.eu", "d": "Bezplatná kalkulačka úveru: mesačná splátka, celkové úroky, poplatky a RPMN pri rovnakých alebo klesajúcich splátkach, so splátkovým kalendárom."}, "de": {"t": "Kreditrechner – monatliche Rate & effektiver Jahreszins | calc-hub.eu", "d": "Kostenloser Kreditrechner: monatliche Rate, Gesamtzinsen, Gebühren und effektiver Jahreszins bei gleichen oder fallenden Raten, mit Tilgungsplan."}, "cs": {"t": "Kalkulačka splátky úvěru – měsíční splátka a RPSN | calc-hub.eu", "d": "Bezplatná kalkulačka úvěru: měsíční splátka, celkové úroky, poplatky a RPSN při stejných nebo klesajících splátkách, se splátkovým kalendářem."}, "pl": {"t": "Kalkulator raty kredytu – rata miesięczna i RRSO | calc-hub.eu", "d": "Darmowy kalkulator kredytu: rata miesięczna, łączne odsetki, opłaty i RRSO przy ratach równych lub malejących, z harmonogramem spłat."}, "fr": {"t": "Calculateur de prêt – mensualité et TAEG | calc-hub.eu", "d": "Calculateur de prêt gratuit : mensualité, total des intérêts, frais et TAEG pour des mensualités constantes ou dégressives, avec tableau d’amortissement."}, "es": {"t": "Calculadora de préstamo – cuota mensual y TAE | calc-hub.eu", "d": "Calculadora de préstamos gratis: cuota mensual, intereses totales, comisiones y TAE con cuotas iguales o decrecientes, con cuadro de amortización."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+const CURS=['EUR','USD','GBP','CZK','PLN','CHF'],DEFC={cs:'CZK',pl:'PLN'},SCALE={EUR:1,USD:1,GBP:.9,CZK:25,PLN:4.3,CHF:.95};
+let cur=DEFC[lang]||'EUR',curT=false,schOpen=false;
+try{const c=new URLSearchParams(location.search).get('cur');if(CURS.includes(c)){cur=c;curT=true}}catch(e){}
+const money=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur,minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+const sym=()=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur}).formatToParts(0).find(p=>p.type==='currency').value;
+const touched={};
+function setDefaults(defs){Object.keys(defs).forEach(id=>{if(!touched[id])$(id).value=Math.round(defs[id]*SCALE[cur]/10)*10})}
+function curInit(defs,onChange){
+  $('lc').innerHTML=CURS.map(c=>`<option value="${c}">${c}</option>`).join('');$('lc').value=cur;
+  $('lc').addEventListener('change',e=>{cur=e.target.value;curT=true;try{const u=new URL(location.href);u.searchParams.set('cur',cur);history.replaceState(null,'',u)}catch(x){}setDefaults(defs);onChange()});
+  Object.keys(defs).forEach(id=>$(id).addEventListener('input',()=>{touched[id]=true}));
+  setDefaults(defs);
+}
+function curLang(defs){if(!curT){cur=DEFC[lang]||'EUR';$('lc').value=cur;setDefaults(defs)}document.querySelectorAll('.cs').forEach(e=>e.textContent=sym())}
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+}
+function showRes(ok){$('res').classList.toggle('hidden',!ok);$('hint').classList.toggle('hidden',ok);$('hint').textContent=L('hint')}
+
+const DEFS={lp:10000};
+let ptype='ann',tunit='y';
+function irr(target,flows){let lo=0,hi=1;for(let i=0;i<100;i++){const m=(lo+hi)/2;let s=0;for(let t=0;t<flows.length;t++)s+=flows[t]/Math.pow(1+m,t+1);if(s>target)lo=m;else hi=m}return (lo+hi)/2}
+function calcAll(){
+  const P=+$('lp').value,a=+$('lr').value,tv=+$('lt').value,fp=+$('lf').value||0,mf=+$('lm').value||0;
+  const n=tunit==='y'?Math.round(tv*12):Math.round(tv);
+  if($('lp').value===''||$('lr').value===''||$('lt').value===''||!(P>=100&&P<=1e10&&a>=0&&a<=60&&n>=1&&n<=600&&fp>=0&&fp<=20&&mf>=0))return null;
+  const r=a/1200,pays=[],rows=[];let bal=P,ti=0;
+  const M=r?P*r/(1-Math.pow(1+r,-n)):P/n;
+  let yp=0,yi=0;
+  for(let t=1;t<=n;t++){const i=bal*r,pr=ptype==='ann'?M-i:P/n,pay=pr+i;bal-=pr;ti+=i;pays.push(pay+mf);yp+=pr;yi+=i;
+    if(t%12===0||t===n){rows.push([Math.ceil(t/12),yp+yi,yp,yi,Math.max(bal,0)]);yp=yi=0}}
+  const fee=P*fp/100,feesTotal=fee+mf*n,total=P+ti,apr=Math.pow(1+irr(P-fee,pays),12)-1;
+  return {P,n,pays,ti,fee,feesTotal,total,apr,rows};
+}
+function calc(){
+  const o=calcAll();showRes(!!o);$('ssec').classList.toggle('hidden',!o);if(!o)return;
+  $('pl').textContent=ptype==='ann'?L('pay'):L('first');
+  $('big').textContent=money(o.pays[0],2);
+  $('pl2').textContent=ptype==='dec'?`${L('last')}: ${money(o.pays[o.pays.length-1],2)}`:'';
+  const tot=o.total,ip=o.ti/tot*100;$('bp').style.width=(100-ip)+'%';$('bi').style.width=ip+'%';
+  $('rows').innerHTML=[[L('total'),money(tot+o.feesTotal)],[L('int'),money(o.ti)],[L('fees'),money(o.feesTotal)],[L('apr'),nf(o.apr*100,2)+(lang==='en'?'%':' %')]].map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v}</b></div>`).join('');
+  $('shead').innerHTML=`<tr><th>${L('cy')}</th><th>${L('cp')}</th><th>${L('cpr')}</th><th>${L('ci')}</th><th>${L('cb')}</th></tr>`;
+  $('sch').innerHTML=o.rows.map(r=>`<tr><td>${r[0]}</td><td>${money(r[1])}</td><td>${money(r[2])}</td><td>${money(r[3])}</td><td>${money(r[4])}</td></tr>`).join('');
+}
+function buildSel(){
+  $('lu').innerHTML=['y','m'].map(k=>`<option value="${k}" ${k===tunit?'selected':''}>${L(k==='y'?'yrs':'mos')}</option>`).join('');
+  $('ly').innerHTML=['ann','dec'].map(k=>`<option value="${k}" ${k===ptype?'selected':''}>${L('t_'+k)}</option>`).join('');
+}
+function text(){baseText();buildSel();curLang(DEFS);$('slbl').textContent=L(schOpen?'schH':'sch');
+  $('fbox').innerHTML=`<div><b style="color:var(--accent)">M = P × r ÷ (1 − (1 + r)<sup>−n</sup>)</b></div><div><b style="color:var(--accent)">${L('t_dec').split('(')[0].trim()}: P ÷ n + ${L('ci').toLowerCase()}</b></div>`;syncLang();calc()}
+$('lu').addEventListener('change',e=>{tunit=e.target.value;calc()});$('ly').addEventListener('change',e=>{ptype=e.target.value;calc()});
+['lp','lr','lt','lf','lm'].forEach(id=>$(id).addEventListener('input',calc));
+curInit(DEFS,calc);
+
+function schToggle(){schOpen=!schOpen;$('sbox').classList.toggle('hidden',!schOpen);$('sbtn').setAttribute('aria-expanded',String(schOpen));$('slbl').textContent=L(schOpen?'schH':'sch')}
+$('sbtn').addEventListener('click',schToggle);
+initLang(text);text();
+</script>
+</body>
+</html>
