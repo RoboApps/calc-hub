@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Fuel Consumption Calculator – L/100 km, MPG &amp; Trip Cost | calc-hub.eu</title>
+<meta name="description" content="Free fuel consumption calculator: litres per 100 km, km per litre, MPG (US and UK) and the fuel needed and cost of a trip.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/fuel.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/fuel.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/fuel.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/fuel.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/fuel.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/fuel.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/fuel.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/fuel.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/fuel.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Fuel Consumption Calculator – L/100 km, MPG &amp; Trip Cost | calc-hub.eu">
+<meta property="og:description" content="Free fuel consumption calculator: litres per 100 km, km per litre, MPG (US and UK) and the fuel needed and cost of a trip.">
+<meta property="og:url" content="https://calc-hub.eu/fuel.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fuel Consumption Calculator – L/100 km, MPG &amp; Trip Cost | calc-hub.eu">
+<meta name="twitter:description" content="Free fuel consumption calculator: litres per 100 km, km per litre, MPG (US and UK) and the fuel needed and cost of a trip.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.chk{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:#a3acbf;cursor:pointer}
+.chk input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.chip{padding:.4rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="mode"></label><div class="field mt-2"><select id="fm"></select></div></div>
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="cur"></label><div class="field mt-2"><select id="lc"></select></div></div>
+      <div id="fdw"><label id="fdl" class="block text-sm" style="color:#8b94a7" data-p="dist"></label><div class="field mt-2"><input id="fd" type="number" inputmode="decimal" min="0" step="any" value="500"> <span>km</span></div></div>
+      <div id="ffw"><label id="ffl" class="block text-sm" style="color:#8b94a7" data-p="fuel"></label><div class="field mt-2"><input id="ff" type="number" inputmode="decimal" min="0" step="any" value="35"> <span>L</span></div></div>
+      <div id="fcw"><label id="fcl" class="block text-sm" style="color:#8b94a7" data-p="cons"></label><div class="field mt-2"><input id="fc" type="number" inputmode="decimal" min="0" step="any" value="7"> <span>L/100 km</span></div></div>
+      <div id="fpw"><label id="fpl" class="block text-sm" style="color:#8b94a7" data-p="price"></label><div class="field mt-2"><input id="fp" type="number" inputmode="decimal" min="0" step="any" value="1.6"><span class="cs"></span>/L</div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <p id="err" class="hidden text-center" style="color:#f87171"></p>
+      <div id="res" class="hidden">
+        <p id="rl" class="text-sm" style="color:#8b94a7"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <div id="rows" class="mt-6 space-y-2"></div>
+      </div>
+    </div>
+  </section>
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-fuel-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 rounded-2xl p-5 text-sm"></div></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-fuel-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-fuel-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-fuel-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Fuel Consumption Calculator", "sub": "Work out litres per 100 km, convert to MPG and calculate the cost of a trip.", "h1": "How fuel consumption is calculated", "p1": "Consumption in litres per 100 km = fuel used ÷ distance × 100. Fill the tank completely, note the odometer, drive, fill up again and divide the litres you added by the kilometres driven.", "h2": "Unit conversions", "p2": "mpg (US) = 235.215 ÷ (L/100 km). mpg (UK) = 282.481 ÷ (L/100 km). km/L = 100 ÷ (L/100 km). Trip cost = distance × consumption ÷ 100 × price per litre.", "h4": "Good to know", "lim": "<li>Measure over several tanks: single fill-ups are inaccurate because pumps shut off at different points.</li><li>Speed, cold weather, short trips, tyre pressure and load all raise consumption.</li><li>The on-board computer is often a few percent optimistic.</li>", "note": "Estimate only; real consumption varies with driving conditions."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka spotreby paliva", "sub": "Zisti litre na 100 km, prepočítaj na MPG a vypočítaj cenu cesty.", "h1": "Ako sa počíta spotreba paliva", "p1": "Spotreba v litroch na 100 km = spotrebované palivo ÷ vzdialenosť × 100. Natankuj do plna, zapíš stav tachometra, jazdi, natankuj znova a vydeľ pridané litre prejdenými kilometrami.", "h2": "Prevody jednotiek", "p2": "mpg (US) = 235,215 ÷ (l/100 km). mpg (UK) = 282,481 ÷ (l/100 km). km/l = 100 ÷ (l/100 km). Cena cesty = vzdialenosť × spotreba ÷ 100 × cena za liter.", "h4": "Dobré vedieť", "lim": "<li>Merajte na viacerých nádržiach: jednotlivé tankovania sú nepresné, lebo pumpy sa vypínajú v rôznych bodoch.</li><li>Rýchlosť, chlad, krátke jazdy, tlak v pneumatikách a záťaž zvyšujú spotrebu.</li><li>Palubný počítač býva o pár percent optimistický.</li>", "note": "Len odhad; skutočná spotreba závisí od podmienok jazdy."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Spritverbrauch-Rechner", "sub": "Berechne Liter pro 100 km, rechne in MPG um und ermittle die Kosten einer Fahrt.", "h1": "So wird der Spritverbrauch berechnet", "p1": "Verbrauch in Litern pro 100 km = verbrauchter Kraftstoff ÷ Strecke × 100. Tanke voll, notiere den Kilometerstand, fahre, tanke erneut voll und teile die getankten Liter durch die gefahrenen Kilometer.", "h2": "Einheitenumrechnung", "p2": "mpg (US) = 235,215 ÷ (l/100 km). mpg (UK) = 282,481 ÷ (l/100 km). km/l = 100 ÷ (l/100 km). Fahrtkosten = Strecke × Verbrauch ÷ 100 × Preis pro Liter.", "h4": "Gut zu wissen", "lim": "<li>Miss über mehrere Tankfüllungen: Einzelne Tankvorgänge sind ungenau, weil Zapfpistolen unterschiedlich abschalten.</li><li>Geschwindigkeit, Kälte, Kurzstrecken, Reifendruck und Beladung erhöhen den Verbrauch.</li><li>Der Bordcomputer ist oft um einige Prozent zu optimistisch.</li>", "note": "Nur eine Schätzung; der reale Verbrauch hängt von den Fahrbedingungen ab."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka spotřeby paliva", "sub": "Zjisti litry na 100 km, převeď na MPG a spočítej cenu cesty.", "h1": "Jak se počítá spotřeba paliva", "p1": "Spotřeba v litrech na 100 km = spotřebované palivo ÷ vzdálenost × 100. Natankuj do plna, zapiš stav tachometru, jeď, natankuj znovu a vyděl přidané litry ujetými kilometry.", "h2": "Převody jednotek", "p2": "mpg (US) = 235,215 ÷ (l/100 km). mpg (UK) = 282,481 ÷ (l/100 km). km/l = 100 ÷ (l/100 km). Cena cesty = vzdálenost × spotřeba ÷ 100 × cena za litr.", "h4": "Dobré vědět", "lim": "<li>Měř na více nádržích: jednotlivá tankování jsou nepřesná, protože pistole vypínají v různých bodech.</li><li>Rychlost, chlad, krátké jízdy, tlak v pneumatikách a zátěž zvyšují spotřebu.</li><li>Palubní počítač bývá o pár procent optimistický.</li>", "note": "Pouze odhad; skutečná spotřeba závisí na podmínkách jízdy."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator zużycia paliwa", "sub": "Oblicz litry na 100 km, przelicz na MPG i policz koszt podróży.", "h1": "Jak oblicza się zużycie paliwa", "p1": "Zużycie w litrach na 100 km = zużyte paliwo ÷ dystans × 100. Zatankuj do pełna, zapisz stan licznika, jedź, zatankuj ponownie i podziel dolane litry przez przejechane kilometry.", "h2": "Przeliczanie jednostek", "p2": "mpg (US) = 235,215 ÷ (l/100 km). mpg (UK) = 282,481 ÷ (l/100 km). km/l = 100 ÷ (l/100 km). Koszt podróży = dystans × zużycie ÷ 100 × cena za litr.", "h4": "Warto wiedzieć", "lim": "<li>Mierz na kilku zbiornikach: pojedyncze tankowania są niedokładne, bo pistolety wyłączają się w różnych momentach.</li><li>Prędkość, zimno, krótkie trasy, ciśnienie w oponach i obciążenie zwiększają zużycie.</li><li>Komputer pokładowy bywa o kilka procent zbyt optymistyczny.</li>", "note": "Tylko szacunek; rzeczywiste zużycie zależy od warunków jazdy."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de consommation de carburant", "sub": "Calculez les litres aux 100 km, convertissez en MPG et calculez le coût d’un trajet.", "h1": "Comment la consommation est calculée", "p1": "Consommation en litres aux 100 km = carburant consommé ÷ distance × 100. Faites le plein, notez le compteur, roulez, refaites le plein et divisez les litres ajoutés par les kilomètres parcourus.", "h2": "Conversions d’unités", "p2": "mpg (US) = 235,215 ÷ (l/100 km). mpg (UK) = 282,481 ÷ (l/100 km). km/l = 100 ÷ (l/100 km). Coût du trajet = distance × consommation ÷ 100 × prix au litre.", "h4": "Bon à savoir", "lim": "<li>Mesurez sur plusieurs pleins : un seul plein est imprécis car les pistolets se coupent à des moments différents.</li><li>La vitesse, le froid, les trajets courts, la pression des pneus et la charge augmentent la consommation.</li><li>L’ordinateur de bord est souvent optimiste de quelques pour cent.</li>", "note": "Estimation uniquement ; la consommation réelle varie selon les conditions de conduite."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de consumo de combustible", "sub": "Calcula los litros a los 100 km, conviértelos a MPG y calcula el coste de un viaje.", "h1": "Cómo se calcula el consumo de combustible", "p1": "Consumo en litros a los 100 km = combustible usado ÷ distancia × 100. Llena el depósito, anota el cuentakilómetros, conduce, vuelve a llenar y divide los litros añadidos entre los kilómetros recorridos.", "h2": "Conversiones de unidades", "p2": "mpg (US) = 235,215 ÷ (l/100 km). mpg (UK) = 282,481 ÷ (l/100 km). km/l = 100 ÷ (l/100 km). Coste del viaje = distancia × consumo ÷ 100 × precio por litro.", "h4": "Conviene saber", "lim": "<li>Mide con varios depósitos: un solo repostaje es impreciso porque las pistolas cortan en puntos distintos.</li><li>La velocidad, el frío, los trayectos cortos, la presión de los neumáticos y la carga aumentan el consumo.</li><li>El ordenador de a bordo suele ser algunos puntos optimista.</li>", "note": "Solo una estimación; el consumo real varía según las condiciones de conducción."}};
+const PIPE={"hint": "Fill in the fields to see the result.|Vyplň polia a zobrazí sa výsledok.|Fülle die Felder aus, um das Ergebnis zu sehen.|Vyplň pole a zobrazí se výsledek.|Wypełnij pola, aby zobaczyć wynik.|Remplissez les champs pour voir le résultat.|Rellena los campos para ver el resultado.", "cur": "Currency|Mena|Währung|Měna|Waluta|Devise|Moneda", "m_cons": "Consumption|Spotreba|Verbrauch|Spotřeba|Zużycie|Consommation|Consumo", "m_trip": "Trip cost|Cena cesty|Fahrtkosten|Cena cesty|Koszt podróży|Coût du trajet|Coste del viaje", "dist": "Distance (km)|Vzdialenosť (km)|Strecke (km)|Vzdálenost (km)|Dystans (km)|Distance (km)|Distancia (km)", "fuel": "Fuel used (litres)|Spotrebované palivo (litre)|Verbrauchter Kraftstoff (Liter)|Spotřebované palivo (litry)|Zużyte paliwo (litry)|Carburant consommé (litres)|Combustible usado (litros)", "cons": "Consumption (L/100 km)|Spotreba (l/100 km)|Verbrauch (l/100 km)|Spotřeba (l/100 km)|Zużycie (l/100 km)|Consommation (l/100 km)|Consumo (l/100 km)", "price": "Fuel price per litre|Cena paliva za liter|Kraftstoffpreis pro Liter|Cena paliva za litr|Cena paliwa za litr|Prix du carburant au litre|Precio del combustible por litro", "l100": "Litres per 100 km|Litre na 100 km|Liter pro 100 km|Litry na 100 km|Litry na 100 km|Litres aux 100 km|Litros por 100 km", "kml": "Kilometres per litre|Kilometre na liter|Kilometer pro Liter|Kilometry na litr|Kilometry na litr|Kilomètres par litre|Kilómetros por litro", "mpgus": "Miles per US gallon|Míle na americký galón|Meilen pro US-Gallone|Míle na americký galon|Mile na galon amerykański|Miles par gallon US|Millas por galón US", "mpguk": "Miles per UK gallon|Míle na britský galón|Meilen pro UK-Gallone|Míle na britský galon|Mile na galon brytyjski|Miles par gallon UK|Millas por galón UK", "need": "Fuel needed|Potrebné palivo|Benötigter Kraftstoff|Potřebné palivo|Potrzebne paliwo|Carburant nécessaire|Combustible necesario", "tcost": "Trip cost|Cena cesty|Fahrtkosten|Cena cesty|Koszt podróży|Coût du trajet|Coste del viaje", "ckm": "Cost per 100 km|Náklady na 100 km|Kosten pro 100 km|Náklady na 100 km|Koszt na 100 km|Coût aux 100 km|Coste por 100 km", "mode": "Mode|Režim|Modus|Režim|Tryb|Mode|Modo"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/fuel.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Fuel Consumption Calculator – L/100 km, MPG & Trip Cost | calc-hub.eu", "d": "Free fuel consumption calculator: litres per 100 km, km per litre, MPG (US and UK) and the fuel needed and cost of a trip."}, "sk": {"t": "Kalkulačka spotreby paliva – l/100 km, MPG a cena cesty | calc-hub.eu", "d": "Bezplatná kalkulačka spotreby paliva: litre na 100 km, km na liter, MPG (US a UK) a potrebné palivo a cena cesty."}, "de": {"t": "Spritverbrauch-Rechner – l/100 km, MPG und Fahrtkosten | calc-hub.eu", "d": "Kostenloser Spritverbrauch-Rechner: Liter pro 100 km, km pro Liter, MPG (US und UK) sowie Kraftstoffbedarf und Kosten einer Fahrt."}, "cs": {"t": "Kalkulačka spotřeby paliva – l/100 km, MPG a cena cesty | calc-hub.eu", "d": "Bezplatná kalkulačka spotřeby paliva: litry na 100 km, km na litr, MPG (US a UK) a potřebné palivo a cena cesty."}, "pl": {"t": "Kalkulator zużycia paliwa – l/100 km, MPG i koszt podróży | calc-hub.eu", "d": "Darmowy kalkulator zużycia paliwa: litry na 100 km, km na litr, MPG (US i UK) oraz potrzebne paliwo i koszt podróży."}, "fr": {"t": "Calculateur de consommation – l/100 km, MPG et coût du trajet | calc-hub.eu", "d": "Calculateur de consommation gratuit : litres aux 100 km, km par litre, MPG (US et UK), carburant nécessaire et coût d’un trajet."}, "es": {"t": "Calculadora de consumo de combustible – l/100 km, MPG y coste del viaje | calc-hub.eu", "d": "Calculadora de consumo gratis: litros a los 100 km, km por litro, MPG (US y UK), combustible necesario y coste de un viaje."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+}
+function showRes(o){$('res').classList.toggle('hidden',!o||!!o.err);$('hint').classList.toggle('hidden',!!o);$('hint').textContent=L('hint');$('err').classList.toggle('hidden',!(o&&o.err));if(o&&o.err)$('err').textContent=L(o.err);return !!o&&!o.err}
+const rows=a=>a.map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v}</b></div>`).join('');
+
+const CURS=['EUR','USD','GBP','CZK','PLN','CHF'],DEFC={cs:'CZK',pl:'PLN'};
+let cur=DEFC[lang]||'EUR',curT=false;const touched={};
+try{const c=new URLSearchParams(location.search).get('cur');if(CURS.includes(c)){cur=c;curT=true}}catch(e){}
+const money=(n,d=2)=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur,minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+const sym=()=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur}).formatToParts(0).find(p=>p.type==='currency').value;
+function setDef(defs){Object.keys(defs).forEach(id=>{if(!touched[id])$(id).value=defs[id][cur]})}
+function curInit(defs,onChange){
+  $('lc').innerHTML=CURS.map(c=>`<option value="${c}">${c}</option>`).join('');$('lc').value=cur;
+  $('lc').addEventListener('change',e=>{cur=e.target.value;curT=true;try{const u=new URL(location.href);u.searchParams.set('cur',cur);history.replaceState(null,'',u)}catch(x){}setDef(defs);document.querySelectorAll('.cs').forEach(e=>e.textContent=sym());onChange()});
+  Object.keys(defs).forEach(id=>$(id).addEventListener('input',()=>{touched[id]=true}));setDef(defs);
+}
+function curLang(defs){if(!curT){cur=DEFC[lang]||'EUR';$('lc').value=cur;setDef(defs)}document.querySelectorAll('.cs').forEach(e=>e.textContent=sym())}
+
+const DEFS={fp:{EUR:1.6,USD:1.0,GBP:1.45,CZK:38,PLN:6.4,CHF:1.8}};let mode='cons';
+function units(l){return [[L('kml'),nf(100/l,1)],[L('mpgus'),nf(235.215/l,1)],[L('mpguk'),nf(282.481/l,1)]]}
+function calcAll(){
+  const d=+$('fd').value;if($('fd').value===''||!(d>0&&d<=100000))return null;
+  if(mode==='cons'){const f=+$('ff').value;if($('ff').value===''||!(f>0&&f<=10000))return null;const l=f/d*100;return {big:nf(l,2)+' L/100 km',rl:L('l100'),rows:units(l)}}
+  const l=+$('fc').value,p=+$('fp').value;if($('fc').value===''||$('fp').value===''||!(l>0&&l<=100&&p>=0))return null;
+  const need=d*l/100,cost=need*p;return {big:money(cost,2),rl:L('tcost'),rows:[[L('need'),nf(need,1)+' L'],[L('ckm'),money(l*p,2)]].concat(units(l))};
+}
+function calc(){const o=calcAll();if(!showRes(o))return;$('rl').textContent=o.rl;$('big').textContent=o.big;$('rows').innerHTML=rows(o.rows)}
+function vis(){$('ffw').classList.toggle('hidden',mode!=='cons');$('fcw').classList.toggle('hidden',mode!=='trip');$('fpw').classList.toggle('hidden',mode!=='trip')}
+function build(){$('fm').innerHTML=[['cons','m_cons'],['trip','m_trip']].map(([k,l])=>`<option value="${k}" ${k===mode?'selected':''}>${L(l)}</option>`).join('');vis()}
+function text(){baseText();curLang(DEFS);build();$('fbox').innerHTML=`<div><b style="color:var(--accent)">L/100 km = ${L('fuel').split(' (')[0]} ÷ ${L('dist').split(' (')[0]} × 100</b></div><div><b style="color:var(--accent)">mpg US = 235.215 ÷ L/100 km · mpg UK = 282.481 ÷ L/100 km</b></div>`;syncLang();calc()}
+$('fm').addEventListener('change',e=>{mode=e.target.value;vis();calc()});
+['fd','ff','fc','fp'].forEach(id=>$(id).addEventListener('input',calc));
+curInit(DEFS,calc);initLang(text);text();
+</script>
+</body>
+</html>

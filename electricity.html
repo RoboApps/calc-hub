@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Electricity Cost Calculator – Cost of Running Appliances | calc-hub.eu</title>
+<meta name="description" content="Free electricity cost calculator: energy use in kWh and the cost per day, month and year for any appliance from its power, hours of use and price per kWh.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/electricity.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/electricity.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/electricity.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/electricity.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/electricity.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/electricity.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/electricity.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/electricity.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/electricity.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Electricity Cost Calculator – Cost of Running Appliances | calc-hub.eu">
+<meta property="og:description" content="Free electricity cost calculator: energy use in kWh and the cost per day, month and year for any appliance from its power, hours of use and price per kWh.">
+<meta property="og:url" content="https://calc-hub.eu/electricity.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Electricity Cost Calculator – Cost of Running Appliances | calc-hub.eu">
+<meta name="twitter:description" content="Free electricity cost calculator: energy use in kWh and the cost per day, month and year for any appliance from its power, hours of use and price per kWh.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.chk{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:#a3acbf;cursor:pointer}
+.chk input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.chip{padding:.4rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div><label class="block text-sm" style="color:#8b94a7" data-p="cur"></label><div class="field mt-2"><select id="lc"></select></div></div>
+      <div id="epw"><label id="epl" class="block text-sm" style="color:#8b94a7" data-p="pw"></label><div class="field mt-2"><input id="ep" type="number" inputmode="decimal" min="0" step="any" value="100"> <span>W</span></div></div>
+      <div id="eqw"><label id="eql" class="block text-sm" style="color:#8b94a7" data-p="qty"></label><div class="field mt-2"><input id="eq" type="number" inputmode="decimal" min="0" step="1" value="1"></div></div>
+      <div id="ehw"><label id="ehl" class="block text-sm" style="color:#8b94a7" data-p="hd"></label><div class="field mt-2"><input id="eh" type="number" inputmode="decimal" min="0" step="any" value="8"> <span>h</span></div></div>
+      <div id="edw"><label id="edl" class="block text-sm" style="color:#8b94a7" data-p="dy"></label><div class="field mt-2"><input id="ed" type="number" inputmode="decimal" min="0" step="1" value="365"></div></div>
+      <div id="eew"><label id="eel" class="block text-sm" style="color:#8b94a7" data-p="pr"></label><div class="field mt-2"><input id="ee" type="number" inputmode="decimal" min="0" step="any" value="0.25"><span class="cs"></span></div></div>
+      <div><p class="text-sm" style="color:#8b94a7" data-p="pre"></p><div id="chips" class="mt-2 flex flex-wrap gap-2"></div></div>
+    </div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+      <p id="hint" class="text-center" style="color:#8b94a7"></p>
+      <p id="err" class="hidden text-center" style="color:#f87171"></p>
+      <div id="res" class="hidden">
+        <p class="text-sm" style="color:#8b94a7" data-p="yc"></p>
+        <span id="big" class="grad block text-5xl font-bold tracking-tight sm:text-6xl"></span>
+        <div id="rows" class="mt-6 space-y-2"></div>
+      </div>
+    </div>
+  </section>
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-electricity-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p><div id="fbox" class="glass mt-4 rounded-2xl p-5 text-sm"></div></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-electricity-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-electricity-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-electricity-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Electricity Cost Calculator", "sub": "Find out how much it costs to run an appliance per day, month and year.", "h1": "How electricity cost is calculated", "p1": "Energy in kilowatt-hours (kWh) = power in kilowatts × hours of use. Cost = kWh × price per kWh. A 100 W device used for 10 hours consumes 1 kWh.", "h2": "Formula", "p2": "Cost per year = power (W) ÷ 1000 × quantity × hours per day × days per year × price per kWh.", "h4": "Good to know", "lim": "<li>Many devices (fridge, heat pump, washing machine) do not run at full power all the time; use the average power or a smart-plug measurement.</li><li>Standby power adds up: several devices on standby can draw 50–100 W continuously.</li><li>Your price per kWh is on the bill; include distribution fees and taxes for a realistic figure.</li>", "note": "Estimate only; actual consumption depends on the device and how it is used."}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka nákladov na elektrinu", "sub": "Zisti, koľko stojí prevádzka spotrebiča za deň, mesiac a rok.", "h1": "Ako sa počítajú náklady na elektrinu", "p1": "Energia v kilowatthodinách (kWh) = príkon v kilowattoch × hodiny používania. Cena = kWh × cena za kWh. Zariadenie s príkonom 100 W používané 10 hodín spotrebuje 1 kWh.", "h2": "Vzorec", "p2": "Náklady za rok = príkon (W) ÷ 1000 × počet × hodiny denne × dni ročne × cena za kWh.", "h4": "Dobré vedieť", "lim": "<li>Mnohé spotrebiče (chladnička, tepelné čerpadlo, práčka) nebežia stále naplno; použi priemerný príkon alebo meranie inteligentnou zásuvkou.</li><li>Pohotovostný režim sa sčítava: viac zariadení v standby môže odoberať 50 – 100 W nepretržite.</li><li>Cena za kWh je na faktúre; pre reálne číslo zahrň poplatky za distribúciu a dane.</li>", "note": "Len odhad; skutočná spotreba závisí od spotrebiča a spôsobu používania."}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Stromkosten-Rechner", "sub": "Finde heraus, was der Betrieb eines Geräts pro Tag, Monat und Jahr kostet.", "h1": "So werden Stromkosten berechnet", "p1": "Energie in Kilowattstunden (kWh) = Leistung in Kilowatt × Nutzungsstunden. Kosten = kWh × Preis pro kWh. Ein Gerät mit 100 W verbraucht in 10 Stunden 1 kWh.", "h2": "Formel", "p2": "Kosten pro Jahr = Leistung (W) ÷ 1000 × Anzahl × Stunden pro Tag × Tage pro Jahr × Preis pro kWh.", "h4": "Gut zu wissen", "lim": "<li>Viele Geräte (Kühlschrank, Wärmepumpe, Waschmaschine) laufen nicht ständig mit voller Leistung; nutze die durchschnittliche Leistung oder eine Messung mit Steckdosenmessgerät.</li><li>Standby summiert sich: Mehrere Geräte im Standby können dauerhaft 50–100 W ziehen.</li><li>Dein Preis pro kWh steht auf der Rechnung; für eine realistische Zahl Netzentgelte und Steuern einrechnen.</li>", "note": "Nur eine Schätzung; der tatsächliche Verbrauch hängt vom Gerät und der Nutzung ab."}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka nákladů na elektřinu", "sub": "Zjisti, kolik stojí provoz spotřebiče za den, měsíc a rok.", "h1": "Jak se počítají náklady na elektřinu", "p1": "Energie v kilowatthodinách (kWh) = příkon v kilowattech × hodiny používání. Cena = kWh × cena za kWh. Zařízení s příkonem 100 W používané 10 hodin spotřebuje 1 kWh.", "h2": "Vzorec", "p2": "Náklady za rok = příkon (W) ÷ 1000 × počet × hodiny denně × dny ročně × cena za kWh.", "h4": "Dobré vědět", "lim": "<li>Mnohé spotřebiče (lednice, tepelné čerpadlo, pračka) nebězí stále naplno; použij průměrný příkon nebo měření chytrou zásuvkou.</li><li>Pohotovostní režim se sčítá: více zařízení ve standby může odebírat 50–100 W nepřetržitě.</li><li>Cena za kWh je na faktuře; pro reálné číslo zahrň poplatky za distribuci a daně.</li>", "note": "Pouze odhad; skutečná spotřeba závisí na spotřebiči a způsobu používání."}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator kosztów energii elektrycznej", "sub": "Sprawdź, ile kosztuje praca urządzenia dziennie, miesięcznie i rocznie.", "h1": "Jak oblicza się koszt energii elektrycznej", "p1": "Energia w kilowatogodzinach (kWh) = moc w kilowatach × godziny użytkowania. Koszt = kWh × cena za kWh. Urządzenie o mocy 100 W używane przez 10 godzin zużywa 1 kWh.", "h2": "Wzór", "p2": "Koszt roczny = moc (W) ÷ 1000 × liczba × godziny dziennie × dni w roku × cena za kWh.", "h4": "Warto wiedzieć", "lim": "<li>Wiele urządzeń (lodówka, pompa ciepła, pralka) nie pracuje cały czas z pełną mocą; użyj mocy średniej lub pomiaru inteligentnym gniazdkiem.</li><li>Tryb czuwania się sumuje: kilka urządzeń w standby może pobierać 50–100 W ciągle.</li><li>Cena za kWh jest na rachunku; dla realnej wartości uwzględnij opłaty dystrybucyjne i podatki.</li>", "note": "Tylko szacunek; rzeczywiste zużycie zależy od urządzenia i sposobu użytkowania."}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur de coût d’électricité", "sub": "Découvrez combien coûte le fonctionnement d’un appareil par jour, par mois et par an.", "h1": "Comment le coût d’électricité est calculé", "p1": "Énergie en kilowattheures (kWh) = puissance en kilowatts × heures d’utilisation. Coût = kWh × prix du kWh. Un appareil de 100 W utilisé 10 heures consomme 1 kWh.", "h2": "Formule", "p2": "Coût par an = puissance (W) ÷ 1000 × nombre × heures par jour × jours par an × prix du kWh.", "h4": "Bon à savoir", "lim": "<li>De nombreux appareils (réfrigérateur, pompe à chaleur, lave-linge) ne fonctionnent pas en permanence à pleine puissance ; utilisez la puissance moyenne ou une mesure avec prise connectée.</li><li>Les veilles s’additionnent : plusieurs appareils en veille peuvent consommer 50 à 100 W en continu.</li><li>Le prix du kWh figure sur la facture ; pour un chiffre réaliste, incluez acheminement et taxes.</li>", "note": "Estimation uniquement ; la consommation réelle dépend de l’appareil et de son usage."}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de coste de electricidad", "sub": "Descubre cuánto cuesta usar un aparato al día, al mes y al año.", "h1": "Cómo se calcula el coste de la electricidad", "p1": "Energía en kilovatios hora (kWh) = potencia en kilovatios × horas de uso. Coste = kWh × precio del kWh. Un aparato de 100 W usado 10 horas consume 1 kWh.", "h2": "Fórmula", "p2": "Coste anual = potencia (W) ÷ 1000 × cantidad × horas al día × días al año × precio del kWh.", "h4": "Conviene saber", "lim": "<li>Muchos aparatos (nevera, bomba de calor, lavadora) no funcionan siempre a plena potencia; usa la potencia media o una medición con enchufe inteligente.</li><li>El consumo en espera se acumula: varios aparatos en standby pueden consumir 50–100 W de forma continua.</li><li>El precio del kWh figura en la factura; para una cifra realista incluye peajes e impuestos.</li>", "note": "Solo una estimación; el consumo real depende del aparato y de su uso."}};
+const PIPE={"hint": "Fill in the fields to see the result.|Vyplň polia a zobrazí sa výsledok.|Fülle die Felder aus, um das Ergebnis zu sehen.|Vyplň pole a zobrazí se výsledek.|Wypełnij pola, aby zobaczyć wynik.|Remplissez les champs pour voir le résultat.|Rellena los campos para ver el resultado.", "cur": "Currency|Mena|Währung|Měna|Waluta|Devise|Moneda", "pw": "Power (W)|Príkon (W)|Leistung (W)|Příkon (W)|Moc (W)|Puissance (W)|Potencia (W)", "qty": "Number of devices|Počet zariadení|Anzahl Geräte|Počet zařízení|Liczba urządzeń|Nombre d’appareils|Número de aparatos", "hd": "Hours of use per day|Hodiny používania denne|Nutzungsstunden pro Tag|Hodiny používání denně|Godziny użytkowania dziennie|Heures d’utilisation par jour|Horas de uso al día", "dy": "Days of use per year|Dni používania ročne|Nutzungstage pro Jahr|Dny používání ročně|Dni użytkowania rocznie|Jours d’utilisation par an|Días de uso al año", "pr": "Price per kWh|Cena za kWh|Preis pro kWh|Cena za kWh|Cena za kWh|Prix par kWh|Precio por kWh", "pre": "Typical devices (sets the power)|Typické spotrebiče (nastaví príkon)|Typische Geräte (setzt die Leistung)|Typické spotřebiče (nastaví příkon)|Typowe urządzenia (ustawia moc)|Appareils courants (règle la puissance)|Aparatos habituales (fija la potencia)", "d1": "LED bulb|LED žiarovka|LED-Lampe|LED žárovka|Żarówka LED|Ampoule LED|Bombilla LED", "d2": "TV|Televízor|Fernseher|Televize|Telewizor|Téléviseur|Televisor", "d3": "Laptop|Notebook|Laptop|Notebook|Laptop|Ordinateur portable|Portátil", "d4": "Gaming PC|Herný počítač|Gaming-PC|Herní počítač|Komputer do gier|PC gaming|PC gaming", "d5": "Kettle|Rýchlovarná kanvica|Wasserkocher|Rychlovarná konvice|Czajnik|Bouilloire|Hervidor", "d6": "Air conditioner|Klimatizácia|Klimaanlage|Klimatizace|Klimatyzacja|Climatiseur|Aire acondicionado", "d7": "Electric heater|Elektrický ohrievač|Elektroheizer|Elektrický ohřívač|Grzejnik elektryczny|Radiateur électrique|Calefactor eléctrico", "d8": "Washing machine|Práčka|Waschmaschine|Pračka|Pralka|Lave-linge|Lavadora", "yc": "Cost per year|Náklady za rok|Kosten pro Jahr|Náklady za rok|Koszt rocznie|Coût par an|Coste al año", "mc": "Cost per month|Náklady za mesiac|Kosten pro Monat|Náklady za měsíc|Koszt miesięcznie|Coût par mois|Coste al mes", "dc": "Cost per day|Náklady za deň|Kosten pro Tag|Náklady za den|Koszt dziennie|Coût par jour|Coste al día", "kd": "Energy per day|Energia za deň|Energie pro Tag|Energie za den|Energia dziennie|Énergie par jour|Energía al día", "ky": "Energy per year|Energia za rok|Energie pro Jahr|Energie za rok|Energia rocznie|Énergie par an|Energía al año"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/electricity.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Electricity Cost Calculator – Cost of Running Appliances | calc-hub.eu", "d": "Free electricity cost calculator: energy use in kWh and the cost per day, month and year for any appliance from its power, hours of use and price per kWh."}, "sk": {"t": "Kalkulačka nákladov na elektrinu – cena prevádzky spotrebičov | calc-hub.eu", "d": "Bezplatná kalkulačka nákladov na elektrinu: spotreba v kWh a náklady za deň, mesiac a rok pre ľubovoľný spotrebič podľa príkonu, hodín používania a ceny za kWh."}, "de": {"t": "Stromkosten-Rechner – Kosten für Geräte | calc-hub.eu", "d": "Kostenloser Stromkosten-Rechner: Verbrauch in kWh und Kosten pro Tag, Monat und Jahr für jedes Gerät aus Leistung, Nutzungsstunden und Preis pro kWh."}, "cs": {"t": "Kalkulačka nákladů na elektřinu – cena provozu spotřebičů | calc-hub.eu", "d": "Bezplatná kalkulačka nákladů na elektřinu: spotřeba v kWh a náklady za den, měsíc a rok pro libovolný spotřebič podle příkonu, hodin používání a ceny za kWh."}, "pl": {"t": "Kalkulator kosztów energii – koszt pracy urządzeń | calc-hub.eu", "d": "Darmowy kalkulator kosztów energii: zużycie w kWh i koszt dzienny, miesięczny i roczny dowolnego urządzenia z mocy, godzin użytkowania i ceny za kWh."}, "fr": {"t": "Calculateur de coût d’électricité – coût des appareils | calc-hub.eu", "d": "Calculateur de coût d’électricité gratuit : consommation en kWh et coût par jour, mois et an de tout appareil selon sa puissance, ses heures d’usage et le prix du kWh."}, "es": {"t": "Calculadora de coste de electricidad – coste de los aparatos | calc-hub.eu", "d": "Calculadora de coste de electricidad gratis: consumo en kWh y coste al día, mes y año de cualquier aparato según su potencia, horas de uso y precio del kWh."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6},LOC={sk:'sk-SK',de:'de-DE',en:'en-GB',cs:'cs-CZ',pl:'pl-PL',fr:'fr-FR',es:'es-ES'};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+const nf=(n,d=0)=>new Intl.NumberFormat(LOC[lang],{maximumFractionDigits:d}).format(n);
+function baseText(){
+  const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v});
+  document.querySelectorAll('[data-p]').forEach(e=>e.textContent=L(e.dataset.p));
+}
+function showRes(o){$('res').classList.toggle('hidden',!o||!!o.err);$('hint').classList.toggle('hidden',!!o);$('hint').textContent=L('hint');$('err').classList.toggle('hidden',!(o&&o.err));if(o&&o.err)$('err').textContent=L(o.err);return !!o&&!o.err}
+const rows=a=>a.map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v}</b></div>`).join('');
+
+const CURS=['EUR','USD','GBP','CZK','PLN','CHF'],DEFC={cs:'CZK',pl:'PLN'};
+let cur=DEFC[lang]||'EUR',curT=false;const touched={};
+try{const c=new URLSearchParams(location.search).get('cur');if(CURS.includes(c)){cur=c;curT=true}}catch(e){}
+const money=(n,d=2)=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur,minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+const sym=()=>new Intl.NumberFormat(LOC[lang],{style:'currency',currency:cur}).formatToParts(0).find(p=>p.type==='currency').value;
+function setDef(defs){Object.keys(defs).forEach(id=>{if(!touched[id])$(id).value=defs[id][cur]})}
+function curInit(defs,onChange){
+  $('lc').innerHTML=CURS.map(c=>`<option value="${c}">${c}</option>`).join('');$('lc').value=cur;
+  $('lc').addEventListener('change',e=>{cur=e.target.value;curT=true;try{const u=new URL(location.href);u.searchParams.set('cur',cur);history.replaceState(null,'',u)}catch(x){}setDef(defs);document.querySelectorAll('.cs').forEach(e=>e.textContent=sym());onChange()});
+  Object.keys(defs).forEach(id=>$(id).addEventListener('input',()=>{touched[id]=true}));setDef(defs);
+}
+function curLang(defs){if(!curT){cur=DEFC[lang]||'EUR';$('lc').value=cur;setDef(defs)}document.querySelectorAll('.cs').forEach(e=>e.textContent=sym())}
+
+const DEFS={ee:{EUR:.25,USD:.17,GBP:.28,CZK:5.5,PLN:1.1,CHF:.27}},DEV=[10,100,60,300,2000,1000,2000,2000];
+function calcAll(){const p=+$('ep').value,q=+$('eq').value,h=+$('eh').value,d=+$('ed').value,pr=+$('ee').value;
+  if(['ep','eq','eh','ed','ee'].some(i=>$(i).value===''||!isFinite(+$(i).value)))return null;
+  if(!(p>0&&q>=1&&h>0&&h<=24&&d>=1&&d<=366&&pr>=0))return null;
+  const ky=p/1000*q*h*d;return {ky,kd:ky/d,cy:ky*pr,cm:ky*pr/12,cd:ky*pr/d};}
+function calc(){const o=calcAll();if(!showRes(o))return;
+  $('big').textContent=money(o.cy,2);
+  $('rows').innerHTML=rows([[L('mc'),money(o.cm,2)],[L('dc'),money(o.cd,2)],[L('ky'),nf(o.ky,1)+' kWh'],[L('kd'),nf(o.kd,2)+' kWh']]);}
+function text(){baseText();curLang(DEFS);$('chips').innerHTML=DEV.map((w,i)=>`<button class="chip" data-w="${w}">${L('d'+(i+1))} · ${nf(w)} W</button>`).join('');
+  $('fbox').innerHTML=`<b style="color:var(--accent)">${L('yc')} = ${L('pw').split(' (')[0]} ÷ 1000 × ${L('qty')} × ${L('hd')} × ${L('dy')} × ${L('pr')}</b>`;syncLang();calc()}
+document.addEventListener('click',e=>{const c=e.target.closest('[data-w]');if(c){$('ep').value=c.dataset.w;calc()}});
+['ep','eq','eh','ed','ee'].forEach(id=>$(id).addEventListener('input',calc));
+curInit(DEFS,calc);initLang(text);text();
+</script>
+</body>
+</html>
