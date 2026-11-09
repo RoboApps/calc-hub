@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>3×3 Cube Solver – Solve the Cube Step by Step | calc-hub.eu</title>
+<meta name="description" content="Free 3×3 cube solver: paint the stickers like your cube and get a short solution in standard notation, with a guide to reading the moves.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/cube3x3.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/cube3x3.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/cube3x3.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/cube3x3.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/cube3x3.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/cube3x3.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/cube3x3.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/cube3x3.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/cube3x3.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="3×3 Cube Solver – Solve the Cube Step by Step | calc-hub.eu">
+<meta property="og:description" content="Free 3×3 cube solver: paint the stickers like your cube and get a short solution in standard notation, with a guide to reading the moves.">
+<meta property="og:url" content="https://calc-hub.eu/cube3x3.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3×3 Cube Solver – Solve the Cube Step by Step | calc-hub.eu">
+<meta name="twitter:description" content="Free 3×3 cube solver: paint the stickers like your cube and get a short solution in standard notation, with a guide to reading the moves.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.chk{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:#a3acbf;cursor:pointer}
+.chk input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.chip{padding:.4rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
+.btn{padding:.7rem 1.4rem;font-size:1rem}
+.net{display:grid;grid-template-columns:repeat(4,max-content);grid-template-rows:repeat(3,max-content);gap:10px;justify-content:center;--sz:clamp(20px,6.2vw,34px)}
+.face{display:grid;grid-template-columns:repeat(3,var(--sz));gap:2px}
+.st{width:var(--sz,40px);height:var(--sz,40px);border-radius:8px;border:2px solid rgba(0,0,0,.4);font-weight:700;font-size:.8rem;color:rgba(0,0,0,.5);cursor:pointer;padding:0}
+.st.on{outline:3px solid #fff;outline-offset:2px}
+
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 rounded-3xl p-6 sm:p-8">
+    <div id="pal" class="flex flex-wrap justify-center gap-3"></div>
+    <div id="net" class="net mt-6"></div>
+    <div class="mt-6 flex flex-wrap justify-center gap-3"><button id="bs" class="chip btn" aria-pressed="true"></button><button id="bx" class="chip btn"></button><button id="br" class="chip btn"></button><button id="bc" class="chip btn"></button></div>
+    <p id="msg" class="mt-5 text-center"></p>
+    <p id="sol" class="mt-3 text-center" style="font:700 1.4rem ui-monospace,monospace;color:#fff;letter-spacing:.04em"></p>
+  </section>
+
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-cube3x3-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-cube3x3-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-cube3x3-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-cube3x3-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "3×3 Cube Solver", "sub": "Paint the stickers like your cube and get a short step-by-step solution.", "h1": "How to read the moves", "p1": "Hold the cube like the diagram: the face you painted on top is up and the second face of the middle row is toward you. Each letter turns one face a quarter turn clockwise as you look at that face: U up, D down, R right, L left, F front, B back. A prime (R') means counter-clockwise and a 2 (R2) means a half turn.", "h2": "How the solver works", "p2": "The solver uses a two-phase method. First it brings the cube into a smaller set of positions (all pieces correctly oriented, the middle-layer edges in the middle layer), then it finishes using only moves that keep that property. It usually finds a solution of about 20 moves in a fraction of a second; the shortest possible solution never exceeds 20 moves, but proving it for every cube takes far longer.", "note": "The first solve may take a moment while the solver prepares its tables. Everything runs in your browser and the colours you paint never leave your device. If an error appears, check that you copied the colours correctly, since a single wrong sticker makes the cube impossible.", "h4": "Good to know", "lim": "<li>Works with the 3×3 cube in any colour scheme; the centre stickers define the face colours.</li><li>Each of the 6 colours must appear exactly 9 times and the cube must be physically possible.</li><li>The solution is short but not always the shortest possible.</li>"}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Riešič kocky 3×3", "sub": "Vyfarbi nálepky podľa svojej kocky a získaj krátke riešenie krok za krokom.", "h1": "Ako čítať ťahy", "p1": "Drž kocku tak ako na schéme: stena hore je vrch a druhá stena v strednom rade smeruje k tebe. Každé písmeno otočí jednu stenu o štvrť otáčky v smere hodinových ručičiek, keď sa na ňu pozeráš: U hore, D dole, R vpravo, L vľavo, F vpredu, B vzadu. Apostrof (R') znamená proti smeru hodín a dvojka (R2) pol otáčky.", "h2": "Ako riešič funguje", "p2": "Riešič používa dvojfázovú metódu. Najprv dostane kocku do menšej množiny pozícií (všetky dieliky správne orientované, hrany strednej vrstvy v strednej vrstve) a potom ju dokončí ťahmi, ktoré túto vlastnosť zachovávajú. Zvyčajne nájde riešenie s asi 20 ťahmi za zlomok sekundy; najkratšie možné riešenie nikdy nepresiahne 20 ťahov, ale hľadať ho pre každú kocku trvá oveľa dlhšie.", "note": "Prvé riešenie môže chvíľu trvať, kým riešič pripraví svoje tabuľky. Všetko beží v tvojom prehliadači a farby, ktoré zadáš, nikdy neopustia tvoje zariadenie. Ak sa objaví chyba, skontroluj, či si farby prepísal správne, pretože jediná zlá nálepka robí kocku nemožnou.", "h4": "Dobré vedieť", "lim": "<li>Funguje pre kocku 3×3 s ľubovoľným rozložením farieb; farby stien určujú stredové nálepky.</li><li>Každá zo 6 farieb sa musí vyskytnúť presne 9-krát a kocka musí byť fyzicky možná.</li><li>Riešenie je krátke, ale nie vždy najkratšie možné.</li>"}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "3×3-Würfel-Löser", "sub": "Färbe die Felder wie deinen Würfel und erhalte eine kurze Lösung Schritt für Schritt.", "h1": "So liest du die Züge", "p1": "Halte den Würfel wie im Schema: Die oben gefärbte Fläche zeigt nach oben, die zweite Fläche der mittleren Reihe zu dir. Jeder Buchstabe dreht eine Fläche um eine Vierteldrehung im Uhrzeigersinn, wenn du auf sie schaust: U oben, D unten, R rechts, L links, F vorn, B hinten. Ein Apostroph (R') bedeutet gegen den Uhrzeigersinn, eine 2 (R2) eine halbe Drehung.", "h2": "So funktioniert der Löser", "p2": "Der Löser arbeitet in zwei Phasen. Zuerst bringt er den Würfel in eine kleinere Menge von Stellungen (alle Teile richtig orientiert, die Mittelschicht-Kanten in der Mittelschicht) und beendet ihn dann nur mit Zügen, die diese Eigenschaft erhalten. Meist findet er in Sekundenbruchteilen eine Lösung mit etwa 20 Zügen; die kürzestmögliche Lösung hat nie mehr als 20 Züge, sie für jeden Würfel zu beweisen dauert aber viel länger.", "note": "Die erste Lösung kann einen Moment dauern, während der Löser seine Tabellen vorbereitet. Alles läuft in deinem Browser, die Farben verlassen nie dein Gerät. Erscheint ein Fehler, prüfe, ob du die Farben richtig übertragen hast, denn ein einziger falscher Aufkleber macht den Würfel unmöglich.", "h4": "Gut zu wissen", "lim": "<li>Funktioniert mit dem 3×3-Würfel in jeder Farbanordnung; die Mittelfelder legen die Flächenfarben fest.</li><li>Jede der 6 Farben muss genau 9-mal vorkommen, und der Würfel muss physikalisch möglich sein.</li><li>Die Lösung ist kurz, aber nicht immer die kürzestmögliche.</li>"}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Řešič kostky 3×3", "sub": "Vybarvi nálepky podle své kostky a získej krátké řešení krok za krokem.", "h1": "Jak číst tahy", "p1": "Drž kostku jako na schématu: stěna nahoře je vršek a druhá stěna ve středním řadě míří k tobě. Každé písmeno otočí jednu stěnu o čtvrt otáčky po směru hodinových ručiček, když se na ni díváš: U nahoře, D dole, R vpravo, L vlevo, F vpředu, B vzadu. Apostrof (R') znamená proti směru hodin a dvojka (R2) půl otáčky.", "h2": "Jak řešič funguje", "p2": "Řešič používá dvoufázovou metodu. Nejprve dostane kostku do menší množiny pozic (všechny dílky správně orientované, hrany prostřední vrstvy v prostřední vrstvě) a poté ji dokončí tahy, které tuto vlastnost zachovávají. Obvykle najde řešení s asi 20 tahy za zlomek sekundy; nejkratší možné řešení nikdy nepřesáhne 20 tahů, ale hledat ho pro každou kostku trvá mnohem déle.", "note": "První řešení může chvíli trvat, než řešič připraví své tabulky. Vše běží ve tvém prohlížeči a barvy, které zadáš, nikdy neopustí tvé zařízení. Pokud se objeví chyba, zkontroluj, zda jsi barvy přepsal správně, protože jediná špatná nálepka činí kostku nemožnou.", "h4": "Dobré vědět", "lim": "<li>Funguje pro kostku 3×3 s libovolným rozmístěním barev; barvy stěn určují středové nálepky.</li><li>Každá ze 6 barev se musí vyskytnout přesně 9krát a kostka musí být fyzicky možná.</li><li>Řešení je krátké, ale ne vždy nejkratší možné.</li>"}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Solver kostki 3×3", "sub": "Pokoloruj naklejki jak na swojej kostce i uzyskaj krótkie rozwiązanie krok po kroku.", "h1": "Jak czytać ruchy", "p1": "Trzymaj kostkę jak na schemacie: ściana na górze jest górą, a druga ściana środkowego rzędu jest zwrócona do ciebie. Każda litera obraca jedną ścianę o ćwierć obrotu zgodnie z ruchem wskazówek zegara, gdy na nią patrzysz: U góra, D dół, R prawa, L lewa, F przód, B tył. Apostrof (R') oznacza obrót przeciwny, a 2 (R2) pół obrotu.", "h2": "Jak działa solver", "p2": "Solver działa dwufazowo. Najpierw sprowadza kostkę do mniejszego zbioru układów (wszystkie elementy poprawnie zorientowane, krawędzie środkowej warstwy w środkowej warstwie), a potem kończy ruchami, które tę własność zachowują. Zwykle znajduje rozwiązanie z około 20 ruchami w ułamku sekundy; najkrótsze możliwe rozwiązanie nigdy nie przekracza 20 ruchów, ale szukanie go dla każdej kostki trwa znacznie dłużej.", "note": "Pierwsze rozwiązanie może chwilę potrwać, gdy solver przygotowuje tabele. Wszystko działa w Twojej przeglądarce, a kolory nigdy nie opuszczają Twojego urządzenia. Jeśli pojawi się błąd, sprawdź, czy poprawnie przepisałeś kolory, bo jedna błędna naklejka sprawia, że kostka jest niemożliwa.", "h4": "Warto wiedzieć", "lim": "<li>Działa dla kostki 3×3 z dowolnym układem kolorów; kolory ścian wyznaczają środkowe naklejki.</li><li>Każdy z 6 kolorów musi wystąpić dokładnie 9 razy, a kostka musi być fizycznie możliwa.</li><li>Rozwiązanie jest krótkie, ale nie zawsze najkrótsze z możliwych.</li>"}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Solveur de cube 3×3", "sub": "Coloriez les autocollants comme votre cube et obtenez une solution courte, pas à pas.", "h1": "Comment lire les mouvements", "p1": "Tenez le cube comme sur le schéma : la face du haut est vers le haut et la deuxième face de la rangée du milieu vous fait face. Chaque lettre tourne une face d’un quart de tour dans le sens horaire quand on la regarde : U haut, D bas, R droite, L gauche, F avant, B arrière. Une apostrophe (R') signifie sens antihoraire et un 2 (R2) un demi-tour.", "h2": "Comment fonctionne le solveur", "p2": "Le solveur procède en deux phases. Il amène d’abord le cube dans un ensemble de positions plus petit (toutes les pièces bien orientées, les arêtes de la couche du milieu dans cette couche), puis termine avec des mouvements qui conservent cette propriété. Il trouve en général une solution d’environ 20 mouvements en une fraction de seconde ; la solution la plus courte ne dépasse jamais 20 mouvements, mais la trouver pour chaque cube prend bien plus de temps.", "note": "La première résolution peut prendre un instant, le temps que le solveur prépare ses tables. Tout s’exécute dans votre navigateur et les couleurs saisies ne quittent jamais votre appareil. En cas d’erreur, vérifiez que vous avez bien recopié les couleurs : un seul autocollant erroné rend le cube impossible.", "h4": "Bon à savoir", "lim": "<li>Fonctionne pour le cube 3×3 avec n’importe quel schéma de couleurs ; les centres définissent les couleurs des faces.</li><li>Chacune des 6 couleurs doit apparaître exactement 9 fois et le cube doit être physiquement possible.</li><li>La solution est courte, mais pas toujours la plus courte possible.</li>"}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Resolutor de cubo 3×3", "sub": "Colorea las pegatinas como tu cubo y obtén una solución corta paso a paso.", "h1": "Cómo leer los movimientos", "p1": "Sujeta el cubo como en el esquema: la cara de arriba mira hacia arriba y la segunda cara de la fila central te mira a ti. Cada letra gira una cara un cuarto de vuelta en sentido horario al mirarla: U arriba, D abajo, R derecha, L izquierda, F frente, B atrás. Un apóstrofo (R') significa sentido antihorario y un 2 (R2) media vuelta.", "h2": "Cómo funciona el resolutor", "p2": "El resolutor trabaja en dos fases. Primero lleva el cubo a un conjunto menor de posiciones (todas las piezas bien orientadas, las aristas de la capa central en la capa central) y luego lo termina con movimientos que conservan esa propiedad. Suele encontrar una solución de unos 20 movimientos en una fracción de segundo; la solución más corta nunca supera los 20 movimientos, pero hallarla para cada cubo lleva mucho más tiempo.", "note": "La primera resolución puede tardar un momento mientras el resolutor prepara sus tablas. Todo funciona en tu navegador y los colores que introduces nunca salen de tu dispositivo. Si aparece un error, comprueba que copiaste bien los colores, ya que una sola pegatina errónea hace imposible el cubo.", "h4": "Conviene saber", "lim": "<li>Funciona con el cubo 3×3 con cualquier esquema de colores; las pegatinas centrales definen los colores de las caras.</li><li>Cada uno de los 6 colores debe aparecer exactamente 9 veces y el cubo debe ser físicamente posible.</li><li>La solución es corta, pero no siempre la más corta posible.</li>"}};
+const PIPE={"solve": "Solve|Vyriešiť|Lösen|Vyřešit|Rozwiąż|Résoudre|Resolver", "scr": "Scramble|Zamiešať|Mischen|Zamíchat|Wymieszaj|Mélanger|Mezclar", "rst": "Solved cube|Zložená kocka|Gelöster Würfel|Složená kostka|Ułożona kostka|Cube résolu|Cubo resuelto", "clr": "Clear|Vymazať|Leeren|Vymazat|Wyczyść|Effacer|Borrar", "hint": "Pick a colour, click the stickers to match your cube, then press Solve.|Vyber farbu, klikaj na nálepky podľa svojej kocky a stlač Vyriešiť.|Wähle eine Farbe, klicke die Felder passend zu deinem Würfel an und drücke Lösen.|Vyber barvu, klikej na nálepky podle své kostky a stiskni Vyřešit.|Wybierz kolor, klikaj naklejki zgodnie ze swoją kostką i naciśnij Rozwiąż.|Choisissez une couleur, cliquez sur les autocollants comme sur votre cube, puis appuyez sur Résoudre.|Elige un color, haz clic en las pegatinas como en tu cubo y pulsa Resolver.", "errf": "Fill in every sticker first.|Najprv vyfarbi všetky nálepky.|Fülle zuerst alle Felder aus.|Nejprve vybarvi všechny nálepky.|Najpierw pokoloruj wszystkie naklejki.|Remplissez d’abord tous les autocollants.|Primero rellena todas las pegatinas.", "errc": "Each colour must appear exactly 9 times.|Každá farba sa musí vyskytnúť presne 9-krát.|Jede Farbe muss genau 9-mal vorkommen.|Každá barva se musí vyskytnout přesně 9krát.|Każdy kolor musi wystąpić dokładnie 9 razy.|Chaque couleur doit apparaître exactement 9 fois.|Cada color debe aparecer exactamente 9 veces.", "errn": "No solution: check the colours, this cube is not possible.|Riešenie neexistuje: skontroluj farby, táto kocka nie je možná.|Keine Lösung: Prüfe die Farben, dieser Würfel ist nicht möglich.|Řešení neexistuje: zkontroluj barvy, tato kostka není možná.|Brak rozwiązania: sprawdź kolory, ta kostka jest niemożliwa.|Pas de solution : vérifiez les couleurs, ce cube est impossible.|Sin solución: revisa los colores, este cubo no es posible.", "done": "The cube is already solved.|Kocka je už zložená.|Der Würfel ist bereits gelöst.|Kostka je už složená.|Kostka jest już ułożona.|Le cube est déjà résolu.|El cubo ya está resuelto.", "solu": "Solution|Riešenie|Lösung|Řešení|Rozwiązanie|Solution|Solución", "mv": "moves|ťahov|Züge|tahů|ruchów|mouvements|movimientos", "wait": "Calculating…|Počítam…|Berechne…|Počítám…|Obliczam…|Calcul en cours…|Calculando…"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/cube3x3.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "3×3 Cube Solver – Solve the Cube Step by Step | calc-hub.eu", "d": "Free 3×3 cube solver: paint the stickers like your cube and get a short solution in standard notation, with a guide to reading the moves."}, "sk": {"t": "Riešič kocky 3×3 – návod na zloženie krok za krokom | calc-hub.eu", "d": "Bezplatný riešič kocky 3×3: vyfarbi nálepky podľa svojej kocky a získaj krátke riešenie v štandardnom značení, s návodom na čítanie ťahov."}, "de": {"t": "3×3-Würfel-Löser – Zauberwürfel Schritt für Schritt lösen | calc-hub.eu", "d": "Kostenloser 3×3-Würfel-Löser: Färbe die Felder wie deinen Würfel und erhalte eine kurze Lösung in Standardnotation, mit Anleitung zum Lesen der Züge."}, "cs": {"t": "Řešič kostky 3×3 – návod ke složení krok za krokem | calc-hub.eu", "d": "Bezplatný řešič kostky 3×3: vybarvi nálepky podle své kostky a získej krátké řešení ve standardním značení, s návodem ke čtení tahů."}, "pl": {"t": "Solver kostki 3×3 – ułóż kostkę krok po kroku | calc-hub.eu", "d": "Darmowy solver kostki 3×3: pokoloruj naklejki jak na swojej kostce i uzyskaj krótkie rozwiązanie w standardowej notacji, z wyjaśnieniem ruchów."}, "fr": {"t": "Solveur de cube 3×3 – résoudre le cube pas à pas | calc-hub.eu", "d": "Solveur de cube 3×3 gratuit : coloriez les autocollants comme votre cube et obtenez une solution courte en notation standard, avec guide de lecture des mouvements."}, "es": {"t": "Resolutor de cubo 3×3 – resuelve el cubo paso a paso | calc-hub.eu", "d": "Resolutor de cubo 3×3 gratuito: colorea las pegatinas como tu cubo y obtén una solución corta en notación estándar, con guía para leer los movimientos."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+function baseText(){const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v})}
+const FACES=[{n:[0,1,0],r:[1,0,0],d:[0,0,1],g:[1,0]},{n:[-1,0,0],r:[0,0,1],d:[0,-1,0],g:[0,1]},{n:[0,0,1],r:[1,0,0],d:[0,-1,0],g:[1,1]},{n:[1,0,0],r:[0,0,-1],d:[0,-1,0],g:[2,1]},{n:[0,0,-1],r:[-1,0,0],d:[0,-1,0],g:[3,1]},{n:[0,-1,0],r:[1,0,0],d:[0,0,-1],g:[1,2]}];
+const K=(p,n)=>p.join()+'|'+n.join(),ST=[],IX={};
+FACES.forEach(f=>{for(let r=0;r<3;r++)for(let c=0;c<3;c++){const p=[0,1,2].map(k=>f.n[k]+f.r[k]*(c-1)+f.d[k]*(r-1));IX[K(p,f.n)]=ST.length;ST.push({p,n:f.n})}});
+const MV=[{a:1,s:1,r:v=>[-v[2],v[1],v[0]]},{a:0,s:1,r:v=>[v[0],v[2],-v[1]]},{a:2,s:1,r:v=>[v[1],-v[0],v[2]]},{a:1,s:-1,r:v=>[v[2],v[1],-v[0]]},{a:0,s:-1,r:v=>[v[0],-v[2],v[1]]},{a:2,s:-1,r:v=>[-v[1],v[0],v[2]]}];
+const SP=[],NM=[];
+MV.forEach((m,f)=>{const s=ST.map((t,i)=>i);ST.forEach((t,i)=>{if(t.p[m.a]===m.s)s[IX[K(m.r(t.p),m.r(t.n))]]=i});
+  const s2=s.map(i=>s[i]),s3=s.map(i=>s2[i]);SP.push(s,s2,s3);for(const x of['','2',"'"])NM.push('URFDLB'[f]+x)});
+const ap=(st,m)=>SP[m].map(i=>st[i]);
+const fi=n=>FACES.findIndex(f=>f.n.join()===n.join()),U1=(k,s)=>{const v=[0,0,0];v[k]=s;return v};
+const det=(a,b,c)=>a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0]);
+const CORN=[],EDGE=[];
+for(const y of[1,-1])for(const x of[1,-1])for(const z of[1,-1]){let a=U1(0,x),b=U1(2,z);const ny=U1(1,y);if(det(ny,a,b)<0)[a,b]=[b,a];CORN.push({p:[x,y,z],ns:[ny,a,b]})}
+for(const y of[1,-1]){for(const x of[1,-1])EDGE.push({p:[x,y,0],ns:[U1(1,y),U1(0,x)]});for(const z of[1,-1])EDGE.push({p:[0,y,z],ns:[U1(1,y),U1(2,z)]})}
+for(const x of[1,-1])for(const z of[1,-1])EDGE.push({p:[x,0,z],ns:[U1(2,z),U1(0,x)]});
+const qmap=(list,mv)=>list.map((c,i)=>{if(c.p[mv.a]!==mv.s)return[i,0];const q=list.findIndex(h=>h.p.join()===mv.r(c.p).join()),rn=mv.r(c.ns[0]).join();return[q,list[q].ns.findIndex(n=>n.join()===rn)]});
+const pw=(M,n)=>{let R=M.map((x,i)=>[i,0]);for(let k=0;k<n;k++)R=R.map(([q,d])=>[M[q][0],d+M[q][1]]);return R};
+const CM=[],EM=[];MV.forEach(m=>{const c=qmap(CORN,m),e=qmap(EDGE,m);for(let k=1;k<4;k++){CM.push(pw(c,k));EM.push(pw(e,k))}});
+function app(S,m){const cm=CM[m],em=EM[m],r={cp:[],co:[],ep:[],eo:[]};
+  for(let p=0;p<8;p++){const[q,d]=cm[p];r.cp[q]=S.cp[p];r.co[q]=(S.co[p]+d)%3}
+  for(let p=0;p<12;p++){const[q,d]=em[p];r.ep[q]=S.ep[p];r.eo[q]=(S.eo[p]+d)%2}return r}
+function toCubie(col){const cnt=Array(6).fill(0);col.forEach(c=>cnt[c]++);if(cnt.some(n=>n!==9))return{e:'errc'};
+  const cf={};FACES.forEach((f,i)=>cf[col[IX[K(f.n,f.n)]]]=i);if(Object.keys(cf).length!==6)return{e:'errn'};
+  const S={cp:[],co:[],ep:[],eo:[]};
+  const rd=(list,P,O)=>list.every((c,i)=>{const fs=c.ns.map(n=>cf[col[IX[K(c.p,n)]]]);
+    const h=list.findIndex(h=>h.ns.length===fs.length&&h.ns.every(n=>fs.includes(fi(n))));if(h<0)return false;
+    P[i]=h;O[i]=fs.indexOf(fi(list[h].ns[0]));return true});
+  if(!rd(CORN,S.cp,S.co)||!rd(EDGE,S.ep,S.eo)||new Set(S.cp).size<8||new Set(S.ep).size<12)return{e:'errn'};
+  const par=p=>{let s=0;for(let i=0;i<p.length;i++)for(let j=i+1;j<p.length;j++)if(p[j]<p[i])s++;return s&1};
+  if(S.co.reduce((a,b)=>a+b)%3||S.eo.reduce((a,b)=>a+b)%2||par(S.cp)!==par(S.ep))return{e:'errn'};return S}
+const twist=co=>{let t=0;for(let i=0;i<7;i++)t=t*3+co[i];return t},flip=eo=>{let t=0;for(let i=0;i<11;i++)t=t*2+eo[i];return t};
+const Cb=(n,k)=>{if(k>n||k<0)return 0;let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return Math.round(r)};
+const sliceC=ep=>{let a=0,x=0;for(let j=11;j>=0;j--)if(ep[j]>=8){a+=Cb(11-j,x+1);x++}return a};
+const pe=p=>{let r=0;const n=p.length;for(let i=0;i<n;i++){let c=0;for(let j=i+1;j<n;j++)if(p[j]<p[i])c++;r=r*(n-i)+c}return r};
+const pd=(r,n)=>{const d=[];for(let i=n-1;i>=0;i--){d[i]=r%(n-i);r=(r/(n-i))|0}const av=[...Array(n).keys()],p=[];for(let i=0;i<n;i++)p.push(av.splice(d[i],1)[0]);return p};
+const P2=[0,1,2,9,10,11,4,7,13,16];let TB=null;
+function bfs(n1,n2,t1,t2,nm){const d=new Uint8Array(n1*n2).fill(255);d[0]=0;let f=[0],k=0;while(f.length){const nf=[];k++;for(const s of f){const a=(s/n2)|0,b=s%n2;for(let m=0;m<nm;m++){const t=t1[a*nm+m]*n2+t2[b*nm+m];if(d[t]===255){d[t]=k;nf.push(t)}}}f=nf}return d}
+function tables(){const TW=new Int16Array(2187*18),FL=new Int16Array(2048*18),SL=new Int16Array(495*18);
+  for(let t=0;t<2187;t++){const co=[];let x=t,s=0;for(let i=6;i>=0;i--){co[i]=x%3;x=(x/3)|0;s+=co[i]}co[7]=(3-s%3)%3;
+    for(let m=0;m<18;m++){const n=[];for(let p=0;p<8;p++){const[q,d]=CM[m][p];n[q]=(co[p]+d)%3}TW[t*18+m]=twist(n)}}
+  for(let t=0;t<2048;t++){const eo=[];let x=t,s=0;for(let i=10;i>=0;i--){eo[i]=x%2;x>>=1;s+=eo[i]}eo[11]=s%2;
+    for(let m=0;m<18;m++){const n=[];for(let p=0;p<12;p++){const[q,d]=EM[m][p];n[q]=(eo[p]+d)%2}FL[t*18+m]=flip(n)}}
+  const rep=[],st=[[0,0,0,0,0,0,0,0,8,8,8,8]];rep[0]=st[0];for(let i=0;i<st.length;i++){const E=st[i];
+    for(let m=0;m<18;m++){const n=[];for(let p=0;p<12;p++)n[EM[m][p][0]]=E[p];const c=sliceC(n);if(!rep[c]){rep[c]=n;st.push(n)}}}
+  for(let c=0;c<495;c++)for(let m=0;m<18;m++){const n=[];for(let p=0;p<12;p++)n[EM[m][p][0]]=rep[c][p];SL[c*18+m]=sliceC(n)}
+  const CPt=new Int32Array(40320*10),EPt=new Int32Array(40320*10),SPt=new Int32Array(24*10);
+  for(let c=0;c<40320;c++){const p=pd(c,8);for(let i=0;i<10;i++){const m=P2[i],nc=[],ne=[];for(let k=0;k<8;k++){nc[CM[m][k][0]]=p[k];ne[EM[m][k][0]]=p[k]}CPt[c*10+i]=pe(nc);EPt[c*10+i]=pe(ne)}}
+  for(let c=0;c<24;c++){const p=pd(c,4);for(let i=0;i<10;i++){const n=[];for(let k=0;k<4;k++)n[EM[P2[i]][k+8][0]-8]=p[k];SPt[c*10+i]=pe(n)}}
+  TB={TW,FL,SL,CPt,EPt,SPt,pT:bfs(2187,495,TW,SL,18),pF:bfs(2048,495,FL,SL,18),pC:bfs(40320,24,CPt,SPt,10),pE:bfs(40320,24,EPt,SPt,10)}}
+function solve3(S){const dl=Date.now()+1500,path=[];let best=null;
+  const s2=(cp,ep,sp,d,last,out)=>{const h=Math.max(TB.pC[cp*24+sp],TB.pE[ep*24+sp]);if(h>d)return false;if(d===0)return h===0;
+    for(let i=0;i<10;i++){const f=P2[i]/3|0;if(f===last||(last>=0&&f%3===last%3&&f<last))continue;
+      if(s2(TB.CPt[cp*10+i],TB.EPt[ep*10+i],TB.SPt[sp*10+i],d-1,f,out)){out.push(P2[i]);return true}}return false};
+  const s1=(tw,fl,sl,d,last)=>{if(best&&Date.now()>dl)return true;
+    const h=Math.max(TB.pT[tw*495+sl],TB.pF[fl*495+sl]);if(h>d)return false;
+    if(d===0){let C=S;for(const m of path)C=app(C,m);const lim=(best?best.length-1:30)-path.length;
+      for(let d2=0;d2<=lim;d2++){const out=[];if(s2(pe(C.cp),pe(C.ep.slice(0,8)),pe(C.ep.slice(8).map(x=>x-8)),d2,last,out)){best=path.concat(out.reverse());break}}return false}
+    for(let m=0;m<18;m++){const f=m/3|0;if(f===last||(last>=0&&f%3===last%3&&f<last))continue;
+      path.push(m);const r=s1(TB.TW[tw*18+m],TB.FL[fl*18+m],TB.SL[sl*18+m],d-1,f);path.pop();if(r)return true}return false};
+  for(let d1=0;d1<=12;d1++){if(best&&d1>=best.length)break;if(s1(twist(S.co),flip(S.eo),sliceC(S.ep),d1,-1))break}
+  return best}
+/*UI*/
+const HEX=['#f5f5f5','#facc15','#ef4444','#22c55e','#fb923c','#3b82f6','#3a4256'],LET=['W','Y','R','G','O','B',''];
+const STD=()=>ST.map((t,i)=>[0,4,3,2,5,1][(i/9)|0]);
+let col=STD(),sel=0,lk='hint',le=0,sol=null;
+function draw(){document.querySelectorAll('#net .st').forEach(b=>{const c=col[+b.dataset.i];b.style.background=HEX[c];b.textContent=LET[c]});
+  document.querySelectorAll('#pal .st').forEach(b=>b.classList.toggle('on',+b.dataset.c===sel))}
+function show(){const m=$('msg');m.textContent=lk==='ok'?'':L(lk);m.style.color=le?'#f87171':lk==='hint'||lk==='wait'?'#8b94a7':'#2ee6a6';
+  $('sol').textContent=sol&&sol.length?L('solu')+' ('+sol.length+' '+L('mv')+')\n'+sol.map(m=>NM[m]).join(' '):'';$('sol').style.whiteSpace='pre-line'}
+function reset(k,e){lk=k||'hint';le=e||0;sol=null;show()}
+function solve(){sol=null;if(col.includes(6))return reset('errf',1);const p=toCubie(col);if(p.e)return reset(p.e,1);
+  reset('wait');setTimeout(()=>{if(!TB)tables();sol=solve3(p);if(!sol)return reset('errn',1);lk=sol.length?'ok':'done';le=0;show()},40)}
+function build(){const net=$('net');
+  FACES.forEach((f,fi)=>{const d=document.createElement('div');d.className='face';d.style.gridColumn=f.g[0]+1;d.style.gridRow=f.g[1]+1;
+    for(let k=0;k<9;k++){const b=document.createElement('button');b.className='st';b.dataset.i=fi*9+k;b.setAttribute('aria-label',(fi*9+k+1));d.appendChild(b)}net.appendChild(d)});
+  net.addEventListener('click',e=>{const b=e.target.closest('.st');if(!b)return;col[+b.dataset.i]=sel;draw();reset()});
+  $('pal').innerHTML=[0,1,2,3,4,5].map(c=>`<button class="st" data-c="${c}" style="background:${HEX[c]}">${LET[c]}</button>`).join('');
+  $('pal').addEventListener('click',e=>{const b=e.target.closest('.st');if(b){sel=+b.dataset.c;draw()}})}
+function text(){baseText();$('bs').textContent=L('solve');$('bx').textContent=L('scr');$('br').textContent=L('rst');$('bc').textContent=L('clr');show();syncLang()}
+$('bs').onclick=solve;$('br').onclick=()=>{col=STD();draw();reset()};$('bc').onclick=()=>{col=ST.map(()=>6);draw();reset()};
+$('bx').onclick=()=>{let c=STD();for(let i=0;i<25;i++)c=ap(c,Math.floor(Math.random()*18));col=c;draw();reset()};
+build();draw();initLang(text);text();
+
+</script>
+</body>
+</html>
