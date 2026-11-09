@@ -10,6 +10,7 @@ Free online calculators in 7 languages (English, Slovak, German, Czech, Polish, 
 - **Construction:** paint coverage, concrete volume, tiles, roof pitch, wall area
 - **Energy and car:** electricity cost, fuel consumption, solar panels, EV charging
 - **Utilities:** unit converter, percentage, date difference, time zones
+- **Games and puzzles:** sudoku solver, 2×2 cube solver, 3×3 cube solver
 
 Every calculator includes a short explanation of the formula and works in any browser. No sign-up, no data stored on your device.
 
