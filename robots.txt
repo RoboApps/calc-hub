@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://calc-hub.eu/sitemap.xml
+Sitemap: https://calc-hub.eu/sitemap-urls.xml
