@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Area and Perimeter Calculator – Shapes | calc-hub.eu</title>
+<meta name="description" content="Free area and perimeter calculator for square, rectangle, triangle, circle, trapezoid, ellipse, polygon and more, with formulas and worked values.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/area.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/area.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/area.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/area.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/area.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/area.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/area.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/area.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/area.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Area and Perimeter Calculator – Shapes | calc-hub.eu">
+<meta property="og:description" content="Free area and perimeter calculator for square, rectangle, triangle, circle, trapezoid, ellipse, polygon and more, with formulas and worked values.">
+<meta property="og:url" content="https://calc-hub.eu/area.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Area and Perimeter Calculator – Shapes | calc-hub.eu">
+<meta name="twitter:description" content="Free area and perimeter calculator for square, rectangle, triangle, circle, trapezoid, ellipse, polygon and more, with formulas and worked values.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.chk{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:#a3acbf;cursor:pointer}
+.chk input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.chip{padding:.4rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="10" height="10" rx="1"/><circle cx="16" cy="16" r="5"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5"><div><label id="ul" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><select id="un"></select></div></div><div><label id="pl" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><select id="sh"></select></div></div><div id="fl" class="space-y-5"></div></div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)"><p id="hint" class="text-center" style="color:#8b94a7"></p><p id="err" class="hidden text-center" style="color:#f87171"></p><div id="res" class="hidden space-y-3"></div></div>
+  </section>
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-area-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-area-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-area-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-area-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Area and Perimeter Calculator", "sub": "Choose a shape, enter its dimensions and get the area and perimeter with the formula.", "h1": "How to use", "h2": "Units and rounding", "h4": "Formulas", "p1": "Choose a shape, then fill in the dimensions. All results update instantly and show the formula with your numbers substituted. Use any unit (cm, m, inches): lengths give the same unit, areas the unit squared, volumes the unit cubed.", "note": "Everything is calculated in your browser and nothing you enter is stored or sent anywhere.", "p2": "Choose the length unit once and enter all dimensions in it. Areas come out in that unit squared, volumes in that unit cubed, and the main result is also shown in other units. Results have up to six decimals; π is used at full precision. Tip: 1 m² = 10,000 cm² and 1 hectare = 10,000 m².", "lim": "<li><b>Square:</b> A = a², P = 4·a</li><li><b>Rectangle:</b> A = a·b, P = 2(a+b)</li><li><b>Triangle (base and height):</b> A = ½·a·h</li><li><b>Triangle (three sides):</b> A = √(s(s−a)(s−b)(s−c)), s = (a+b+c)/2</li><li><b>Circle:</b> A = π·r², C = 2·π·r</li><li><b>Trapezoid:</b> A = ½(a+c)·h</li><li><b>Parallelogram:</b> A = a·h, P = 2(a+b)</li><li><b>Rhombus:</b> A = ½·e·f</li><li><b>Ellipse:</b> A = π·a·b</li><li><b>Regular polygon:</b> A = n·a²/(4·tan(π/n))</li><li><b>Circular sector:</b> A = (α/360)·π·r²</li>"}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Kalkulačka obsahu a obvodu", "sub": "Vyber útvar, zadaj rozmery a získaj obsah a obvod so vzorcom.", "h1": "Ako na to", "h2": "Jednotky a zaokrúhľovanie", "h4": "Vzorce", "p1": "Vyber útvar a vyplň rozmery. Všetky výsledky sa prepočítajú okamžite a ukážu vzorec s dosadenými číslami. Použi ľubovoľnú jednotku (cm, m, palce): dĺžky vyjdú v tej istej jednotke, obsahy v jednotke na druhú, objemy v jednotke na tretiu.", "note": "Všetko sa počíta v tvojom prehliadači a nič, čo zadáš, sa neukladá ani neodosiela.", "p2": "Vyber jednotku dĺžky raz a všetky rozmery zadaj v nej. Obsahy vyjdú v tejto jednotke na druhú, objemy na tretiu a hlavný výsledok sa zobrazí aj v iných jednotkách. Výsledky majú najviac šesť desatinných miest; π sa používa v plnej presnosti. Tip: 1 m² = 10 000 cm² a 1 hektár = 10 000 m².", "lim": "<li><b>Štvorec:</b> A = a², P = 4·a</li><li><b>Obdĺžnik:</b> A = a·b, P = 2(a+b)</li><li><b>Trojuholník (základňa a výška):</b> A = ½·a·h</li><li><b>Trojuholník (tri strany):</b> A = √(s(s−a)(s−b)(s−c)), s = (a+b+c)/2</li><li><b>Kruh:</b> A = π·r², C = 2·π·r</li><li><b>Lichobežník:</b> A = ½(a+c)·h</li><li><b>Rovnobežník:</b> A = a·h, P = 2(a+b)</li><li><b>Kosoštvorec:</b> A = ½·e·f</li><li><b>Elipsa:</b> A = π·a·b</li><li><b>Pravidelný n-uholník:</b> A = n·a²/(4·tan(π/n))</li><li><b>Kruhový výsek:</b> A = (α/360)·π·r²</li>"}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Flächen- und Umfangsrechner", "sub": "Wähle eine Form, gib die Maße ein und erhalte Fläche und Umfang samt Formel.", "h1": "So geht’s", "h2": "Einheiten und Rundung", "h4": "Formeln", "p1": "Wähle eine Form und trage die Maße ein. Alle Ergebnisse aktualisieren sich sofort und zeigen die Formel mit deinen eingesetzten Zahlen. Verwende eine beliebige Einheit (cm, m, Zoll): Längen ergeben dieselbe Einheit, Flächen die Einheit zum Quadrat, Volumen die Einheit hoch drei.", "note": "Alles wird in deinem Browser berechnet; nichts, was du eingibst, wird gespeichert oder gesendet.", "p2": "Wähle die Längeneinheit einmal und gib alle Maße in ihr ein. Flächen ergeben diese Einheit zum Quadrat, Volumen hoch drei, und das Hauptergebnis wird auch in anderen Einheiten angezeigt. Ergebnisse haben bis zu sechs Nachkommastellen; π wird in voller Genauigkeit verwendet. Tipp: 1 m² = 10.000 cm² und 1 Hektar = 10.000 m².", "lim": "<li><b>Quadrat:</b> A = a², P = 4·a</li><li><b>Rechteck:</b> A = a·b, P = 2(a+b)</li><li><b>Dreieck (Grundseite und Höhe):</b> A = ½·a·h</li><li><b>Dreieck (drei Seiten):</b> A = √(s(s−a)(s−b)(s−c)), s = (a+b+c)/2</li><li><b>Kreis:</b> A = π·r², C = 2·π·r</li><li><b>Trapez:</b> A = ½(a+c)·h</li><li><b>Parallelogramm:</b> A = a·h, P = 2(a+b)</li><li><b>Raute:</b> A = ½·e·f</li><li><b>Ellipse:</b> A = π·a·b</li><li><b>Regelmäßiges Vieleck:</b> A = n·a²/(4·tan(π/n))</li><li><b>Kreissektor:</b> A = (α/360)·π·r²</li>"}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Kalkulačka obsahu a obvodu", "sub": "Vyber útvar, zadej rozměry a získej obsah a obvod se vzorcem.", "h1": "Jak na to", "h2": "Jednotky a zaokrouhlování", "h4": "Vzorce", "p1": "Vyber útvar a vyplň rozměry. Všechny výsledky se přepočítají okamžitě a ukážou vzorec s dosazenými čísly. Použij libovolnou jednotku (cm, m, palce): délky vyjdou ve stejné jednotce, obsahy v jednotce na druhou, objemy v jednotce na třetí.", "note": "Vše se počítá ve tvém prohlížeči a nic, co zadáš, se neukládá ani neodesílá.", "p2": "Vyber jednotku délky jednou a všechny rozměry zadej v ní. Obsahy vyjdou v této jednotce na druhou, objemy na třetí a hlavní výsledek se zobrazí i v jiných jednotkách. Výsledky mají nejvýše šest desetinných míst; π se používá v plné přesnosti. Tip: 1 m² = 10 000 cm² a 1 hektar = 10 000 m².", "lim": "<li><b>Čtverec:</b> A = a², P = 4·a</li><li><b>Obdélník:</b> A = a·b, P = 2(a+b)</li><li><b>Trojúhelník (základna a výška):</b> A = ½·a·h</li><li><b>Trojúhelník (tři strany):</b> A = √(s(s−a)(s−b)(s−c)), s = (a+b+c)/2</li><li><b>Kruh:</b> A = π·r², C = 2·π·r</li><li><b>Lichoběžník:</b> A = ½(a+c)·h</li><li><b>Rovnoběžník:</b> A = a·h, P = 2(a+b)</li><li><b>Kosočtverec:</b> A = ½·e·f</li><li><b>Elipsa:</b> A = π·a·b</li><li><b>Pravidelný n-úhelník:</b> A = n·a²/(4·tan(π/n))</li><li><b>Kruhová výseč:</b> A = (α/360)·π·r²</li>"}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Kalkulator pola i obwodu", "sub": "Wybierz figurę, wpisz wymiary i uzyskaj pole oraz obwód wraz ze wzorem.", "h1": "Jak używać", "h2": "Jednostki i zaokrąglanie", "h4": "Wzory", "p1": "Wybierz figurę i wpisz wymiary. Wszystkie wyniki przeliczają się od razu i pokazują wzór z podstawionymi liczbami. Użyj dowolnej jednostki (cm, m, cale): długości wyjdą w tej samej jednostce, pola w jednostce do kwadratu, objętości w jednostce do sześcianu.", "note": "Wszystko jest liczone w Twojej przeglądarce, a nic, co wpiszesz, nie jest zapisywane ani wysyłane.", "p2": "Wybierz jednostkę długości raz i wpisz w niej wszystkie wymiary. Pola wyjdą w tej jednostce do kwadratu, objętości do sześcianu, a główny wynik pokazujemy też w innych jednostkach. Wyniki mają do sześciu miejsc po przecinku; π jest użyte z pełną precyzją. Wskazówka: 1 m² = 10 000 cm², a 1 hektar = 10 000 m².", "lim": "<li><b>Kwadrat:</b> A = a², P = 4·a</li><li><b>Prostokąt:</b> A = a·b, P = 2(a+b)</li><li><b>Trójkąt (podstawa i wysokość):</b> A = ½·a·h</li><li><b>Trójkąt (trzy boki):</b> A = √(s(s−a)(s−b)(s−c)), s = (a+b+c)/2</li><li><b>Koło:</b> A = π·r², C = 2·π·r</li><li><b>Trapez:</b> A = ½(a+c)·h</li><li><b>Równoległobok:</b> A = a·h, P = 2(a+b)</li><li><b>Romb:</b> A = ½·e·f</li><li><b>Elipsa:</b> A = π·a·b</li><li><b>Wielokąt foremny:</b> A = n·a²/(4·tan(π/n))</li><li><b>Wycinek koła:</b> A = (α/360)·π·r²</li>"}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Calculateur d’aire et de périmètre", "sub": "Choisissez une forme, saisissez ses dimensions et obtenez l’aire et le périmètre avec la formule.", "h1": "Mode d’emploi", "h2": "Unités et arrondis", "h4": "Formules", "p1": "Choisissez une forme et remplissez les dimensions. Tous les résultats se mettent à jour instantanément et montrent la formule avec vos nombres. Utilisez n’importe quelle unité (cm, m, pouces) : les longueurs restent dans cette unité, les aires en unité au carré, les volumes en unité au cube.", "note": "Tout est calculé dans votre navigateur et rien de ce que vous saisissez n’est enregistré ni envoyé.", "p2": "Choisissez l’unité de longueur une fois et saisissez toutes les dimensions dedans. Les aires sortent en unité au carré, les volumes en unité au cube, et le résultat principal est aussi donné dans d’autres unités. Les résultats ont jusqu’à six décimales ; π est utilisé avec toute sa précision. Astuce : 1 m² = 10 000 cm² et 1 hectare = 10 000 m².", "lim": "<li><b>Carré:</b> A = a², P = 4·a</li><li><b>Rectangle:</b> A = a·b, P = 2(a+b)</li><li><b>Triangle (base et hauteur):</b> A = ½·a·h</li><li><b>Triangle (trois côtés):</b> A = √(s(s−a)(s−b)(s−c)), s = (a+b+c)/2</li><li><b>Cercle:</b> A = π·r², C = 2·π·r</li><li><b>Trapèze:</b> A = ½(a+c)·h</li><li><b>Parallélogramme:</b> A = a·h, P = 2(a+b)</li><li><b>Losange:</b> A = ½·e·f</li><li><b>Ellipse:</b> A = π·a·b</li><li><b>Polygone régulier:</b> A = n·a²/(4·tan(π/n))</li><li><b>Secteur circulaire:</b> A = (α/360)·π·r²</li>"}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Calculadora de área y perímetro", "sub": "Elige una figura, introduce sus medidas y obtén el área y el perímetro con la fórmula.", "h1": "Cómo se usa", "h2": "Unidades y redondeo", "h4": "Fórmulas", "p1": "Elige una figura y rellena las medidas. Todos los resultados se actualizan al instante y muestran la fórmula con tus números sustituidos. Usa cualquier unidad (cm, m, pulgadas): las longitudes salen en esa unidad, las áreas en unidad al cuadrado y los volúmenes en unidad al cubo.", "note": "Todo se calcula en tu navegador y nada de lo que introduces se guarda ni se envía.", "p2": "Elige la unidad de longitud una vez e introduce en ella todas las medidas. Las áreas salen en esa unidad al cuadrado, los volúmenes al cubo, y el resultado principal también se muestra en otras unidades. Los resultados tienen hasta seis decimales; π se usa con toda su precisión. Consejo: 1 m² = 10 000 cm² y 1 hectárea = 10 000 m².", "lim": "<li><b>Cuadrado:</b> A = a², P = 4·a</li><li><b>Rectángulo:</b> A = a·b, P = 2(a+b)</li><li><b>Triángulo (base y altura):</b> A = ½·a·h</li><li><b>Triángulo (tres lados):</b> A = √(s(s−a)(s−b)(s−c)), s = (a+b+c)/2</li><li><b>Círculo:</b> A = π·r², C = 2·π·r</li><li><b>Trapecio:</b> A = ½(a+c)·h</li><li><b>Paralelogramo:</b> A = a·h, P = 2(a+b)</li><li><b>Rombo:</b> A = ½·e·f</li><li><b>Elipse:</b> A = π·a·b</li><li><b>Polígono regular:</b> A = n·a²/(4·tan(π/n))</li><li><b>Sector circular:</b> A = (α/360)·π·r²</li>"}};
+const PIPE={"pick": "Shape|Útvar|Form|Útvar|Figura|Forme|Figura", "w_side": "Side|Strana|Seite|Strana|Bok|Côté|Lado", "w_base": "Base|Základňa|Grundseite|Základna|Podstawa|Base|Base", "w_height": "Height|Výška|Höhe|Výška|Wysokość|Hauteur|Altura", "w_radius": "Radius|Polomer|Radius|Poloměr|Promień|Rayon|Radio", "w_diag": "Diagonal|Uhlopriečka|Diagonale|Úhlopříčka|Przekątna|Diagonale|Diagonal", "w_angle": "Angle (°)|Uhol (°)|Winkel (°)|Úhel (°)|Kąt (°)|Angle (°)|Ángulo (°)", "w_n": "Number of sides|Počet strán|Anzahl der Seiten|Počet stran|Liczba boków|Nombre de côtés|Número de lados", "w_leg": "Leg|Rameno|Schenkel|Rameno|Ramię|Côté non parallèle|Lado no paralelo", "w_semi": "Semi-axis|Poloos|Halbachse|Poloosa|Półoś|Demi-axe|Semieje", "w_barea": "Base area|Obsah podstavy|Grundfläche|Obsah podstavy|Pole podstawy|Aire de la base|Área de la base", "w_bper": "Base perimeter|Obvod podstavy|Grundumfang|Obvod podstavy|Obwód podstawy|Périmètre de la base|Perímetro de la base", "r_area": "Area|Obsah|Fläche|Obsah|Pole|Aire|Área", "r_peri": "Perimeter|Obvod|Umfang|Obvod|Obwód|Périmètre|Perímetro", "r_circ": "Circumference|Obvod kruhu|Kreisumfang|Obvod kruhu|Obwód okręgu|Circonférence|Circunferencia", "r_arc": "Arc length|Dĺžka oblúka|Bogenlänge|Délka oblouku|Długość łuku|Longueur de l’arc|Longitud del arco", "r_vol": "Volume|Objem|Volumen|Objem|Objętość|Volume|Volumen", "r_surf": "Surface area|Povrch|Oberfläche|Povrch|Pole powierzchni|Aire totale|Área total", "r_lat": "Lateral area|Plášť|Mantelfläche|Plášť|Pole powierzchni bocznej|Aire latérale|Área lateral", "r_slant": "Slant height|Šikmá výška|Schräghöhe|Šikmá výška|Wysokość skośna|Hauteur oblique|Altura inclinada", "unit": "Length unit|Jednotka dĺžky|Längeneinheit|Jednotka délky|Jednostka długości|Unité de longueur|Unidad de longitud", "eq": "Same value in other units|Rovnaká hodnota v iných jednotkách|Derselbe Wert in anderen Einheiten|Stejná hodnota v jiných jednotkách|Ta sama wartość w innych jednostkach|Même valeur dans d’autres unités|El mismo valor en otras unidades", "hint": "Enter the dimensions to see the result.|Zadaj rozmery a uvidíš výsledok.|Gib die Maße ein, um das Ergebnis zu sehen.|Zadej rozměry a uvidíš výsledek.|Wpisz wymiary, aby zobaczyć wynik.|Saisissez les dimensions pour voir le résultat.|Introduce las medidas para ver el resultado.", "err": "Enter positive numbers for all dimensions.|Zadaj kladné čísla pre všetky rozmery.|Gib für alle Maße positive Zahlen ein.|Zadej kladná čísla pro všechny rozměry.|Wpisz dodatnie liczby dla wszystkich wymiarów.|Saisissez des nombres positifs pour toutes les dimensions.|Introduce números positivos para todas las medidas.", "errt": "These sides do not form a triangle.|Z týchto strán sa nedá zostrojiť trojuholník.|Aus diesen Seiten lässt sich kein Dreieck bilden.|Z těchto stran nelze sestrojit trojúhelník.|Z tych boków nie da się zbudować trójkąta.|Ces côtés ne forment pas un triangle.|Con estos lados no se puede formar un triángulo.", "errn": "The number of sides must be a whole number, at least 3.|Počet strán musí byť celé číslo, aspoň 3.|Die Anzahl der Seiten muss eine ganze Zahl ab 3 sein.|Počet stran musí být celé číslo, alespoň 3.|Liczba boków musi być liczbą całkowitą, co najmniej 3.|Le nombre de côtés doit être un entier d’au moins 3.|El número de lados debe ser un entero de al menos 3.", "erra": "The angle must be between 0 and 360 degrees.|Uhol musí byť medzi 0 a 360 stupňami.|Der Winkel muss zwischen 0 und 360 Grad liegen.|Úhel musí být mezi 0 a 360 stupni.|Kąt musi mieścić się między 0 a 360 stopniami.|L’angle doit être compris entre 0 et 360 degrés.|El ángulo debe estar entre 0 y 360 grados.", "errl": "A slanted side cannot be shorter than the height.|Šikmá strana nemôže byť kratšia ako výška.|Eine schräge Seite kann nicht kürzer als die Höhe sein.|Šikmá strana nemůže být kratší než výška.|Skośny bok nie może być krótszy niż wysokość.|Un côté oblique ne peut pas être plus court que la hauteur.|Un lado inclinado no puede ser menor que la altura.", "s_square": "Square|Štvorec|Quadrat|Čtverec|Kwadrat|Carré|Cuadrado", "s_rect": "Rectangle|Obdĺžnik|Rechteck|Obdélník|Prostokąt|Rectangle|Rectángulo", "s_trih": "Triangle (base and height)|Trojuholník (základňa a výška)|Dreieck (Grundseite und Höhe)|Trojúhelník (základna a výška)|Trójkąt (podstawa i wysokość)|Triangle (base et hauteur)|Triángulo (base y altura)", "s_tris": "Triangle (three sides)|Trojuholník (tri strany)|Dreieck (drei Seiten)|Trojúhelník (tři strany)|Trójkąt (trzy boki)|Triangle (trois côtés)|Triángulo (tres lados)", "s_circle": "Circle|Kruh|Kreis|Kruh|Koło|Cercle|Círculo", "s_trap": "Trapezoid|Lichobežník|Trapez|Lichoběžník|Trapez|Trapèze|Trapecio", "s_para": "Parallelogram|Rovnobežník|Parallelogramm|Rovnoběžník|Równoległobok|Parallélogramme|Paralelogramo", "s_rhomb": "Rhombus|Kosoštvorec|Raute|Kosočtverec|Romb|Losange|Rombo", "s_ell": "Ellipse|Elipsa|Ellipse|Elipsa|Elipsa|Ellipse|Elipse", "s_poly": "Regular polygon|Pravidelný n-uholník|Regelmäßiges Vieleck|Pravidelný n-úhelník|Wielokąt foremny|Polygone régulier|Polígono regular", "s_sector": "Circular sector|Kruhový výsek|Kreissektor|Kruhová výseč|Wycinek koła|Secteur circulaire|Sector circular"};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/area.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Area and Perimeter Calculator – Shapes | calc-hub.eu", "d": "Free area and perimeter calculator for square, rectangle, triangle, circle, trapezoid, ellipse, polygon and more, with formulas and worked values."}, "sk": {"t": "Kalkulačka obsahu a obvodu útvarov | calc-hub.eu", "d": "Bezplatná kalkulačka obsahu a obvodu pre štvorec, obdĺžnik, trojuholník, kruh, lichobežník, elipsu a ďalšie útvary, so vzorcami a dosadením."}, "de": {"t": "Flächen- und Umfangsrechner für Formen | calc-hub.eu", "d": "Kostenloser Rechner für Fläche und Umfang von Quadrat, Rechteck, Dreieck, Kreis, Trapez, Ellipse, Vieleck und mehr, mit Formeln und Rechenweg."}, "cs": {"t": "Kalkulačka obsahu a obvodu útvarů | calc-hub.eu", "d": "Bezplatná kalkulačka obsahu a obvodu pro čtverec, obdélník, trojúhelník, kruh, lichoběžník, elipsu a další útvary, se vzorci a dosazením."}, "pl": {"t": "Kalkulator pola i obwodu figur | calc-hub.eu", "d": "Darmowy kalkulator pola i obwodu kwadratu, prostokąta, trójkąta, koła, trapezu, elipsy, wielokąta i innych figur, ze wzorami i podstawieniem."}, "fr": {"t": "Calculateur d’aire et de périmètre des formes | calc-hub.eu", "d": "Calculateur gratuit d’aire et de périmètre pour carré, rectangle, triangle, cercle, trapèze, ellipse, polygone et plus, avec formules et valeurs substituées."}, "es": {"t": "Calculadora de área y perímetro de figuras | calc-hub.eu", "d": "Calculadora gratuita de área y perímetro de cuadrado, rectángulo, triángulo, círculo, trapecio, elipse, polígono y más, con fórmulas y sustitución de valores."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+function baseText(){const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v})}
+const P=Math.PI;
+const SH=[
+{k:'square',f:[['a','side']],r:[['r_area','A = a²',v=>v.a**2],['r_peri','P = 4·a',v=>4*v.a]]},
+{k:'rect',f:[['a','side'],['b','side']],r:[['r_area','A = a·b',v=>v.a*v.b],['r_peri','P = 2(a+b)',v=>2*(v.a+v.b)]]},
+{k:'trih',f:[['a','base'],['h','height']],r:[['r_area','A = ½·a·h',v=>v.a*v.h/2]]},
+{k:'tris',f:[['a','side'],['b','side'],['c','side']],c:v=>v.a+v.b>v.c&&v.a+v.c>v.b&&v.b+v.c>v.a?null:'errt',x:v=>({s:(v.a+v.b+v.c)/2}),r:[['r_area','A = √(s(s−a)(s−b)(s−c))',v=>Math.sqrt(v.s*(v.s-v.a)*(v.s-v.b)*(v.s-v.c))],['r_peri','P = a+b+c',v=>v.a+v.b+v.c]]},
+{k:'circle',f:[['r','radius']],r:[['r_area','A = π·r²',v=>P*v.r**2],['r_circ','C = 2·π·r',v=>2*P*v.r]]},
+{k:'trap',f:[['a','base'],['c','base'],['b','leg'],['d','leg'],['h','height']],c:v=>v.b<v.h||v.d<v.h?'errl':null,r:[['r_area','A = ½(a+c)·h',v=>(v.a+v.c)*v.h/2],['r_peri','P = a+b+c+d',v=>v.a+v.b+v.c+v.d]]},
+{k:'para',f:[['a','base'],['b','side'],['h','height']],c:v=>v.b<v.h?'errl':null,r:[['r_area','A = a·h',v=>v.a*v.h],['r_peri','P = 2(a+b)',v=>2*(v.a+v.b)]]},
+{k:'rhomb',f:[['e','diag'],['f','diag']],r:[['r_area','A = ½·e·f',v=>v.e*v.f/2],['r_peri','P = 4·√((e/2)²+(f/2)²)',v=>4*Math.sqrt((v.e/2)**2+(v.f/2)**2)]]},
+{k:'ell',f:[['a','semi'],['b','semi']],r:[['r_area','A = π·a·b',v=>P*v.a*v.b],['r_peri','P ≈ π(3(a+b)−√((3·a+b)(a+3·b)))',v=>P*(3*(v.a+v.b)-Math.sqrt((3*v.a+v.b)*(v.a+3*v.b)))]]},
+{k:'poly',f:[['n','n'],['a','side']],c:v=>Number.isInteger(v.n)&&v.n>=3?null:'errn',r:[['r_area','A = n·a²/(4·tan(π/n))',v=>v.n*v.a**2/(4*Math.tan(P/v.n))],['r_peri','P = n·a',v=>v.n*v.a]]},
+{k:'sector',f:[['r','radius'],['α','angle']],c:v=>v['α']<=360?null:'erra',x:v=>({l:v['α']/360*2*P*v.r}),r:[['r_area','A = (α/360)·π·r²',v=>v['α']/360*P*v.r**2],['r_arc','l = (α/360)·2·π·r',v=>v.l],['r_peri','P = l+2·r',v=>v.l+2*v.r]]}
+];
+
+const fmt=x=>isFinite(x)?(+x.toFixed(6)).toLocaleString(lang==='en'?'en-US':lang,{maximumFractionDigits:6}):'–';
+const sub=(f,v)=>f.replace(/^[^=≈]*[=≈]/,'').trim().replace(/(?<![A-Za-z])[A-Za-zα][₁₂]?(?![A-Za-z])/g,m=>v[m]!==undefined?fmt(v[m]):m);
+const UN=[['mm',.001],['cm',.01],['dm',.1],['m',1],['km',1000],['in',.0254],['ft',.3048],['yd',.9144]],PW={r_area:2,r_surf:2,r_lat:2,r_vol:3},SUP=['','','²','³'];
+const EQ={2:[['mm²',1e-6],['cm²',1e-4],['dm²',1e-2],['m²',1],['ha',1e4],['km²',1e6],['in²',.0254**2],['ft²',.3048**2]],3:[['mm³',1e-9],['cm³ = ml',1e-6],['dm³ = l',1e-3],['m³',1],['in³',.0254**3],['ft³',.3048**3],['gal (US)',.003785411784]]};
+const fm=x=>x.toLocaleString(lang==='en'?'en-US':lang,{maximumSignificantDigits:6}),uo=()=>UN[+$('un').value||1];
+function compute(s,v){if(!s.f.every(([k])=>v[k]>0))return{e:'err'};const e=s.c&&s.c(v);if(e)return{e};
+  const w={...v,...(s.x?s.x(v):{})};return{rows:s.r.map(([l,f,fn])=>({l,f,val:fn(w),s:sub(f,w)}))}}
+let cur=0;
+function fields(){const s=SH[cur],old={},u=uo()[0],suf=w=>w==='angle'?'°':w==='n'?'':w==='barea'?u+'²':u;document.querySelectorAll('#fl input').forEach(i=>old[i.dataset.v]=i.value);
+  $('fl').innerHTML=s.f.map(([v,w])=>`<div><label class="block text-sm" style="color:#8b94a7">${L('w_'+w)} <i>${v}</i></label><div class="field mt-2"><input data-v="${v}" type="number" inputmode="decimal" min="0" step="any" value="${old[v]!==undefined?old[v]:''}"><span>${suf(w)}</span></div></div>`).join('')}
+function calc(){const s=SH[cur],v={};let full=true;
+  document.querySelectorAll('#fl input').forEach(i=>{const x=parseFloat(String(i.value).replace(',','.'));if(i.value!==''&&isFinite(x))v[i.dataset.v]=x;else full=false});
+  const h=$('hint'),er=$('err'),rs=$('res');h.classList.add('hidden');er.classList.add('hidden');rs.classList.add('hidden');
+  if(!full){h.textContent=L('hint');h.classList.remove('hidden');return}
+  const o=compute(s,v);if(o.e){er.textContent=L(o.e);er.classList.remove('hidden');return}
+  const [un,f]=uo();rs.innerHTML=o.rows.map((r,i)=>{const pw=PW[r.l]||1,u=un+SUP[pw];let eq='';
+    if(i===0&&pw>1){const b=r.val*f**pw;eq=`<p class="mt-2 text-xs leading-relaxed" style="color:#8b94a7">${L('eq')}: ${EQ[pw].filter(e=>e[0]!==u).map(e=>fm(b/e[1])+' '+e[0]).join(' · ')}</p>`}
+    return `<div class="rounded-xl p-4" style="background:rgba(255,255,255,.04)"><p class="text-sm" style="color:#8b94a7">${L(r.l)}</p><p class="${i?'text-2xl':'grad text-4xl'} font-bold">${fmt(r.val)} <span class="text-base font-semibold" style="color:#8b94a7;-webkit-text-fill-color:#8b94a7">${u}</span></p><p class="mt-1 text-xs" style="color:#667085">${r.f} = ${r.s} = ${fmt(r.val)} ${u}</p>${eq}</div>`}).join('');rs.classList.remove('hidden')}
+function text(){baseText();$('pl').textContent=L('pick');$('ul').textContent=L('unit');const cu=$('un').value||'1';$('un').innerHTML=UN.map((u,i)=>`<option value="${i}">${u[0]}</option>`).join('');$('un').value=cu;$('sh').innerHTML=SH.map((s,i)=>`<option value="${i}">${L('s_'+s.k)}</option>`).join('');$('sh').value=cur;fields();calc();syncLang()}
+$('sh').onchange=e=>{cur=+e.target.value;$('fl').innerHTML='';fields();calc()};
+$('un').onchange=()=>{fields();calc()};
+$('fl').addEventListener('input',calc);
+initLang(text);text();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- SEO:START -->
+<title>Pythagorean Theorem Calculator – Triangle Solver | calc-hub.eu</title>
+<meta name="description" content="Free Pythagorean theorem and triangle calculator: find missing sides and angles of right triangles and any triangle, with formulas and steps.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080d">
+<link rel="canonical" href="https://calc-hub.eu/pythagoras.html">
+<link rel="alternate" hreflang="x-default" href="https://calc-hub.eu/pythagoras.html">
+<link rel="alternate" hreflang="en" href="https://calc-hub.eu/pythagoras.html">
+<link rel="alternate" hreflang="sk" href="https://calc-hub.eu/pythagoras.html?lang=sk">
+<link rel="alternate" hreflang="de" href="https://calc-hub.eu/pythagoras.html?lang=de">
+<link rel="alternate" hreflang="cs" href="https://calc-hub.eu/pythagoras.html?lang=cs">
+<link rel="alternate" hreflang="pl" href="https://calc-hub.eu/pythagoras.html?lang=pl">
+<link rel="alternate" hreflang="fr" href="https://calc-hub.eu/pythagoras.html?lang=fr">
+<link rel="alternate" hreflang="es" href="https://calc-hub.eu/pythagoras.html?lang=es">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="calc-hub.eu">
+<meta property="og:title" content="Pythagorean Theorem Calculator – Triangle Solver | calc-hub.eu">
+<meta property="og:description" content="Free Pythagorean theorem and triangle calculator: find missing sides and angles of right triangles and any triangle, with formulas and steps.">
+<meta property="og:url" content="https://calc-hub.eu/pythagoras.html">
+<meta property="og:image" content="https://calc-hub.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pythagorean Theorem Calculator – Triangle Solver | calc-hub.eu">
+<meta name="twitter:description" content="Free Pythagorean theorem and triangle calculator: find missing sides and angles of right triangles and any triangle, with formulas and steps.">
+<meta name="twitter:image" content="https://calc-hub.eu/og-image.png">
+<!-- SEO:END -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
+.grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.ico{background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25)}
+.lang{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.lang button,.unit button{color:#8b94a7;transition:.2s}
+.lang button[aria-pressed="true"],.unit button[aria-pressed="true"]{background:var(--accent);color:#04120c;box-shadow:0 0 18px -2px rgba(var(--accent-rgb),.7)}
+.unit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.field{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:.9rem;padding:.2rem .9rem;transition:.2s}
+.field:focus-within{border-color:rgba(var(--accent-rgb),.7);box-shadow:0 0 0 4px rgba(var(--accent-rgb),.12)}
+.field input{width:100%;background:transparent;outline:none;font-size:1.25rem;font-weight:600;color:#fff;padding:.7rem 0;min-width:0}
+.field span{color:#667085;font-size:.85rem}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
+.bar{height:10px;border-radius:99px;background:linear-gradient(90deg,#4f8cff 0%,#4f8cff 14%,#2ee6a6 14%,#2ee6a6 38%,#fbbf24 38%,#fbbf24 60%,#fb923c 60%,#fb923c 78%,#ef4444 78%,#ef4444 90%,#b91c1c 90%)}
+.mark{position:absolute;top:-5px;width:4px;height:20px;border-radius:4px;background:#fff;box-shadow:0 0 12px #fff;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.pill{border:1px solid;border-radius:99px;padding:.25rem .8rem;font-size:.85rem;font-weight:600}
+.back{color:#8b94a7;transition:.2s}.back:hover{color:var(--accent)}
+tr.on{background:rgba(var(--accent-rgb),.08)}
+.ad-wrap{width:100%;max-width:728px;margin:2.5rem auto}
+.ad-label{display:block;text-align:center;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#4b5468;margin-bottom:.45rem}
+.ad-slot{min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.02);color:#3d4659;font-size:.8rem}
+.ad-slot:has(ins) .ad-ph{display:none}
+.ad-rail{display:none;position:fixed;top:96px;width:160px}
+.ad-rail .ad-slot{min-height:600px}
+.ad-rail.l{left:calc(50% - 512px - 184px)}
+.ad-rail.r{left:calc(50% + 512px + 24px)}
+@media (min-width:1420px){.ad-rail{display:block}}
+
+.lang{color:#c5cde0;cursor:pointer}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:11.5rem;list-style:none;margin:0;padding:.35rem;background:rgba(12,16,26,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.6rem;font-size:.85rem;color:#aab3c5;text-align:left;transition:.15s}
+.lang-menu button b{font-size:.7rem;color:#667085}
+.lang-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.lang-menu button[aria-selected="true"]{color:var(--accent)}
+/* ADHIDE */
+.ad-wrap:not(:has(ins)),.ad-tile:not(:has(ins)){display:none}
+.ad-rail:not(:has(ins)){display:none!important}
+.stat{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:.8rem;padding:.7rem 1rem}
+.stat>b{color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.chk{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:#a3acbf;cursor:pointer}
+.chk input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+.field select{width:100%;background:transparent;outline:none;font-size:1rem;font-weight:600;color:#fff;padding:.8rem 0;cursor:pointer;min-width:0;text-overflow:ellipsis}
+.field select option{background:#0d111a;color:#fff}
+.chip{padding:.4rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;color:#8b94a7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.2s}
+.chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-glow"></div><div class="bg-grid"></div>
+
+<header class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5">
+  <a href="index.html" class="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+    <span class="ico flex h-9 w-9 items-center justify-center rounded-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16L4 4z"/><path d="M4 16h4v4"/></svg></span>calc-hub<span style="color:var(--accent)">.eu</span>
+  </a>
+  <div class="relative z-50">
+    <button id="langBtn" class="lang flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span id="langCur">EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <ul id="langMenu" class="lang-menu hidden" role="listbox"></ul>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 pb-20">
+  <a href="index.html" data-i="back" class="back text-sm"></a>
+  <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl"><span data-i="title" class="grad"></span></h1>
+  <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
+  <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
+    <div class="space-y-5"><div><label id="ul" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><select id="un"></select></div></div><div><label id="pl" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><select id="sh"></select></div></div><div id="fl" class="space-y-5"></div></div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)"><p id="hint" class="text-center" style="color:#8b94a7"></p><p id="err" class="hidden text-center" style="color:#f87171"></p><div id="res" class="hidden space-y-3"></div></div>
+  </section>
+  <!-- AD: below calculator (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-pythagoras-below-calc" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+
+  <article class="mt-14 grid gap-10 md:grid-cols-5">
+    <div class="space-y-10 md:col-span-3">
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h1"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p1"></p></section>
+      <section><h2 class="text-2xl font-semibold text-white" data-i="h2"></h2><p class="mt-3 leading-relaxed" style="color:#a3acbf" data-i="p2"></p></section>
+      <section class="glass rounded-2xl p-5" style="border-color:rgba(251,191,36,.3)"><p class="leading-relaxed" style="color:#d9c48a" data-i="note"></p></section>
+    </div>
+    <aside class="md:col-span-2"><h2 class="text-2xl font-semibold text-white" data-i="h4"></h2><ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed" style="color:#a3acbf" data-i="lim"></ul></aside>
+  </article>
+
+  <!-- AD: below theory text (728x90 / responsive) -->
+  <aside class="ad-wrap" aria-label="Advertisement">
+    <span class="ad-label" data-i="ad"></span>
+    <div id="ad-slot-pythagoras-below-theory" class="ad-slot">
+      <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+      <span class="ad-ph">728 × 90</span>
+    </div>
+  </aside>
+</main>
+
+<!-- AD: side rails 160x600, shown only on wide screens (>=1420px) -->
+<aside class="ad-rail l" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-pythagoras-left" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+<aside class="ad-rail r" aria-label="Advertisement">
+  <span class="ad-label" data-i="ad"></span>
+  <div id="ad-slot-pythagoras-right" class="ad-slot">
+    <!-- Paste your AdSense code here (the <ins class="adsbygoogle"> block) -->
+    <span class="ad-ph">160 × 600</span>
+  </div>
+</aside>
+
+<footer class="mx-auto max-w-5xl border-t px-5 py-8 text-center text-sm" style="border-color:rgba(255,255,255,.06);color:#667085">© 2026 calc-hub.eu<div id="flinks" class="mt-3"></div></footer>
+
+<script>
+let lang='en';
+const T={"en": {"back": "← Back to calculators", "ad": "Advertisement", "title": "Pythagorean Theorem and Triangle Calculator", "sub": "Find missing sides and angles of a right triangle or any triangle, with the formulas.", "h1": "The Pythagorean theorem", "p1": "In a right triangle the square of the hypotenuse equals the sum of the squares of the legs: a² + b² = c². Knowing any two sides gives the third, and the angles follow from the sine: α = arcsin(a/c).", "h2": "Any triangle", "p2": "For any triangle the law of cosines c² = a² + b² − 2ab·cos γ and the law of sines a/sin α = b/sin β = c/sin γ give the missing sides and angles. Choose three sides, two sides with the angle between them, or two angles and a side.", "note": "Angles are in degrees. Side a is opposite angle α, b opposite β and c opposite γ. Everything is calculated in your browser and nothing you enter is stored or sent.", "h4": "Good to know", "lim": "<li>Right triangle: enter any two sides (leg a, leg b, hypotenuse c).</li><li>The angles of a triangle always add up to 180°.</li><li>Two sides with a non-included angle (SSA) is not covered, because it can have two solutions.</li>"}, "sk": {"back": "← Späť na kalkulačky", "ad": "Reklama", "title": "Pytagorova veta a kalkulačka trojuholníka", "sub": "Dopočítaj chýbajúce strany a uhly pravouhlého alebo ľubovoľného trojuholníka, so vzorcami.", "h1": "Pytagorova veta", "p1": "V pravouhlom trojuholníku sa štvorec prepony rovná súčtu štvorcov odvesien: a² + b² = c². Z ľubovoľných dvoch strán vyjde tretia a uhly vyplynú zo sínusu: α = arcsin(a/c).", "h2": "Ľubovoľný trojuholník", "p2": "Pre ľubovoľný trojuholník dajú chýbajúce strany a uhly kosínusová veta c² = a² + b² − 2ab·cos γ a sínusová veta a/sin α = b/sin β = c/sin γ. Vyber tri strany, dve strany s uhlom medzi nimi alebo dva uhly a stranu.", "note": "Uhly sú v stupňoch. Strana a leží oproti uhlu α, b oproti β a c oproti γ. Všetko sa počíta v tvojom prehliadači a nič, čo zadáš, sa neukladá ani neodosiela.", "h4": "Dobré vedieť", "lim": "<li>Pravouhlý trojuholník: zadaj ľubovoľné dve strany (odvesna a, odvesna b, prepona c).</li><li>Súčet uhlov trojuholníka je vždy 180°.</li><li>Dve strany s uhlom, ktorý nie je medzi nimi (SSU), nie je podporované, lebo môže mať dve riešenia.</li>"}, "de": {"back": "← Zurück zu den Rechnern", "ad": "Werbung", "title": "Satz des Pythagoras und Dreiecksrechner", "sub": "Berechne fehlende Seiten und Winkel eines rechtwinkligen oder beliebigen Dreiecks, samt Formeln.", "h1": "Der Satz des Pythagoras", "p1": "In einem rechtwinkligen Dreieck ist das Quadrat der Hypotenuse gleich der Summe der Quadrate der Katheten: a² + b² = c². Aus zwei beliebigen Seiten folgt die dritte, die Winkel ergeben sich aus dem Sinus: α = arcsin(a/c).", "h2": "Beliebiges Dreieck", "p2": "Für jedes Dreieck liefern der Kosinussatz c² = a² + b² − 2ab·cos γ und der Sinussatz a/sin α = b/sin β = c/sin γ die fehlenden Seiten und Winkel. Wähle drei Seiten, zwei Seiten mit dem eingeschlossenen Winkel oder zwei Winkel und eine Seite.", "note": "Winkel sind in Grad. Seite a liegt gegenüber von Winkel α, b gegenüber von β und c gegenüber von γ. Alles wird in deinem Browser berechnet; nichts, was du eingibst, wird gespeichert oder gesendet.", "h4": "Gut zu wissen", "lim": "<li>Rechtwinkliges Dreieck: gib zwei beliebige Seiten ein (Kathete a, Kathete b, Hypotenuse c).</li><li>Die Winkel eines Dreiecks ergeben stets 180°.</li><li>Zwei Seiten mit nicht eingeschlossenem Winkel (SsW) sind nicht enthalten, da sie zwei Lösungen haben können.</li>"}, "cs": {"back": "← Zpět na kalkulačky", "ad": "Reklama", "title": "Pythagorova věta a kalkulačka trojúhelníka", "sub": "Dopočítej chybějící strany a úhly pravoúhlého nebo libovolného trojúhelníku, se vzorci.", "h1": "Pythagorova věta", "p1": "V pravoúhlém trojúhelníku se čtverec přepony rovná součtu čtverců odvěsen: a² + b² = c². Ze dvou libovolných stran vyjde třetí a úhly vyplynou ze sinu: α = arcsin(a/c).", "h2": "Libovolný trojúhelník", "p2": "Pro libovolný trojúhelník dají chybějící strany a úhly kosinová věta c² = a² + b² − 2ab·cos γ a sinová věta a/sin α = b/sin β = c/sin γ. Vyber tři strany, dvě strany s úhlem mezi nimi nebo dva úhly a stranu.", "note": "Úhly jsou ve stupních. Strana a leží proti úhlu α, b proti β a c proti γ. Vše se počítá ve tvém prohlížeči a nic, co zadáš, se neukládá ani neodesílá.", "h4": "Dobré vědět", "lim": "<li>Pravoúhlý trojúhelník: zadej libovolné dvě strany (odvěsna a, odvěsna b, přepona c).</li><li>Součet úhlů trojúhelníku je vždy 180°.</li><li>Dvě strany s úhlem, který není mezi nimi (Ssu), není podporováno, protože může mít dvě řešení.</li>"}, "pl": {"back": "← Wróć do kalkulatorów", "ad": "Reklama", "title": "Twierdzenie Pitagorasa i kalkulator trójkąta", "sub": "Oblicz brakujące boki i kąty trójkąta prostokątnego lub dowolnego, ze wzorami.", "h1": "Twierdzenie Pitagorasa", "p1": "W trójkącie prostokątnym kwadrat przeciwprostokątnej jest równy sumie kwadratów przyprostokątnych: a² + b² = c². Z dowolnych dwóch boków wynika trzeci, a kąty z sinusa: α = arcsin(a/c).", "h2": "Dowolny trójkąt", "p2": "Dla dowolnego trójkąta brakujące boki i kąty dają twierdzenie cosinusów c² = a² + b² − 2ab·cos γ i twierdzenie sinusów a/sin α = b/sin β = c/sin γ. Wybierz trzy boki, dwa boki z kątem między nimi lub dwa kąty i bok.", "note": "Kąty są w stopniach. Bok a leży naprzeciw kąta α, b naprzeciw β, a c naprzeciw γ. Wszystko jest liczone w Twojej przeglądarce, a nic, co wpiszesz, nie jest zapisywane ani wysyłane.", "h4": "Warto wiedzieć", "lim": "<li>Trójkąt prostokątny: wpisz dowolne dwa boki (przyprostokątna a, przyprostokątna b, przeciwprostokątna c).</li><li>Suma kątów trójkąta zawsze wynosi 180°.</li><li>Dwa boki i kąt nieleżący między nimi (BBK) nie są obsługiwane, bo mogą mieć dwa rozwiązania.</li>"}, "fr": {"back": "← Retour aux calculateurs", "ad": "Publicité", "title": "Théorème de Pythagore et calculateur de triangle", "sub": "Trouvez les côtés et angles manquants d’un triangle rectangle ou quelconque, avec les formules.", "h1": "Le théorème de Pythagore", "p1": "Dans un triangle rectangle, le carré de l’hypoténuse est égal à la somme des carrés des cathètes : a² + b² = c². Deux côtés quelconques donnent le troisième, et les angles découlent du sinus : α = arcsin(a/c).", "h2": "Triangle quelconque", "p2": "Pour un triangle quelconque, la loi des cosinus c² = a² + b² − 2ab·cos γ et la loi des sinus a/sin α = b/sin β = c/sin γ donnent les côtés et angles manquants. Choisissez trois côtés, deux côtés et l’angle compris, ou deux angles et un côté.", "note": "Les angles sont en degrés. Le côté a est opposé à l’angle α, b à β et c à γ. Tout est calculé dans votre navigateur et rien de ce que vous saisissez n’est enregistré ni envoyé.", "h4": "Bon à savoir", "lim": "<li>Triangle rectangle : saisissez deux côtés quelconques (cathète a, cathète b, hypoténuse c).</li><li>La somme des angles d’un triangle vaut toujours 180°.</li><li>Deux côtés avec un angle non compris (CCA) ne sont pas gérés, car il peut y avoir deux solutions.</li>"}, "es": {"back": "← Volver a las calculadoras", "ad": "Publicidad", "title": "Teorema de Pitágoras y calculadora de triángulos", "sub": "Calcula los lados y ángulos que faltan de un triángulo rectángulo o cualquiera, con las fórmulas.", "h1": "El teorema de Pitágoras", "p1": "En un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos: a² + b² = c². Con dos lados cualesquiera se obtiene el tercero, y los ángulos salen del seno: α = arcsin(a/c).", "h2": "Triángulo cualquiera", "p2": "Para cualquier triángulo, el teorema del coseno c² = a² + b² − 2ab·cos γ y el del seno a/sin α = b/sin β = c/sin γ dan los lados y ángulos que faltan. Elige tres lados, dos lados con el ángulo comprendido, o dos ángulos y un lado.", "note": "Los ángulos están en grados. El lado a es opuesto al ángulo α, b a β y c a γ. Todo se calcula en tu navegador y nada de lo que introduces se guarda ni se envía.", "h4": "Conviene saber", "lim": "<li>Triángulo rectángulo: introduce dos lados cualesquiera (cateto a, cateto b, hipotenusa c).</li><li>Los ángulos de un triángulo suman siempre 180°.</li><li>Dos lados con un ángulo no comprendido (LLA) no está incluido, porque puede tener dos soluciones.</li>"}};
+const PIPE={"w_side": "Side|Strana|Seite|Strana|Bok|Côté|Lado", "r_area": "Area|Obsah|Fläche|Obsah|Pole|Aire|Área", "r_peri": "Perimeter|Obvod|Umfang|Obvod|Obwód|Périmètre|Perímetro", "unit": "Length unit|Jednotka dĺžky|Längeneinheit|Jednotka délky|Jednostka długości|Unité de longueur|Unidad de longitud", "hint": "Enter the dimensions to see the result.|Zadaj rozmery a uvidíš výsledok.|Gib die Maße ein, um das Ergebnis zu sehen.|Zadej rozměry a uvidíš výsledek.|Wpisz wymiary, aby zobaczyć wynik.|Saisissez les dimensions pour voir le résultat.|Introduce las medidas para ver el resultado.", "err": "Enter positive numbers for all dimensions.|Zadaj kladné čísla pre všetky rozmery.|Gib für alle Maße positive Zahlen ein.|Zadej kladná čísla pro všechny rozměry.|Wpisz dodatnie liczby dla wszystkich wymiarów.|Saisissez des nombres positifs pour toutes les dimensions.|Introduce números positivos para todas las medidas.", "errt": "These sides do not form a triangle.|Z týchto strán sa nedá zostrojiť trojuholník.|Aus diesen Seiten lässt sich kein Dreieck bilden.|Z těchto stran nelze sestrojit trojúhelník.|Z tych boków nie da się zbudować trójkąta.|Ces côtés ne forment pas un triangle.|Con estos lados no se puede formar un triángulo.", "pick": "Calculation|Výpočet|Berechnung|Výpočet|Obliczenie|Calcul|Cálculo", "m_right": "Right triangle (Pythagorean theorem)|Pravouhlý trojuholník (Pytagorova veta)|Rechtwinkliges Dreieck (Satz des Pythagoras)|Pravoúhlý trojúhelník (Pythagorova věta)|Trójkąt prostokątny (twierdzenie Pitagorasa)|Triangle rectangle (théorème de Pythagore)|Triángulo rectángulo (teorema de Pitágoras)", "m_sss": "Three sides|Tri strany|Drei Seiten|Tři strany|Trzy boki|Trois côtés|Tres lados", "m_sas": "Two sides and the angle between them|Dve strany a uhol medzi nimi|Zwei Seiten und der eingeschlossene Winkel|Dvě strany a úhel mezi nimi|Dwa boki i kąt między nimi|Deux côtés et l’angle compris|Dos lados y el ángulo comprendido", "m_asa": "Two angles and a side|Dva uhly a strana|Zwei Winkel und eine Seite|Dva úhly a strana|Dwa kąty i bok|Deux angles et un côté|Dos ángulos y un lado", "w_leg2": "Leg|Odvesna|Kathete|Odvěsna|Przyprostokątna|Cathète|Cateto", "w_hyp": "Hypotenuse|Prepona|Hypotenuse|Přepona|Przeciwprostokątna|Hypoténuse|Hipotenusa", "w_ang": "Angle|Uhol|Winkel|Úhel|Kąt|Angle|Ángulo", "r_hh": "Height to the hypotenuse|Výška na preponu|Höhe zur Hypotenuse|Výška k přeponě|Wysokość na przeciwprostokątną|Hauteur sur l’hypoténuse|Altura sobre la hipotenusa", "hintr": "Enter any two of the three sides.|Zadaj ľubovoľné dve z troch strán.|Gib zwei der drei Seiten ein.|Zadej libovolné dvě ze tří stran.|Wpisz dowolne dwa z trzech boków.|Saisissez deux des trois côtés.|Introduce dos de los tres lados.", "errr": "The sides do not form a right triangle.|Tieto strany netvoria pravouhlý trojuholník.|Diese Seiten bilden kein rechtwinkliges Dreieck.|Tyto strany netvoří pravoúhlý trojúhelník.|Te boki nie tworzą trójkąta prostokątnego.|Ces côtés ne forment pas un triangle rectangle.|Estos lados no forman un triángulo rectángulo.", "errh": "The hypotenuse must be longer than a leg.|Prepona musí byť dlhšia ako odvesna.|Die Hypotenuse muss länger als eine Kathete sein.|Přepona musí být delší než odvěsna.|Przeciwprostokątna musi być dłuższa od przyprostokątnej.|L’hypoténuse doit être plus longue qu’une cathète.|La hipotenusa debe ser mayor que un cateto.", "erra": "The angle must be between 0 and 180 degrees.|Uhol musí byť medzi 0 a 180 stupňami.|Der Winkel muss zwischen 0 und 180 Grad liegen.|Úhel musí být mezi 0 a 180 stupni.|Kąt musi mieścić się między 0 a 180 stopniami.|L’angle doit être compris entre 0 et 180 degrés.|El ángulo debe estar entre 0 y 180 grados.", "errs": "The two angles must add up to less than 180 degrees.|Súčet dvoch uhlov musí byť menší ako 180 stupňov.|Die Summe der beiden Winkel muss kleiner als 180 Grad sein.|Součet dvou úhlů musí být menší než 180 stupňů.|Suma dwóch kątów musi być mniejsza niż 180 stopni.|La somme des deux angles doit être inférieure à 180 degrés.|La suma de los dos ángulos debe ser menor de 180 grados."};
+try{const s=new URLSearchParams(location.search).get('lang')||(navigator.language||'').slice(0,2);if(T[s])lang=s}catch(e){}
+const BASE='https://calc-hub.eu/pythagoras.html',OGL={"en": "en_US", "sk": "sk_SK", "de": "de_DE", "cs": "cs_CZ", "pl": "pl_PL", "fr": "fr_FR", "es": "es_ES"},META={"en": {"t": "Pythagorean Theorem Calculator – Triangle Solver | calc-hub.eu", "d": "Free Pythagorean theorem and triangle calculator: find missing sides and angles of right triangles and any triangle, with formulas and steps."}, "sk": {"t": "Pytagorova veta – kalkulačka trojuholníka | calc-hub.eu", "d": "Bezplatná kalkulačka Pytagorovej vety a trojuholníka: dopočítaj strany a uhly pravouhlého aj ľubovoľného trojuholníka, so vzorcami a postupom."}, "de": {"t": "Satz des Pythagoras – Dreiecksrechner | calc-hub.eu", "d": "Kostenloser Rechner für den Satz des Pythagoras und Dreiecke: fehlende Seiten und Winkel von rechtwinkligen und beliebigen Dreiecken, mit Formeln und Rechenweg."}, "cs": {"t": "Pythagorova věta – kalkulačka trojúhelníku | calc-hub.eu", "d": "Bezplatná kalkulačka Pythagorovy věty a trojúhelníku: dopočítej strany a úhly pravoúhlého i libovolného trojúhelníku, se vzorci a postupem."}, "pl": {"t": "Twierdzenie Pitagorasa – kalkulator trójkąta | calc-hub.eu", "d": "Darmowy kalkulator twierdzenia Pitagorasa i trójkąta: oblicz boki i kąty trójkąta prostokątnego i dowolnego, ze wzorami i krokami."}, "fr": {"t": "Théorème de Pythagore – calculateur de triangle | calc-hub.eu", "d": "Calculateur gratuit du théorème de Pythagore et de triangles : côtés et angles manquants d’un triangle rectangle ou quelconque, avec formules et étapes."}, "es": {"t": "Teorema de Pitágoras – calculadora de triángulos | calc-hub.eu", "d": "Calculadora gratuita del teorema de Pitágoras y de triángulos: lados y ángulos que faltan de un triángulo rectángulo o cualquiera, con fórmulas y pasos."}};
+function applySeo(){
+  const m=META[lang],q=new URLSearchParams(location.search).get('lang'),u=BASE+(q&&META[q]&&q!=='en'?'?lang='+q:'');
+  document.title=m.t;
+  const set=(sel,v)=>{const e=document.querySelector(sel);if(e)e.setAttribute('content',v)};
+  set('meta[name="description"]',m.d);set('meta[property="og:title"]',m.t);set('meta[property="og:description"]',m.d);
+  set('meta[name="twitter:title"]',m.t);set('meta[name="twitter:description"]',m.d);set('meta[property="og:url"]',u);set('meta[property="og:locale"]',OGL[lang]);
+  const c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',u);
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(e=>e.remove());
+  Object.keys(OGL).filter(l=>l!==lang).forEach(l=>{const e=document.createElement('meta');e.setAttribute('property','og:locale:alternate');e.setAttribute('content',OGL[l]);document.head.appendChild(e)});
+}
+const FT={en:['Privacy & Cookies','Privacy and cookie settings','About & contact'],sk:['Ochrana údajov a cookies','Nastavenia súkromia a cookies','O nás a kontakt'],de:['Datenschutz & Cookies','Datenschutz- und Cookie-Einstellungen','Über uns & Kontakt'],cs:['Ochrana údajů a cookies','Nastavení soukromí a cookies','O nás a kontakt'],pl:['Prywatność i cookies','Ustawienia prywatności i plików cookies','O nas i kontakt'],fr:['Confidentialité et cookies','Paramètres de confidentialité et de cookies','À propos et contact'],es:['Privacidad y cookies','Configuración de privacidad y cookies','Acerca de y contacto']};
+function footLinks(){const f=document.getElementById('flinks');if(!f)return;const s='<span class="mx-2">·</span>';f.innerHTML=`<a href="about.html" class="hover:text-white">${FT[lang][2]}</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>${s}<button data-cs class="hover:text-white">${FT[lang][1]}</button>`}
+function propLinks(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.dataset.h||(a.dataset.h=a.getAttribute('href'));if(!/^[a-z-]+\.html$/.test(h))return;a.setAttribute('href',lang==='en'?h:h+'?lang='+lang)})}
+function openCs(){if(window.googlefc&&googlefc.callbackQueue&&googlefc.showRevocationMessage)googlefc.callbackQueue.push(googlefc.showRevocationMessage);else location.href='privacy.html'+(lang==='en'?'':'?lang='+lang)+'#cookies'}
+document.addEventListener('click',e=>{if(e.target.closest('[data-cs]'))openCs()});
+const LANGS=[['sk','Slovenčina'],['de','Deutsch'],['en','English'],['cs','Čeština'],['pl','Polski'],['fr','Français'],['es','Español']];
+function syncLang(){document.getElementById('langCur').textContent=lang.toUpperCase();document.querySelectorAll('#langMenu button').forEach(b=>b.setAttribute('aria-selected',b.dataset.l===lang));footLinks();propLinks();applySeo()}
+function initLang(cb){
+  const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+  menu.innerHTML=LANGS.map(([c,n])=>`<li><button role="option" data-l="${c}"><span>${n}</span><b>${c.toUpperCase()}</b></button></li>`).join('');
+  const close=()=>{menu.classList.add('hidden');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{e.stopPropagation();const hid=menu.classList.toggle('hidden');btn.setAttribute('aria-expanded',String(!hid))});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{const u=new URL(location.href);if(lang==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(x){}close();cb()});
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+
+const $=id=>document.getElementById(id);
+const IDX={en:0,sk:1,de:2,cs:3,pl:4,fr:5,es:6};
+const L=k=>PIPE[k].split('|')[IDX[lang]];
+function baseText(){const X=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=X[e.dataset.i];if(v!==undefined)e.tagName==='UL'?e.innerHTML=v:e.textContent=v})}
+const D2R=Math.PI/180,R2D=180/Math.PI,cl=x=>Math.max(-1,Math.min(1,x));
+const fmt=x=>isFinite(x)?(+x.toFixed(6)).toLocaleString(lang==='en'?'en-US':lang,{maximumFractionDigits:6}):'–';
+const sub=(f,v)=>f.replace(/^[^=]*=/,'').trim().replace(/(?<![A-Za-z])[A-Za-zαβγ](?![A-Za-z])/g,m=>v[m]!==undefined?fmt(v[m]):m);
+const UN=['mm','cm','dm','m','km','in','ft','yd'];
+const row=(l,x,f,val,t)=>({l,x,f,val,t});
+const tail=(w,rows)=>{rows.push(row('r_area','','A = ½·a·b·sin(γ)',w.a*w.b*Math.sin(w['γ']*D2R)/2,'s'),row('r_peri','','P = a+b+c',w.a+w.b+w.c,'l'));return{rows,w}};
+const MODES=[
+{k:'right',f:[['a','leg2'],['b','leg2'],['c','hyp']],ok:v=>Object.keys(v).length>=2,run:v=>{let{a,b,c}=v;const rows=[],n=[a,b,c].filter(x=>x).length;
+  if(n===3){if(Math.abs(a*a+b*b-c*c)>1e-9*c*c)return{e:'errr'}}
+  else if(!c){c=Math.hypot(a,b);rows.push(row('w_hyp','c','c = √(a²+b²)',c,'l'))}
+  else if(!b){if(c<=a)return{e:'errh'};b=Math.sqrt(c*c-a*a);rows.push(row('w_leg2','b','b = √(c²−a²)',b,'l'))}
+  else{if(c<=b)return{e:'errh'};a=Math.sqrt(c*c-b*b);rows.push(row('w_leg2','a','a = √(c²−b²)',a,'l'))}
+  const w={a,b,c};rows.push(row('w_ang','α','α = arcsin(a/c)',Math.asin(cl(a/c))*R2D,'g'),row('w_ang','β','β = arcsin(b/c)',Math.asin(cl(b/c))*R2D,'g'),
+   row('r_area','','A = ½·a·b',a*b/2,'s'),row('r_peri','','P = a+b+c',a+b+c,'l'),row('r_hh','','h = a·b/c',a*b/c,'l'));return{rows,w}}},
+{k:'sss',f:[['a','side'],['b','side'],['c','side']],ok:v=>Object.keys(v).length===3,run:v=>{const{a,b,c}=v;if(!(a+b>c&&a+c>b&&b+c>a))return{e:'errt'};
+  const s=(a+b+c)/2,al=Math.acos(cl((b*b+c*c-a*a)/(2*b*c)))*R2D,be=Math.acos(cl((a*a+c*c-b*b)/(2*a*c)))*R2D,w={a,b,c,s,'α':al,'β':be,'γ':180-al-be};
+  return{rows:[row('w_ang','α','α = arccos((b²+c²−a²)/(2·b·c))',al,'g'),row('w_ang','β','β = arccos((a²+c²−b²)/(2·a·c))',be,'g'),row('w_ang','γ','γ = 180−α−β',w['γ'],'g'),
+   row('r_area','','A = √(s(s−a)(s−b)(s−c))',Math.sqrt(s*(s-a)*(s-b)*(s-c)),'s'),row('r_peri','','P = a+b+c',a+b+c,'l')],w}}},
+{k:'sas',f:[['a','side'],['b','side'],['γ','ang']],ok:v=>Object.keys(v).length===3,run:v=>{const{a,b}=v,g=v['γ'];if(g>=180)return{e:'erra'};
+  const c=Math.sqrt(a*a+b*b-2*a*b*Math.cos(g*D2R)),al=Math.acos(cl((b*b+c*c-a*a)/(2*b*c)))*R2D,w={a,b,c,'α':al,'β':180-al-g,'γ':g};
+  return tail(w,[row('w_side','c','c = √(a²+b²−2·a·b·cos(γ))',c,'l'),row('w_ang','α','α = arccos((b²+c²−a²)/(2·b·c))',al,'g'),row('w_ang','β','β = 180−α−γ',w['β'],'g')])}},
+{k:'asa',f:[['α','ang'],['β','ang'],['a','side']],ok:v=>Object.keys(v).length===3,run:v=>{const al=v['α'],be=v['β'],a=v.a;if(al+be>=180)return{e:'errs'};
+  const ga=180-al-be,b=a*Math.sin(be*D2R)/Math.sin(al*D2R),c=a*Math.sin(ga*D2R)/Math.sin(al*D2R),w={a,b,c,'α':al,'β':be,'γ':ga};
+  return tail(w,[row('w_ang','γ','γ = 180−α−β',ga,'g'),row('w_side','b','b = a·sin(β)/sin(α)',b,'l'),row('w_side','c','c = a·sin(γ)/sin(α)',c,'l')])}}
+];
+function compute(m,v,bad){if(bad)return{e:'err'};if(!m.ok(v))return{h:1};return m.run(v)}
+/*UI*/
+let cur=0;const uo=()=>UN[+$('un').value||1];
+function fields(){const m=MODES[cur],old={},u=uo();document.querySelectorAll('#fl input').forEach(i=>old[i.dataset.v]=i.value);
+  $('fl').innerHTML=m.f.map(([v,w])=>`<div><label class="block text-sm" style="color:#8b94a7">${L('w_'+w)} <i>${v}</i></label><div class="field mt-2"><input data-v="${v}" type="number" inputmode="decimal" min="0" step="any" value="${old[v]!==undefined?old[v]:''}"><span>${w==='ang'?'°':u}</span></div></div>`).join('')}
+function calc(){const m=MODES[cur],v={};let bad=false;
+  document.querySelectorAll('#fl input').forEach(i=>{if(i.value==='')return;const x=parseFloat(String(i.value).replace(',','.'));if(isFinite(x)&&x>0)v[i.dataset.v]=x;else bad=true});
+  const h=$('hint'),er=$('err'),rs=$('res');h.classList.add('hidden');er.classList.add('hidden');rs.classList.add('hidden');
+  const o=compute(m,v,bad);
+  if(o.h){h.textContent=L(m.k==='right'?'hintr':'hint');h.classList.remove('hidden');return}
+  if(o.e){er.textContent=L(o.e);er.classList.remove('hidden');return}
+  const un=uo();rs.innerHTML=o.rows.map((r,i)=>{const u=r.t==='g'?'°':r.t==='s'?un+'²':un;
+    return `<div class="rounded-xl p-4" style="background:rgba(255,255,255,.04)"><p class="text-sm" style="color:#8b94a7">${L(r.l)} ${r.x}</p><p class="${i?'text-2xl':'grad text-4xl'} font-bold">${fmt(r.val)} <span class="text-base font-semibold" style="color:#8b94a7;-webkit-text-fill-color:#8b94a7">${u}</span></p><p class="mt-1 text-xs" style="color:#667085">${r.f} = ${sub(r.f,o.w)} = ${fmt(r.val)} ${u}</p></div>`}).join('');rs.classList.remove('hidden')}
+function text(){baseText();$('pl').textContent=L('pick');$('ul').textContent=L('unit');const cu=$('un').value||'1';$('un').innerHTML=UN.map((u,i)=>`<option value="${i}">${u}</option>`).join('');$('un').value=cu;
+  $('sh').innerHTML=MODES.map((s,i)=>`<option value="${i}">${L('m_'+s.k)}</option>`).join('');$('sh').value=cur;fields();calc();syncLang()}
+$('sh').onchange=e=>{cur=+e.target.value;$('fl').innerHTML='';fields();calc()};
+$('un').onchange=()=>{fields();calc()};
+$('fl').addEventListener('input',calc);
+initLang(text);text();
+
+</script>
+</body>
+</html>
