@@ -1,0 +1,8 @@
+{
+  "buildCommand": "node build.js",
+  "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/", "has": [{ "type": "query", "key": "lang", "value": "(?<l>sk|de|cs|pl|fr|es)" }], "destination": "/:l/", "permanent": true },
+    { "source": "/:page([a-z0-9-]+\\.html)", "has": [{ "type": "query", "key": "lang", "value": "(?<l>sk|de|cs|pl|fr|es)" }], "destination": "/:l/:page", "permanent": true }
+  ]
+}
