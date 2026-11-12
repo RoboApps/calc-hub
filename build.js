@@ -5,7 +5,7 @@ const ROOT = __dirname, OUT = path.join(ROOT, 'dist'), SITE = 'https://calc-hub.
 const LANGS = ['en', 'sk', 'de', 'cs', 'pl', 'fr', 'es'], ALT = LANGS.filter(l => l !== 'en');
 const SKIP = new Set(['dist', 'node_modules', '.git', '.vercel', 'build.js', 'package.json', 'package-lock.json', 'vercel.json', 'sitemap.xml', 'sitemap-urls.xml', '.gitignore', '.DS_Store', ...ALT]);
 const ADS = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7136183336732732" crossorigin="anonymous"></script>';
-const addAds = h => (h.includes('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js') || !h.includes('</head>')) ? h : h.replace('</head>', ADS + '\n</head>');
+const addAds = h => h.includes('</head>') ? h.replace(/<script\b[^>]*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js[^>]*>\s*<\/script>\s*/g, '').replace('</head>', ADS + '\n</head>') : h; // odstráni prípadný vlastný/chybný zápis a vloží jeden správny
 const errors = [], warns = [], emptyData = new Set();
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const escA = s => esc(s).replace(/"/g, '&quot;');
