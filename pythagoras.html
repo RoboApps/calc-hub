@@ -83,9 +83,6 @@ tr.on{background:rgba(var(--accent-rgb),.08)}
 .chip:hover{color:#fff;border-color:rgba(var(--accent-rgb),.5)}
 .chip[aria-pressed="true"]{background:var(--accent);color:#04120c;border-color:transparent}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="min-h-screen">
 <div class="bg-glow"></div><div class="bg-grid"></div>
@@ -110,7 +107,7 @@ tr.on{background:rgba(var(--accent-rgb),.08)}
   <p data-i="sub" class="mt-3 max-w-xl text-lg" style="color:#8b94a7"></p>
   <section class="glass mt-8 grid gap-8 rounded-3xl p-6 sm:p-8 md:grid-cols-2">
     <div class="space-y-5"><div><label id="ul" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><select id="un"></select></div></div><div><label id="pl" class="block text-sm" style="color:#8b94a7"></label><div class="field mt-2"><select id="sh"></select></div></div><div id="fl" class="space-y-5"></div></div>
-    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)"><p id="hint" class="text-center" style="color:#8b94a7"></p><p id="err" class="hidden text-center" style="color:#f87171"></p><div id="res" class="hidden space-y-3"></div></div>
+    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)"><div id="gfx" class="mb-4"></div><p id="hint" class="text-center" style="color:#8b94a7"></p><p id="err" class="hidden text-center" style="color:#f87171"></p><div id="res" class="hidden space-y-3"></div></div>
   </section>
   <!-- AD: below calculator (728x90 / responsive) -->
   <aside class="ad-wrap" aria-label="Advertisement">
@@ -222,6 +219,23 @@ const MODES=[
   return tail(w,[row('w_ang','γ','γ = 180−α−β',ga,'g'),row('w_side','b','b = a·sin(β)/sin(α)',b,'l'),row('w_side','c','c = a·sin(γ)/sin(α)',c,'l')])}}
 ];
 function compute(m,v,bad){if(bad)return{e:'err'};if(!m.ok(v))return{h:1};return m.run(v)}
+const gfx=(mode,v,w,un)=>{const W=420,H=260,pl=100,pr=100,py=48,f=x=>(+x.toFixed(3)).toLocaleString(lang==='en'?'en-US':lang,{maximumFractionDigits:3}),val=k=>w&&w[k]!==undefined?w[k]:v[k];
+  let A,B,C,ang={};
+  if(mode==='right'){let a=4,b=3;const ka=val('a'),kb=val('b');if(ka&&kb){a=ka;b=ka*Math.max(.3,Math.min(3.3,kb/ka))}
+    const s=Math.min((W-pl-pr)/a,(H-2*py)/b),x0=pl+(W-pl-pr-a*s)/2,yb=(H+b*s)/2;C=[x0,yb];B=[x0+a*s,yb];A=[x0,yb-b*s];
+    if(w)ang={'α':Math.asin(Math.min(1,w.a/w.c))*R2D,'β':Math.asin(Math.min(1,w.b/w.c))*R2D}}
+  else{const al=(w?w['α']:50)*D2R,c=w?w.c:1,b=w?w.b:Math.sin(60*D2R)/Math.sin(70*D2R),cx=b*Math.cos(al),cy=b*Math.sin(al),mn=Math.min(0,cx),mx=Math.max(c,cx),
+      s=Math.min((W-pl-pr)/(mx-mn),(H-2*py)/cy),ox=pl+(W-pl-pr-(mx-mn)*s)/2-mn*s,oy=(H+cy*s)/2;A=[ox,oy];B=[ox+c*s,oy];C=[ox+cx*s,oy-cy*s];if(w)ang={'α':w['α'],'β':w['β'],'γ':w['γ']}}
+  const G=[(A[0]+B[0]+C[0])/3,(A[1]+B[1]+C[1])/3],nrm=(p,q)=>{const d=Math.hypot(p[0]-q[0],p[1]-q[1])||1;return[(p[0]-q[0])/d,(p[1]-q[1])/d]},
+    tx=(x,y,s,col,anc)=>`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" fill="${col}" text-anchor="${anc}" font-size="12.5" font-weight="600">${s}</text>`;
+  const lab=(k,isA)=>{let x=val(k);if(x===undefined&&isA)x=ang[k];const col=v[k]!==undefined?'#ffffff':x===undefined?'#8b94a7':'#2ee6a6';return[x===undefined?k:`${k} = ${f(x)}${isA?'°':' '+un}`,col]};
+  let o=`<polygon points="${A.map(x=>x.toFixed(1))} ${B.map(x=>x.toFixed(1))} ${C.map(x=>x.toFixed(1))}" fill="rgba(46,230,166,.08)" stroke="#2ee6a6" stroke-width="2.5" stroke-linejoin="round"/>`;
+  for(const[P,Q,k]of[[B,C,'a'],[C,A,'b'],[A,B,'c']]){const m=[(P[0]+Q[0])/2,(P[1]+Q[1])/2],n=nrm(m,G),[s,col]=lab(k,false);
+    o+=tx(m[0]+n[0]*12,m[1]+n[1]*12+(n[1]>.35?10:n[1]<-.35?-2:4),s,col,n[0]<-.35?'end':n[0]>.35?'start':'middle')}
+  for(const[V,k]of[[A,'α'],[B,'β'],[C,'γ']]){if(mode==='right'&&k==='γ')continue;const n=nrm(V,G),[s,col]=lab(k,true);
+    o+=tx(V[0]+n[0]*16,V[1]+n[1]*16+(n[1]>.35?11:n[1]<-.35?-2:4),s,col,n[0]<-.35?'end':n[0]>.35?'start':'middle')}
+  if(mode==='right'){const u=nrm(B,C),q=nrm(A,C),p=(a,b)=>[C[0]+u[0]*a+q[0]*b,C[1]+u[1]*a+q[1]*b];o+=`<path d="M${p(14,0).map(x=>x.toFixed(1))} L${p(14,14).map(x=>x.toFixed(1))} L${p(0,14).map(x=>x.toFixed(1))}" fill="none" stroke="#8b94a7" stroke-width="1.5"/>`}
+  return`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="triangle" style="width:100%;max-width:420px;display:block;margin:0 auto">${o}</svg>`};
 /*UI*/
 let cur=0;const uo=()=>UN[+$('un').value||1];
 function fields(){const m=MODES[cur],old={},u=uo();document.querySelectorAll('#fl input').forEach(i=>old[i.dataset.v]=i.value);
@@ -229,7 +243,7 @@ function fields(){const m=MODES[cur],old={},u=uo();document.querySelectorAll('#f
 function calc(){const m=MODES[cur],v={};let bad=false;
   document.querySelectorAll('#fl input').forEach(i=>{if(i.value==='')return;const x=parseFloat(String(i.value).replace(',','.'));if(isFinite(x)&&x>0)v[i.dataset.v]=x;else bad=true});
   const h=$('hint'),er=$('err'),rs=$('res');h.classList.add('hidden');er.classList.add('hidden');rs.classList.add('hidden');
-  const o=compute(m,v,bad);
+  const o=compute(m,v,bad);$('gfx').innerHTML=gfx(m.k,v,o.w,uo());
   if(o.h){h.textContent=L(m.k==='right'?'hintr':'hint');h.classList.remove('hidden');return}
   if(o.e){er.textContent=L(o.e);er.classList.remove('hidden');return}
   const un=uo();rs.innerHTML=o.rows.map((r,i)=>{const u=r.t==='g'?'°':r.t==='s'?un+'²':un;
