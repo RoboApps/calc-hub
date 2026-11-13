@@ -5,6 +5,7 @@ const ROOT = __dirname, OUT = path.join(ROOT, 'dist'), SITE = 'https://calc-hub.
 const LANGS = ['en', 'sk', 'de', 'cs', 'pl', 'fr', 'es'], ALT = LANGS.filter(l => l !== 'en');
 const SKIP = new Set(['dist', 'node_modules', '.git', '.vercel', 'build.js', 'package.json', 'package-lock.json', 'vercel.json', 'sitemap.xml', 'sitemap-urls.xml', '.gitignore', '.DS_Store', ...ALT]);
 const ADS = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7136183336732732" crossorigin="anonymous"></script>';
+const AUTOLANG = `<script>try{if(!document.referrer.includes(location.host)&&location.pathname==='/'&&!location.search){var l=(navigator.language||'').slice(0,2);if(['sk','de','cs','pl','fr','es'].includes(l))location.replace('/'+l+'/')}}catch(e){}</script>`; // len úvodná anglická stránka: presmeruje podľa jazyka prehliadača, ak návštevník neprišiel z nášho webu
 const addAds = h => h.includes('</head>') ? h.replace(/<script\b[^>]*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js[^>]*>\s*<\/script>\s*/g, '').replace('</head>', ADS + '\n</head>') : h; // odstráni prípadný vlastný/chybný zápis a vloží jeden správny
 const errors = [], warns = [], emptyData = new Set();
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -85,6 +86,7 @@ function render(name, src, T, META, FT, kind, l) {
     for (const id of ids) { const e = els[id]; if (!e || (e._h === undefined && e._t === undefined)) { errors.push(name + ' [' + l + ']: skript nezapísal #' + id); continue; } h = inject(h, id, e._h !== undefined ? e._h : esc(e._t)); }
     if (kind === 'index' && els.q && els.q.placeholder) h = h.replace(/(<input id="q"[^>]*?)(\s*\/?>)/, (a, x, y) => x.replace(/\s*placeholder="[^"]*"/, '') + ' placeholder="' + escA(els.q.placeholder) + '"' + y);
   }
+  if (name === 'index.html' && l === 'en') h = h.replace('</head>', AUTOLANG + '\n</head>');
   h = addAds(h);
   return { h, url };
 }
