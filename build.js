@@ -138,9 +138,10 @@ try {
     require('child_process').execFileSync(process.execPath, [cli, '-c', path.join(tmp, 'tw.config.js'), '-i', path.join(tmp, 'in.css'), '-o', path.join(OUT, 'tailwind.css'), '--minify'], { stdio: 'inherit' });
     const size = fs.statSync(path.join(OUT, 'tailwind.css')).size;
     if (size < 3000) throw new Error('tailwind.css je podozrivo malý (' + size + ' B)');
+    const css = fs.readFileSync(path.join(OUT, 'tailwind.css'), 'utf8');
     for (const f of files) {
-      const h = fs.readFileSync(f, 'utf8'), n = h.replace(/<script\b[^>]*cdn\.tailwindcss\.com[^>]*>\s*<\/script>/g, '<link rel="stylesheet" href="/tailwind.css">');
-      if (!n.includes('href="/tailwind.css"') || /<script\b[^>]*cdn\.tailwindcss\.com/.test(n)) errors.push(path.relative(OUT, f) + ': nepodarilo sa vymeniť Tailwind CDN za tailwind.css');
+      const h = fs.readFileSync(f, 'utf8'), n = h.replace(/<script\b[^>]*cdn\.tailwindcss\.com[^>]*>\s*<\/script>/g, () => '<style data-tw>' + css + '</style>').replace(/#667085/gi, '#98a2b3'); // CSS priamo v stránke (bez ďalšej požiadavky), svetlejšia sivá pre lepší kontrast
+      if (!n.includes('<style data-tw>') || /<script\b[^>]*cdn\.tailwindcss\.com/.test(n)) errors.push(path.relative(OUT, f) + ': nepodarilo sa vymeniť Tailwind CDN za štýly');
       else fs.writeFileSync(f, n);
     }
     console.log('tailwind.css: ' + Math.round(size / 1024) + ' KB');
