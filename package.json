@@ -1,1 +1,6 @@
-{ "name": "calc-hub", "private": true, "scripts": { "build": "node build.js" } }
+{
+  "name": "calc-hub",
+  "private": true,
+  "scripts": { "build": "node build.js" },
+  "dependencies": { "tailwindcss": "3.4.17" }
+}

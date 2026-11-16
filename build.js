@@ -124,6 +124,28 @@ for (const f of fs.readdirSync(ROOT).filter(f => f.endsWith('.html') && !SKIP.ha
 for (const f of pass) { fs.writeFileSync(path.join(OUT, f), addAds(fs.readFileSync(path.join(ROOT, f), 'utf8'))); warns.push(f + ': skopírované bez zmien (nie je stránka kalkulačky)'); }
 (function copy(dir, rel) { for (const n of fs.readdirSync(dir)) { if (SKIP.has(n) || (!rel && /\.(html)$/.test(n))) continue; const p = path.join(dir, n), t = path.join(OUT, rel, n);
   if (fs.statSync(p).isDirectory()) { fs.mkdirSync(t, { recursive: true }); copy(p, path.join(rel, n)); } else if (!/^README/i.test(n)) { fs.mkdirSync(path.dirname(t), { recursive: true }); fs.copyFileSync(p, t); } } })(ROOT, '');
+// --- Tailwind lokálne: namiesto cdn.tailwindcss.com sa vygeneruje jeden malý dist/tailwind.css
+try {
+  const cli = path.join(ROOT, 'node_modules', 'tailwindcss', 'lib', 'cli.js');
+  if (!fs.existsSync(cli)) throw new Error('chýba balík tailwindcss (skontroluj package.json)');
+  const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);
+  const files = walk(OUT);
+  for (const f of files) { const h = fs.readFileSync(f, 'utf8'); if (/tailwind\.config|text\/tailwindcss/.test(h)) errors.push(path.relative(OUT, f) + ': vlastná konfigurácia Tailwindu v stránke (treba ju presunúť do build.js)'); }
+  if (!errors.length) {
+    const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'tw-'));
+    fs.writeFileSync(path.join(tmp, 'in.css'), '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n');
+    fs.writeFileSync(path.join(tmp, 'tw.config.js'), 'module.exports={content:[' + JSON.stringify(OUT.replace(/\\/g, '/') + '/**/*.html') + '],theme:{extend:{}},plugins:[]}');
+    require('child_process').execFileSync(process.execPath, [cli, '-c', path.join(tmp, 'tw.config.js'), '-i', path.join(tmp, 'in.css'), '-o', path.join(OUT, 'tailwind.css'), '--minify'], { stdio: 'inherit' });
+    const size = fs.statSync(path.join(OUT, 'tailwind.css')).size;
+    if (size < 3000) throw new Error('tailwind.css je podozrivo malý (' + size + ' B)');
+    for (const f of files) {
+      const h = fs.readFileSync(f, 'utf8'), n = h.replace(/<script\b[^>]*cdn\.tailwindcss\.com[^>]*>\s*<\/script>/g, '<link rel="stylesheet" href="/tailwind.css">');
+      if (n === h || n.includes('cdn.tailwindcss.com')) errors.push(path.relative(OUT, f) + ': nepodarilo sa vymeniť Tailwind CDN za tailwind.css');
+      else fs.writeFileSync(f, n);
+    }
+    console.log('tailwind.css: ' + Math.round(size / 1024) + ' KB');
+  }
+} catch (e) { errors.push('Tailwind: ' + e.message); }
 const urls = pages.flatMap(f => LANGS.map(l => urlOf(f, l)));
 const sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map(u => '  <url><loc>' + u + '</loc></url>').join('\n') + '\n</urlset>\n';
 fs.writeFileSync(path.join(OUT, 'sitemap-urls.xml'), sm); fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sm); // oba názvy rovnaké, aby sedel aj starý odkaz v robots.txt
