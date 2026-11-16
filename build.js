@@ -140,7 +140,7 @@ try {
     if (size < 3000) throw new Error('tailwind.css je podozrivo malý (' + size + ' B)');
     for (const f of files) {
       const h = fs.readFileSync(f, 'utf8'), n = h.replace(/<script\b[^>]*cdn\.tailwindcss\.com[^>]*>\s*<\/script>/g, '<link rel="stylesheet" href="/tailwind.css">');
-      if (n === h || n.includes('cdn.tailwindcss.com')) errors.push(path.relative(OUT, f) + ': nepodarilo sa vymeniť Tailwind CDN za tailwind.css');
+      if (!n.includes('href="/tailwind.css"') || /<script\b[^>]*cdn\.tailwindcss\.com/.test(n)) errors.push(path.relative(OUT, f) + ': nepodarilo sa vymeniť Tailwind CDN za tailwind.css');
       else fs.writeFileSync(f, n);
     }
     console.log('tailwind.css: ' + Math.round(size / 1024) + ' KB');
