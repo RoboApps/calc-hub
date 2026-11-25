@@ -34,7 +34,8 @@
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 <style>
 :root{--accent:#2ee6a6;--accent-rgb:46,230,166;color-scheme:dark}
-body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:#06080d;color:#e7ebf3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+@media(min-width:768px){.resp{position:sticky;top:1rem;align-self:start;max-height:calc(100vh - 2rem);overflow-y:auto}}
 .bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 500px at 15% -10%,rgba(var(--accent-rgb),.14),transparent 60%),radial-gradient(700px 500px at 90% 0%,rgba(80,110,255,.14),transparent 60%)}
 .bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(ellipse 70% 50% at 50% 0%,#000,transparent)}
 .grad{background:linear-gradient(100deg,#fff 0%,var(--accent) 60%,#7c9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -117,7 +118,7 @@ tr.on{background:rgba(var(--accent-rgb),.08)}
       <div id="tsw"><label id="tsl" class="block text-sm" style="color:#8b94a7" data-p="sub"></label><div class="field mt-2"><input id="ts" type="number" inputmode="decimal" min="0" step="any" value="0"> <span>m²</span></div></div>
       <div id="tbw"><label id="tbl" class="block text-sm" style="color:#8b94a7" data-p="box"></label><div class="field mt-2"><input id="tb" type="number" inputmode="decimal" min="0" step="any" value=""></div></div>
     </div>
-    <div class="flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
+    <div class="resp flex flex-col justify-center rounded-2xl p-6" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06)">
       <p id="hint" class="text-center" style="color:#8b94a7"></p>
       <p id="err" class="hidden text-center" style="color:#f87171"></p>
       <div id="res" class="hidden">
