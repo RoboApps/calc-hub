@@ -25,18 +25,6 @@
       ],
       "destination": "/:l/:page",
       "permanent": true
-    },
-    {
-      "source": "/:l(sk|de|cs|pl|fr|es)/:page([a-z0-9-]+\\.html)",
-      "has": [
-        {
-          "type": "query",
-          "key": "lang",
-          "value": "(sk|de|cs|pl|fr|es)"
-        }
-      ],
-      "destination": "/:l/:page",
-      "permanent": true
     }
   ]
 }
