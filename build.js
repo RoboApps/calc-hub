@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path'), vm = require('vm');
 const ROOT = __dirname, OUT = path.join(ROOT, 'dist'), SITE = 'https://calc-hub.eu/';
 const LANGS = ['en', 'sk', 'de', 'cs', 'pl', 'fr', 'es'], ALT = LANGS.filter(l => l !== 'en');
 const SKIP = new Set(['dist', 'node_modules', '.git', '.vercel', 'build.js', 'package.json', 'package-lock.json', 'vercel.json', 'sitemap.xml', 'sitemap-urls.xml', '.gitignore', '.DS_Store', ...ALT]);
-const ADS = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7136183336732732" crossorigin="anonymous"></script>';
+const ADS = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7136618336732732" crossorigin="anonymous"></script>';
 const AUTOLANG = `<script>try{if(!document.referrer.includes(location.host)&&location.pathname==='/'&&!location.search){var l=(navigator.language||'').slice(0,2);if(['sk','de','cs','pl','fr','es'].includes(l))location.replace('/'+l+'/')}}catch(e){}</script>`; // len úvodná anglická stránka: presmeruje podľa jazyka prehliadača, ak návštevník neprišiel z nášho webu
 const addAds = h => h.includes('</head>') ? h.replace(/<script\b[^>]*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js[^>]*>\s*<\/script>\s*/g, '').replace('</head>', ADS + '\n</head>') : h; // odstráni prípadný vlastný/chybný zápis a vloží jeden správny
 const errors = [], warns = [], emptyData = new Set();
@@ -94,7 +94,7 @@ function check(name, l, h, url, kind) {
   const w = x => errors.push(name + ' [' + l + ']: ' + x);
   if (!h.includes('<link rel="canonical" href="' + url + '">')) w('zlý canonical');
   if ((h.match(/hreflang="/g) || []).length !== 8) w('hreflang nie je 8');
-  if (!h.includes('adsbygoogle.js?client=ca-pub-7136183336732732')) w('chýba AdSense kód');
+  if (!h.includes('adsbygoogle.js?client=ca-pub-7136618336732732')) w('chýba AdSense kód');
   if (!h.includes('<html lang="' + l + '"')) w('zlé <html lang>');
   if (/[?&]lang=/.test(h.replace(/<link rel="alternate"[^>]*>/g, '').replace(/\?lang='\+q/g, ''))) w('ostal ?lang=');
   if (/\bdata-i="[^"]+"[^>]*><\/(\w+)>/.test(h)) emptyData.add(name);
