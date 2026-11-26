@@ -54,6 +54,7 @@ function setMeta(h, attr, val, content) {
   if (!re.test(h)) return h;
   return h.replace(re, tag => tag.replace(/content="[^"]*"/, 'content="' + escA(content) + '"'));
 }
+const ARTL = { en: 'Guides & articles', sk: 'Návody a články', de: 'Ratgeber & Artikel', cs: 'Návody a články', pl: 'Poradniki i artykuły', fr: 'Guides et articles', es: 'Guías y artículos' }; // text odkazu v pätičke
 const OGL = { en: 'en_US', sk: 'sk_SK', de: 'de_DE', cs: 'cs_CZ', pl: 'pl_PL', fr: 'fr_FR', es: 'es_ES' };
 
 function render(name, src, T, META, FT, kind, l) {
@@ -65,6 +66,7 @@ function render(name, src, T, META, FT, kind, l) {
   patch(/lang=b\.dataset\.l;try\{const u=new URL\(location\.href\);if\(lang==='en'\)u\.searchParams\.delete\('lang'\);else u\.searchParams\.set\('lang',lang\);history\.replaceState\(null,'',u\)\}catch\(x\)\{\}close\(\);cb\(\)/, 'goLang(b.dataset.l)', 'prepínač jazyka');
   patch(/\blet lang=/, "function goLang(l){const p=location.pathname.replace(/^\\/(sk|de|cs|pl|fr|es)(?=\\/|$)/,'')||'/';location.href=(l==='en'?'':'/'+l)+(p.charAt(0)==='/'?p:'/'+p)+location.search+location.hash}\nlet lang=", 'let lang');
   patch(/function propLinks\(\)\{[^\n]*\}/, 'function propLinks(){}', 'propLinks');
+  patch(/<a href="privacy\.html" class="hover:text-white">\$\{FT\[lang\]\[0\]\}<\/a>/, () => '<a href="articles.html" class="hover:text-white">' + ARTL[l] + '</a>${s}<a href="privacy.html" class="hover:text-white">${FT[lang][0]}</a>', null);
   patch(/'privacy\.html'\+\(lang==='en'\?'':'\?lang='\+lang\)\+'#cookies'/, "'privacy.html#cookies'", null);
   h = h.replace(/href="index\.html"/g, 'href="./"').replace(/<a([^>]*?)href="#"([^>]*>\s*<span class="ico)/g, '<a$1href="./"$2');
   // --- hlavička
@@ -79,7 +81,7 @@ function render(name, src, T, META, FT, kind, l) {
   // --- obsah
   if (T) h = h.replace(/(<([a-zA-Z0-9]+)\b[^>]*\bdata-i="([^"]+)"[^>]*>)(<\/\2>)/g, (a, o, t, k, c) => { const v = T[l][k]; if (v === undefined) return a; return o + (t === 'ul' ? v : esc(v)) + c; });
   h = h.replace(/(<span id="langCur">)[^<]*/, '$1' + l.toUpperCase());
-  if (FT) { const s = '<span class="mx-2">·</span>'; h = inject(h, 'flinks', '<a href="about.html" class="hover:text-white">' + esc(FT[l][2]) + '</a>' + s + '<a href="privacy.html" class="hover:text-white">' + esc(FT[l][0]) + '</a>' + s + '<button data-cs class="hover:text-white">' + esc(FT[l][1]) + '</button>'); }
+  if (FT) { const s = '<span class="mx-2">·</span>'; h = inject(h, 'flinks', '<a href="about.html" class="hover:text-white">' + esc(FT[l][2]) + '</a>' + s + '<a href="articles.html" class="hover:text-white">' + esc(ARTL[l]) + '</a>' + s + '<a href="privacy.html" class="hover:text-white">' + esc(FT[l][0]) + '</a>' + s + '<button data-cs class="hover:text-white">' + esc(FT[l][1]) + '</button>'); }
   if (kind !== 'calc') {
     const ids = kind === 'index' ? ['badge', 't1', 't2', 'sub', 'emptyT', 'foot', 'cards'] : ['sections', 'upd'];
     const els = record(lastScript(h)[1]);
