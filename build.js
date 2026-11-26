@@ -6,7 +6,8 @@ const LANGS = ['en', 'sk', 'de', 'cs', 'pl', 'fr', 'es'], ALT = LANGS.filter(l =
 const SKIP = new Set(['dist', 'node_modules', '.git', '.vercel', 'build.js', 'package.json', 'package-lock.json', 'vercel.json', 'sitemap.xml', 'sitemap-urls.xml', '.gitignore', '.DS_Store', ...ALT]);
 const ADS = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7136618336732732" crossorigin="anonymous"></script>';
 const AUTOLANG = `<script>try{if(!document.referrer.includes(location.host)&&location.pathname==='/'&&!location.search){var l=(navigator.language||'').slice(0,2);if(['sk','de','cs','pl','fr','es'].includes(l))location.replace('/'+l+'/')}}catch(e){}</script>`; // len úvodná anglická stránka: presmeruje podľa jazyka prehliadača, ak návštevník neprišiel z nášho webu
-const addAds = h => h.includes('</head>') ? h.replace(/<script\b[^>]*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js[^>]*>\s*<\/script>\s*/g, '').replace('</head>', ADS + '\n</head>') : h; // odstráni prípadný vlastný/chybný zápis a vloží jeden správny
+const VA = '<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>\n<script defer src="/_vercel/insights/script.js"></script>'; // Vercel Web Analytics (bez cookies)
+const addAds = h => h.includes('</head>') ? h.replace(/<script\b[^>]*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js[^>]*>\s*<\/script>\s*/g, '').replace(/<script\b[^>]*_vercel\/insights\/script\.js[^>]*><\/script>\s*/g, '').replace(/<script>window\.va=[^<]*<\/script>\s*/g, '').replace('</head>', ADS + '\n' + VA + '\n</head>') : h; // odstráni prípadný vlastný/chybný zápis a vloží jeden správny
 const errors = [], warns = [], emptyData = new Set();
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const escA = s => esc(s).replace(/"/g, '&quot;');
